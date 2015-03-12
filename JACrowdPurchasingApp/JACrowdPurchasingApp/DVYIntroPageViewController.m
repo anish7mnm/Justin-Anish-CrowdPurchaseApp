@@ -17,12 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    PFUser *user = [PFUser user];
-    user.username = @"testJustin";
-    user.password = @"testjustinpass";
-    user.email = @"email@example.com";
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (PFUser *)generateAndUploadParseUserWithEmail:(NSString *)emailAddress password:(NSString *)password
+{
+    PFUser *newUser = [PFUser user];
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    newUser.email = emailAddress;
+    newUser.password = password;
+    
+    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             NSLog(@"yee");
         } else {
@@ -30,11 +39,9 @@
             NSLog(@"%@", errorString);
         }
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
+    return newUser;
 }
 
 - (BOOL)isValidEmailFormat:(NSString *)emailTextFieldText
@@ -48,9 +55,16 @@
 }
 
 
-- (BOOL)isAlreadyUser
+- (BOOL)verifyIsAlreadyUserWithEmail:(NSString *)emailAddress
 {
-    return YES;
+    PFQuery *emailQuery = [PFUser query];
+    [emailQuery whereKey:@"email" equalTo:emailAddress];
+    NSArray *possibleEmailArray = [emailQuery findObjects];
+    if ([possibleEmailArray count]>0) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (BOOL)isValidPassword
