@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DVYIntroPageViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCw-Ir-Rb9" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lQ6-7d-3Vf" userLabel="emailTextField">
+                            <rect key="frame" x="120" y="265" width="360" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aoa-HE-rRp" userLabel="passwordTextField">
+                            <rect key="frame" x="120" y="305" width="360" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyL-Uh-rPo">
+                            <rect key="frame" x="226" y="525" width="149" height="30"/>
+                            <state key="normal" title="Please enter your info">
+                                <color key="titleColor" red="0.60544114680000005" green="0.1973949066" blue="0.85882365699999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="lQ6-7d-3Vf" firstAttribute="width" secondItem="lCw-Ir-Rb9" secondAttribute="width" multiplier="0.6" id="631-PP-3YB"/>
+                        <constraint firstAttribute="centerY" secondItem="lQ6-7d-3Vf" secondAttribute="centerY" constant="20" id="A3e-f4-gQm"/>
+                        <constraint firstAttribute="centerX" secondItem="aoa-HE-rRp" secondAttribute="centerX" constant="-0.5" id="EyB-Kq-NV1"/>
+                        <constraint firstAttribute="centerY" secondItem="aoa-HE-rRp" secondAttribute="centerY" constant="-20" id="iR6-re-2M9"/>
+                        <constraint firstAttribute="centerX" secondItem="lQ6-7d-3Vf" secondAttribute="centerX" constant="-0.5" id="nNd-Hb-xlD"/>
+                        <constraint firstItem="aoa-HE-rRp" firstAttribute="width" secondItem="lQ6-7d-3Vf" secondAttribute="width" id="pxB-Ox-NUK"/>
+                        <constraint firstItem="YyL-Uh-rPo" firstAttribute="centerY" secondItem="lCw-Ir-Rb9" secondAttribute="bottom" multiplier="0.9" id="qS5-7s-0Dy"/>
+                        <constraint firstItem="YyL-Uh-rPo" firstAttribute="centerX" secondItem="lCw-Ir-Rb9" secondAttribute="centerX" constant="0.5" id="rEA-nB-wgq"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="lCw-Ir-Rb9" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="MyF-N5-ZFS"/>
+                <constraint firstItem="lCw-Ir-Rb9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eDy-2S-Bkb"/>
+                <constraint firstItem="lCw-Ir-Rb9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pYF-0u-cCN"/>
+                <constraint firstItem="lCw-Ir-Rb9" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="yn6-B5-SMU"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

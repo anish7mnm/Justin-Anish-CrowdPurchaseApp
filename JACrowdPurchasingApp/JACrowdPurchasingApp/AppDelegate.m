@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "DVYIntroPageViewController.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +18,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [Parse setApplicationId:@"SSNDa4H9uDAGFxVAMGtKN41TilT6lsB7sD3c3p0I"
+                  clientKey:@"FGG2a29BzXoPZlK8cJ4SPIXDSpt0l6Z09MilbwFM"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // create an instance of the view controller you want to be displayed first
+    DVYIntroPageViewController *introPage = [[DVYIntroPageViewController alloc] initWithNibName:@"DVYIntroPageViewController" bundle:nil];
+    
+    introPage.view.frame = self.window.frame;
+    //self.navController.navigationBarHidden = NO;
+    
+    self.window.rootViewController = introPage;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
