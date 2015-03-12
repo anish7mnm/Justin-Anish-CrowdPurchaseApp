@@ -142,6 +142,9 @@
 		88E94ED31AA7A4C90052FA35 /* JACrowdPurchasingApp */ = {
 			isa = PBXGroup;
 			children = (
+				A85736131AB20EB0001B9D85 /* DVYIntroPageViewController.h */,
+				A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */,
+				A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */,
 				88E94ED81AA7A4C90052FA35 /* AppDelegate.h */,
 				88E94ED91AA7A4C90052FA35 /* AppDelegate.m */,
 				88E94EDB1AA7A4C90052FA35 /* ViewController.h */,
@@ -151,9 +154,6 @@
 				88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */,
 				A85736181AB21893001B9D85 /* Frameworks */,
 				88E94ED41AA7A4C90052FA35 /* Supporting Files */,
-				A85736131AB20EB0001B9D85 /* DVYIntroPageViewController.h */,
-				A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */,
-				A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */,
 			);
 			path = JACrowdPurchasingApp;
 			sourceTree = "<group>";
