@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "DVVYSignUpViewController.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -16,6 +18,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    DVVYSignUpViewController *signUpViewController = [[DVVYSignUpViewController alloc]initWithNibName:@"DVVYSignUpViewController" bundle:nil];
+    signUpViewController.view.frame = self.window.frame;
+    self.window.rootViewController = signUpViewController;
+    [self.window makeKeyAndVisible];
+    
+    [Parse setApplicationId:@"SSNDa4H9uDAGFxVAMGtKN41TilT6lsB7sD3c3p0I"
+                  clientKey:@"FGG2a29BzXoPZlK8cJ4SPIXDSpt0l6Z09MilbwFM"];
+
     // Override point for customization after application launch.
     return YES;
 }
