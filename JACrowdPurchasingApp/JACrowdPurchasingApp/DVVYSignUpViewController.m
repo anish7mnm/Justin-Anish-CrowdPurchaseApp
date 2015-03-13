@@ -7,7 +7,6 @@
 //
 
 #import "DVVYSignUpViewController.h"
-#import <Parse/Parse.h>
 
 @interface DVVYSignUpViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
@@ -27,6 +26,11 @@
     self.profilePicture.layer.masksToBounds = YES;
         [self.skipSaveTitleLabel setTitle:@"SKIP" forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
+    
+    self.user = [PFUser user];
+    self.user.username = @"fghj@dfgh.com";
+    self.user.password = @"ghjk";
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +82,28 @@
     }else
     {
         NSLog(@"Segue to HomeScreen with updating User Data");
+        [self myMethod];
     }
 }
+
+- (void)myMethod {
+    
+    self.user[@"fullName"] = self.nameTextField.text;
+    self.user.email = @"emaujijmj   il@example.com";
+    
+    [self.user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // Hooray! Let them use the app now.
+            NSData* data = UIImageJPEGRepresentation(self.profilePicture.image, 0.5f);
+            PFFile *imageFile = [PFFile fileWithName:self.nameTextField.text data:data];
+            self.user[@"profilePicture"] = imageFile;
+            
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"%@", errorString);
+            // Show the errorString somewhere and let the user try again.
+        }
+    }];
+}
+
 @end
