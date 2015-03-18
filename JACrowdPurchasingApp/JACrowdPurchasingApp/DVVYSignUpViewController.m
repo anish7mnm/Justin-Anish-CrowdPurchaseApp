@@ -89,14 +89,13 @@
 - (void)myMethod {
     
     self.user[@"fullName"] = self.nameTextField.text;
-    self.user.email = @"emaujijmj   il@example.com";
+    NSData* data = UIImageJPEGRepresentation(self.profilePicture.image, 0.5f);
+    PFFile *imageFile = [PFFile fileWithName:self.nameTextField.text data:data];
+    self.user[@"profilePicture"] = imageFile;
     
     [self.user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // Hooray! Let them use the app now.
-            NSData* data = UIImageJPEGRepresentation(self.profilePicture.image, 0.5f);
-            PFFile *imageFile = [PFFile fileWithName:self.nameTextField.text data:data];
-            self.user[@"profilePicture"] = imageFile;
             
         } else {
             NSString *errorString = [error userInfo][@"error"];

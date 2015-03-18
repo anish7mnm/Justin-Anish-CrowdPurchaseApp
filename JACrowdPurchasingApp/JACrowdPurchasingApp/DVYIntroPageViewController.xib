@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -32,7 +32,7 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyL-Uh-rPo">
-                            <rect key="frame" x="226" y="525" width="149" height="30"/>
+                            <rect key="frame" x="226" y="345" width="149" height="30"/>
                             <state key="normal" title="Please enter your info">
                                 <color key="titleColor" red="0.60544114680000005" green="0.1973949066" blue="0.85882365699999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,7 +50,7 @@
                         <constraint firstAttribute="centerY" secondItem="aoa-HE-rRp" secondAttribute="centerY" constant="-20" id="iR6-re-2M9"/>
                         <constraint firstAttribute="centerX" secondItem="lQ6-7d-3Vf" secondAttribute="centerX" constant="-0.5" id="nNd-Hb-xlD"/>
                         <constraint firstItem="aoa-HE-rRp" firstAttribute="width" secondItem="lQ6-7d-3Vf" secondAttribute="width" id="pxB-Ox-NUK"/>
-                        <constraint firstItem="YyL-Uh-rPo" firstAttribute="centerY" secondItem="lCw-Ir-Rb9" secondAttribute="bottom" multiplier="0.9" id="qS5-7s-0Dy"/>
+                        <constraint firstItem="YyL-Uh-rPo" firstAttribute="centerY" secondItem="lCw-Ir-Rb9" secondAttribute="centerY" constant="60" id="qS5-7s-0Dy"/>
                         <constraint firstItem="YyL-Uh-rPo" firstAttribute="centerX" secondItem="lCw-Ir-Rb9" secondAttribute="centerX" constant="0.5" id="rEA-nB-wgq"/>
                     </constraints>
                 </view>

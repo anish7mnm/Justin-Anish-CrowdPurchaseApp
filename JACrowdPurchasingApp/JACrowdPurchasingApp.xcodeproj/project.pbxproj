@@ -33,6 +33,7 @@
 		88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E94EE11AA7A4C90052FA35 /* Images.xcassets */; };
 		88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */; };
 		88E94EF11AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E94EF01AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m */; };
+		A849D70E1AB37D3400B45744 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849D70D1AB37D3400B45744 /* Storyboard.storyboard */; };
 		A85736161AB20EB0001B9D85 /* DVYIntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */; };
 		A85736171AB20EB0001B9D85 /* DVYIntroPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		88E94EEA1AA7A4C90052FA35 /* JACrowdPurchasingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JACrowdPurchasingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E94EEF1AA7A4C90052FA35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E94EF01AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JACrowdPurchasingAppTests.m; sourceTree = "<group>"; };
+		A849D70D1AB37D3400B45744 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
 		A85736131AB20EB0001B9D85 /* DVYIntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYIntroPageViewController.h; sourceTree = "<group>"; };
 		A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYIntroPageViewController.m; sourceTree = "<group>"; };
 		A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYIntroPageViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				88E94EDB1AA7A4C90052FA35 /* ViewController.h */,
 				88E94EDC1AA7A4C90052FA35 /* ViewController.m */,
 				88E94EDE1AA7A4C90052FA35 /* Main.storyboard */,
+				A849D70D1AB37D3400B45744 /* Storyboard.storyboard */,
 				88E94EE11AA7A4C90052FA35 /* Images.xcassets */,
 				88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */,
 				88E94ED41AA7A4C90052FA35 /* Supporting Files */,
@@ -303,6 +306,7 @@
 				A85736171AB20EB0001B9D85 /* DVYIntroPageViewController.xib in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
 				88D4A5C41AB227BE00AAB9A0 /* DVVYSignUpViewController.xib in Resources */,
+				A849D70E1AB37D3400B45744 /* Storyboard.storyboard in Resources */,
 				88D4A5E81AB22A5300AAB9A0 /* default.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

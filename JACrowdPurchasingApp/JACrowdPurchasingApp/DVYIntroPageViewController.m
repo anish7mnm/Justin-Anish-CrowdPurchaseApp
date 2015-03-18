@@ -12,9 +12,12 @@
 
 @interface DVYIntroPageViewController ()
 
+@property (strong, nonatomic) PFUser *user;
+
 @property (weak, nonatomic) IBOutlet UITextField *emailAddressField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+
 - (IBAction)buttonPressed:(id)sender;
 
 @end
@@ -196,7 +199,14 @@
 
 - (IBAction)buttonPressed:(id)sender {
     if ([self.submitButton.titleLabel.text isEqualToString:@"Sign up"]) {
+        
+        PFUser *newUser = [PFUser user];
+        newUser.username = self.emailAddressField.text;
+        newUser.password = self.passwordField.text;
+        
         DVVYSignUpViewController *signUpViewController = [[DVVYSignUpViewController alloc] initWithNibName:@"DVVYSignUpViewController" bundle:nil];
+        
+        signUpViewController.user = newUser;
         
         [self presentViewController:signUpViewController animated:YES completion:nil];
     }
