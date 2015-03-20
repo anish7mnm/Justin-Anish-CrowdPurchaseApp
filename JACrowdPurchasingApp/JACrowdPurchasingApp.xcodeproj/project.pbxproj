@@ -10,11 +10,6 @@
 		88D4A5C31AB227BE00AAB9A0 /* DVVYSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A5C11AB227BE00AAB9A0 /* DVVYSignUpViewController.m */; };
 		88D4A5C41AB227BE00AAB9A0 /* DVVYSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D4A5C21AB227BE00AAB9A0 /* DVVYSignUpViewController.xib */; };
 		88D4A5E81AB22A5300AAB9A0 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88D4A5E71AB22A5300AAB9A0 /* default.jpg */; };
-		88D4A6001AB36AB000AAB9A0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5FB1AB36AB000AAB9A0 /* Bolts.framework */; };
-		88D4A6011AB36AB000AAB9A0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5FC1AB36AB000AAB9A0 /* Parse.framework */; };
-		88D4A6021AB36AB000AAB9A0 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5FD1AB36AB000AAB9A0 /* ParseCrashReporting.framework */; };
-		88D4A6031AB36AB000AAB9A0 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5FE1AB36AB000AAB9A0 /* ParseFacebookUtils.framework */; };
-		88D4A6041AB36AB000AAB9A0 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5FF1AB36AB000AAB9A0 /* ParseUI.framework */; };
 		88D4A6051AB36ADC00AAB9A0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5E01AB228D700AAB9A0 /* StoreKit.framework */; };
 		88D4A6061AB36AE300AAB9A0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5DE1AB228D100AAB9A0 /* Security.framework */; };
 		88D4A6071AB36AE300AAB9A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5DC1AB228C900AAB9A0 /* QuartzCore.framework */; };
@@ -48,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		347DA0D6EB713E0622E32F32 /* Pods-JACrowdPurchasingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JACrowdPurchasingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JACrowdPurchasingApp/Pods-JACrowdPurchasingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4BC1FCC98B618CDBA8E44809 /* Pods-JACrowdPurchasingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JACrowdPurchasingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-JACrowdPurchasingApp/Pods-JACrowdPurchasingApp.release.xcconfig"; sourceTree = "<group>"; };
 		88D4A5C01AB227BE00AAB9A0 /* DVVYSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVYSignUpViewController.h; sourceTree = "<group>"; };
 		88D4A5C11AB227BE00AAB9A0 /* DVVYSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVYSignUpViewController.m; sourceTree = "<group>"; };
 		88D4A5C21AB227BE00AAB9A0 /* DVVYSignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVVYSignUpViewController.xib; sourceTree = "<group>"; };
@@ -63,11 +60,6 @@
 		88D4A5E21AB228E000AAB9A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88D4A5E41AB228E800AAB9A0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		88D4A5E71AB22A5300AAB9A0 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
-		88D4A5FB1AB36AB000AAB9A0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		88D4A5FC1AB36AB000AAB9A0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		88D4A5FD1AB36AB000AAB9A0 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		88D4A5FE1AB36AB000AAB9A0 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		88D4A5FF1AB36AB000AAB9A0 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		88E94ED11AA7A4C90052FA35 /* JACrowdPurchasingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JACrowdPurchasingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E94ED51AA7A4C90052FA35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E94ED61AA7A4C90052FA35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,9 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88D4A6011AB36AB000AAB9A0 /* Parse.framework in Frameworks */,
-				88D4A6021AB36AB000AAB9A0 /* ParseCrashReporting.framework in Frameworks */,
-				88D4A6041AB36AB000AAB9A0 /* ParseUI.framework in Frameworks */,
 				88D4A6051AB36ADC00AAB9A0 /* StoreKit.framework in Frameworks */,
 				88D4A6061AB36AE300AAB9A0 /* Security.framework in Frameworks */,
 				88D4A6071AB36AE300AAB9A0 /* QuartzCore.framework in Frameworks */,
@@ -105,8 +94,6 @@
 				88D4A60D1AB36AE300AAB9A0 /* AudioToolbox.framework in Frameworks */,
 				88D4A60E1AB36AE300AAB9A0 /* SystemConfiguration.framework in Frameworks */,
 				88D4A60F1AB36AE300AAB9A0 /* libz.dylib in Frameworks */,
-				88D4A6031AB36AB000AAB9A0 /* ParseFacebookUtils.framework in Frameworks */,
-				88D4A6001AB36AB000AAB9A0 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +110,6 @@
 		88D4A5E61AB228F300AAB9A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				88D4A5FA1AB36AB000AAB9A0 /* parse-library-1.6.4 */,
 				88D4A5E01AB228D700AAB9A0 /* StoreKit.framework */,
 				88D4A5DE1AB228D100AAB9A0 /* Security.framework */,
 				88D4A5DC1AB228C900AAB9A0 /* QuartzCore.framework */,
@@ -139,18 +125,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		88D4A5FA1AB36AB000AAB9A0 /* parse-library-1.6.4 */ = {
-			isa = PBXGroup;
-			children = (
-				88D4A5FB1AB36AB000AAB9A0 /* Bolts.framework */,
-				88D4A5FC1AB36AB000AAB9A0 /* Parse.framework */,
-				88D4A5FD1AB36AB000AAB9A0 /* ParseCrashReporting.framework */,
-				88D4A5FE1AB36AB000AAB9A0 /* ParseFacebookUtils.framework */,
-				88D4A5FF1AB36AB000AAB9A0 /* ParseUI.framework */,
-			);
-			path = "parse-library-1.6.4";
-			sourceTree = "<group>";
-		};
 		88E94EC81AA7A4C80052FA35 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +132,7 @@
 				88E94ED31AA7A4C90052FA35 /* JACrowdPurchasingApp */,
 				88E94EED1AA7A4C90052FA35 /* JACrowdPurchasingAppTests */,
 				88E94ED21AA7A4C90052FA35 /* Products */,
+				DC1D40A30D19BB66BEA2E6C6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +193,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DC1D40A30D19BB66BEA2E6C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				347DA0D6EB713E0622E32F32 /* Pods-JACrowdPurchasingApp.debug.xcconfig */,
+				4BC1FCC98B618CDBA8E44809 /* Pods-JACrowdPurchasingApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,9 +209,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88E94EF41AA7A4C90052FA35 /* Build configuration list for PBXNativeTarget "JACrowdPurchasingApp" */;
 			buildPhases = (
+				88CFE19D0DD0C8E9089D2514 /* Check Pods Manifest.lock */,
 				88E94ECD1AA7A4C90052FA35 /* Sources */,
 				88E94ECE1AA7A4C90052FA35 /* Frameworks */,
 				88E94ECF1AA7A4C90052FA35 /* Resources */,
+				CB99B30DBFC164DBA71E5429 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -315,6 +301,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88CFE19D0DD0C8E9089D2514 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CB99B30DBFC164DBA71E5429 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JACrowdPurchasingApp/Pods-JACrowdPurchasingApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		88E94ECD1AA7A4C90052FA35 /* Sources */ = {
@@ -447,12 +466,11 @@
 		};
 		88E94EF51AA7A4C90052FA35 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 347DA0D6EB713E0622E32F32 /* Pods-JACrowdPurchasingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/MrKumar/Downloads/parse-library-1.6.4",
-					"$(PROJECT_DIR)/JACrowdPurchasingApp/parse-library-1.6.4",
 					"$(PROJECT_DIR)/parse-library-1.6.4",
 				);
 				INFOPLIST_FILE = JACrowdPurchasingApp/Info.plist;
@@ -463,12 +481,11 @@
 		};
 		88E94EF61AA7A4C90052FA35 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BC1FCC98B618CDBA8E44809 /* Pods-JACrowdPurchasingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/MrKumar/Downloads/parse-library-1.6.4",
-					"$(PROJECT_DIR)/JACrowdPurchasingApp/parse-library-1.6.4",
 					"$(PROJECT_DIR)/parse-library-1.6.4",
 				);
 				INFOPLIST_FILE = JACrowdPurchasingApp/Info.plist;
