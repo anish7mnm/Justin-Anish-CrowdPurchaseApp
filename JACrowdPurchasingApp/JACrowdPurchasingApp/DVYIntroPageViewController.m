@@ -9,6 +9,8 @@
 #import "DVYIntroPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DVVYSignUpViewController.h"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface DVYIntroPageViewController ()
 
@@ -19,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 - (IBAction)buttonPressed:(id)sender;
+- (IBAction)fbLoginTapped:(id)sender;
 
 @end
 
@@ -26,6 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [Parse setApplicationId:@"parseAppId" clientKey:@"parseClientKey"];
+    
     
     self.emailAddressField.delegate = self;
     self.passwordField.delegate = self;
@@ -166,6 +172,18 @@
     }
 }
 
+//- (BOOL) verifyIsCorrectLoginInfo:(NSString *)emailAddress password:(NSString *)password
+//{
+//    PFQuery *emailQuery = [PFUser query];
+//    [emailQuery whereKey:@"email" equalTo:emailAddress];
+//    NSArray *possibleEmailArray = [emailQuery findObjects];
+//    if ([possibleEmailArray count]>0) {
+//        PFQuery
+//    }
+//    
+//    return NO;
+//}
+
 //- (BOOL)verifyIsCorrectLoginInfoWithEmail:(NSString *)emailAddress: (NSString *)password
 //{
 //    [PFUser logInWithUsernameInBackground:emailAddress password:password
@@ -210,5 +228,17 @@
         
         [self presentViewController:signUpViewController animated:YES completion:nil];
     }
+}
+
+- (IBAction)fbLoginTapped:(id)sender {
+    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
 }
 @end

@@ -41,6 +41,15 @@
                                 <action selector="buttonPressed:" destination="-1" eventType="touchUpInside" id="6JJ-Rb-Q75"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iv9-sY-sAB">
+                            <rect key="frame" x="269" y="370" width="62" height="30"/>
+                            <state key="normal" title="FB Login">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="fbLoginTapped:" destination="-1" eventType="touchUpInside" id="AR3-kU-GlA"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>

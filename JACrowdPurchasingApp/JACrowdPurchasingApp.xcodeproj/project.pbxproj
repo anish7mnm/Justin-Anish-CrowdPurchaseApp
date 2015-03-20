@@ -36,6 +36,8 @@
 		A849D70E1AB37D3400B45744 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849D70D1AB37D3400B45744 /* Storyboard.storyboard */; };
 		A85736161AB20EB0001B9D85 /* DVYIntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */; };
 		A85736171AB20EB0001B9D85 /* DVYIntroPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */; };
+		A8CB7A451ABB5AC400C0AB97 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CB7A441ABB5AC400C0AB97 /* ParseFacebookUtils.framework */; };
+		A8CB7A491ABB5DF400C0AB97 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CB7A481ABB5DF400C0AB97 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,9 @@
 		A85736131AB20EB0001B9D85 /* DVYIntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYIntroPageViewController.h; sourceTree = "<group>"; };
 		A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYIntroPageViewController.m; sourceTree = "<group>"; };
 		A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYIntroPageViewController.xib; sourceTree = "<group>"; };
+		A8CB7A441ABB5AC400C0AB97 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../parse-library-1.6.4/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		A8CB7A461ABB5DB500C0AB97 /* facebook-ios-sdk-3.23.1.pkg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "facebook-ios-sdk-3.23.1.pkg"; path = "../../facebook-ios-sdk-3.23.1.pkg"; sourceTree = "<group>"; };
+		A8CB7A481ABB5DF400C0AB97 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8CB7A451ABB5AC400C0AB97 /* ParseFacebookUtils.framework in Frameworks */,
 				88D4A6011AB36AB000AAB9A0 /* Parse.framework in Frameworks */,
 				88D4A6021AB36AB000AAB9A0 /* ParseCrashReporting.framework in Frameworks */,
 				88D4A6041AB36AB000AAB9A0 /* ParseUI.framework in Frameworks */,
@@ -102,6 +108,7 @@
 				88D4A6081AB36AE300AAB9A0 /* MobileCoreServices.framework in Frameworks */,
 				88D4A6091AB36AE300AAB9A0 /* CFNetwork.framework in Frameworks */,
 				88D4A60A1AB36AE300AAB9A0 /* CoreLocation.framework in Frameworks */,
+				A8CB7A491ABB5DF400C0AB97 /* FacebookSDK.framework in Frameworks */,
 				88D4A60B1AB36AE300AAB9A0 /* CoreGraphics.framework in Frameworks */,
 				88D4A60C1AB36AE300AAB9A0 /* libsqlite3.dylib in Frameworks */,
 				88D4A60D1AB36AE300AAB9A0 /* AudioToolbox.framework in Frameworks */,
@@ -125,6 +132,9 @@
 		88D4A5E61AB228F300AAB9A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8CB7A481ABB5DF400C0AB97 /* FacebookSDK.framework */,
+				A8CB7A461ABB5DB500C0AB97 /* facebook-ios-sdk-3.23.1.pkg */,
+				A8CB7A441ABB5AC400C0AB97 /* ParseFacebookUtils.framework */,
 				88D4A5FA1AB36AB000AAB9A0 /* parse-library-1.6.4 */,
 				88D4A5E01AB228D700AAB9A0 /* StoreKit.framework */,
 				88D4A5DE1AB228D100AAB9A0 /* Security.framework */,
@@ -458,6 +468,8 @@
 					"/Users/MrKumar/Downloads/parse-library-1.6.4",
 					"$(PROJECT_DIR)/JACrowdPurchasingApp/parse-library-1.6.4",
 					"$(PROJECT_DIR)/parse-library-1.6.4",
+					"/Users/taesongkim/Projects/Divvy/parse-library-1.6.4",
+					/Users/taesongkim/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = JACrowdPurchasingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -474,6 +486,8 @@
 					"/Users/MrKumar/Downloads/parse-library-1.6.4",
 					"$(PROJECT_DIR)/JACrowdPurchasingApp/parse-library-1.6.4",
 					"$(PROJECT_DIR)/parse-library-1.6.4",
+					"/Users/taesongkim/Projects/Divvy/parse-library-1.6.4",
+					/Users/taesongkim/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = JACrowdPurchasingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
