@@ -9,13 +9,17 @@
 #import "DVYIntroPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DVVYSignUpViewController.h"
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface DVYIntroPageViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *emailAddressField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 - (IBAction)buttonPressed:(id)sender;
+- (IBAction)facebookLoginButton:(id)sender;
 
 @end
 
@@ -23,6 +27,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    
+    
+    visualEffectView.frame = self.view.bounds;
+    [self.backgroundImageView addSubview:visualEffectView];
     
     self.emailAddressField.delegate = self;
     self.passwordField.delegate = self;
@@ -131,7 +142,7 @@
     
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            NSLog(@"yee");
+            NSLog(@"Got it!");
         } else {
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"%@", errorString);
@@ -201,4 +212,52 @@
         [self presentViewController:signUpViewController animated:YES completion:nil];
     }
 }
+
+- (IBAction)facebookLoginButton:(id)sender {
+    
+    NSArray *permissionsArray = @[ @"user_about_me", @"email", @"user_birthday", @"user_location", @"user_friends"];
+    
+    
+    // Login PFUser using Facebook
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        [_activityIndicator stopAnimating]; // Hide loading indicator
+        
+        if (!user) {
+            NSString *errorMessage = nil;
+            if (!error) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                errorMessage = @"Uh oh. The user cancelled the Facebook login.";
+            } else {
+                NSLog(@"Uh oh. An error occurred: %@", error);
+                errorMessage = [error localizedDescription];
+            }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error"
+                                                            message:errorMessage
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+        } else {
+            if (user.isNew) {
+                NSLog(@"User with facebook signed up and logged in!");
+            } else {
+                NSLog(@"User with facebook logged in!");
+            }
+            //[self _presentUserDetailsViewControllerAnimated:YES];
+        }
+    }];
+    
+    [_activityIndicator startAnimating]; // Show loading indicator until login is finished
+    
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([_passwordField isFirstResponder] && [touch view] != _passwordField) {
+        [_passwordField resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
+
 @end

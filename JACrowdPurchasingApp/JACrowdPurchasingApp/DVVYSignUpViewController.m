@@ -22,14 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.nameTextField.delegate = self;
-    self.profilePicture.layer.cornerRadius = self.profilePicture.image.size.width / 2;
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height / 2;
     self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicture.layer.borderWidth=0;
+
         [self.skipSaveTitleLabel setTitle:@"SKIP" forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
     
     self.user = [PFUser user];
-    self.user.username = @"fghj@dfgh.com";
-    self.user.password = @"ghjk";
+    self.user.username = @"boom@boom.com";
+    self.user.password = @"boom";
     
 }
 

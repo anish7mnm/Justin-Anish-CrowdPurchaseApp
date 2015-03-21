@@ -17,37 +17,37 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7N-m0-NFb">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7N-m0-NFb">
+                    <rect key="frame" x="178" y="0.0" width="245" height="600"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ENTER YOUR FULL NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Xv-XJp">
-                            <rect key="frame" x="220" y="378" width="161" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER YOUR FULL NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Xv-XJp">
+                            <rect key="frame" x="0.0" y="328" width="245" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.74117647058823533" green="0.20784313725490197" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SELECT A PROFILE PICTURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agz-Kz-2em">
-                            <rect key="frame" x="216" y="244" width="168" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT A PROFILE PICTURE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agz-Kz-2em">
+                            <rect key="frame" x="0.0" y="235" width="245" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.74117647058823533" green="0.20784313725490197" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBc-3x-dRf">
-                            <rect key="frame" x="180" y="340" width="240" height="20"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBc-3x-dRf">
+                            <rect key="frame" x="0.0" y="300" width="245" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="gg2-2v-Kqa"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YOU ARE NOW SIGNED UP WITH DVVY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-5c-3OD">
-                            <rect key="frame" x="174" y="33" width="252" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU ARE NOW SIGNED UP WITH DVVY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxH-5c-3OD">
+                            <rect key="frame" x="0.0" y="30" width="245" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.72156862745098038" green="0.20784313725490197" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLA-Ss-20e">
-                            <rect key="frame" x="222" y="75" width="156" height="161"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLA-Ss-20e">
+                            <rect key="frame" x="44" y="66" width="156" height="161"/>
                             <state key="normal" title="Add Image">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -55,19 +55,21 @@
                                 <action selector="addProfilePictureButton:" destination="-1" eventType="touchUpInside" id="eNV-dU-KHY"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NrN-0u-dtD">
-                            <rect key="frame" x="222" y="75" width="156" height="161"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NrN-0u-dtD">
+                            <rect key="frame" x="44" y="66" width="156" height="161"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="156" id="G5P-Xd-E5G"/>
                                 <constraint firstAttribute="height" constant="161" id="diJ-F8-Rj8"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="En8-LW-Iaj">
-                            <rect key="frame" x="276" y="459" width="48" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="En8-LW-Iaj">
+                            <rect key="frame" x="105" y="480" width="34" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="ubd-x6-oyD"/>
                             </constraints>
-                            <state key="normal" title="SKIP"/>
+                            <state key="normal" title="SKIP">
+                                <color key="titleColor" red="0.30992546814384797" green="0.12421748380392258" blue="0.53535748106060599" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="skipSaveAction:" destination="-1" eventType="touchUpInside" id="GTn-8C-ueZ"/>
                             </connections>
@@ -79,7 +81,7 @@
                         <constraint firstItem="BeB-Xv-XJp" firstAttribute="top" secondItem="IBc-3x-dRf" secondAttribute="bottom" constant="8" id="3Vt-1U-p16"/>
                         <constraint firstItem="NrN-0u-dtD" firstAttribute="centerX" secondItem="HLA-Ss-20e" secondAttribute="centerX" id="4UK-Gx-TiK"/>
                         <constraint firstItem="IBc-3x-dRf" firstAttribute="centerX" secondItem="H7N-m0-NFb" secondAttribute="centerX" id="4wj-yg-VzI"/>
-                        <constraint firstItem="En8-LW-Iaj" firstAttribute="bottom" secondItem="H7N-m0-NFb" secondAttribute="bottom" constant="-50" id="7Jh-23-o4F"/>
+                        <constraint firstItem="En8-LW-Iaj" firstAttribute="bottom" secondItem="H7N-m0-NFb" secondAttribute="bottom" constant="-100" id="7Jh-23-o4F"/>
                         <constraint firstItem="rxH-5c-3OD" firstAttribute="top" secondItem="H7N-m0-NFb" secondAttribute="top" constant="30" id="8mV-wj-Tbo"/>
                         <constraint firstItem="NrN-0u-dtD" firstAttribute="centerY" secondItem="HLA-Ss-20e" secondAttribute="centerY" id="Aia-s1-x5q"/>
                         <constraint firstItem="En8-LW-Iaj" firstAttribute="centerX" secondItem="H7N-m0-NFb" secondAttribute="centerX" id="ESc-rD-Dod"/>

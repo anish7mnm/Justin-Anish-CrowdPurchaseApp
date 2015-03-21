@@ -10,5 +10,6 @@
 #import <Parse/Parse.h>
 
 @interface DVYIntroPageViewController : UIViewController <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
