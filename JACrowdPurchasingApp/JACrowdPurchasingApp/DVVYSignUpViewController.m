@@ -91,7 +91,7 @@
 - (void)myMethod {
     
     self.user[@"fullName"] = self.nameTextField.text;
-    self.user.email = @"emaujijmj   il@example.com";
+    self.user.email = @"emaujijmjil@example.com";
     
     [self.user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
@@ -106,6 +106,15 @@
             // Show the errorString somewhere and let the user try again.
         }
     }];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([_nameTextField isFirstResponder] && [touch view] != _nameTextField) {
+        [_nameTextField resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
 }
 
 @end
