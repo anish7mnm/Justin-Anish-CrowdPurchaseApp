@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-JACrowdPurchasingApp-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JACrowdPurchasingApp-Facebook-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JACrowdPurchasingApp-ParseUI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JACrowdPurchasingApp.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>177634338A89F606FD409CFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3FA44F3AE69AD0053339C57A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ABCCAF39EF2EA659213268BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DEE2797912BF7EF93B12ADC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
