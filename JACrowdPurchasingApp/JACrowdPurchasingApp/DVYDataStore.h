@@ -11,6 +11,7 @@
 @interface DVYDataStore : NSObject
 
 @property (strong, nonatomic) NSMutableArray *campaigns;
+@property (strong, nonatomic) NSMutableArray *users;
 + (instancetype)sharedLocationsDataStore;
 
 @end

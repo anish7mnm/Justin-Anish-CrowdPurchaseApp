@@ -61,7 +61,7 @@
     
     DVYUser *user = [[DVYUser alloc]init];
     user.email = gotUser[@"email"];
-    user.name = gotUser[@"name"];
+    user.name = gotUser[@"fullName"];
     
     completionBlock(user);
 

@@ -25,8 +25,11 @@
     self = [super init];
     if (self) {
         _campaigns = [[NSMutableArray alloc] init];
+        _users = [[NSMutableArray alloc] init];
     }
     return self;
 }
+
+
 
 @end
