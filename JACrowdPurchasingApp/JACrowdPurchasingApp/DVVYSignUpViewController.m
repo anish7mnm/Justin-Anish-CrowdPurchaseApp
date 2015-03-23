@@ -7,6 +7,7 @@
 //
 
 #import "DVVYSignUpViewController.h"
+#import "DVYHomePageViewController.h"
 
 @interface DVVYSignUpViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
@@ -30,7 +31,6 @@
     // Do any additional setup after loading the view from its nib.
     
     self.user = [PFUser user];
-    self.user.username = @"boom@boom.com";
     self.user.password = @"boom";
     
 }
@@ -81,18 +81,23 @@
 - (IBAction)skipSaveAction:(id)sender {
     if ([self.skipSaveTitleLabel.titleLabel.text isEqualToString:@"SKIP"]) {
         NSLog(@"Segue to HomeScreen");
+            DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
+            [self presentViewController:homePage animated:YES completion:nil];
+
     }else
     {
         NSLog(@"Segue to HomeScreen with updating User Data");
         [self myMethod];
+        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
+        [self presentViewController:homePage animated:YES completion:nil];
     }
 }
 
 - (void)myMethod {
     
     self.user[@"fullName"] = self.nameTextField.text;
-    self.user.email = @"emaujijmjil@example.com";
-    
+    self.user.email = self.emailAddress;
+    self.user.username = self.emailAddress;
     [self.user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // Hooray! Let them use the app now.

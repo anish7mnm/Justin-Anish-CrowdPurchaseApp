@@ -9,6 +9,7 @@
 #import "DVYIntroPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DVVYSignUpViewController.h"
+#import "DVYHomePageViewController.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
@@ -38,6 +39,17 @@
     self.emailAddressField.delegate = self;
     self.passwordField.delegate = self;
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // Check if user is cached and linked to Facebook, if so, bypass login
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] init];
+        [self presentViewController:homePage animated:NO completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,23 +145,23 @@
     textField.layer.borderColor=[[UIColor clearColor]CGColor];
 }
 
-- (PFUser *)generateAndUploadParseUserWithEmail:(NSString *)emailAddress password:(NSString *)password
-{
-    PFUser *newUser = [PFUser user];
-    
-    newUser.username = emailAddress;
-    newUser.password = password;
-    
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            NSLog(@"Got it!");
-        } else {
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@", errorString);
-        }
-    }];
-    return newUser;
-}
+//- (PFUser *)generateAndUploadParseUserWithEmail:(NSString *)emailAddress password:(NSString *)password
+//{
+//    PFUser *newUser = [PFUser user];
+//    
+//    newUser.username = emailAddress;
+//    newUser.password = password;
+//    
+//    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            NSLog(@"Got it!");
+//        } else {
+//            NSString *errorString = [error userInfo][@"error"];
+//            NSLog(@"%@", errorString);
+//        }
+//    }];
+//    return newUser;
+//}
 
 - (BOOL)verifyIsValidEmailFormat:(NSString *)emailTextFieldText
 {
@@ -195,31 +207,43 @@
     return NO;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    UIButton *butonClicked = sender;
+    if ([butonClicked.titleLabel.text isEqualToString:@"Sign up"]) {
+        DVVYSignUpViewController *signUpVC = segue.destinationViewController;
+        signUpVC.emailAddress = self.emailAddressField.text;
+    }
+    
 }
-*/
+
 
 - (IBAction)buttonPressed:(id)sender {
     if ([self.submitButton.titleLabel.text isEqualToString:@"Sign up"]) {
-        DVVYSignUpViewController *signUpViewController = [[DVVYSignUpViewController alloc] initWithNibName:@"DVVYSignUpViewController" bundle:nil];
+        DVVYSignUpViewController *signUpViewController = [[DVVYSignUpViewController alloc] init];
         
         [self presentViewController:signUpViewController animated:YES completion:nil];
+    }
+    else if ([self.submitButton.titleLabel.text isEqualToString:@"Log in"])
+    {
+        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] init];
+        [self presentViewController:homePage animated:YES completion:nil];
+
     }
 }
 
 - (IBAction)facebookLoginButton:(id)sender {
     
-    NSArray *permissionsArray = @[ @"user_about_me", @"email", @"user_birthday", @"user_location", @"user_friends"];
+    //NSArray *permissionsArray = @[ @"user_about_me", @"email", @"user_birthday", @"user_location", @"user_friends"];
     
     
     // Login PFUser using Facebook
-    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+    [PFFacebookUtils logInWithPermissions:nil block:^(PFUser *user, NSError *error) {
         [_activityIndicator stopAnimating]; // Hide loading indicator
         
         if (!user) {
@@ -240,10 +264,15 @@
         } else {
             if (user.isNew) {
                 NSLog(@"User with facebook signed up and logged in!");
+                DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] init];
+                [self presentViewController:homePage animated:YES completion:nil];
             } else {
                 NSLog(@"User with facebook logged in!");
+                DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] init];
+                [self presentViewController:homePage animated:YES completion:nil];
             }
             //[self _presentUserDetailsViewControllerAnimated:YES];
+
         }
     }];
     

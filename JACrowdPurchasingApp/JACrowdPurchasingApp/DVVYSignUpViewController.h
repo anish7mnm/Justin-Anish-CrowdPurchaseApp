@@ -12,5 +12,5 @@
 @interface DVVYSignUpViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic, readwrite) PFUser *user;
-
+@property (strong, nonatomic) NSString *emailAddress;
 @end
