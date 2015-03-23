@@ -47,8 +47,8 @@
     
     // Check if user is cached and linked to Facebook, if so, bypass login
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] init];
-        [self presentViewController:homePage animated:NO completion:nil];
+        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
+        [self presentViewController:homePage animated:YES completion:nil];
     }
 }
 
@@ -74,7 +74,6 @@
                 
                 // is already user. change button to login
                 [self setButtonToLogin];
-                    
                 
                 
             } else {
@@ -225,13 +224,13 @@
 
 - (IBAction)buttonPressed:(id)sender {
     if ([self.submitButton.titleLabel.text isEqualToString:@"Sign up"]) {
-        DVVYSignUpViewController *signUpViewController = [[DVVYSignUpViewController alloc] init];
+        DVVYSignUpViewController *signUpViewController = [[DVVYSignUpViewController alloc] initWithNibName:@"DVVYSignUpViewController" bundle:nil];
         
         [self presentViewController:signUpViewController animated:YES completion:nil];
     }
     else if ([self.submitButton.titleLabel.text isEqualToString:@"Log in"])
     {
-        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] init];
+        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
         [self presentViewController:homePage animated:YES completion:nil];
 
     }
@@ -239,14 +238,15 @@
 
 - (IBAction)facebookLoginButton:(id)sender {
     
-    //NSArray *permissionsArray = @[ @"user_about_me", @"email", @"user_birthday", @"user_location", @"user_friends"];
+    NSArray *permissionsArray = @[ @"email", @"user_friends"];
     
     
     // Login PFUser using Facebook
-    [PFFacebookUtils logInWithPermissions:nil block:^(PFUser *user, NSError *error) {
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
         [_activityIndicator stopAnimating]; // Hide loading indicator
         
-        if (!user) {
+        if (!user)
+        {
             NSString *errorMessage = nil;
             if (!error) {
                 NSLog(@"Uh oh. The user cancelled the Facebook login.");
@@ -261,19 +261,21 @@
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"Dismiss", nil];
             [alert show];
-        } else {
-            if (user.isNew) {
-                NSLog(@"User with facebook signed up and logged in!");
-                DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] init];
-                [self presentViewController:homePage animated:YES completion:nil];
-            } else {
-                NSLog(@"User with facebook logged in!");
-                DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] init];
-                [self presentViewController:homePage animated:YES completion:nil];
-            }
-            //[self _presentUserDetailsViewControllerAnimated:YES];
-
         }
+        else if (user.isNew)
+        {
+            NSLog(@"User with facebook signed up and logged in!");
+            DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
+            [self presentViewController:homePage animated:YES completion:nil];
+        }
+        else
+        {
+            NSLog(@"User with facebook logged in!");
+            DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
+            [self presentViewController:homePage animated:YES completion:nil];
+        }
+        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
+        [self presentViewController:homePage animated:YES completion:nil];
     }];
     
     [_activityIndicator startAnimating]; // Show loading indicator until login is finished

@@ -32,6 +32,7 @@
     
     self.user = [PFUser user];
     self.user.password = @"boom";
+    self.user.username = self.emailAddress;
     
 }
 
@@ -97,7 +98,6 @@
     
     self.user[@"fullName"] = self.nameTextField.text;
     self.user.email = self.emailAddress;
-    self.user.username = self.emailAddress;
     [self.user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // Hooray! Let them use the app now.
