@@ -36,6 +36,11 @@
 		A849D70E1AB37D3400B45744 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A849D70D1AB37D3400B45744 /* Storyboard.storyboard */; };
 		A85736161AB20EB0001B9D85 /* DVYIntroPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */; };
 		A85736171AB20EB0001B9D85 /* DVYIntroPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */; };
+		A878DA4C1ABF45E90012B61D /* DVYMyCampaignsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A878DA4A1ABF45E90012B61D /* DVYMyCampaignsTableViewController.m */; };
+		A878DA4D1ABF45E90012B61D /* DVYMyCampaignsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A878DA4B1ABF45E90012B61D /* DVYMyCampaignsTableViewController.xib */; };
+		A878DA501ABF46920012B61D /* DVYCampaign.m in Sources */ = {isa = PBXBuildFile; fileRef = A878DA4F1ABF46920012B61D /* DVYCampaign.m */; };
+		A878DA531ABF46B70012B61D /* DVYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A878DA521ABF46B70012B61D /* DVYUser.m */; };
+		A878DA561ABF58A20012B61D /* DVYRelationshipToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A878DA551ABF58A20012B61D /* DVYRelationshipToken.m */; };
 		A8CB7A451ABB5AC400C0AB97 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CB7A441ABB5AC400C0AB97 /* ParseFacebookUtils.framework */; };
 		A8CB7A491ABB5DF400C0AB97 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CB7A481ABB5DF400C0AB97 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +93,15 @@
 		A85736131AB20EB0001B9D85 /* DVYIntroPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYIntroPageViewController.h; sourceTree = "<group>"; };
 		A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYIntroPageViewController.m; sourceTree = "<group>"; };
 		A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYIntroPageViewController.xib; sourceTree = "<group>"; };
+		A878DA491ABF45E90012B61D /* DVYMyCampaignsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYMyCampaignsTableViewController.h; sourceTree = "<group>"; };
+		A878DA4A1ABF45E90012B61D /* DVYMyCampaignsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYMyCampaignsTableViewController.m; sourceTree = "<group>"; };
+		A878DA4B1ABF45E90012B61D /* DVYMyCampaignsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYMyCampaignsTableViewController.xib; sourceTree = "<group>"; };
+		A878DA4E1ABF46920012B61D /* DVYCampaign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYCampaign.h; sourceTree = "<group>"; };
+		A878DA4F1ABF46920012B61D /* DVYCampaign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYCampaign.m; sourceTree = "<group>"; };
+		A878DA511ABF46B70012B61D /* DVYUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYUser.h; sourceTree = "<group>"; };
+		A878DA521ABF46B70012B61D /* DVYUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYUser.m; sourceTree = "<group>"; };
+		A878DA541ABF58A20012B61D /* DVYRelationshipToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYRelationshipToken.h; sourceTree = "<group>"; };
+		A878DA551ABF58A20012B61D /* DVYRelationshipToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYRelationshipToken.m; sourceTree = "<group>"; };
 		A8CB7A441ABB5AC400C0AB97 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../parse-library-1.6.4/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
 		A8CB7A461ABB5DB500C0AB97 /* facebook-ios-sdk-3.23.1.pkg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "facebook-ios-sdk-3.23.1.pkg"; path = "../../facebook-ios-sdk-3.23.1.pkg"; sourceTree = "<group>"; };
 		A8CB7A481ABB5DF400C0AB97 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -201,6 +215,15 @@
 				88E94EE11AA7A4C90052FA35 /* Images.xcassets */,
 				88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */,
 				88E94ED41AA7A4C90052FA35 /* Supporting Files */,
+				A878DA491ABF45E90012B61D /* DVYMyCampaignsTableViewController.h */,
+				A878DA4A1ABF45E90012B61D /* DVYMyCampaignsTableViewController.m */,
+				A878DA4B1ABF45E90012B61D /* DVYMyCampaignsTableViewController.xib */,
+				A878DA4E1ABF46920012B61D /* DVYCampaign.h */,
+				A878DA4F1ABF46920012B61D /* DVYCampaign.m */,
+				A878DA541ABF58A20012B61D /* DVYRelationshipToken.h */,
+				A878DA551ABF58A20012B61D /* DVYRelationshipToken.m */,
+				A878DA511ABF46B70012B61D /* DVYUser.h */,
+				A878DA521ABF46B70012B61D /* DVYUser.m */,
 			);
 			path = JACrowdPurchasingApp;
 			sourceTree = "<group>";
@@ -312,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88E94EE01AA7A4C90052FA35 /* Main.storyboard in Resources */,
+				A878DA4D1ABF45E90012B61D /* DVYMyCampaignsTableViewController.xib in Resources */,
 				88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */,
 				A85736171AB20EB0001B9D85 /* DVYIntroPageViewController.xib in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
@@ -335,11 +359,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A878DA561ABF58A20012B61D /* DVYRelationshipToken.m in Sources */,
 				88E94EDD1AA7A4C90052FA35 /* ViewController.m in Sources */,
+				A878DA4C1ABF45E90012B61D /* DVYMyCampaignsTableViewController.m in Sources */,
 				88E94EDA1AA7A4C90052FA35 /* AppDelegate.m in Sources */,
 				A85736161AB20EB0001B9D85 /* DVYIntroPageViewController.m in Sources */,
 				88E94ED71AA7A4C90052FA35 /* main.m in Sources */,
 				88D4A5C31AB227BE00AAB9A0 /* DVVYSignUpViewController.m in Sources */,
+				A878DA531ABF46B70012B61D /* DVYUser.m in Sources */,
+				A878DA501ABF46920012B61D /* DVYCampaign.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
