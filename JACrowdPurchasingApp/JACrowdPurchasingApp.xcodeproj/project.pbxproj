@@ -30,6 +30,8 @@
 		889CE9801ABFA8B700F04C0B /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 889CE9641ABFA8B700F04C0B /* README.md */; };
 		889CE9841AC08C0100F04C0B /* DVYDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CE9831AC08C0100F04C0B /* DVYDataStore.m */; };
 		889CE9881AC08CF400F04C0B /* DVYParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CE9871AC08CF400F04C0B /* DVYParseAPIClient.m */; };
+		889CE9921AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CE9901AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m */; };
+		889CE9931AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */; };
 		88D4A5C31AB227BE00AAB9A0 /* DVVYSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A5C11AB227BE00AAB9A0 /* DVVYSignUpViewController.m */; };
 		88D4A5C41AB227BE00AAB9A0 /* DVVYSignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D4A5C21AB227BE00AAB9A0 /* DVVYSignUpViewController.xib */; };
 		88D4A5E81AB22A5300AAB9A0 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88D4A5E71AB22A5300AAB9A0 /* default.jpg */; };
@@ -101,6 +103,9 @@
 		889CE9831AC08C0100F04C0B /* DVYDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYDataStore.m; sourceTree = "<group>"; };
 		889CE9861AC08CF400F04C0B /* DVYParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYParseAPIClient.h; sourceTree = "<group>"; };
 		889CE9871AC08CF400F04C0B /* DVYParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYParseAPIClient.m; sourceTree = "<group>"; };
+		889CE98F1AC0AF8E00F04C0B /* DVYFacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYFacebookLoginViewController.h; sourceTree = "<group>"; };
+		889CE9901AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYFacebookLoginViewController.m; sourceTree = "<group>"; };
+		889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYFacebookLoginViewController.xib; sourceTree = "<group>"; };
 		88D4A5C01AB227BE00AAB9A0 /* DVVYSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVYSignUpViewController.h; sourceTree = "<group>"; };
 		88D4A5C11AB227BE00AAB9A0 /* DVVYSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVVYSignUpViewController.m; sourceTree = "<group>"; };
 		88D4A5C21AB227BE00AAB9A0 /* DVVYSignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVVYSignUpViewController.xib; sourceTree = "<group>"; };
@@ -234,6 +239,19 @@
 			name = "API Client";
 			sourceTree = "<group>";
 		};
+		889CE9941AC0B64B00F04C0B /* Not Needed */ = {
+			isa = PBXGroup;
+			children = (
+				88D4A5C21AB227BE00AAB9A0 /* DVVYSignUpViewController.xib */,
+				88D4A5C01AB227BE00AAB9A0 /* DVVYSignUpViewController.h */,
+				88D4A5C11AB227BE00AAB9A0 /* DVVYSignUpViewController.m */,
+				A85736131AB20EB0001B9D85 /* DVYIntroPageViewController.h */,
+				A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */,
+				A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */,
+			);
+			name = "Not Needed";
+			sourceTree = "<group>";
+		};
 		88D4A5E61AB228F300AAB9A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +295,7 @@
 		88E94ED31AA7A4C90052FA35 /* JACrowdPurchasingApp */ = {
 			isa = PBXGroup;
 			children = (
+				889CE9941AC0B64B00F04C0B /* Not Needed */,
 				889CE9851AC08CBB00F04C0B /* API Client */,
 				889CE9811AC08BE200F04C0B /* Data Store */,
 				889CE93F1ABFA8B700F04C0B /* icon */,
@@ -286,12 +305,10 @@
 				88EF0BF01ABCB21F00897A21 /* background.png */,
 				88EF0BEE1ABCB14C00897A21 /* fb.png */,
 				88D4A5E71AB22A5300AAB9A0 /* default.jpg */,
-				A85736131AB20EB0001B9D85 /* DVYIntroPageViewController.h */,
-				A85736141AB20EB0001B9D85 /* DVYIntroPageViewController.m */,
+				889CE98F1AC0AF8E00F04C0B /* DVYFacebookLoginViewController.h */,
+				889CE9901AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m */,
 				88E94ED81AA7A4C90052FA35 /* AppDelegate.h */,
 				88E94ED91AA7A4C90052FA35 /* AppDelegate.m */,
-				88D4A5C01AB227BE00AAB9A0 /* DVVYSignUpViewController.h */,
-				88D4A5C11AB227BE00AAB9A0 /* DVVYSignUpViewController.m */,
 				88E94EDB1AA7A4C90052FA35 /* ViewController.h */,
 				88E94EDC1AA7A4C90052FA35 /* ViewController.m */,
 				88E94EDE1AA7A4C90052FA35 /* Main.storyboard */,
@@ -333,9 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */,
-				A85736151AB20EB0001B9D85 /* DVYIntroPageViewController.xib */,
-				88D4A5C21AB227BE00AAB9A0 /* DVVYSignUpViewController.xib */,
 				88EF0BF81ABCD57900897A21 /* DVYHomePageViewController.xib */,
+				889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -455,6 +471,7 @@
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
 				889CE9711ABFA8B700F04C0B /* Icon-60@3x.png in Resources */,
 				889CE9791ABFA8B700F04C0B /* Icon-72@2x.png in Resources */,
+				889CE9931AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib in Resources */,
 				88D4A5C41AB227BE00AAB9A0 /* DVVYSignUpViewController.xib in Resources */,
 				88D4A5E81AB22A5300AAB9A0 /* default.jpg in Resources */,
 				88EF0BF11ABCB21F00897A21 /* background.png in Resources */,
@@ -514,6 +531,7 @@
 			files = (
 				88E94EDD1AA7A4C90052FA35 /* ViewController.m in Sources */,
 				88E94EDA1AA7A4C90052FA35 /* AppDelegate.m in Sources */,
+				889CE9921AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m in Sources */,
 				A85736161AB20EB0001B9D85 /* DVYIntroPageViewController.m in Sources */,
 				889CE9881AC08CF400F04C0B /* DVYParseAPIClient.m in Sources */,
 				889CE9841AC08C0100F04C0B /* DVYDataStore.m in Sources */,

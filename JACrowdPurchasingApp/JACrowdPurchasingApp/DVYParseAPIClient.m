@@ -58,12 +58,12 @@
     PFUser *gotUser = [[PFUser alloc] init];
     NSArray *users = [query findObjects];
     gotUser = users[0];
-    
-    DVYUser *user = [[DVYUser alloc]init];
-    user.email = gotUser[@"email"];
-    user.name = gotUser[@"fullName"];
-    
-    completionBlock(user);
+//    
+//    DVYUser *user = [[DVYUser alloc]init];
+//    user.email = gotUser[@"email"];
+//    user.name = gotUser[@"fullName"];
+//    
+//    completionBlock(user);
 
 }
 

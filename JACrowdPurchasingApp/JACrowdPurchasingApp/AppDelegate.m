@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DVVYSignUpViewController.h"
-#import "DVYIntroPageViewController.h"
+#import "DVYFacebookLoginViewController.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
@@ -29,7 +29,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // create an instance of the view controller you want to be displayed first
-    DVYIntroPageViewController *introPage = [[DVYIntroPageViewController alloc] init];
+    DVYFacebookLoginViewController *introPage = [[DVYFacebookLoginViewController alloc] init];
     introPage.view.frame = self.window.frame;
     
     self.window.rootViewController = introPage;

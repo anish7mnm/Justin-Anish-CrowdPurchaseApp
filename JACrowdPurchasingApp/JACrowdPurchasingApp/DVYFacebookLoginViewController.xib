@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DVYFacebookLoginViewController">
+            <connections>
+                <outlet property="activityIndicator" destination="JhE-cu-MNQ" id="MYq-ke-1rQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pkl-LB-8vI">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfs-NG-GhO">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JhE-cu-MNQ">
+                            <rect key="frame" x="290" y="290" width="20" height="20"/>
+                        </activityIndicatorView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqe-ns-7B3">
+                            <rect key="frame" x="265" y="265" width="70" height="70"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="70" id="Nz1-dI-IAA"/>
+                                <constraint firstAttribute="width" constant="70" id="c7n-mZ-zgE"/>
+                            </constraints>
+                            <state key="normal" image="fbicon.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="facebookTapped:" destination="-1" eventType="touchUpInside" id="Q7k-WG-TQ9"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-J2-XeW">
+                            <rect key="frame" x="229" y="343" width="143" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MADE IN NEW YORK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8H-um-WmK">
+                            <rect key="frame" x="250" y="566" width="101" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 DVVY. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKt-kb-jEe">
+                            <rect key="frame" x="0.0" y="578" width="600" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="zKt-kb-jEe" firstAttribute="bottom" secondItem="Jfs-NG-GhO" secondAttribute="bottom" constant="-10" id="Cep-1B-lio"/>
+                        <constraint firstItem="Qew-J2-XeW" firstAttribute="top" secondItem="Rqe-ns-7B3" secondAttribute="bottom" constant="8" symbolic="YES" id="Ddw-Cq-Cq2"/>
+                        <constraint firstItem="Qew-J2-XeW" firstAttribute="centerX" secondItem="Jfs-NG-GhO" secondAttribute="centerX" id="F7B-O8-MjP"/>
+                        <constraint firstItem="Rqe-ns-7B3" firstAttribute="centerY" secondItem="Jfs-NG-GhO" secondAttribute="centerY" id="O8H-IM-1P4"/>
+                        <constraint firstItem="Y8H-um-WmK" firstAttribute="bottom" secondItem="zKt-kb-jEe" secondAttribute="top" id="OAn-oU-kwM"/>
+                        <constraint firstItem="zKt-kb-jEe" firstAttribute="centerX" secondItem="Jfs-NG-GhO" secondAttribute="centerX" id="XK2-cz-0ad"/>
+                        <constraint firstItem="Y8H-um-WmK" firstAttribute="centerX" secondItem="zKt-kb-jEe" secondAttribute="centerX" id="Ydl-GK-bhW"/>
+                        <constraint firstItem="Rqe-ns-7B3" firstAttribute="centerX" secondItem="Jfs-NG-GhO" secondAttribute="centerX" id="iCw-u0-OT0"/>
+                        <constraint firstAttribute="centerX" secondItem="JhE-cu-MNQ" secondAttribute="centerX" id="k9K-OA-pQX"/>
+                        <constraint firstItem="zKt-kb-jEe" firstAttribute="width" secondItem="Jfs-NG-GhO" secondAttribute="width" id="qlh-tO-r0T"/>
+                        <constraint firstAttribute="centerY" secondItem="JhE-cu-MNQ" secondAttribute="centerY" id="upg-Wa-Stv"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Pkl-LB-8vI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CsR-JF-ah5"/>
+                <constraint firstItem="Jfs-NG-GhO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EjL-BE-pOr"/>
+                <constraint firstItem="Jfs-NG-GhO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LUu-ao-gMh"/>
+                <constraint firstItem="Pkl-LB-8vI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Nte-5m-f2b"/>
+                <constraint firstItem="Pkl-LB-8vI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OKx-Iu-6vA"/>
+                <constraint firstItem="Jfs-NG-GhO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-100" id="Ojj-hU-VqS"/>
+                <constraint firstItem="Jfs-NG-GhO" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="UHy-jB-734"/>
+                <constraint firstItem="Pkl-LB-8vI" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="Zag-YX-ISD"/>
+                <constraint firstItem="Pkl-LB-8vI" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="gby-Ns-d9S"/>
+                <constraint firstItem="Jfs-NG-GhO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mX0-HL-otv"/>
+                <constraint firstItem="Pkl-LB-8vI" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="pjj-BE-LAE"/>
+                <constraint firstItem="Jfs-NG-GhO" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="uOx-Og-M5V"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="background.png" width="770" height="1190"/>
+        <image name="fbicon.png" width="300" height="300"/>
+    </resources>
+</document>
