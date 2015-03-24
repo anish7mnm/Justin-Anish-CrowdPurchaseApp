@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSNumber *price;
 
 @property (nonatomic, strong) NSMutableArray *invitees;
-//@property (nonatomic, strong) NSMutableArray *watchers;
+@property (nonatomic, strong) NSMutableArray *watchers;
 @property (nonatomic, strong) NSMutableArray *committed;
 
 @property (nonatomic, strong) NSMutableArray *tokens;

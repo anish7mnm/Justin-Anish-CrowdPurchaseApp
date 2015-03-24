@@ -11,8 +11,7 @@
 @interface DVYUser : NSObject
 
 @property (nonatomic, strong) NSString *username;
-@property (nonatomic, strong) NSString *firstName;
-@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *name;
 
 @property (nonatomic, strong) NSMutableArray *campaignsCurrentlyHosting;
 @property (nonatomic, strong) NSMutableArray *campaignsHosted;

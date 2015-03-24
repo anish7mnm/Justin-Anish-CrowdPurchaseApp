@@ -9,12 +9,14 @@
 #import "DVYHomePageViewController.h"
 #import "DVYDataStore.h"
 #import "DVYTableViewCell.h"
+#import "DVYFacebookLoginViewController.h"
 
 @interface DVYHomePageViewController ()
 @property (strong, nonatomic) DVYDataStore *localDataStore;
 @property (weak, nonatomic) IBOutlet UIButton *selfButton;
 @property (weak, nonatomic) IBOutlet UIButton *othersButton;
 @property (weak, nonatomic) IBOutlet UIButton *invitesButton;
+@property (strong, nonatomic) DVYFacebookLoginViewController *facebookLogin;
 
 @end
 
@@ -108,7 +110,7 @@
 - (void) removeAllConstraints
 {
     [self.view removeConstraints:self.view.constraints];
-    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+
     [self.scrollView removeConstraints:self.scrollView.constraints];
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.containerView removeConstraints:self.containerView.constraints];
@@ -132,6 +134,9 @@
 
 - (void) settingConstraints
 {
+    
+    
+    
     NSLayoutConstraint *scrollViewLeftMArgin =
     [NSLayoutConstraint constraintWithItem:self.scrollView
                                  attribute:NSLayoutAttributeTrailing

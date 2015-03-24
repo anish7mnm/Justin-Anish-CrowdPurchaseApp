@@ -24,10 +24,12 @@
         _price = @(0);
         
         _invitees = [[NSMutableArray alloc] init];
+        _watchers = [[NSMutableArray alloc] init];
         _committed = [[NSMutableArray alloc] init];
         
         _tokens = [[NSMutableArray alloc] init];
         [_tokens addObject:[self generateHostToken]];
+        [_watchers addObject:[self generateHostToken]];
         
         _hasEnded = NO;
     }
@@ -60,15 +62,15 @@
     [_invitees removeObject:inviteeToRemove];
 }
 
-//- (void)addWatcher:(DVYUser *)watcherToAdd withMinimum:(NSInteger)minimum
-//{
-//    [_watchers addObject:watcherToAdd];
-//    // [self removeInvitee:watcherToAdd];
-//}
-//
-//- (void)removeWatcher:(DVYUser *)watcherToRemove {
-//    [_watchers removeObject:watcherToRemove];
-//}
+- (void)addWatcher:(DVYUser *)watcherToAdd withMinimum:(NSInteger)minimum
+{
+    [_watchers addObject:watcherToAdd];
+    // [self removeInvitee:watcherToAdd];
+}
+
+- (void)removeWatcher:(DVYUser *)watcherToRemove {
+    [_watchers removeObject:watcherToRemove];
+}
 
 - (void)addCommitted:(NSArray *)committed
 {

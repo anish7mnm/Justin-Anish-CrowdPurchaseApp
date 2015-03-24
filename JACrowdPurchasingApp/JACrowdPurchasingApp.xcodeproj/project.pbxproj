@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883C66031AC1DDE500258869 /* DVYCampaign.m in Sources */ = {isa = PBXBuildFile; fileRef = 883C65FF1AC1DDE500258869 /* DVYCampaign.m */; };
+		883C66041AC1DDE500258869 /* DVYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 883C66011AC1DDE500258869 /* DVYUser.m */; };
+		883C66071AC1F03D00258869 /* DVYRelationshipToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 883C66051AC1F03D00258869 /* DVYRelationshipToken.m */; };
 		889CE96C1ABFA8B700F04C0B /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 889CE9501ABFA8B700F04C0B /* Contents.json */; };
 		889CE96D1ABFA8B700F04C0B /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 889CE9511ABFA8B700F04C0B /* Icon-40.png */; };
 		889CE96E1ABFA8B700F04C0B /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 889CE9521ABFA8B700F04C0B /* Icon-40@2x.png */; };
@@ -33,7 +36,6 @@
 		889CE9921AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CE9901AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m */; };
 		889CE9931AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */; };
 		889CE9971AC0D9DC00F04C0B /* DVYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */; };
-		889CE9A31AC0F24400F04C0B /* DVYSelfTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CE9A21AC0F24400F04C0B /* DVYSelfTableView.m */; };
 		889CE9A51AC1CDBF00F04C0B /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 889CE9A41AC1CDBF00F04C0B /* book.png */; };
 		889CE9A71AC1CFA000F04C0B /* amus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 889CE9A61AC1CFA000F04C0B /* amus.jpg */; };
 		88D4A5C31AB227BE00AAB9A0 /* DVVYSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D4A5C11AB227BE00AAB9A0 /* DVVYSignUpViewController.m */; };
@@ -56,7 +58,6 @@
 		88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E94EE11AA7A4C90052FA35 /* Images.xcassets */; };
 		88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */; };
 		88E94EF11AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E94EF01AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m */; };
-		88EF0BEF1ABCB14C00897A21 /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EF0BEE1ABCB14C00897A21 /* fb.png */; };
 		88EF0BF11ABCB21F00897A21 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EF0BF01ABCB21F00897A21 /* background.png */; };
 		88EF0BF51ABCD1A700897A21 /* fbicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 88EF0BF41ABCD1A700897A21 /* fbicon.png */; };
 		88EF0BF91ABCD57900897A21 /* DVYHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */; };
@@ -79,6 +80,12 @@
 /* Begin PBXFileReference section */
 		347DA0D6EB713E0622E32F32 /* Pods-JACrowdPurchasingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JACrowdPurchasingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JACrowdPurchasingApp/Pods-JACrowdPurchasingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4BC1FCC98B618CDBA8E44809 /* Pods-JACrowdPurchasingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JACrowdPurchasingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-JACrowdPurchasingApp/Pods-JACrowdPurchasingApp.release.xcconfig"; sourceTree = "<group>"; };
+		883C65FF1AC1DDE500258869 /* DVYCampaign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYCampaign.m; sourceTree = "<group>"; };
+		883C66001AC1DDE500258869 /* DVYUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYUser.h; sourceTree = "<group>"; };
+		883C66011AC1DDE500258869 /* DVYUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYUser.m; sourceTree = "<group>"; };
+		883C66021AC1DDE500258869 /* DVYCampaign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYCampaign.h; sourceTree = "<group>"; };
+		883C66051AC1F03D00258869 /* DVYRelationshipToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYRelationshipToken.m; sourceTree = "<group>"; };
+		883C66061AC1F03D00258869 /* DVYRelationshipToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYRelationshipToken.h; sourceTree = "<group>"; };
 		889CE9501ABFA8B700F04C0B /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		889CE9511ABFA8B700F04C0B /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		889CE9521ABFA8B700F04C0B /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
@@ -109,8 +116,6 @@
 		889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYFacebookLoginViewController.xib; sourceTree = "<group>"; };
 		889CE9951AC0D9DC00F04C0B /* DVYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYTableViewCell.h; sourceTree = "<group>"; };
 		889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYTableViewCell.m; sourceTree = "<group>"; };
-		889CE9A11AC0F24300F04C0B /* DVYSelfTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYSelfTableView.h; sourceTree = "<group>"; };
-		889CE9A21AC0F24400F04C0B /* DVYSelfTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYSelfTableView.m; sourceTree = "<group>"; };
 		889CE9A41AC1CDBF00F04C0B /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		889CE9A61AC1CFA000F04C0B /* amus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = amus.jpg; sourceTree = "<group>"; };
 		88D4A5C01AB227BE00AAB9A0 /* DVVYSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVVYSignUpViewController.h; sourceTree = "<group>"; };
@@ -139,7 +144,6 @@
 		88E94EEA1AA7A4C90052FA35 /* JACrowdPurchasingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JACrowdPurchasingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E94EEF1AA7A4C90052FA35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E94EF01AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JACrowdPurchasingAppTests.m; sourceTree = "<group>"; };
-		88EF0BEE1ABCB14C00897A21 /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fb.png; path = ../fb.png; sourceTree = "<group>"; };
 		88EF0BF01ABCB21F00897A21 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../background.png; sourceTree = "<group>"; };
 		88EF0BF21ABCCF9300897A21 /* libPods-JACrowdPurchasingApp-Bolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-JACrowdPurchasingApp-Bolts.a"; path = "Pods/build/Debug-iphoneos/libPods-JACrowdPurchasingApp-Bolts.a"; sourceTree = "<group>"; };
 		88EF0BF41ABCD1A700897A21 /* fbicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fbicon.png; path = ../fbicon.png; sourceTree = "<group>"; };
@@ -182,13 +186,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		883C66081AC1F11400258869 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				883C66021AC1DDE500258869 /* DVYCampaign.h */,
+				883C65FF1AC1DDE500258869 /* DVYCampaign.m */,
+				883C66001AC1DDE500258869 /* DVYUser.h */,
+				883C66011AC1DDE500258869 /* DVYUser.m */,
+				883C66051AC1F03D00258869 /* DVYRelationshipToken.m */,
+				883C66061AC1F03D00258869 /* DVYRelationshipToken.h */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		889CE93F1ABFA8B700F04C0B /* icon */ = {
 			isa = PBXGroup;
 			children = (
 				88EF0BF41ABCD1A700897A21 /* fbicon.png */,
 				88EF0BFC1ABCD6B600897A21 /* wallpaper.jpg */,
 				88EF0BF01ABCB21F00897A21 /* background.png */,
-				88EF0BEE1ABCB14C00897A21 /* fb.png */,
 				88D4A5E71AB22A5300AAB9A0 /* default.jpg */,
 				889CE94E1ABFA8B700F04C0B /* ios */,
 			);
@@ -305,6 +321,7 @@
 		88E94ED31AA7A4C90052FA35 /* JACrowdPurchasingApp */ = {
 			isa = PBXGroup;
 			children = (
+				883C66081AC1F11400258869 /* Models */,
 				889CE9941AC0B64B00F04C0B /* Not Needed */,
 				889CE9851AC08CBB00F04C0B /* API Client */,
 				889CE9811AC08BE200F04C0B /* Data Store */,
@@ -315,14 +332,12 @@
 				889CE98F1AC0AF8E00F04C0B /* DVYFacebookLoginViewController.h */,
 				889CE9901AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m */,
 				88EF0BF61ABCD57900897A21 /* DVYHomePageViewController.h */,
+				88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */,
 				889CE9A41AC1CDBF00F04C0B /* book.png */,
 				889CE9A61AC1CFA000F04C0B /* amus.jpg */,
-				88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */,
 				889CE9951AC0D9DC00F04C0B /* DVYTableViewCell.h */,
 				889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */,
 				88E94EDE1AA7A4C90052FA35 /* Main.storyboard */,
-				889CE9A11AC0F24300F04C0B /* DVYSelfTableView.h */,
-				889CE9A21AC0F24400F04C0B /* DVYSelfTableView.m */,
 				88E94EE11AA7A4C90052FA35 /* Images.xcassets */,
 				88E94ED41AA7A4C90052FA35 /* Supporting Files */,
 			);
@@ -463,7 +478,6 @@
 				889CE96E1ABFA8B700F04C0B /* Icon-40@2x.png in Resources */,
 				889CE9A51AC1CDBF00F04C0B /* book.png in Resources */,
 				889CE9771ABFA8B700F04C0B /* Icon-60.png in Resources */,
-				88EF0BEF1ABCB14C00897A21 /* fb.png in Resources */,
 				889CE9761ABFA8B700F04C0B /* Icon-Small@3x.png in Resources */,
 				889CE9781ABFA8B700F04C0B /* Icon-72.png in Resources */,
 				889CE97F1ABFA8B700F04C0B /* iTunesArtwork@2x.png in Resources */,
@@ -540,10 +554,12 @@
 			files = (
 				88E94EDA1AA7A4C90052FA35 /* AppDelegate.m in Sources */,
 				889CE9921AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m in Sources */,
-				889CE9A31AC0F24400F04C0B /* DVYSelfTableView.m in Sources */,
+				883C66031AC1DDE500258869 /* DVYCampaign.m in Sources */,
 				A85736161AB20EB0001B9D85 /* DVYIntroPageViewController.m in Sources */,
 				889CE9881AC08CF400F04C0B /* DVYParseAPIClient.m in Sources */,
+				883C66071AC1F03D00258869 /* DVYRelationshipToken.m in Sources */,
 				889CE9841AC08C0100F04C0B /* DVYDataStore.m in Sources */,
+				883C66041AC1DDE500258869 /* DVYUser.m in Sources */,
 				88E94ED71AA7A4C90052FA35 /* main.m in Sources */,
 				88EF0BF91ABCD57900897A21 /* DVYHomePageViewController.m in Sources */,
 				889CE9801ABFA8B700F04C0B /* README.md in Sources */,

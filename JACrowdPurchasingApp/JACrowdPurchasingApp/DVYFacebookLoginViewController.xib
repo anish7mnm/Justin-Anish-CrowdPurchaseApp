@@ -7,6 +7,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DVYFacebookLoginViewController">
             <connections>
                 <outlet property="activityIndicator" destination="JhE-cu-MNQ" id="MYq-ke-1rQ"/>
+                <outlet property="backgroundImage" destination="Pkl-LB-8vI" id="Zfb-0S-nTa"/>
+                <outlet property="buttonLabel" destination="Rqe-ns-7B3" id="8u7-RH-4Tq"/>
+                <outlet property="elementViews" destination="Jfs-NG-GhO" id="JId-Tf-JPd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,8 +24,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfs-NG-GhO">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JhE-cu-MNQ">
-                            <rect key="frame" x="290" y="290" width="20" height="20"/>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JhE-cu-MNQ">
+                            <rect key="frame" x="290" y="190" width="20" height="20"/>
                         </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqe-ns-7B3">
                             <rect key="frame" x="265" y="265" width="70" height="70"/>
@@ -67,7 +70,7 @@
                         <constraint firstItem="Rqe-ns-7B3" firstAttribute="centerX" secondItem="Jfs-NG-GhO" secondAttribute="centerX" id="iCw-u0-OT0"/>
                         <constraint firstAttribute="centerX" secondItem="JhE-cu-MNQ" secondAttribute="centerX" id="k9K-OA-pQX"/>
                         <constraint firstItem="zKt-kb-jEe" firstAttribute="width" secondItem="Jfs-NG-GhO" secondAttribute="width" id="qlh-tO-r0T"/>
-                        <constraint firstAttribute="centerY" secondItem="JhE-cu-MNQ" secondAttribute="centerY" id="upg-Wa-Stv"/>
+                        <constraint firstItem="JhE-cu-MNQ" firstAttribute="centerY" secondItem="Jfs-NG-GhO" secondAttribute="centerY" constant="-100" id="upg-Wa-Stv"/>
                     </constraints>
                 </view>
             </subviews>

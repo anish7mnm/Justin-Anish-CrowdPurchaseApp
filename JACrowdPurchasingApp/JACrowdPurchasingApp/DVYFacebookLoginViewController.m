@@ -14,6 +14,10 @@
 
 @interface DVYFacebookLoginViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UIView *elementViews;
+
 - (IBAction)facebookTapped:(id)sender;
 
 @end
@@ -22,6 +26,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.activityIndicator.hidden = YES;
+    UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    visualEffectView.frame = self.backgroundImage.frame;
+    [self.backgroundImage addSubview:visualEffectView];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -31,8 +40,7 @@
     
     // Check if user is cached and linked to Facebook, if so, bypass login
     if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-        DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
-        [self presentViewController:homePage animated:YES completion:nil];
+        [self dismissViewControllerAnimated:NO completion:nil];
     }
 }
 
@@ -80,20 +88,27 @@
         else if (user.isNew)
         {
             NSLog(@"User with facebook signed up and logged in!");
-            DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
-            [self presentViewController:homePage animated:YES completion:nil];
+            [self presentHomePageViewController];
+
         }
         else
         {
             NSLog(@"User with facebook logged in!");
-            DVYHomePageViewController *homePage = [[DVYHomePageViewController alloc] initWithNibName:@"DVYHomePageViewController" bundle:nil];
-            [self presentViewController:homePage animated:YES completion:nil];
+            [self presentHomePageViewController];
         }
         
     }];
-    
+    self.activityIndicator.hidden=NO;
     [_activityIndicator startAnimating]; // Show loading indicator until login is finished
+}
 
+-(void) presentHomePageViewController
+{
+    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+   
+    UIViewController *homePage = [myStoryboard instantiateInitialViewController];
+    [self presentViewController:homePage animated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 @end
