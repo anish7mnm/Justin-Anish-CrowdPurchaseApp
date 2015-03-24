@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-JACrowdPurchasingApp-Shimmer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JACrowdPurchasingApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>177634338A89F606FD409CFD</key>
+		<key>44B5CFD3D0C56DC6F9D74E7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3FA44F3AE69AD0053339C57A</key>
+		<key>5D814C8C5F420F72E0469FDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ABCCAF39EF2EA659213268BC</key>
+		<key>5D8A198EABF3C0E07EC2BCAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DEE2797912BF7EF93B12ADC0</key>
+		<key>697CADC9B9E860287A2EF267</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD314718C4DEB4C4A3F17F5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

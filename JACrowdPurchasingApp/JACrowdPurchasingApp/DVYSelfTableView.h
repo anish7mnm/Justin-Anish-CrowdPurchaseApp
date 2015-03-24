@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  DVYSelfTableView.h
 //  JACrowdPurchasingApp
 //
-//  Created by Anish Kumar on 3/4/15.
+//  Created by Anish Kumar on 3/23/15.
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DVYSelfTableView : UITableView
 
 @end
-

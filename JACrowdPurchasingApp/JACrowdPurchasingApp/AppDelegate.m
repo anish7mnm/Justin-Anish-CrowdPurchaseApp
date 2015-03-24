@@ -26,14 +26,14 @@
     [PFFacebookUtils initializeFacebook];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // create an instance of the view controller you want to be displayed first
-    DVYFacebookLoginViewController *introPage = [[DVYFacebookLoginViewController alloc] init];
-    introPage.view.frame = self.window.frame;
-    
-    self.window.rootViewController = introPage;
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
+//    // create an instance of the view controller you want to be displayed first
+//    DVYFacebookLoginViewController *introPage = [[DVYFacebookLoginViewController alloc] init];
+//    introPage.view.frame = self.window.frame;
+//    
+//    self.window.rootViewController = introPage;
+//    [self.window makeKeyAndVisible];
     
     return YES;
 }

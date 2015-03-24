@@ -4,6 +4,7 @@
 target 'JACrowdPurchasingApp' do
 	pod 'Facebook-iOS-SDK'
 	pod 'ParseUI'
+	pod 'Shimmer'
 end
 
 target 'JACrowdPurchasingAppTests' do

@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DVYHomePageViewController : UIViewController
+@interface DVYHomePageViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+
+@property (weak, nonatomic) IBOutlet UITableView *selfTableView;
+@property (weak, nonatomic) IBOutlet UITableView *othersTableView;
+@property (weak, nonatomic) IBOutlet UITableView *invitationTableView;
+@property (weak, nonatomic) IBOutlet UIView *buttonView;
+
 
 @end

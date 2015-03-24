@@ -24,11 +24,14 @@
 {
     self = [super init];
     if (self) {
-        _campaigns = [[NSMutableArray alloc] init];
+        _selfCampaigns = [[NSMutableArray alloc] init];
+        _othersCampaign = [[NSMutableArray alloc] init];
+        _alertCampaign = [[NSMutableArray alloc] init];
         _users = [[NSMutableArray alloc] init];
     }
     return self;
 }
+
 
 
 
