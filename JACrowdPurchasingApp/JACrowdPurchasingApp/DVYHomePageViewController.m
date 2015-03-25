@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "DVYHomePageViewController.h"
 #import "DVYDataStore.h"
 #import "DVYTableViewCell.h"
@@ -13,6 +14,7 @@
 
 @interface DVYHomePageViewController ()
 @property (strong, nonatomic) DVYDataStore *localDataStore;
+@property (strong, nonatomic) PFUser *currentUser;
 @property (weak, nonatomic) IBOutlet UIButton *selfButton;
 @property (weak, nonatomic) IBOutlet UIButton *othersButton;
 @property (weak, nonatomic) IBOutlet UIButton *invitesButton;
@@ -24,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.currentUser = [PFUser currentUser];
     
     self.selfTableView.delegate=self;
     self.selfTableView.dataSource = self;

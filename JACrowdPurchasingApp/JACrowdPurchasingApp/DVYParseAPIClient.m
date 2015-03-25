@@ -6,10 +6,55 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+
 #import "DVYParseAPIClient.h"
 #import "DVYUser.h"
 
 @implementation DVYParseAPIClient
+
++(void)logInWithFacebookWithCompletionBlock:(void (^)(void))completionBlock AndSignUpComletionBlock:(void (^)(void))signUpCompletionBlock
+{
+
+    NSArray *permissionsArray = @[ @"email", @"user_friends"];
+
+    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        
+        if (!user)
+        {
+            NSString *errorMessage = nil;
+            if (!error) {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+                errorMessage = @"Uh oh. The user cancelled the Facebook login.";
+            } else {
+                NSLog(@"Uh oh. An error occurred: %@", error);
+                errorMessage = [error localizedDescription];
+            }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log In Error"
+                                                            message:errorMessage
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+        }
+        else if (user.isNew)
+        {
+            NSLog(@"User with facebook signed up and logged in!");
+            NSLog(@"USER: %@", user);
+            signUpCompletionBlock();
+            
+        }
+        else
+        {
+            NSLog(@"User with facebook logged in!");
+            completionBlock();
+        }
+        
+    }];
+
+}
+
 
 +(void)getCampaignFromParseWithID:(NSString *)campaignID CompletionBlock:(void (^)(PFObject *))completionBlock
 {

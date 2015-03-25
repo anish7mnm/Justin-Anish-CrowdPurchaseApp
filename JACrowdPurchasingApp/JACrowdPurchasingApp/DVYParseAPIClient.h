@@ -12,6 +12,8 @@
 @class DVYUser;
 @interface DVYParseAPIClient : NSObject
 
++ (void) logInWithFacebookWithCompletionBlock: (void (^)(void))completionBlock AndSignUpComletionBlock: (void (^)(void))signUpCompletionBlock;
+
 + (void) getCampaignFromParseWithID: (NSString *)campaignID CompletionBlock: (void (^)(PFObject *campaign))completionBlock;
 + (void) saveCampaignFromParseWithTitle:(NSString *)title Details:(NSString *)detail Host:(DVYUser *)host MinimumCommitsNeeded: (NSInteger)minimumNeededCommits Price:(NSNumber *)price  Deadline:(NSDate *)deadline CompletionBlock: (void (^)(void))completionBlock;
 
