@@ -7,16 +7,19 @@
 //
 
 #import "DVYCreateCampaignViewController.h"
+#import "DVYSelfCampaignViewController.h"
 #import "DVYCampaignDetailView.h"
 #import "DVYCampaign.h"
 
 @interface DVYCreateCampaignViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *peopleNeededTextField;
 @property (weak, nonatomic) IBOutlet UIButton *createButtonLabelProp;
 
 @property (strong, nonatomic) DVYCampaignDetailView *detailedView;
+
 @end
 
 @implementation DVYCreateCampaignViewController
@@ -24,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.detailedView = [[DVYCampaignDetailView alloc] init];
+    self.createButtonLabelProp.enabled = NO;
     [self settingPlaceholdersToTextFields];
     // Do any additional setup after loading the view.
 }
@@ -75,9 +79,6 @@
     }
 }
 
-
-
-
 /*
 #pragma mark - Navigation
 
@@ -87,6 +88,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 - (IBAction)uploadImageButtonTapped:(id)sender {
     
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -109,6 +111,10 @@
 }
 
 - (IBAction)createThePageButtonTapped:(id)sender {
+
+    DVYCampaign *campaign = [DVYCampaign alloc]initWithTitle:self.detailedView.campaignTitle.text detail:self.detailedView.campaignDetails.text deadline:<#(NSDate *)#> host:<#(DVYUser *)#> minimumNeededCommits:<#(NSNumber *)#>
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (BOOL) checkingIfTheFieldsAreEmptyOrNot

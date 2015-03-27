@@ -9,6 +9,7 @@
 #import "DVYCampaignDetailView.h"
 #import "DVYCampaign.h"
 
+
 @implementation DVYCampaignDetailView
 
 /*
@@ -19,11 +20,16 @@
 }
 */
 
-- (void)createACampaignPageWithTitle:(NSString *)title Details:(NSString *)details Host:(DVYUser *)host PeopleCommited:(NSNumber *)peopleCommited PeopleNeeded:(NSNumber *)peopleNeeded Deadline:(NSDate *)deadline ProfilePicture:(UIImage *)profilePicture
+
+-(void)updateView
 {
-    DVYCampaign *newCampaign = [[DVYCampaign alloc] initWithTitle:title detail:details deadline:deadline host:host minimumNeededCommits:peopleNeeded];
-    [newCampaign addCommitter:host];
+    self.campaignTitle.text = self.campaign.title;
+    self.campaignDetails.text = self.campaign.detail;
+    
+    
 }
+
+
 
 
 @end

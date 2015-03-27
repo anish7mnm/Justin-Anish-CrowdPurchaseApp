@@ -43,19 +43,19 @@
     return newToken;
 }
 
-- (void)setMinimumDesiredCommitsAccordingToMaximumPrice
-{
-    if (![self.maximumPrice isEqual:@(999999999)]) {
-        float priceToDivide = [self.campaign.price floatValue];
-        float priceToDivideBy = [self.maximumPrice floatValue];
-        NSInteger numberCommitsNeeded = ceil(priceToDivide/priceToDivideBy);
-        _minimumDesiredCommits = numberCommitsNeeded;
-    }
-    else
-    {
-        NSLog(@"Cannot set minimum via maximumPrice. No maximumPrice set");
-    }
-}
+//- (void)setMinimumDesiredCommitsAccordingToMaximumPrice
+//{
+//    if (![self.maximumPrice isEqual:@(999999999)]) {
+//        //float priceToDivide = [self.campaign.price floatValue];
+//        float priceToDivideBy = [self.maximumPrice floatValue];
+//        NSInteger numberCommitsNeeded = ceil(priceToDivide/priceToDivideBy);
+//        _minimumDesiredCommits = numberCommitsNeeded;
+//    }
+//    else
+//    {
+//        NSLog(@"Cannot set minimum via maximumPrice. No maximumPrice set");
+//    }
+//}
 
 
 @end

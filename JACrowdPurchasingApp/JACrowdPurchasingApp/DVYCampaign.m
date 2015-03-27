@@ -114,7 +114,6 @@
 }
 
 
-
 - (void)setHasEnded
 {
     _hasEnded = YES;

@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "DVVYSignUpViewController.h"
 #import "DVYFacebookLoginViewController.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+
+#import "DVYUser.h"
+#import "Item.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +27,10 @@
                   clientKey:@"FGG2a29BzXoPZlK8cJ4SPIXDSpt0l6Z09MilbwFM"];
     [PFFacebookUtils initializeFacebook];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
+    [DVYUser registerSubclass];
+    [Item registerSubclass];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

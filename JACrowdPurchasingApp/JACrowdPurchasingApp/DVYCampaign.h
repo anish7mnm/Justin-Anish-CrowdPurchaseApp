@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 #import "DVYUser.h"
 
 @interface DVYCampaign : NSObject
@@ -50,7 +51,7 @@
 
 - (void)setHasEnded;
 
-- (void)runAutoCommit;
+//- (void)runAutoCommit;
 
 @end
 

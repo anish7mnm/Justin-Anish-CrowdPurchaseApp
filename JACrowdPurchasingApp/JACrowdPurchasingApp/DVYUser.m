@@ -10,4 +10,14 @@
 
 @implementation DVYUser
 
+@dynamic username;
+@dynamic fullName;
+@dynamic email;
+@dynamic profilePicture;
+
++(NSString *)parseClassName
+{
+    return @"User";
+}
+
 @end

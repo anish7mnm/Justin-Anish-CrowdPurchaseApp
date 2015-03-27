@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
-@interface DVYUser : NSObject
+@interface DVYUser : PFObject<PFSubclassing>
 
 @property (nonatomic, strong) NSString *username;
-@property (nonatomic, strong) NSString *name;
-
-@property (nonatomic, strong) NSMutableArray *campaignsCurrentlyHosting;
-@property (nonatomic, strong) NSMutableArray *campaignsHosted;
+@property (nonatomic, strong) NSString *fullName;
+@property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *profilePicture;
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class DVYUser;
+@class DVYCampaign;
 @interface DVYCampaignDetailView : UIView
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
@@ -19,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *peopleNeeded;
 @property (weak, nonatomic) IBOutlet UILabel *deadline;
 
-- (void) createACampaignPageWithTitle: (NSString *)title Details: (NSString *)details Host: (DVYUser *)host PeopleCommited: (NSNumber *)peopleCommited PeopleNeeded: (NSNumber *)peopleNeeded Deadline: (NSDate *)deadline ProfilePicture: (UIImage *)profilePicture;
+@property (strong, nonatomic) DVYCampaign *campaign;
+
+- (void) updateView;
 
 @end
