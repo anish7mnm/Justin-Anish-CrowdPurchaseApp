@@ -21,7 +21,7 @@
 
 - (void)createACampaignPageWithTitle:(NSString *)title Details:(NSString *)details Host:(DVYUser *)host PeopleCommited:(NSNumber *)peopleCommited PeopleNeeded:(NSNumber *)peopleNeeded Deadline:(NSDate *)deadline ProfilePicture:(UIImage *)profilePicture
 {
-    DVYCampaign *newCampaign = [[DVYCampaign alloc] initWithTitle:title detail:details deadline:deadline host:host minimumNeededCommits:[peopleNeeded integerValue]];
+    DVYCampaign *newCampaign = [[DVYCampaign alloc] initWithTitle:title detail:details deadline:deadline host:host minimumNeededCommits:peopleNeeded];
     [newCampaign addCommitter:host];
 }
 

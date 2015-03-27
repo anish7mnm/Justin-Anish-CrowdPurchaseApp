@@ -108,12 +108,6 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
-
-
-
-
-
-
 - (IBAction)createThePageButtonTapped:(id)sender {
 }
 
