@@ -35,12 +35,12 @@
     // Do any additional setup after loading the view from its nib.
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    PFUser *currentUser = [PFUser currentUser];
     // Check if user is cached and linked to Facebook, if so, bypass login
-    if ([PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+    if (![currentUser.email isEqual:@""]) {
         [self presentHomePageViewController];
     }
 }

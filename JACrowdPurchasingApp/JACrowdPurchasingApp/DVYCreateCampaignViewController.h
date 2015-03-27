@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DVYCreateCampaignViewController : UIViewController
+@interface DVYCreateCampaignViewController : UIViewController <UITextFieldDelegate>
 
 @end
