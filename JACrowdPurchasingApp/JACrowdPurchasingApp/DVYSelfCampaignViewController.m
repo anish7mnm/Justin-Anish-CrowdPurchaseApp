@@ -7,8 +7,11 @@
 //
 
 #import "DVYSelfCampaignViewController.h"
+#import "DVYCampaignDetailView.h"
 
 @interface DVYSelfCampaignViewController ()
+@property (weak, nonatomic) IBOutlet DVYCampaignDetailView *detailCampaignViewSelf;
+- (IBAction)editButtinTapped:(id)sender;
 
 @end
 
@@ -33,5 +36,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)editButtinTapped:(id)sender {
+}
+
+- (IBAction)addFriendsButtinTapped:(id)sender {
+}
+
+- (IBAction)deleteButtonTapped:(id)sender {
+}
 
 @end

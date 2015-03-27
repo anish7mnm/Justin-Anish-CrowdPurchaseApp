@@ -8,6 +8,7 @@
 
 #import "DVYCreateCampaignViewController.h"
 #import "DVYCampaignDetailView.h"
+#import "DVYCampaign.h"
 
 @interface DVYCreateCampaignViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -15,14 +16,15 @@
 @property (weak, nonatomic) IBOutlet UITextField *peopleNeededTextField;
 @property (weak, nonatomic) IBOutlet UIButton *createButtonLabelProp;
 
-@property (weak, nonatomic) IBOutlet DVYCampaignDetailView *detailCampaignViewForSelf;
-
+@property (strong, nonatomic) DVYCampaignDetailView *detailedView;
 @end
 
 @implementation DVYCreateCampaignViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.detailedView = [[DVYCampaignDetailView alloc] init];
+    [self settingPlaceholdersToTextFields];
     // Do any additional setup after loading the view.
 }
 
@@ -37,7 +39,44 @@
     if (check == NO) {
         self.createButtonLabelProp.enabled = YES;
     }
+    
+    if (textField == self.titleTextField) {
+        self.detailedView.campaignTitle.text =  textField.text;
+    }
+    if (textField == self.descriptionTextField) {
+        self.detailedView.campaignDetails.text =  textField.text;
+    }
+    if (textField == self.peopleNeededTextField) {
+        self.detailedView.peopleNeeded.text =  textField.text;
+        self.detailedView.peopleCommited.text = @"1";
+    }
+    
 }
+
+
+- (void) settingPlaceholdersToTextFields
+{
+    if ([self.titleTextField.text isEqualToString:@""]) {
+        self.titleTextField.placeholder = @"Enter the title of your Campaign";
+    } else {
+        self.titleTextField.placeholder = self.detailedView.campaignTitle.text;
+    }
+    
+    if ([self.descriptionTextField.text isEqualToString:@""]) {
+        self.descriptionTextField.placeholder = @"Enter all the relevent details (Link, Price etc.)";
+    } else {
+        self.descriptionTextField.placeholder = self.detailedView.campaignDetails.text;
+    }
+    
+    if ([self.peopleNeededTextField.text isEqualToString:@""]) {
+        self.peopleNeededTextField.placeholder = @"Min. #";
+    } else {
+        self.peopleNeededTextField.placeholder = self.detailedView.peopleNeeded.text;
+    }
+}
+
+
+
 
 /*
 #pragma mark - Navigation
@@ -49,7 +88,32 @@
 }
 */
 - (IBAction)uploadImageButtonTapped:(id)sender {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:NULL];
+    
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+    self.detailedView.profilePicture.image = selectedImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+
+
+
+
+
 - (IBAction)createThePageButtonTapped:(id)sender {
 }
 

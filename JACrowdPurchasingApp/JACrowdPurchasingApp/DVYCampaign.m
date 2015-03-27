@@ -12,7 +12,7 @@
 
 @implementation DVYCampaign
 
-- (instancetype)initWithTitle:(NSString *)title detail:(NSString *)detail deadline:(NSDate *)deadline host:(DVYUser *)host minimumNeededCommits:(NSInteger)minimumNeededCommits
+- (instancetype)initWithTitle:(NSString *)title detail:(NSString *)detail deadline:(NSDate *)deadline host:(DVYUser *)host minimumNeededCommits:(NSNumber *)minimumNeededCommits
 {
     self = [[DVYCampaign alloc] init];
     if (self) {
@@ -21,15 +21,15 @@
         _deadline = deadline;
         _host = host;
         _minimumNeededCommits = minimumNeededCommits;
-        _price = @(0);
+        //_price = @(0);
         
         _invitees = [[NSMutableArray alloc] init];
-        _watchers = [[NSMutableArray alloc] init];
         _committed = [[NSMutableArray alloc] init];
-        
-        _tokens = [[NSMutableArray alloc] init];
-        [_tokens addObject:[self generateHostToken]];
-        [_watchers addObject:[self generateHostToken]];
+        //_watchers = [[NSMutableArray alloc] init];
+
+        //_tokens = [[NSMutableArray alloc] init];
+        //[_tokens addObject:[self generateHostToken]];
+        //[_watchers addObject:[self generateHostToken]];
         
         _hasEnded = NO;
     }
@@ -37,14 +37,16 @@
     return self;
 }
 
-- (DVYRelationshipToken *)generateHostToken
-{
-    DVYRelationshipToken *hostToken = [[DVYRelationshipToken alloc] initWithUser:self.host campaign:self];
-    hostToken.minimumDesiredCommits = self.minimumNeededCommits;
-    
-    return hostToken;
-}
+//- (DVYRelationshipToken *)generateHostToken
+//{
+//    DVYRelationshipToken *hostToken = [[DVYRelationshipToken alloc] initWithUser:self.host campaign:self];
+//    hostToken.minimumDesiredCommits = self.minimumNeededCommits;
+//    
+//    return hostToken;
+//}
 
+
+//Adding a bunch of people
 - (void)addInvitees:(NSArray *)invitees
 {
     for (DVYUser *invitee in invitees) {
@@ -52,26 +54,32 @@
     }
 }
 
+//Adding one user
 - (void)addInvitee:(DVYUser *)inviteeToAdd
 {
     [_invitees addObject:inviteeToAdd];
 }
 
+
+//Remove a user
 - (void)removeInvitee:(DVYUser *)inviteeToRemove
 {
     [_invitees removeObject:inviteeToRemove];
 }
 
-- (void)addWatcher:(DVYUser *)watcherToAdd withMinimum:(NSInteger)minimum
-{
-    [_watchers addObject:watcherToAdd];
-    // [self removeInvitee:watcherToAdd];
-}
 
-- (void)removeWatcher:(DVYUser *)watcherToRemove {
-    [_watchers removeObject:watcherToRemove];
-}
+//- (void)addWatcher:(DVYUser *)watcherToAdd withMinimum:(NSInteger)minimum
+//{
+//    [_watchers addObject:watcherToAdd];
+//    // [self removeInvitee:watcherToAdd];
+//}
+//
+//- (void)removeWatcher:(DVYUser *)watcherToRemove {
+//    [_watchers removeObject:watcherToRemove];
+//}
 
+
+//Commit a bunch of people
 - (void)addCommitted:(NSArray *)committed
 {
     for (DVYUser *committer in committed) {
@@ -79,19 +87,25 @@
     }
 }
 
+
+//Commit one user
 - (void)addCommitter:(DVYUser *)committer
 {
     [_committed addObject:committer];
 }
 
+
+//Uncommit a user
 - (void)removeCommitter:(DVYUser *)committer
 {
     [_committed removeObject:committer];
 }
 
+
+//Campaign has met the needs of minimum number of people
 - (BOOL)hasMetNeeds
 {
-    if ([self.committed count] >= self.minimumNeededCommits) {
+    if ([self.committed count] >= [self.minimumNeededCommits integerValue]) {
         return YES;
     }
     else {
@@ -99,82 +113,93 @@
     }
 }
 
+
+
 - (void)setHasEnded
 {
     _hasEnded = YES;
 }
 
-- (void)addTokenWithUser:(DVYUser *)user minimumDesiredCommit:(NSInteger)integer
-{
-    DVYRelationshipToken *token = [[DVYRelationshipToken alloc] initWithUser:user campaign:self];
-    token.minimumDesiredCommits = integer;
-    [_tokens addObject:token];
-}
 
-- (void)removeTokenWithUser:(DVYUser *)user
-{
-    for (DVYRelationshipToken *token in self.tokens) {
-        if (token.user == user) {
-            [self.tokens removeObject:token];
-        }
-    }
-}
+//- (void)addTokenWithUser:(DVYUser *)user minimumDesiredCommit:(NSInteger)integer
+//{
+//    DVYRelationshipToken *token = [[DVYRelationshipToken alloc] initWithUser:user campaign:self];
+//    token.minimumDesiredCommits = integer;
+//    [_tokens addObject:token];
+//}
+//
+//- (void)removeTokenWithUser:(DVYUser *)user
+//{
+//    for (DVYRelationshipToken *token in self.tokens) {
+//        if (token.user == user) {
+//            [self.tokens removeObject:token];
+//        }
+//    }
+//}
 
-- (void)runAutoCommit
-{
-    [self sortTokens];
-    NSMutableArray *tokensToConsider = [self.tokens copy];
-    
-    for (DVYRelationshipToken *token in self.tokens) {
-        
-        NSInteger highestMinimumCommitToConsider = [self highestMinimumCommitInArray:tokensToConsider];
-        NSMutableArray *arrayOfCompatibleTokens = [self arrayOfTokensWithMinimumAtOrLessThan:highestMinimumCommitToConsider inArray:tokensToConsider];
-        
-        if ([arrayOfCompatibleTokens count]>highestMinimumCommitToConsider) {
-            for (DVYRelationshipToken *token in arrayOfCompatibleTokens) {
-                token.isCommitted = YES;
-                self.committed = arrayOfCompatibleTokens;
-            }
-            continue;
-        }
-        else {
-            [tokensToConsider removeObjectAtIndex:0];
-        }
-    }
-    
-}
 
-- (NSMutableArray *)arrayOfTokensWithMinimumAtOrLessThan:(NSInteger)minimum inArray:(NSArray *)array
-{
-    NSMutableArray *arrayToReturn = [[NSMutableArray alloc] init];
-    
-    for (DVYRelationshipToken *token in array) {
-        if (token.minimumDesiredCommits <= minimum) {
-            [arrayToReturn addObject:token];
-        }
-    }
-    
-    return arrayToReturn;
-}
 
-- (NSInteger)highestMinimumCommitInArray:(NSArray *)array
-{
-    NSInteger highest = 0;
-    
-    for (DVYRelationshipToken *token in array) {
-        if (token.minimumDesiredCommits > highest) {
-            highest = token.minimumDesiredCommits;
-        }
-    }
-    
-    return highest;
-}
+//- (void)runAutoCommit
+//{
+//    [self sortTokens];
+//    NSMutableArray *tokensToConsider = [self.tokens copy];
+//    
+//    for (DVYRelationshipToken *token in self.tokens) {
+//        
+//        NSInteger highestMinimumCommitToConsider = [self highestMinimumCommitInArray:tokensToConsider];
+//        NSMutableArray *arrayOfCompatibleTokens = [self arrayOfTokensWithMinimumAtOrLessThan:highestMinimumCommitToConsider inArray:tokensToConsider];
+//        
+//        if ([arrayOfCompatibleTokens count]>highestMinimumCommitToConsider) {
+//            for (DVYRelationshipToken *token in arrayOfCompatibleTokens) {
+//                token.isCommitted = YES;
+//                self.committed = arrayOfCompatibleTokens;
+//            }
+//            continue;
+//        }
+//        else {
+//            [tokensToConsider removeObjectAtIndex:0];
+//        }
+//    }
+//    
+//}
 
-- (void)sortTokens
-{
-    NSSortDescriptor *sortByDescendingMinimumCommits = [NSSortDescriptor sortDescriptorWithKey:@"minimumDesiredCommits" ascending:NO];
-    self.tokens = [[self.tokens sortedArrayUsingDescriptors:@[sortByDescendingMinimumCommits]] mutableCopy];
-}
+
+
+//- (NSMutableArray *)arrayOfTokensWithMinimumAtOrLessThan:(NSInteger)minimum inArray:(NSArray *)array
+//{
+//    NSMutableArray *arrayToReturn = [[NSMutableArray alloc] init];
+//    
+//    for (DVYRelationshipToken *token in array) {
+//        if (token.minimumDesiredCommits <= minimum) {
+//            [arrayToReturn addObject:token];
+//        }
+//    }
+//    
+//    return arrayToReturn;
+//}
+
+
+
+//- (NSInteger)highestMinimumCommitInArray:(NSArray *)array
+//{
+//    NSInteger highest = 0;
+//    
+//    for (DVYRelationshipToken *token in array) {
+//        if (token.minimumDesiredCommits > highest) {
+//            highest = token.minimumDesiredCommits;
+//        }
+//    }
+//    
+//    return highest;
+//}
+
+
+
+//- (void)sortTokens
+//{
+//    NSSortDescriptor *sortByDescendingMinimumCommits = [NSSortDescriptor sortDescriptorWithKey:@"minimumDesiredCommits" ascending:NO];
+//    self.tokens = [[self.tokens sortedArrayUsingDescriptors:@[sortByDescendingMinimumCommits]] mutableCopy];
+//}
 
 
 //- (NSMutableArray *)generateOrderedArrayOfRelationshipTokensFromWatchers:(NSMutableArray *)watchers;
