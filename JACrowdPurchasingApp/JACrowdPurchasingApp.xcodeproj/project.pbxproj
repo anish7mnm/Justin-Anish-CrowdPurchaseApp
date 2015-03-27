@@ -210,7 +210,6 @@
 			children = (
 				88D446381AC3708F00F1A530 /* DVYCampaignDetailView.h */,
 				88D446391AC3708F00F1A530 /* DVYCampaignDetailView.m */,
-				88D446331AC36F9F00F1A530 /* CreateFlow.storyboard */,
 				88D446441AC3732800F1A530 /* DVYSelectFriendsTableViewCell.h */,
 				88D446451AC3732800F1A530 /* DVYSelectFriendsTableViewCell.m */,
 				88D446411AC3730600F1A530 /* DVYTextInviteFriendsTableViewCell.h */,
@@ -273,6 +272,7 @@
 				883C66081AC1F11400258869 /* Models */,
 				88E94ED81AA7A4C90052FA35 /* AppDelegate.h */,
 				88E94ED91AA7A4C90052FA35 /* AppDelegate.m */,
+				88D446331AC36F9F00F1A530 /* CreateFlow.storyboard */,
 				88E94EDE1AA7A4C90052FA35 /* Main.storyboard */,
 				88D446471AC3733500F1A530 /* Create Page & Invite Flow */,
 				88E94EE11AA7A4C90052FA35 /* Images.xcassets */,
