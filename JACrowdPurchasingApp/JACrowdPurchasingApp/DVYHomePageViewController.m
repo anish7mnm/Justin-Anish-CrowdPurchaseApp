@@ -9,8 +9,13 @@
 #import <Parse/Parse.h>
 #import "DVYHomePageViewController.h"
 #import "DVYDataStore.h"
+
 #import "DVYTableViewCell.h"
 #import "DVYFacebookLoginViewController.h"
+
+#import "DVYOtherCampaignViewController.h"
+#import "DVYSelfCampaignViewController.h"
+#import "DVYCreateCampaignViewController.h"
 
 @interface DVYHomePageViewController ()
 @property (strong, nonatomic) DVYDataStore *localDataStore;
@@ -43,7 +48,19 @@
     
     [self removeAllConstraints];
     [self settingConstraints];
+//    [self.localDataStore getselfCampaignsWithCompletionBlock:^{
+//        NSLog(@"Got the campaigns hosted by me");
+//    }];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    [self.localDataStore getselfCampaignsWithCompletionBlock:^{
+        NSLog(@"Got the campaigns hosted by me");
+        [self.selfTableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,9 +75,9 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"]) {
-//        return [self.localDataStore.selfCampaigns count];
-//    }
+    if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"]) {
+        return [self.localDataStore.selfCampaigns count];
+    }
 //    else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
 //        return [self.localDataStore.othersCampaign count];
 //    }
@@ -77,10 +94,15 @@
     {
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selfCampaignCell" forIndexPath:indexPath];
         
-        cell.campaignTitle.text = @"Design+Code Book";
-        cell.hostName.text = @"6";
-        cell.hostName.textColor = [UIColor purpleColor];
+        DVYCampaign *selfCampaign = self.localDataStore.selfCampaigns[indexPath.row];
         
+        cell.campaignTitle.text = selfCampaign.title;
+        
+        DVYUser *myself = [PFUser currentUser];
+        
+        cell.hostName.text = myself[@"fullName"];
+        cell.hostName.textColor = [UIColor purpleColor];
+
         cell.campaignImagePicture.image = [UIImage imageNamed:@"book"];
         return cell;
         
@@ -282,6 +304,69 @@
     [self.containerView addConstraints:table3Vertical];
     self.scrollView.pagingEnabled = YES;
 
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"]) {
+    
+        DVYSelfCampaignViewController *selfCampaign = [[DVYSelfCampaignViewController alloc] initWithNibName:@"DVYSelfCampaignViewController" bundle:nil];
+        
+        DVYCampaign *testCampaign = [[DVYCampaign alloc] init];
+        testCampaign.title = @"fuck";
+        testCampaign.detail = @"suck";
+        testCampaign.deadline = [NSDate dateWithTimeIntervalSinceNow:1000.00];
+        testCampaign.minimumNeededCommits = @3;
+        //testCampaign.itemImage = [UIImage imageNamed:@"amus.jpg"];
+        
+        selfCampaign.campaign = testCampaign;    //self.localDataStore.othersCampaign[indexPath.row];
+        [self.navigationController pushViewController:selfCampaign animated:YES];
+    }
+
+    else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
+        DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
+        
+        DVYCampaign *testCampaign = [[DVYCampaign alloc] init];
+        testCampaign.title = @"BOOP";
+        testCampaign.detail = @"shalalala";
+        testCampaign.deadline = [NSDate dateWithTimeIntervalSinceNow:1000.00];
+        testCampaign.minimumNeededCommits = @5;
+        //testCampaign.itemImage = [UIImage imageNamed:@"amus.jpg"];
+        
+        othersCampaign.campaign = testCampaign;    //self.localDataStore.othersCampaign[indexPath.row];
+        [self.navigationController pushViewController:othersCampaign animated:YES];
+    }
+    
+    else if ([tableView.accessibilityIdentifier isEqualToString:@"invitations"]) {
+        
+        DVYOtherCampaignViewController *othersCampaignInvite = [[DVYOtherCampaignViewController alloc] init];
+
+        DVYCampaign *testCampaign = [[DVYCampaign alloc] init];
+        testCampaign.title = @"BEEP";
+        testCampaign.detail = @"shalalala";
+        testCampaign.deadline = [NSDate dateWithTimeIntervalSinceNow:1000.00];
+        testCampaign.minimumNeededCommits = @5;
+        //testCampaign.itemImage = [UIImage imageNamed:@"amus.jpg"];
+        
+        othersCampaignInvite.campaign = testCampaign;    //self.localDataStore.othersCampaign[indexPath.row];
+        
+        othersCampaignInvite.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        [self presentViewController:othersCampaignInvite animated:YES completion:nil];
+
+        
+       // [self.navigationController pushViewController:othersCampaignInvite animated:YES];
+    }
+    
+}
+
+
+- (IBAction)createACampaign:(id)sender {
+    
+    DVYCreateCampaignViewController *createCampaign = [[DVYCreateCampaignViewController alloc] init];
+
+    createCampaign.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:createCampaign animated:YES completion:nil];
 }
 
 /*

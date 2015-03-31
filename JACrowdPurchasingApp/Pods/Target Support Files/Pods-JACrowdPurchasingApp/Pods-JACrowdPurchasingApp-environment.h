@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_Bolts 1
 #define COCOAPODS_VERSION_PATCH_Bolts 4
 
+// CMDQueryStringSerialization
+#define COCOAPODS_POD_AVAILABLE_CMDQueryStringSerialization
+#define COCOAPODS_VERSION_MAJOR_CMDQueryStringSerialization 0
+#define COCOAPODS_VERSION_MINOR_CMDQueryStringSerialization 2
+#define COCOAPODS_VERSION_PATCH_CMDQueryStringSerialization 0
+
 // Facebook-iOS-SDK
 #define COCOAPODS_POD_AVAILABLE_Facebook_iOS_SDK
 #define COCOAPODS_VERSION_MAJOR_Facebook_iOS_SDK 3
@@ -21,14 +27,14 @@
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse
 #define COCOAPODS_VERSION_MAJOR_Parse 1
-#define COCOAPODS_VERSION_MINOR_Parse 6
-#define COCOAPODS_VERSION_PATCH_Parse 5
+#define COCOAPODS_VERSION_MINOR_Parse 7
+#define COCOAPODS_VERSION_PATCH_Parse 0
 
 // ParseFacebookUtils
 #define COCOAPODS_POD_AVAILABLE_ParseFacebookUtils
 #define COCOAPODS_VERSION_MAJOR_ParseFacebookUtils 1
-#define COCOAPODS_VERSION_MINOR_ParseFacebookUtils 6
-#define COCOAPODS_VERSION_PATCH_ParseFacebookUtils 5
+#define COCOAPODS_VERSION_MINOR_ParseFacebookUtils 7
+#define COCOAPODS_VERSION_PATCH_ParseFacebookUtils 0
 
 // ParseUI
 #define COCOAPODS_POD_AVAILABLE_ParseUI
@@ -36,9 +42,27 @@
 #define COCOAPODS_VERSION_MINOR_ParseUI 1
 #define COCOAPODS_VERSION_PATCH_ParseUI 1
 
+// SSKeychain
+#define COCOAPODS_POD_AVAILABLE_SSKeychain
+#define COCOAPODS_VERSION_MAJOR_SSKeychain 1
+#define COCOAPODS_VERSION_MINOR_SSKeychain 2
+#define COCOAPODS_VERSION_PATCH_SSKeychain 2
+
 // Shimmer
 #define COCOAPODS_POD_AVAILABLE_Shimmer
 #define COCOAPODS_VERSION_MAJOR_Shimmer 1
 #define COCOAPODS_VERSION_MINOR_Shimmer 0
 #define COCOAPODS_VERSION_PATCH_Shimmer 2
+
+// VENCore
+#define COCOAPODS_POD_AVAILABLE_VENCore
+#define COCOAPODS_VERSION_MAJOR_VENCore 3
+#define COCOAPODS_VERSION_MINOR_VENCore 0
+#define COCOAPODS_VERSION_PATCH_VENCore 1
+
+// Venmo-iOS-SDK
+#define COCOAPODS_POD_AVAILABLE_Venmo_iOS_SDK
+#define COCOAPODS_VERSION_MAJOR_Venmo_iOS_SDK 1
+#define COCOAPODS_VERSION_MINOR_Venmo_iOS_SDK 3
+#define COCOAPODS_VERSION_PATCH_Venmo_iOS_SDK 0
 

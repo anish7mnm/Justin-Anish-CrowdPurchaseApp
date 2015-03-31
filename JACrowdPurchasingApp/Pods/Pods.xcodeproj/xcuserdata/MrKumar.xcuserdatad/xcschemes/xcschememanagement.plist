@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-JACrowdPurchasingApp-CMDQueryStringSerialization.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JACrowdPurchasingApp-Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,7 +24,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-JACrowdPurchasingApp-SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JACrowdPurchasingApp-Shimmer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JACrowdPurchasingApp-VENCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JACrowdPurchasingApp-Venmo-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>44B5CFD3D0C56DC6F9D74E7C</key>
+		<key>19B354806153B4116C5753FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D814C8C5F420F72E0469FDE</key>
+		<key>2547621881D846BF01DF179C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D8A198EABF3C0E07EC2BCAF</key>
+		<key>2BA9EE722F8BB5A252264ABD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>697CADC9B9E860287A2EF267</key>
+		<key>39625BA7D92A3836B1E8D8FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD314718C4DEB4C4A3F17F5A</key>
+		<key>53A863C9D9D48A76482DA622</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9912F5AD0778B75398795637</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1B28CAAA0CF3C96B68E4869</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C3D3FB980F2B252DF3181D39</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5C0303A61ACB46F1101C2F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

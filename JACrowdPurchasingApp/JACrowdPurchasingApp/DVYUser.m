@@ -14,10 +14,20 @@
 @dynamic fullName;
 @dynamic email;
 @dynamic profilePicture;
+@dynamic currentUser;
 
 +(NSString *)parseClassName
 {
     return @"User";
+}
+
+-(void) setDVYUSerToCurrentUser
+{
+    self.currentUser = [PFUser currentUser];
+    self.username = self.currentUser.username;
+    self.fullName = self.currentUser[@"fullName"];
+    self.email = self.currentUser[@"email"];
+    self.profilePicture = self.currentUser[@"profilePicture"];
 }
 
 @end

@@ -5,6 +5,8 @@ target 'JACrowdPurchasingApp' do
 	pod 'Facebook-iOS-SDK'
 	pod 'ParseUI'
 	pod 'Shimmer'
+	pod 'Venmo-iOS-SDK', '~>1.3'
+	pod 'SSKeychain'
 end
 
 target 'JACrowdPurchasingAppTests' do

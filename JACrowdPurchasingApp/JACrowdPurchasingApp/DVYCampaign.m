@@ -12,30 +12,47 @@
 
 @implementation DVYCampaign
 
-- (instancetype)initWithTitle:(NSString *)title detail:(NSString *)detail deadline:(NSDate *)deadline host:(DVYUser *)host minimumNeededCommits:(NSNumber *)minimumNeededCommits
-{
-    self = [[DVYCampaign alloc] init];
-    if (self) {
-        _title = title;
-        _detail = detail;
-        _deadline = deadline;
-        _host = host;
-        _minimumNeededCommits = minimumNeededCommits;
-        //_price = @(0);
-        
-        _invitees = [[NSMutableArray alloc] init];
-        _committed = [[NSMutableArray alloc] init];
-        //_watchers = [[NSMutableArray alloc] init];
+@dynamic title;
+@dynamic detail;
+@dynamic deadline;
+@dynamic host;
+@dynamic minimumNeededCommits;
+@dynamic committed;
+@dynamic invitees;
+@dynamic hasEnded;
+@dynamic hasMetNeeds;
+@dynamic item;
 
-        //_tokens = [[NSMutableArray alloc] init];
-        //[_tokens addObject:[self generateHostToken]];
-        //[_watchers addObject:[self generateHostToken]];
-        
-        _hasEnded = NO;
-    }
-    
-    return self;
+
++(NSString *)parseClassName
+{
+    return @"Campaign";
 }
+
+//- (instancetype)initWithTitle:(NSString *)title detail:(NSString *)detail deadline:(NSDate *)deadline host:(DVYUser *)host minimumNeededCommits:(NSNumber *)minimumNeededCommits
+//{
+//    self = [[DVYCampaign alloc] init];
+//    if (self) {
+//        _title = title;
+//        _detail = detail;
+//        _deadline = deadline;
+//        _host = host;
+//        _minimumNeededCommits = minimumNeededCommits;
+//        //_price = @(0);
+//        
+//        _invitees = [[NSMutableArray alloc] init];
+//        _committed = [[NSMutableArray alloc] init];
+//        //_watchers = [[NSMutableArray alloc] init];
+//
+//        //_tokens = [[NSMutableArray alloc] init];
+//        //[_tokens addObject:[self generateHostToken]];
+//        //[_watchers addObject:[self generateHostToken]];
+//        
+//        _hasEnded = NO;
+//    }
+//    
+//    return self;
+//}
 
 //- (DVYRelationshipToken *)generateHostToken
 //{
@@ -50,21 +67,21 @@
 - (void)addInvitees:(NSArray *)invitees
 {
     for (DVYUser *invitee in invitees) {
-        [_invitees addObject:invitee];
+        [self.invitees addObject:invitee];
     }
 }
 
 //Adding one user
 - (void)addInvitee:(DVYUser *)inviteeToAdd
 {
-    [_invitees addObject:inviteeToAdd];
+    [self.invitees addObject:inviteeToAdd];
 }
 
 
 //Remove a user
 - (void)removeInvitee:(DVYUser *)inviteeToRemove
 {
-    [_invitees removeObject:inviteeToRemove];
+    [self.invitees removeObject:inviteeToRemove];
 }
 
 
@@ -82,41 +99,66 @@
 //Commit a bunch of people
 - (void)addCommitted:(NSArray *)committed
 {
-    for (DVYUser *committer in committed) {
-        [_committed addObject:committer];
+    for (DVYUser *committer in committed)
+    {
+        [self.committed addObject:committer];
     }
+    [self saveInBackground];
+    [self checkIfCampiagnHasMetNeeds];
+
 }
 
 
 //Commit one user
 - (void)addCommitter:(DVYUser *)committer
 {
-    [_committed addObject:committer];
+    [self.committed addObject:committer];
+    [self saveInBackground];
+    [self checkIfCampiagnHasMetNeeds];
+    
 }
 
 
 //Uncommit a user
 - (void)removeCommitter:(DVYUser *)committer
 {
-    [_committed removeObject:committer];
+    [self.committed removeObject:committer];
+    [self saveInBackground];
+
 }
 
 
 //Campaign has met the needs of minimum number of people
-- (BOOL)hasMetNeeds
+-(void)checkIfCampiagnHasMetNeeds{
+    [self requestCommitWithCompletionBlock:^(NSArray *campaignObjects) {
+        if ([campaignObjects count] >= [self.minimumNeededCommits integerValue]) {
+            self.hasMetNeeds = YES;
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"CONGRATULATIONS!"
+                                                            message:@"YOUR CAMPAIGN NEEDS ARE MET"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
+            [self saveInBackground];
+        }
+    }];
+    
+}
+
+-(void) requestCommitWithCompletionBlock: (void (^)(NSArray *campaignObjects)) completionBlock
 {
-    if ([self.committed count] >= [self.minimumNeededCommits integerValue]) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
+    PFQuery *query = [self.committed query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        completionBlock(objects);
+    }];
 }
 
 
 - (void)setHasEnded
 {
-    _hasEnded = YES;
+    self.hasEnded = YES;
 }
 
 

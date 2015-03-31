@@ -17,6 +17,8 @@
 		889CE9971AC0D9DC00F04C0B /* DVYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */; };
 		88B55FD51AC5B0EB002A83AE /* DVYCampaignDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B55FD41AC5B0EA002A83AE /* DVYCampaignDetailView.xib */; };
 		88B55FD81AC5F0DD002A83AE /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B55FD71AC5F0DD002A83AE /* Item.m */; };
+		88B560151AC999BC002A83AE /* DVYOtherCampaignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B560131AC999BC002A83AE /* DVYOtherCampaignViewController.m */; };
+		88B560161AC999BC002A83AE /* DVYOtherCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B560141AC999BC002A83AE /* DVYOtherCampaignViewController.xib */; };
 		88D446341AC36F9F00F1A530 /* CreateFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D446331AC36F9F00F1A530 /* CreateFlow.storyboard */; };
 		88D446371AC3701900F1A530 /* DVYCreateCampaignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D446361AC3701900F1A530 /* DVYCreateCampaignViewController.m */; };
 		88D4463A1AC3708F00F1A530 /* DVYCampaignDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D446391AC3708F00F1A530 /* DVYCampaignDetailView.m */; };
@@ -42,6 +44,8 @@
 		88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */; };
 		88E94EF11AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E94EF01AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m */; };
 		88EF0BF91ABCD57900897A21 /* DVYHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */; };
+		88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */; };
+		88F3672B1AC9DB39009358FA /* DVYCreateCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */; };
 		A2E458A7B6546632644441BF /* libPods-JACrowdPurchasingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA848941C109929DE44BCAB5 /* libPods-JACrowdPurchasingApp.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +80,9 @@
 		88B55FD41AC5B0EA002A83AE /* DVYCampaignDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYCampaignDetailView.xib; sourceTree = "<group>"; };
 		88B55FD61AC5F0DD002A83AE /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		88B55FD71AC5F0DD002A83AE /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		88B560121AC999BC002A83AE /* DVYOtherCampaignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYOtherCampaignViewController.h; sourceTree = "<group>"; };
+		88B560131AC999BC002A83AE /* DVYOtherCampaignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYOtherCampaignViewController.m; sourceTree = "<group>"; };
+		88B560141AC999BC002A83AE /* DVYOtherCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYOtherCampaignViewController.xib; sourceTree = "<group>"; };
 		88D446331AC36F9F00F1A530 /* CreateFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateFlow.storyboard; sourceTree = "<group>"; };
 		88D446351AC3701900F1A530 /* DVYCreateCampaignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYCreateCampaignViewController.h; sourceTree = "<group>"; };
 		88D446361AC3701900F1A530 /* DVYCreateCampaignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYCreateCampaignViewController.m; sourceTree = "<group>"; };
@@ -114,6 +121,8 @@
 		88EF0BF21ABCCF9300897A21 /* libPods-JACrowdPurchasingApp-Bolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-JACrowdPurchasingApp-Bolts.a"; path = "Pods/build/Debug-iphoneos/libPods-JACrowdPurchasingApp-Bolts.a"; sourceTree = "<group>"; };
 		88EF0BF61ABCD57900897A21 /* DVYHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYHomePageViewController.h; sourceTree = "<group>"; };
 		88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYHomePageViewController.m; sourceTree = "<group>"; };
+		88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYSelfCampaignViewController.xib; sourceTree = "<group>"; };
+		88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYCreateCampaignViewController.xib; sourceTree = "<group>"; };
 		CA848941C109929DE44BCAB5 /* libPods-JACrowdPurchasingApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JACrowdPurchasingApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -185,10 +194,14 @@
 		88B55FD21AC5AB43002A83AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				88F3672D1ACAD866009358FA /* Campaigns */,
+				88F3672C1ACAD859009358FA /* HomePage */,
 				889CE98F1AC0AF8E00F04C0B /* DVYFacebookLoginViewController.h */,
 				889CE9901AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m */,
-				88EF0BF61ABCD57900897A21 /* DVYHomePageViewController.h */,
-				88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */,
+				889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */,
+				88D446351AC3701900F1A530 /* DVYCreateCampaignViewController.h */,
+				88D446361AC3701900F1A530 /* DVYCreateCampaignViewController.m */,
+				88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -197,8 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */,
-				889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */,
 				88B55FD41AC5B0EA002A83AE /* DVYCampaignDetailView.xib */,
+				88D446381AC3708F00F1A530 /* DVYCampaignDetailView.h */,
+				88D446391AC3708F00F1A530 /* DVYCampaignDetailView.m */,
 				889CE9951AC0D9DC00F04C0B /* DVYTableViewCell.h */,
 				889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */,
 			);
@@ -208,18 +222,10 @@
 		88D446471AC3733500F1A530 /* Create Page & Invite Flow */ = {
 			isa = PBXGroup;
 			children = (
-				88D446381AC3708F00F1A530 /* DVYCampaignDetailView.h */,
-				88D446391AC3708F00F1A530 /* DVYCampaignDetailView.m */,
 				88D446441AC3732800F1A530 /* DVYSelectFriendsTableViewCell.h */,
 				88D446451AC3732800F1A530 /* DVYSelectFriendsTableViewCell.m */,
 				88D446411AC3730600F1A530 /* DVYTextInviteFriendsTableViewCell.h */,
 				88D446421AC3730600F1A530 /* DVYTextInviteFriendsTableViewCell.m */,
-				88D4463E1AC371B400F1A530 /* DVYInviteFriendsTableViewController.h */,
-				88D4463F1AC371B400F1A530 /* DVYInviteFriendsTableViewController.m */,
-				88D4463B1AC370D600F1A530 /* DVYSelfCampaignViewController.h */,
-				88D4463C1AC370D600F1A530 /* DVYSelfCampaignViewController.m */,
-				88D446351AC3701900F1A530 /* DVYCreateCampaignViewController.h */,
-				88D446361AC3701900F1A530 /* DVYCreateCampaignViewController.m */,
 			);
 			name = "Create Page & Invite Flow";
 			sourceTree = "<group>";
@@ -305,6 +311,30 @@
 				88E94EEF1AA7A4C90052FA35 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88F3672C1ACAD859009358FA /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				88EF0BF61ABCD57900897A21 /* DVYHomePageViewController.h */,
+				88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */,
+			);
+			name = HomePage;
+			sourceTree = "<group>";
+		};
+		88F3672D1ACAD866009358FA /* Campaigns */ = {
+			isa = PBXGroup;
+			children = (
+				88D4463B1AC370D600F1A530 /* DVYSelfCampaignViewController.h */,
+				88D4463C1AC370D600F1A530 /* DVYSelfCampaignViewController.m */,
+				88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */,
+				88B560121AC999BC002A83AE /* DVYOtherCampaignViewController.h */,
+				88B560131AC999BC002A83AE /* DVYOtherCampaignViewController.m */,
+				88B560141AC999BC002A83AE /* DVYOtherCampaignViewController.xib */,
+				88D4463E1AC371B400F1A530 /* DVYInviteFriendsTableViewController.h */,
+				88D4463F1AC371B400F1A530 /* DVYInviteFriendsTableViewController.m */,
+			);
+			name = Campaigns;
 			sourceTree = "<group>";
 		};
 		DC1D40A30D19BB66BEA2E6C6 /* Pods */ = {
@@ -398,8 +428,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F3672B1AC9DB39009358FA /* DVYCreateCampaignViewController.xib in Resources */,
 				88E94EE01AA7A4C90052FA35 /* Main.storyboard in Resources */,
 				88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */,
+				88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */,
+				88B560161AC999BC002A83AE /* DVYOtherCampaignViewController.xib in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
 				889CE9931AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib in Resources */,
 				88D446341AC36F9F00F1A530 /* CreateFlow.storyboard in Resources */,
@@ -468,6 +501,7 @@
 				88D446401AC371B400F1A530 /* DVYInviteFriendsTableViewController.m in Sources */,
 				88B55FD81AC5F0DD002A83AE /* Item.m in Sources */,
 				88E94ED71AA7A4C90052FA35 /* main.m in Sources */,
+				88B560151AC999BC002A83AE /* DVYOtherCampaignViewController.m in Sources */,
 				88EF0BF91ABCD57900897A21 /* DVYHomePageViewController.m in Sources */,
 				88D446461AC3732800F1A530 /* DVYSelectFriendsTableViewCell.m in Sources */,
 				889CE9971AC0D9DC00F04C0B /* DVYTableViewCell.m in Sources */,

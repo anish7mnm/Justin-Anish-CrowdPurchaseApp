@@ -10,14 +10,15 @@
 
 @interface DVYDataStore : NSObject
 
-@property (strong, nonatomic) NSMutableArray *selfCampaigns;
+@property (strong, nonatomic) NSArray *selfCampaigns;
 @property (strong, nonatomic) NSMutableArray *othersCampaign;
 @property (strong, nonatomic) NSMutableArray *alertCampaign;
 
 @property (strong, nonatomic) NSMutableArray *users;
 
-
-
 + (instancetype)sharedLocationsDataStore;
+
+-(void) getselfCampaignsWithCompletionBlock: (void (^)(void))completionBlock;
+
 
 @end

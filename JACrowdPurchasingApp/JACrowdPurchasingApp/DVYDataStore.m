@@ -7,6 +7,8 @@
 //
 
 #import "DVYDataStore.h"
+#import "DVYParseAPIClient.h"
+#import "DVYCampaign.h"
 
 @implementation DVYDataStore
 
@@ -24,7 +26,7 @@
 {
     self = [super init];
     if (self) {
-        _selfCampaigns = [[NSMutableArray alloc] init];
+        _selfCampaigns = [[NSArray alloc] init];
         _othersCampaign = [[NSMutableArray alloc] init];
         _alertCampaign = [[NSMutableArray alloc] init];
         _users = [[NSMutableArray alloc] init];
@@ -33,6 +35,19 @@
 }
 
 
+-(void) getselfCampaignsWithCompletionBlock: (void (^)(void))completionBlock
+{
+    NSMutableArray *arrayForGood = [[NSMutableArray alloc] init];
+    [DVYParseAPIClient getSelfCampaignsWithCompletionBlock:^(NSArray *selfCampaigns) {
+        for (DVYCampaign *selfCampaign in selfCampaigns) {
+            [arrayForGood addObject:selfCampaign];
+        }
+    }];
+
+    self.selfCampaigns = arrayForGood;
+    completionBlock();
+    
+}
 
 
 @end

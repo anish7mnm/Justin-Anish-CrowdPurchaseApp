@@ -1,28 +1,42 @@
 PODS:
   - Bolts (1.1.4)
+  - CMDQueryStringSerialization (0.2.0)
   - Facebook-iOS-SDK (3.23.2):
     - Bolts (~> 1.0)
-  - Parse (1.6.5):
+  - Parse (1.7.0):
     - Bolts (~> 1.1)
-  - ParseFacebookUtils (1.6.5):
-    - Facebook-iOS-SDK (~> 3.20)
-    - Parse (~> 1.6.5)
+  - ParseFacebookUtils (1.7.0):
+    - Facebook-iOS-SDK (~> 3.23)
+    - Parse (~> 1.7.0)
   - ParseUI (1.1.1):
     - Parse (~> 1.6)
     - ParseFacebookUtils (~> 1.6)
   - Shimmer (1.0.2)
+  - SSKeychain (1.2.2)
+  - VENCore (3.0.1):
+    - CMDQueryStringSerialization (~> 0.2.0)
+  - Venmo-iOS-SDK (1.3.0):
+    - CMDQueryStringSerialization (~> 0.2.0)
+    - SSKeychain (~> 1.2.2)
+    - VENCore (~> 3.0.0)
 
 DEPENDENCIES:
   - Facebook-iOS-SDK
   - ParseUI
   - Shimmer
+  - SSKeychain
+  - Venmo-iOS-SDK (~> 1.3)
 
 SPEC CHECKSUMS:
-  Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
+  Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
+  CMDQueryStringSerialization: 15f9004212bbc72533bb533f63df79d90a00a7d8
   Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
-  Parse: a21db4037d70a68a4ec64ecc0f327ed475cc14f8
-  ParseFacebookUtils: 4d58d0f133fa1af52f3a8d5caaa55cd435118ac4
-  ParseUI: f7e9e0e5271f75a19c74ead8fdd95d36160e268e
-  Shimmer: 057fcfe9c1c978d69d50b64fce93a61080cd08ec
+  Parse: 3c2d4e6ade7b59d31c0bc8106340c6b81b31bc0f
+  ParseFacebookUtils: f0c954253a65e945d7cb73400c33bc661f516b85
+  ParseUI: e38bbbc3784006ab4ffaa6ef292e23c5fa9119dc
+  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  SSKeychain: 88767e903ee8d274ed380e364d96b7a101235286
+  VENCore: 7adedc7c0e65e3ba922cc21c35f3d0e133d43df7
+  Venmo-iOS-SDK: 456097c6df57544362719ea8db01541953aec44d
 
 COCOAPODS: 0.36.0.beta.2

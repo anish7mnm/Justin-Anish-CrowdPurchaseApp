@@ -187,6 +187,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="go8-qA-xlz">
                         <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="83F-T1-Ilx">
+                            <connections>
+                                <action selector="createACampaign:" destination="BYZ-38-t0r" id="CDA-HS-En3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="buttonView" destination="lIl-Ts-mCm" id="cSi-LU-QTZ"/>

@@ -8,9 +8,11 @@
 
 #import "DVYSelfCampaignViewController.h"
 #import "DVYCampaignDetailView.h"
+#import "DVYCampaign.h"
+#import "DVYCreateCampaignViewController.h"
 
 @interface DVYSelfCampaignViewController ()
-@property (weak, nonatomic) IBOutlet DVYCampaignDetailView *detailCampaignViewSelf;
+
 - (IBAction)editButtinTapped:(id)sender;
 
 @end
@@ -19,6 +21,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //self.view.accessibilityIdentifier= @"myCampaignVC";
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"DVYCampaignDetailView" owner:self options:nil];
+    
+    DVYCampaignDetailView *detailCampaignViewSelf = [nibViews firstObject];
+    
+    detailCampaignViewSelf.campaignTitle.text = self.campaign.title;
+    detailCampaignViewSelf.campaignDetails.text = self.campaign.detail;
+    detailCampaignViewSelf.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
+    
+    [self.view addSubview:detailCampaignViewSelf];
     // Do any additional setup after loading the view.
 }
 
@@ -38,6 +51,12 @@
 */
 
 - (IBAction)editButtinTapped:(id)sender {
+    
+    DVYCreateCampaignViewController *edit = [[DVYCreateCampaignViewController alloc] init];
+    edit.buttonName = @"Update";
+    edit.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:edit animated:YES completion:nil];
+    
 }
 
 - (IBAction)addFriendsButtinTapped:(id)sender {

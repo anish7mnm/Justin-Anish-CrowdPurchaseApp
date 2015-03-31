@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class DVYCampaign;
 @interface DVYSelfCampaignViewController : UIViewController
+
+@property (weak, nonatomic) DVYCampaign *campaign;
 
 @end

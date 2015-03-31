@@ -40,25 +40,10 @@
     [super viewWillAppear:animated];
     PFUser *currentUser = [PFUser currentUser];
     // Check if user is cached and linked to Facebook, if so, bypass login
-    if (![currentUser.email isEqual:@""]) {
+    if (currentUser) {
         [self presentHomePageViewController];
     }
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)facebookTapped:(id)sender {
     

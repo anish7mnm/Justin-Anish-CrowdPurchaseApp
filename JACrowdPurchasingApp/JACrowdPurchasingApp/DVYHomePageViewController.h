@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *selfTableView;
 @property (weak, nonatomic) IBOutlet UITableView *othersTableView;
 @property (weak, nonatomic) IBOutlet UITableView *invitationTableView;
+
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
 
 

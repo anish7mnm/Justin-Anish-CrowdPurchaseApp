@@ -10,4 +10,8 @@
 
 @interface DVYCreateCampaignViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+@property (strong, nonatomic) NSString *buttonName;
+@property (weak, nonatomic) IBOutlet UIButton *createButtonLabelProp;
+
+
 @end

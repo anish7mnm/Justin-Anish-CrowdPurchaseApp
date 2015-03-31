@@ -26,7 +26,6 @@
     self.campaignTitle.text = self.campaign.title;
     self.campaignDetails.text = self.campaign.detail;
     
-    
 }
 
 

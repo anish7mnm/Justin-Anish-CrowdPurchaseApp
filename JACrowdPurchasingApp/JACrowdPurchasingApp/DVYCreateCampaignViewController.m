@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *peopleNeededTextField;
-@property (weak, nonatomic) IBOutlet UIButton *createButtonLabelProp;
 
 @property (strong, nonatomic) DVYCampaignDetailView *detailedView;
 
@@ -26,9 +25,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.detailedView = [[DVYCampaignDetailView alloc] init];
+    
+    self.titleTextField.delegate = self;
+    self.descriptionTextField.delegate = self;
+    self.peopleNeededTextField.delegate = self;
+
+    
     self.createButtonLabelProp.enabled = NO;
+    
     [self settingPlaceholdersToTextFields];
+    
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"DVYCampaignDetailView" owner:self options:nil];
+    self.detailedView = [nibViews firstObject];
+
+    if (self.buttonName) {
+        [self.createButtonLabelProp setTitle:self.buttonName forState:UIControlStateNormal];
+    }
+
+    
     // Do any additional setup after loading the view.
 }
 
@@ -55,6 +69,13 @@
         self.detailedView.peopleCommited.text = @"1";
     }
     
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Update"]) {
+        self.createButtonLabelProp.enabled = YES;
+    }
 }
 
 
@@ -112,15 +133,34 @@
 
 - (IBAction)createThePageButtonTapped:(id)sender {
 
-    DVYCampaign *campaign = [DVYCampaign alloc]initWithTitle:self.detailedView.campaignTitle.text detail:self.detailedView.campaignDetails.text deadline:<#(NSDate *)#> host:<#(DVYUser *)#> minimumNeededCommits:<#(NSNumber *)#>
+    if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Create"]) {
+        NSLog(@"Created");
+    }
+    else{
+        NSLog(@"Updated");
+    }
+    DVYCampaign *campaign = [[DVYCampaign alloc]init];
+    campaign.title = self.detailedView.campaignTitle.text;
+    campaign.detail = self.detailedView.campaignDetails.text;
+    
+    Item *campaignItem = [[Item alloc] init];
+    
+    campaign.host = [PFUser currentUser];
+    [campaign saveInBackground];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
+}
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL) checkingIfTheFieldsAreEmptyOrNot
 {
     
-    if (![self.titleTextField.text isEqualToString:@""] && ![self.descriptionTextField.text isEqualToString:@""] && ![self.peopleNeededTextField.text isEqualToString:@""]) {
+    if (self.titleTextField && self.descriptionTextField && self.peopleNeededTextField) {
         return NO;
     }
     

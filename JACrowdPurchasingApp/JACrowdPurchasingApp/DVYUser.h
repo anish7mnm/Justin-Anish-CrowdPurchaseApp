@@ -15,5 +15,9 @@
 @property (nonatomic, strong) NSString *fullName;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *profilePicture;
+@property (strong, nonatomic) PFUser *currentUser;;
+
+-(void) setDVYUSerToCurrentUser;
+
 
 @end
