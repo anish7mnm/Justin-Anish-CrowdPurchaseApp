@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DVYHomePageViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DVYHomePageViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;

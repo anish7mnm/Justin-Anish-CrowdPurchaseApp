@@ -34,6 +34,12 @@
     detailCampaignViewSelf.campaignDetails.text = self.campaign.detail;
     detailCampaignViewSelf.peopleNeeded.text = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
 
+    PFQuery *query = [self.campaign.committed query];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        NSInteger count = (NSInteger) number;
+        detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
+    }];
+    
     DVYUser *host = self.campaign.host;
     detailCampaignViewSelf.hostName.text = host[@"fullName"];
     
@@ -50,8 +56,6 @@
             }];
         }
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Campaign"];
-    [query whereKeyExists:@"committed"];
 
     
     //detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%@", self.campaign.committed ]
@@ -60,6 +64,7 @@
     [self.view addSubview:detailCampaignViewSelf];
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

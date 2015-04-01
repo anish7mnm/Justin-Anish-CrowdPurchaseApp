@@ -58,16 +58,42 @@
         self.createButtonLabelProp.enabled = YES;
     }
     
-    if (textField == self.titleTextField) {
-        self.detailedView.campaignTitle.text =  textField.text;
+    if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Create"]) {
+        
+        if (textField == self.titleTextField) {
+            self.detailedView.campaignTitle.text =  textField.text;
+        }
+        if (textField == self.descriptionTextField) {
+            self.detailedView.campaignDetails.text =  textField.text;
+        }
+        if (textField == self.peopleNeededTextField) {
+            self.detailedView.peopleNeeded.text =  textField.text;
+            self.detailedView.peopleCommited.text = @"1";
+        }
+        
     }
-    if (textField == self.descriptionTextField) {
-        self.detailedView.campaignDetails.text =  textField.text;
+    
+    
+    if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Update"]) {
+        
+        if (textField == self.titleTextField) {
+            self.detailedView.campaignTitle.text =  textField.text;
+            self.campaignToUpdate.title = self.detailedView.campaignTitle.text;
+
+        }
+        if (textField == self.descriptionTextField) {
+            self.detailedView.campaignDetails.text =  textField.text;
+            self.campaignToUpdate.detail = self.detailedView.campaignDetails.text;
+
+        }
+        if (textField == self.peopleNeededTextField) {
+            self.detailedView.peopleNeeded.text =  textField.text;
+            self.detailedView.peopleCommited.text = @"1";
+        }
+
+
     }
-    if (textField == self.peopleNeededTextField) {
-        self.detailedView.peopleNeeded.text =  textField.text;
-        self.detailedView.peopleCommited.text = @"1";
-    }
+    
     
 }
 
@@ -104,7 +130,10 @@
             self.peopleNeededTextField.placeholder = @"Min. #";
         } else {
             self.peopleNeededTextField.placeholder = self.detailedView.peopleNeeded.text;
+            self.campaignToUpdate.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);
         }
+        
+        [self.campaignToUpdate saveInBackground];
     }
 }
 
@@ -205,9 +234,6 @@
 
 - (void) updateCampaign
 {
-    self.campaignToUpdate.title = self.detailedView.campaignTitle.text;
-    self.campaignToUpdate.detail = self.detailedView.campaignDetails.text;
-    self.campaignToUpdate.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);
     
     if (self.detailedView.profilePicture.image) {
         

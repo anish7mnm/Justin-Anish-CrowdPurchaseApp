@@ -57,8 +57,13 @@
     [DVYParseAPIClient getOthersCampaignsWithCompletionBlock:^(NSArray *othersCampaign) {
         
         for (DVYCampaign *selfCampaign in othersCampaign) {
-            [arrayForGood addObject:selfCampaign];
+            DVYUser*campaignHost = selfCampaign.host;
+            if (![campaignHost.username isEqualToString:[PFUser currentUser].username]) {
+                
+                [arrayForGood addObject:selfCampaign];
+            }
         }
+
         self.othersCampaign = arrayForGood;
         completionBlock();
     }];

@@ -48,13 +48,10 @@
     
     [self removeAllConstraints];
     [self settingConstraints];
-    
-
-//    [self.localDataStore getselfCampaignsWithCompletionBlock:^{
-//        NSLog(@"Got the campaigns hosted by me");
-//    }];
+    [self makingNavBarSexy];
     
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
@@ -111,10 +108,10 @@
         
         cell.hostName.text = [myself objectForKey:@"fullName"];
         cell.hostName.textColor = [UIColor purpleColor];
-
+        
         if (selfCampaign.item) {
             Item *campaignItem = selfCampaign.item;
-//            [campaignItem fetchIfNeeded];
+            //            [campaignItem fetchIfNeeded];
             
             PFFile *fileImage = campaignItem[@"itemImage"];
             
@@ -133,18 +130,15 @@
     {
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"othersCampaignCell" forIndexPath:indexPath];
         DVYCampaign *othersCampaign = self.localDataStore.othersCampaign[indexPath.row];
-
+        
         cell.campaignTitle.text = othersCampaign.title;
         DVYUser *host = othersCampaign.host;
-
-        //cell.hostName.text = host[@"fullName"];
+        cell.hostName.text = host[@"fullName"];
         
         cell.hostName.textColor = [UIColor grayColor];
         
         if (othersCampaign.item) {
             Item *campaignItem = othersCampaign.item;
-            //[campaignItem fetchIfNeeded];
-            
             PFFile *fileImage = campaignItem[@"itemImage"];
             
             [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -191,7 +185,7 @@
 - (void) removeAllConstraints
 {
     [self.view removeConstraints:self.view.constraints];
-
+    
     [self.scrollView removeConstraints:self.scrollView.constraints];
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.containerView removeConstraints:self.containerView.constraints];
@@ -210,7 +204,7 @@
     self.othersButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.invitesButton removeConstraints:self.invitesButton.constraints];
     self.invitesButton.translatesAutoresizingMaskIntoConstraints = NO;
-
+    
 }
 
 - (void) settingConstraints
@@ -358,42 +352,39 @@
                                               views:views];
     [self.containerView addConstraints:table3Vertical];
     self.scrollView.pagingEnabled = YES;
-
+    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"]) {
-    
+        
         DVYSelfCampaignViewController *selfCampaign = [[DVYSelfCampaignViewController alloc] initWithNibName:@"DVYSelfCampaignViewController" bundle:nil];
         
         DVYCampaign *campaignToPass = self.localDataStore.selfCampaigns[indexPath.row];
-    
         selfCampaign.campaign = campaignToPass;
         
         selfCampaign.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:selfCampaign animated:YES completion:nil];
     }
-
+    
     else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
         DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
         
         DVYCampaign *campaignToPass = self.localDataStore.othersCampaign[indexPath.row];
-            
         othersCampaign.campaign = campaignToPass;
         
         othersCampaign.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:othersCampaign animated:YES completion:nil];
-
+        
     }
     
     else if ([tableView.accessibilityIdentifier isEqualToString:@"invitations"]) {
         
         DVYOtherCampaignViewController *othersCampaignInvite = [[DVYOtherCampaignViewController alloc] init];
-
-        DVYCampaign *campaignToPass = self.localDataStore.alertCampaign[indexPath.row];
         
+        DVYCampaign *campaignToPass = self.localDataStore.alertCampaign[indexPath.row];
         othersCampaignInvite.campaign = campaignToPass;
         
         othersCampaignInvite.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
@@ -407,19 +398,72 @@
 - (IBAction)createACampaign:(id)sender {
     
     DVYCreateCampaignViewController *createCampaign = [[DVYCreateCampaignViewController alloc] init];
-
+    
     createCampaign.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:createCampaign animated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
+- (IBAction)seeSelfCampaignTableButton:(id)sender {
+    CGPoint newOffset =CGPointMake(0, self.scrollView.contentOffset.y);
+    [self.scrollView setContentOffset:newOffset animated:NO];}
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)seeOthersCampaignTableButton:(id)sender {
+    CGFloat scrollViewWidth = self.scrollView.frame.size.width;
+    CGPoint newOffset =CGPointMake(scrollViewWidth, self.scrollView.contentOffset.y);
+    [self.scrollView setContentOffset:newOffset animated:NO];
 }
-*/
+
+- (IBAction)seeInvitesTableButton:(id)sender {
+    CGFloat scrollViewWidth = self.scrollView.frame.size.width;
+    CGPoint newOffset =CGPointMake(scrollViewWidth*2, self.scrollView.contentOffset.y);
+    [self.scrollView setContentOffset:newOffset animated:NO];
+}
+
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+- (void) makingNavBarSexy
+{
+    
+    UILabel *navLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, self.navigationController.navigationBar.frame.origin.y,150,20)];
+    navLabel.text = [NSString stringWithFormat:@"Hi %@", self.currentUser[@"fullName"]];
+    navLabel.textColor = [UIColor purpleColor];
+    [navLabel setFont:[UIFont systemFontOfSize:12.0]];
+    //[naviBarObj addSubview:navLabel];
+    [navLabel setBackgroundColor:[UIColor clearColor]];
+    [self.navigationController.navigationBar addSubview:navLabel];
+    
+    NSString *userProfilePhotoURLString = self.currentUser[@"profilePicture"];
+    
+    if (userProfilePhotoURLString) {
+        NSURL *pictureURL = [NSURL URLWithString:userProfilePhotoURLString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+        
+        [NSURLConnection sendAsynchronousRequest:urlRequest
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                                   if (connectionError == nil && data != nil) {
+                                       UIImageView *pic = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
+                                       [pic setFrame:CGRectMake(self.navigationController.navigationBar.frame.origin.x,self.navigationController.navigationBar.frame.origin.y -10,30,30)];
+                                       [pic setBackgroundColor:[UIColor clearColor]];
+                                       pic.layer.cornerRadius = pic.frame.size.width / 2;
+                                       pic.layer.masksToBounds = YES;
+                                       [self.navigationController.navigationBar addSubview:pic];
+                                       
+                                   } else {
+                                       NSLog(@"Failed to load profile photo.");
+                                   }
+                               }];
+        
+    }
+}
 
 @end
