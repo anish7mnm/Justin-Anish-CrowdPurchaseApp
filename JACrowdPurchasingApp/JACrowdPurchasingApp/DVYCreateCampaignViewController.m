@@ -120,6 +120,8 @@
 
 - (IBAction)uploadImageButtonTapped:(id)sender {
     
+    self.createButtonLabelProp.enabled = YES;
+    
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
@@ -143,60 +145,16 @@
     
     if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Create"]) {
         NSLog(@"Created");
-        DVYCampaign *campaign = [[DVYCampaign alloc]init];
-        campaign.title = self.detailedView.campaignTitle.text;
-        campaign.detail = self.detailedView.campaignDetails.text;
-        
-        
-        if (self.detailedView.profilePicture.image) {
-            Item *campaignItem = [[Item alloc] init];
-            
-            NSData* data = UIImageJPEGRepresentation(self.detailedView.profilePicture.image, 0.5f);
-            
-            PFFile *imageFile = [PFFile fileWithData:data];
-            campaignItem[@"itemImage"] = imageFile;
-            campaign.item = campaignItem;
-            
+        [self createCampaign];
         }
-        
-        
-        DVYUser *host = [PFUser currentUser];
-        campaign.host = host;
-        
-        [campaign saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-    }
+    
     else{
         NSLog(@"Updated");
-        
-        self.campaignToUpdate.title = self.detailedView.campaignTitle.text;
-        self.campaignToUpdate.detail = self.detailedView.campaignDetails.text;
-        
-        
-        if (self.detailedView.profilePicture.image) {
-            Item *campaignItem = self.campaignToUpdate.item;
-            [campaignItem fetchIfNeeded];
-            NSData* data = UIImageJPEGRepresentation(self.detailedView.profilePicture.image, 0.5f);
-            
-            PFFile *imageFile = [PFFile fileWithData:data];
-            campaignItem[@"itemImage"] = imageFile;
-            }
-        
-        [self.campaignToUpdate saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done"
-                                                            message:@"Campaign Updated!"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Cool"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        }];
-        
-
+        [self updateCampaign];
     }
     
 }
+
 
 - (IBAction)cancelButtonTapped:(id)sender {
     
@@ -211,6 +169,69 @@
     }
     
     return YES;
+}
+
+
+- (void) createCampaign
+{
+    DVYCampaign *campaign = [[DVYCampaign alloc]init];
+    
+    campaign.title = self.detailedView.campaignTitle.text;
+    campaign.detail = self.detailedView.campaignDetails.text;
+    campaign.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);
+    
+    
+    if (self.detailedView.profilePicture.image) {
+        Item *campaignItem = [[Item alloc] init];
+        
+        NSData* data = UIImageJPEGRepresentation(self.detailedView.profilePicture.image, 0.5f);
+        
+        PFFile *imageFile = [PFFile fileWithData:data];
+        campaignItem[@"itemImage"] = imageFile;
+        campaign.item = campaignItem;
+        
+    }
+    
+    DVYUser *host = [PFUser currentUser];
+    campaign.host = host;
+    
+    PFRelation *relation = [campaign relationForKey:@"committed"];
+    [relation addObject:host];
+    
+    [campaign saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+- (void) updateCampaign
+{
+    self.campaignToUpdate.title = self.detailedView.campaignTitle.text;
+    self.campaignToUpdate.detail = self.detailedView.campaignDetails.text;
+    self.campaignToUpdate.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);
+    
+    if (self.detailedView.profilePicture.image) {
+        
+        [self.campaignToUpdate removeObjectForKey:@"item"];
+        Item *campaignItem = [[Item alloc] init];
+        
+        NSData* data = UIImageJPEGRepresentation(self.detailedView.profilePicture.image, 0.5f);
+        
+        PFFile *imageFile = [PFFile fileWithData:data];
+        campaignItem[@"itemImage"] = imageFile;
+        self.campaignToUpdate.item = campaignItem;
+        
+    }
+    
+    [self.campaignToUpdate saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done"
+                                                        message:@"Campaign Updated!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cool"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }];
+
 }
 
 @end

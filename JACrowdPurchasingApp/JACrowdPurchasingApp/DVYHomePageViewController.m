@@ -109,12 +109,12 @@
         
         DVYUser *myself = [PFUser currentUser];
         
-        cell.hostName.text = myself[@"fullName"];
+        cell.hostName.text = [myself objectForKey:@"fullName"];
         cell.hostName.textColor = [UIColor purpleColor];
 
         if (selfCampaign.item) {
             Item *campaignItem = selfCampaign.item;
-            [campaignItem fetchIfNeeded];
+//            [campaignItem fetchIfNeeded];
             
             PFFile *fileImage = campaignItem[@"itemImage"];
             
@@ -137,13 +137,13 @@
         cell.campaignTitle.text = othersCampaign.title;
         DVYUser *host = othersCampaign.host;
 
-        cell.hostName.text = host[@"fullName"];
+        //cell.hostName.text = host[@"fullName"];
         
         cell.hostName.textColor = [UIColor grayColor];
         
         if (othersCampaign.item) {
             Item *campaignItem = othersCampaign.item;
-            [campaignItem fetchIfNeeded];
+            //[campaignItem fetchIfNeeded];
             
             PFFile *fileImage = campaignItem[@"itemImage"];
             
@@ -172,7 +172,7 @@
         
         if (othersCampaign.item) {
             Item *campaignItem = othersCampaign.item;
-            [campaignItem fetchIfNeeded];
+            //[campaignItem fetchIfNeeded];
             
             PFFile *fileImage = campaignItem[@"itemImage"];
             

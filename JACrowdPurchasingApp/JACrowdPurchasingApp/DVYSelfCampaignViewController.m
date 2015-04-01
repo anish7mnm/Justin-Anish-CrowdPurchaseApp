@@ -32,11 +32,29 @@
     
     detailCampaignViewSelf.campaignTitle.text = self.campaign.title;
     detailCampaignViewSelf.campaignDetails.text = self.campaign.detail;
-    
+    detailCampaignViewSelf.peopleNeeded.text = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
+
     DVYUser *host = self.campaign.host;
-    [host fetchIfNeeded];
     detailCampaignViewSelf.hostName.text = host[@"fullName"];
     
+    Item *campaignItem = self.campaign.item;
+    PFFile *image = [campaignItem objectForKey:@"itemImage"];
+    
+        if (image) {
+            [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                if (!error) {
+                    detailCampaignViewSelf.profilePicture.image = [UIImage imageWithData:data];
+                    // Add a nice corner radius to the image
+                    detailCampaignViewSelf.profilePicture.layer.cornerRadius = 8.0f;
+                    detailCampaignViewSelf.profilePicture.layer.masksToBounds = YES;                }
+            }];
+        }
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Campaign"];
+    [query whereKeyExists:@"committed"];
+
+    
+    //detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%@", self.campaign.committed ]
     detailCampaignViewSelf.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
     
     [self.view addSubview:detailCampaignViewSelf];

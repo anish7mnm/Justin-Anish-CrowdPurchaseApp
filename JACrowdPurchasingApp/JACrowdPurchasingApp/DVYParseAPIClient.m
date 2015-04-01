@@ -63,9 +63,13 @@
     DVYUser *currentUser = [PFUser currentUser];
     PFQuery *selfCampaignQuery = [DVYCampaign query];
     [selfCampaignQuery whereKey:@"host" equalTo:currentUser];
-    
-    NSArray *campaigns = [selfCampaignQuery findObjects];
-    completionBlock(campaigns);
+    [selfCampaignQuery includeKey:@"item"];
+    [selfCampaignQuery includeKey:@"host"];
+
+    [selfCampaignQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        completionBlock(objects);
+
+    }];
 }
 
 + (void) getOthersCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
@@ -76,9 +80,12 @@
     PFQuery *othersCampaignQuery = [DVYCampaign query];
     
     [othersCampaignQuery whereKey:@"committed" equalTo:currentUser];
-    
-    NSArray *campaigns = [othersCampaignQuery findObjects];
-    completionBlock(campaigns);
+    [othersCampaignQuery includeKey:@"item"];
+    [othersCampaignQuery includeKey:@"host"];
+
+    [othersCampaignQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        completionBlock(objects);
+    }];
 }
 
 + (void) getInvitationCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
@@ -89,9 +96,12 @@
     PFQuery *othersCampaignQuery = [DVYCampaign query];
     
     [othersCampaignQuery whereKey:@"invitees" equalTo:currentUser];
-    
-    NSArray *campaigns = [othersCampaignQuery findObjects];
-    completionBlock(campaigns);
+    [othersCampaignQuery includeKey:@"item"];
+    [othersCampaignQuery includeKey:@"host"];
+
+    [othersCampaignQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        completionBlock(objects);
+    }];
 }
 
 
@@ -114,11 +124,14 @@
             
             PFQuery *friendsQuery = [PFUser query];
             [friendsQuery whereKey:@"facebookID" equalTo:name];
-            NSArray *arrayForSaving = [friendsQuery findObjects];
-            [arrayOfFriends addObject:arrayForSaving[0]];
+            [friendsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                [arrayOfFriends addObject:objects[0]];
+                
+                        completionBlock(arrayOfFriends);
+            }];
         }
         
-        completionBlock(arrayOfFriends);
+
 
     }];
     

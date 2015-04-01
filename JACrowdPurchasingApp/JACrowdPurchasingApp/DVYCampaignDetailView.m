@@ -32,10 +32,10 @@
 
 - (IBAction)seePeopleCommitted:(id)sender {
     
-    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
-    
-    UIViewController *friendsCommitted = [myStoryboard instantiateInitialViewController];
-    [self.inputViewController presentViewController:friendsCommitted animated:YES completion:nil];
+//    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
+//    
+//    UIViewController *friendsCommitted = [myStoryboard instantiateInitialViewController];
+//    [self.inputViewController presentViewController:friendsCommitted animated:YES completion:nil];
     
 }
 

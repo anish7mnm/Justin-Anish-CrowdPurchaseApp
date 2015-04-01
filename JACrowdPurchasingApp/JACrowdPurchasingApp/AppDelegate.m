@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DVYFacebookLoginViewController.h"
+#import "DVYHomePageViewController.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
@@ -34,21 +35,31 @@
     [DVYCampaign registerSubclass];
     [Item registerSubclass];
     
-//    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-//                                                    UIUserNotificationTypeBadge |
-//                                                    UIUserNotificationTypeSound);
-//    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-//                                                                             categories:nil];
-//    [application registerUserNotificationSettings:settings];
-//    [application registerForRemoteNotifications];
+    //    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+    //                                                    UIUserNotificationTypeBadge |
+    //                                                    UIUserNotificationTypeSound);
+    //    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+    //                                                                             categories:nil];
+    //    [application registerUserNotificationSettings:settings];
+    //    [application registerForRemoteNotifications];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // create an instance of the view controller you want to be displayed first
-    DVYFacebookLoginViewController *introPage = [[DVYFacebookLoginViewController alloc] init];
-    introPage.view.frame = self.window.frame;
+    if([PFUser currentUser])
+    {
+        UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        UIViewController *homePage = [myStoryboard instantiateInitialViewController];
+        self.window.rootViewController = homePage;
+    }
+    else
+    {
+        // create an instance of the view controller you want to be displayed first
+        DVYFacebookLoginViewController *introPage = [[DVYFacebookLoginViewController alloc] init];
+        introPage.view.frame = self.window.frame;
+        self.window.rootViewController = introPage;
+    }
     
-    self.window.rootViewController = introPage;
     [self.window makeKeyAndVisible];
     
     return YES;

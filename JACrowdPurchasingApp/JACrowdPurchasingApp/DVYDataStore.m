@@ -43,10 +43,11 @@
         for (DVYCampaign *selfCampaign in selfCampaigns) {
             [arrayForGood addObject:selfCampaign];
         }
+        self.selfCampaigns = arrayForGood;
+        completionBlock();
     }];
 
-    self.selfCampaigns = arrayForGood;
-    completionBlock();
+
     
 }
 
@@ -58,10 +59,11 @@
         for (DVYCampaign *selfCampaign in othersCampaign) {
             [arrayForGood addObject:selfCampaign];
         }
+        self.othersCampaign = arrayForGood;
+        completionBlock();
     }];
     
-    self.othersCampaign = arrayForGood;
-    completionBlock();
+
     
 }
 
@@ -72,10 +74,11 @@
         for (DVYCampaign *selfCampaign in invitationCampaign) {
             [arrayForGood addObject:selfCampaign];
         }
+        self.alertCampaign = arrayForGood;
+        completionBlock();
     }];
     
-    self.alertCampaign = arrayForGood;
-    completionBlock();
+
     
 }
 
