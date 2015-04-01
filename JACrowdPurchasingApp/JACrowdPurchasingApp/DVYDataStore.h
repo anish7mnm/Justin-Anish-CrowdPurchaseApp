@@ -19,6 +19,10 @@
 + (instancetype)sharedLocationsDataStore;
 
 -(void) getselfCampaignsWithCompletionBlock: (void (^)(void))completionBlock;
+-(void) getOtherCampaignsWithCompletionBlock: (void (^)(void))completionBlock;
+-(void) getInvitiationCampaignsWithCompletionBlock: (void (^)(void))completionBlock;
+
+
 - (void) getFacebookFriendsWithCompletionBlock: (void (^)(void)) completionBlock;
 
 @end

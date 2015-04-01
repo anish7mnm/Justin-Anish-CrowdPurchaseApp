@@ -63,6 +63,14 @@
         NSLog(@"Got the campaigns hosted by me");
         [self.selfTableView reloadData];
     }];
+    [self.localDataStore getOtherCampaignsWithCompletionBlock:^{
+        NSLog(@"Got the campaigns hosted by others");
+        [self.othersTableView reloadData];
+    }];
+    [self.localDataStore getInvitiationCampaignsWithCompletionBlock:^{
+        [self.invitationTableView reloadData];
+        NSLog(@"Invites Got!");
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,10 +91,9 @@
     else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
         return [self.localDataStore.othersCampaign count];
     }
-//    else {
-//        return [self.localDataStore.alertCampaign count];
-//    }
-    return 1;
+    else {
+        return [self.localDataStore.alertCampaign count];
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,16 +112,18 @@
         cell.hostName.text = myself[@"fullName"];
         cell.hostName.textColor = [UIColor purpleColor];
 
-//        Item *campaignItem = selfCampaign.item;
-//        [campaignItem fetchIfNeeded];
-        
-//        PFFile *fileImage = campaignItem[@"itemImage"];
-//        
-//        [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-//            UIImage *image = [[UIImage alloc] initWithData:data];
-//            cell.campaignImagePicture.image = image;
-//            [self.selfTableView reloadData];
-//        }];
+        if (selfCampaign.item) {
+            Item *campaignItem = selfCampaign.item;
+            [campaignItem fetchIfNeeded];
+            
+            PFFile *fileImage = campaignItem[@"itemImage"];
+            
+            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                UIImage *image = [[UIImage alloc] initWithData:data];
+                cell.campaignImagePicture.image = image;
+                [self.selfTableView reloadData];
+            }];
+        }
         
         return cell;
         
@@ -132,7 +141,18 @@
         
         cell.hostName.textColor = [UIColor grayColor];
         
-        cell.campaignImagePicture.image = [UIImage imageNamed:@"amus.jpg"];
+        if (othersCampaign.item) {
+            Item *campaignItem = othersCampaign.item;
+            [campaignItem fetchIfNeeded];
+            
+            PFFile *fileImage = campaignItem[@"itemImage"];
+            
+            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                UIImage *image = [[UIImage alloc] initWithData:data];
+                cell.campaignImagePicture.image = image;
+                [self.othersTableView reloadData];
+            }];
+        }
         return cell;
         
     }
@@ -141,8 +161,27 @@
     {
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"invitationCell" forIndexPath:indexPath];
         
-        cell.campaignTitle.text = @"sdsf";
-
+        DVYCampaign *othersCampaign = self.localDataStore.alertCampaign[indexPath.row];
+        
+        cell.campaignTitle.text = othersCampaign.title;
+        DVYUser *host = othersCampaign.host;
+        
+        cell.hostName.text = host[@"fullName"];
+        
+        cell.hostName.textColor = [UIColor grayColor];
+        
+        if (othersCampaign.item) {
+            Item *campaignItem = othersCampaign.item;
+            [campaignItem fetchIfNeeded];
+            
+            PFFile *fileImage = campaignItem[@"itemImage"];
+            
+            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                UIImage *image = [[UIImage alloc] initWithData:data];
+                cell.campaignImagePicture.image = image;
+                [self.invitationTableView reloadData];
+            }];
+        }
         return cell;
         
     }
@@ -340,7 +379,7 @@
     else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
         DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
         
-        DVYCampaign *campaignToPass = self.localDataStore.selfCampaigns[indexPath.row];
+        DVYCampaign *campaignToPass = self.localDataStore.othersCampaign[indexPath.row];
             
         othersCampaign.campaign = campaignToPass;
         
@@ -353,20 +392,13 @@
         
         DVYOtherCampaignViewController *othersCampaignInvite = [[DVYOtherCampaignViewController alloc] init];
 
-        DVYCampaign *testCampaign = [[DVYCampaign alloc] init];
-        testCampaign.title = @"BEEP";
-        testCampaign.detail = @"shalalala";
-        testCampaign.deadline = [NSDate dateWithTimeIntervalSinceNow:1000.00];
-        testCampaign.minimumNeededCommits = @5;
-        //testCampaign.itemImage = [UIImage imageNamed:@"amus.jpg"];
+        DVYCampaign *campaignToPass = self.localDataStore.alertCampaign[indexPath.row];
         
-        othersCampaignInvite.campaign = testCampaign;    //self.localDataStore.othersCampaign[indexPath.row];
+        othersCampaignInvite.campaign = campaignToPass;
         
         othersCampaignInvite.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentViewController:othersCampaignInvite animated:YES completion:nil];
-
         
-       // [self.navigationController pushViewController:othersCampaignInvite animated:YES];
+        [self presentViewController:othersCampaignInvite animated:YES completion:nil];
     }
     
 }

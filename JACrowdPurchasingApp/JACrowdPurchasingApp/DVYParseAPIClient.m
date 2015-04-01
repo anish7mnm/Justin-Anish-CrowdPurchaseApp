@@ -81,6 +81,19 @@
     completionBlock(campaigns);
 }
 
++ (void) getInvitationCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
+{
+    //NSMutableArray *selfCampaignlist = [[NSMutableArray alloc] init];
+    DVYUser *currentUser = [PFUser currentUser];
+    
+    PFQuery *othersCampaignQuery = [DVYCampaign query];
+    
+    [othersCampaignQuery whereKey:@"invitees" equalTo:currentUser];
+    
+    NSArray *campaigns = [othersCampaignQuery findObjects];
+    completionBlock(campaigns);
+}
+
 
 + (void) getFacebookFriendsWithCompletionBlock: (void (^)(NSArray *)) completionBlock
 {

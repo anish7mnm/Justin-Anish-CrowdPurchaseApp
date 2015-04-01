@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYDataStore.m"
-            timestampString = "449536353.149112"
+            timestampString = "449542845.378238"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-getFacebookFriendsWithCompletionBlock:"
             landmarkType = "5">
          </BreakpointContent>

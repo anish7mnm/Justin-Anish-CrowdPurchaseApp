@@ -53,8 +53,9 @@
 -(void) getOtherCampaignsWithCompletionBlock: (void (^)(void))completionBlock
 {
     NSMutableArray *arrayForGood = [[NSMutableArray alloc] init];
-    [DVYParseAPIClient getSelfCampaignsWithCompletionBlock:^(NSArray *selfCampaigns) {
-        for (DVYCampaign *selfCampaign in selfCampaigns) {
+    [DVYParseAPIClient getOthersCampaignsWithCompletionBlock:^(NSArray *othersCampaign) {
+        
+        for (DVYCampaign *selfCampaign in othersCampaign) {
             [arrayForGood addObject:selfCampaign];
         }
     }];
@@ -67,8 +68,8 @@
 -(void) getInvitiationCampaignsWithCompletionBlock: (void (^)(void))completionBlock
 {
     NSMutableArray *arrayForGood = [[NSMutableArray alloc] init];
-    [DVYParseAPIClient getSelfCampaignsWithCompletionBlock:^(NSArray *selfCampaigns) {
-        for (DVYCampaign *selfCampaign in selfCampaigns) {
+    [DVYParseAPIClient getInvitationCampaignsWithCompletionBlock:^(NSArray *invitationCampaign) {
+        for (DVYCampaign *selfCampaign in invitationCampaign) {
             [arrayForGood addObject:selfCampaign];
         }
     }];
