@@ -25,11 +25,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    if (self.buttonName) {
+        [self.createButtonLabelProp setTitle:self.buttonName forState:UIControlStateNormal];
+    }
     self.titleTextField.delegate = self;
     self.descriptionTextField.delegate = self;
     self.peopleNeededTextField.delegate = self;
-
+    
     
     self.createButtonLabelProp.enabled = NO;
     
@@ -37,11 +39,9 @@
     
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"DVYCampaignDetailView" owner:self options:nil];
     self.detailedView = [nibViews firstObject];
-
-    if (self.buttonName) {
-        [self.createButtonLabelProp setTitle:self.buttonName forState:UIControlStateNormal];
-    }
-
+    
+    
+    
     
     // Do any additional setup after loading the view.
 }
@@ -81,34 +81,42 @@
 
 - (void) settingPlaceholdersToTextFields
 {
-    if ([self.titleTextField.text isEqualToString:@""]) {
-        self.titleTextField.placeholder = @"Enter the title of your Campaign";
-    } else {
-        self.titleTextField.placeholder = self.detailedView.campaignTitle.text;
+    if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Update"]) {
+        self.titleTextField.placeholder = self.titlePlaceholder;
+        self.descriptionTextField.placeholder = self.descriptionPlaceholder;
+        self.peopleNeededTextField.placeholder = self.numberOfPeoplePlaceHolder;
+        
     }
-    
-    if ([self.descriptionTextField.text isEqualToString:@""]) {
-        self.descriptionTextField.placeholder = @"Enter all the relevent details (Link, Price etc.)";
-    } else {
-        self.descriptionTextField.placeholder = self.detailedView.campaignDetails.text;
-    }
-    
-    if ([self.peopleNeededTextField.text isEqualToString:@""]) {
-        self.peopleNeededTextField.placeholder = @"Min. #";
-    } else {
-        self.peopleNeededTextField.placeholder = self.detailedView.peopleNeeded.text;
+    else{
+        if ([self.titleTextField.text isEqualToString:@""]) {
+            self.titleTextField.placeholder = @"Enter the title of your Campaign";
+        } else {
+            self.titleTextField.placeholder = self.detailedView.campaignTitle.text;
+        }
+        
+        if ([self.descriptionTextField.text isEqualToString:@""]) {
+            self.descriptionTextField.placeholder = @"Enter all the relevent details (Link, Price etc.)";
+        } else {
+            self.descriptionTextField.placeholder = self.detailedView.campaignDetails.text;
+        }
+        
+        if ([self.peopleNeededTextField.text isEqualToString:@""]) {
+            self.peopleNeededTextField.placeholder = @"Min. #";
+        } else {
+            self.peopleNeededTextField.placeholder = self.detailedView.peopleNeeded.text;
+        }
     }
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)uploadImageButtonTapped:(id)sender {
     
@@ -132,23 +140,61 @@
 }
 
 - (IBAction)createThePageButtonTapped:(id)sender {
-
+    
     if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Create"]) {
         NSLog(@"Created");
+        DVYCampaign *campaign = [[DVYCampaign alloc]init];
+        campaign.title = self.detailedView.campaignTitle.text;
+        campaign.detail = self.detailedView.campaignDetails.text;
+        
+        
+        if (self.detailedView.profilePicture.image) {
+            Item *campaignItem = [[Item alloc] init];
+            
+            NSData* data = UIImageJPEGRepresentation(self.detailedView.profilePicture.image, 0.5f);
+            
+            PFFile *imageFile = [PFFile fileWithData:data];
+            campaignItem[@"itemImage"] = imageFile;
+            campaign.item = campaignItem;
+            
+        }
+        
+        
+        DVYUser *host = [PFUser currentUser];
+        campaign.host = host;
+        
+        [campaign saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
     }
     else{
         NSLog(@"Updated");
+        
+        self.campaignToUpdate.title = self.detailedView.campaignTitle.text;
+        self.campaignToUpdate.detail = self.detailedView.campaignDetails.text;
+        
+        
+        if (self.detailedView.profilePicture.image) {
+            Item *campaignItem = self.campaignToUpdate.item;
+            [campaignItem fetchIfNeeded];
+            NSData* data = UIImageJPEGRepresentation(self.detailedView.profilePicture.image, 0.5f);
+            
+            PFFile *imageFile = [PFFile fileWithData:data];
+            campaignItem[@"itemImage"] = imageFile;
+            }
+        
+        [self.campaignToUpdate saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done"
+                                                            message:@"Campaign Updated!"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cool"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }];
+        
+
     }
-    DVYCampaign *campaign = [[DVYCampaign alloc]init];
-    campaign.title = self.detailedView.campaignTitle.text;
-    campaign.detail = self.detailedView.campaignDetails.text;
-    
-    Item *campaignItem = [[Item alloc] init];
-    
-    campaign.host = [PFUser currentUser];
-    [campaign saveInBackground];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

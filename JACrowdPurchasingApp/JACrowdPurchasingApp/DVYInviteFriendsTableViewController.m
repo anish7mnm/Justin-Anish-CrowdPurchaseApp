@@ -7,51 +7,72 @@
 //
 
 #import "DVYInviteFriendsTableViewController.h"
+#import "DVYParseAPIClient.h"
+#import "InviteFriendsTableViewCell.h"
+#import "DVYDataStore.h"
+#import "DVYUser.h"
+#import "DVYCampaign.h"
 
 @interface DVYInviteFriendsTableViewController ()
-
+@property(nonatomic) DVYDataStore *localDataStore;
 @end
 
 @implementation DVYInviteFriendsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.localDataStore = [DVYDataStore sharedLocationsDataStore];
+    self.friendsSelected = [[NSMutableArray alloc] init];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.localDataStore getFacebookFriendsWithCompletionBlock:^{
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.localDataStore.friends count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    InviteFriendsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"inviteFriendCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    DVYUser *friend = self.localDataStore.friends[indexPath.row];
+    
+    cell.friendName.text = friend[@"fullName"];
+    
+    NSString *userProfilePhotoURLString = friend[@"profilePicture"];
+    
+    if (userProfilePhotoURLString) {
+        NSURL *pictureURL = [NSURL URLWithString:userProfilePhotoURLString];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+        
+        [NSURLConnection sendAsynchronousRequest:urlRequest
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                                   if (connectionError == nil && data != nil) {
+                                       cell.profilePic.image = [UIImage imageWithData:data];
+                                       
+                                       // Add a nice corner radius to the image
+                                       cell.profilePic.layer.cornerRadius = 8.0f;
+                                       cell.profilePic.layer.masksToBounds = YES;
+                                   } else {
+                                       NSLog(@"Failed to load profile photo.");
+                                   }
+                               }];
+    }
+
+    
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -96,5 +117,38 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DVYUser *friend = self.localDataStore.friends[indexPath.row];
+    [self.friendsSelected addObject:friend];
+    
+}
+
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 70;
+//}
+
+- (IBAction)doneButtonTapped:(id)sender {
+    
+    PFRelation *relation = [self.campaign relationForKey:@"invitees"];
+    for (DVYUser *userFriend in self.friendsSelected) {
+        [relation addObject:userFriend];
+    }
+    [self.campaign saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done"
+                                                        message:@"Invite sent!"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }];
+    
+    
+}
 
 @end

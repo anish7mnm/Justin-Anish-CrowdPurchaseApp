@@ -68,5 +68,48 @@
     completionBlock(campaigns);
 }
 
++ (void) getOthersCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
+{
+    //NSMutableArray *selfCampaignlist = [[NSMutableArray alloc] init];
+    DVYUser *currentUser = [PFUser currentUser];
+    
+    PFQuery *othersCampaignQuery = [DVYCampaign query];
+    
+    [othersCampaignQuery whereKey:@"committed" equalTo:currentUser];
+    
+    NSArray *campaigns = [othersCampaignQuery findObjects];
+    completionBlock(campaigns);
+}
+
+
++ (void) getFacebookFriendsWithCompletionBlock: (void (^)(NSArray *)) completionBlock
+{
+    FBRequest *requestTwo = [FBRequest requestForMyFriends];
+    [requestTwo startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        NSMutableArray *arrayOfFriends = [[NSMutableArray alloc] init];
+
+        NSDictionary *userData = (NSDictionary *)result;
+        NSArray *dataArray = userData[@"data"];
+        NSLog(@"datakskjsn%@", userData);
+        
+
+        
+        for (NSDictionary *dataDic in dataArray) {
+            
+            NSString *name = dataDic[@"id"];
+            NSLog(@"DATA:%@", name);
+            
+            PFQuery *friendsQuery = [PFUser query];
+            [friendsQuery whereKey:@"facebookID" equalTo:name];
+            NSArray *arrayForSaving = [friendsQuery findObjects];
+            [arrayOfFriends addObject:arrayForSaving[0]];
+        }
+        
+        completionBlock(arrayOfFriends);
+
+    }];
+    
+}
+
 
 @end

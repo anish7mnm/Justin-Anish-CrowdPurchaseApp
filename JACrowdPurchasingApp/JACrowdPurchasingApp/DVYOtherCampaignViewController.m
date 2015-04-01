@@ -40,6 +40,9 @@
     DVYCampaignDetailView *detailView = [nibViews firstObject];
     detailView.campaignTitle.text = self.campaign.title;
     detailView.campaignDetails.text = self.campaign.detail;
+    DVYUser *host = self.campaign.host;
+    [host fetchIfNeeded];
+    detailView.hostName.text = host[@"fullName"];
     detailView.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
     
     //self.decisionSwitch = [[UISwitch alloc] init];

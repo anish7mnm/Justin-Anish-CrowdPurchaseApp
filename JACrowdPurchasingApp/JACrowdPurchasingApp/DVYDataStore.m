@@ -30,6 +30,7 @@
         _othersCampaign = [[NSMutableArray alloc] init];
         _alertCampaign = [[NSMutableArray alloc] init];
         _users = [[NSMutableArray alloc] init];
+        _friends = [[NSArray alloc] init];
     }
     return self;
 }
@@ -47,6 +48,42 @@
     self.selfCampaigns = arrayForGood;
     completionBlock();
     
+}
+
+-(void) getOtherCampaignsWithCompletionBlock: (void (^)(void))completionBlock
+{
+    NSMutableArray *arrayForGood = [[NSMutableArray alloc] init];
+    [DVYParseAPIClient getSelfCampaignsWithCompletionBlock:^(NSArray *selfCampaigns) {
+        for (DVYCampaign *selfCampaign in selfCampaigns) {
+            [arrayForGood addObject:selfCampaign];
+        }
+    }];
+    
+    self.othersCampaign = arrayForGood;
+    completionBlock();
+    
+}
+
+-(void) getInvitiationCampaignsWithCompletionBlock: (void (^)(void))completionBlock
+{
+    NSMutableArray *arrayForGood = [[NSMutableArray alloc] init];
+    [DVYParseAPIClient getSelfCampaignsWithCompletionBlock:^(NSArray *selfCampaigns) {
+        for (DVYCampaign *selfCampaign in selfCampaigns) {
+            [arrayForGood addObject:selfCampaign];
+        }
+    }];
+    
+    self.alertCampaign = arrayForGood;
+    completionBlock();
+    
+}
+
+- (void) getFacebookFriendsWithCompletionBlock: (void (^)(void)) completionBlock
+{
+    [DVYParseAPIClient getFacebookFriendsWithCompletionBlock:^(NSArray *arrayFriends) {
+        self.friends = arrayFriends;
+        completionBlock();
+    }];
 }
 
 

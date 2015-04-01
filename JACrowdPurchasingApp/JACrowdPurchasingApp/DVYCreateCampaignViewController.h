@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class DVYCampaign;
 @interface DVYCreateCampaignViewController : UIViewController <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) NSString *buttonName;
+@property (strong, nonatomic) NSString *titlePlaceholder;
+@property (strong, nonatomic) NSString *descriptionPlaceholder;
+@property (strong, nonatomic) NSString *numberOfPeoplePlaceHolder;
+
+@property (nonatomic) DVYCampaign *campaignToUpdate;
+
 @property (weak, nonatomic) IBOutlet UIButton *createButtonLabelProp;
 
 

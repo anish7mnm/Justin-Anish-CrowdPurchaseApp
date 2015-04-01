@@ -14,4 +14,5 @@
 @property (strong, nonatomic) UIImage *itemImage;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *description;
+
 @end

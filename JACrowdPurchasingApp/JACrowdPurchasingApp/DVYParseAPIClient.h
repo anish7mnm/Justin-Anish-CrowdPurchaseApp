@@ -16,6 +16,8 @@
 
 + (void) getSelfCampaignsWithCompletionBlock: (void (^)(NSArray *selfCampaigns)) completionBlock;
 
++ (void) getOthersCampaignsWithCompletionBlock:(void (^)(NSArray *othersCampaign))completionBlock;
 
++ (void) getFacebookFriendsWithCompletionBlock: (void (^)(NSArray *arrayFriends)) completionBlock;
 
 @end

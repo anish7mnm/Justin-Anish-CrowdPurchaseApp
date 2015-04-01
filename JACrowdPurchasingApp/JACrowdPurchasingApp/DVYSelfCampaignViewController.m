@@ -10,6 +10,9 @@
 #import "DVYCampaignDetailView.h"
 #import "DVYCampaign.h"
 #import "DVYCreateCampaignViewController.h"
+#import "DVYInviteFriendsTableViewController.h"
+
+#import <Parse/Parse.h>
 
 @interface DVYSelfCampaignViewController ()
 
@@ -29,6 +32,11 @@
     
     detailCampaignViewSelf.campaignTitle.text = self.campaign.title;
     detailCampaignViewSelf.campaignDetails.text = self.campaign.detail;
+    
+    DVYUser *host = self.campaign.host;
+    [host fetchIfNeeded];
+    detailCampaignViewSelf.hostName.text = host[@"fullName"];
+    
     detailCampaignViewSelf.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
     
     [self.view addSubview:detailCampaignViewSelf];
@@ -54,15 +62,39 @@
     
     DVYCreateCampaignViewController *edit = [[DVYCreateCampaignViewController alloc] init];
     edit.buttonName = @"Update";
+    edit.titlePlaceholder = self.campaign.title;
+    edit.descriptionPlaceholder = self.campaign.detail;
+    edit.numberOfPeoplePlaceHolder = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
+    edit.campaignToUpdate = self.campaign;
     edit.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:edit animated:YES completion:nil];
     
 }
 
 - (IBAction)addFriendsButtinTapped:(id)sender {
+    
+    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
+    
+    UINavigationController *navC = [myStoryboard instantiateInitialViewController];
+    DVYInviteFriendsTableViewController *friendsToBeAdded = [myStoryboard instantiateViewControllerWithIdentifier:@"friendsTVC"];
+    [navC addChildViewController: friendsToBeAdded];
+    
+
+     //* friendsToBeAdded =
+    friendsToBeAdded.campaign = self.campaign;
+    [self presentViewController:navC animated:YES completion:nil];
+    
+}
+
+- (IBAction)doneButtonTapped:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)deleteButtonTapped:(id)sender {
+    
+    [self.campaign deleteInBackground];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

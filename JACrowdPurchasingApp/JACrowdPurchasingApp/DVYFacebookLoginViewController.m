@@ -53,14 +53,15 @@
         [self presentHomePageViewController];
         
     } AndSignUpComletionBlock:^{
-
+        
         [self facebookdetails];
+        
         [_activityIndicator stopAnimating];
         [self presentHomePageViewController];
-
+        
     }];
     // Login PFUser using Facebook
-        self.activityIndicator.hidden=NO;
+    self.activityIndicator.hidden=NO;
     [_activityIndicator startAnimating]; // Show loading indicator until login is finished
 }
 
@@ -80,8 +81,9 @@
             NSString *profilePicture = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
             
             [[PFUser currentUser] setObject:profilePicture forKey:@"profilePicture"];
-            
+            [[PFUser currentUser] setObject:facebookID forKey:@"facebookID"];
             [[PFUser currentUser] saveInBackground];
+            
             
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
@@ -90,16 +92,17 @@
             NSLog(@"Some other error: %@", error);
         }
     }];
-
+    
 }
+
 
 -(void) presentHomePageViewController
 {
     UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-   
+    
     UIViewController *homePage = [myStoryboard instantiateInitialViewController];
     [self presentViewController:homePage animated:YES completion:nil];
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    //    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 @end

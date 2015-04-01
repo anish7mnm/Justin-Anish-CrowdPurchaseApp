@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
+
+@class DVYCampaign;
 @interface DVYInviteFriendsTableViewController : UITableViewController
 
+@property (nonatomic) NSMutableArray *friendsSelected;
+@property (nonatomic) DVYCampaign *campaign;
 @end

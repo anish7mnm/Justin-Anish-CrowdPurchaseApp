@@ -8,6 +8,7 @@
 
 #import "DVYCampaignDetailView.h"
 #import "DVYCampaign.h"
+#import "DVYInviteFriendsTableViewController.h"
 
 
 @implementation DVYCampaignDetailView
@@ -29,6 +30,14 @@
 }
 
 
+- (IBAction)seePeopleCommitted:(id)sender {
+    
+    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
+    
+    UIViewController *friendsCommitted = [myStoryboard instantiateInitialViewController];
+    [self.inputViewController presentViewController:friendsCommitted animated:YES completion:nil];
+    
+}
 
 
 @end

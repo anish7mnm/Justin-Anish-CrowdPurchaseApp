@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1oJ-UE-F29">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -9,36 +9,18 @@
         <!--friendsTableVC-->
         <scene sceneID="ZUm-Qd-g8W">
             <objects>
-                <tableViewController title="friendsTableVC" id="IuJ-j2-sWB" customClass="DVYInviteFriendsTableViewController" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="friendsTVC" storyboardIdentifier="friendsTVC" title="friendsTableVC" id="IuJ-j2-sWB" customClass="DVYInviteFriendsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="oFC-N9-CZ0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="O33-3t-x7f">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O33-3t-x7f" id="e2X-L9-ZNc">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVITE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUE-U5-mmh">
-                                            <rect key="frame" x="185" y="13" width="58" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="CUE-U5-mmh" secondAttribute="centerY" constant="0.5" id="2fM-Ro-poW"/>
-                                        <constraint firstAttribute="centerX" secondItem="CUE-U5-mmh" secondAttribute="centerX" constant="-26.5" id="MW3-qu-vdI"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="YSi-YO-Wzx">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteFriendCell" rowHeight="50" id="YSi-YO-Wzx" customClass="InviteFriendsTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YSi-YO-Wzx" id="TEO-Za-Cir">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vqc-Dn-EfO">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vqc-Dn-EfO">
                                             <rect key="frame" x="8" y="8" width="34" height="34"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="vqc-Dn-EfO" secondAttribute="height" multiplier="1:1" id="LdG-4K-fdw"/>
@@ -46,7 +28,7 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FRIEND NAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2c-F5-yhN">
                                             <rect key="frame" x="61" y="10" width="306" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -60,6 +42,10 @@
                                         <constraint firstItem="vqc-Dn-EfO" firstAttribute="top" secondItem="TEO-Za-Cir" secondAttribute="topMargin" id="a5p-0m-VOD"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="friendName" destination="g2c-F5-yhN" id="ANG-lu-abP"/>
+                                    <outlet property="profilePic" destination="vqc-Dn-EfO" id="ra2-vW-kuz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,11 +53,35 @@
                             <outlet property="delegate" destination="IuJ-j2-sWB" id="ajZ-0h-th4"/>
                         </connections>
                     </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationItem key="navigationItem" id="bca-zm-Pe1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Sak-aV-TGK">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="IuJ-j2-sWB" id="o37-6P-ARy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7j7-NO-avu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-415.5" y="483.5"/>
+            <point key="canvasLocation" x="1080" y="483"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mgi-NS-OUk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1oJ-UE-F29" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rw3-oA-1mz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IuJ-j2-sWB" kind="relationship" relationship="rootViewController" id="29i-Ge-7Or"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2tm-va-vit" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="268" y="483"/>
         </scene>
     </scenes>
 </document>

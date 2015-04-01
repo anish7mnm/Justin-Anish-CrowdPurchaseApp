@@ -14,7 +14,9 @@
 @dynamic fullName;
 @dynamic email;
 @dynamic profilePicture;
+@dynamic facebookID;
 @dynamic currentUser;
+@dynamic friends;
 
 +(NSString *)parseClassName
 {

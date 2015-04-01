@@ -86,6 +86,15 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjw-yW-FxJ">
+                            <rect key="frame" x="423" y="157" width="46" height="30"/>
+                            <state key="normal" title="Button">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="seePeopleCommitted:" destination="iN0-l3-epB" eventType="touchUpInside" id="tcX-EY-qbO"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People Watching" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eH-zW-tFy">
                             <rect key="frame" x="209" y="190" width="80" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -107,10 +116,13 @@
                         <constraint firstItem="wqe-bB-03w" firstAttribute="leading" secondItem="iAE-h7-Bwq" secondAttribute="trailing" constant="8" id="KKM-Bz-q0r"/>
                         <constraint firstItem="wqe-bB-03w" firstAttribute="top" secondItem="Tbt-SS-XK2" secondAttribute="bottom" id="Lk5-X9-MU5"/>
                         <constraint firstAttribute="bottom" secondItem="w9X-tB-SIz" secondAttribute="bottom" constant="31" id="Mzv-BY-2Ck"/>
+                        <constraint firstItem="QWr-2y-G3z" firstAttribute="leading" secondItem="kjw-yW-FxJ" secondAttribute="leading" constant="7" id="Oa2-Fq-lPy"/>
                         <constraint firstItem="Tbt-SS-XK2" firstAttribute="leading" secondItem="iAE-h7-Bwq" secondAttribute="trailing" constant="8" id="Tft-fT-u5N"/>
                         <constraint firstAttribute="trailing" secondItem="Krj-OC-PCm" secondAttribute="trailing" constant="8" id="a9p-7A-Aqo"/>
                         <constraint firstAttribute="bottom" secondItem="9eH-zW-tFy" secondAttribute="bottom" constant="31" id="b8g-Zx-wK8"/>
+                        <constraint firstItem="QWr-2y-G3z" firstAttribute="bottom" secondItem="kjw-yW-FxJ" secondAttribute="bottom" constant="3" id="bJ3-ZI-ze0"/>
                         <constraint firstAttribute="bottom" secondItem="UUg-Wj-8Q4" secondAttribute="bottom" constant="31" id="bTi-H4-2cl"/>
+                        <constraint firstItem="QWr-2y-G3z" firstAttribute="top" secondItem="kjw-yW-FxJ" secondAttribute="top" constant="-3" id="fAK-KS-oJG"/>
                         <constraint firstItem="UUg-Wj-8Q4" firstAttribute="top" secondItem="QWr-2y-G3z" secondAttribute="bottom" id="foI-7v-0cq"/>
                         <constraint firstItem="9eH-zW-tFy" firstAttribute="centerX" secondItem="EHU-2J-gVC" secondAttribute="centerX" constant="-2.5" id="jGd-CZ-ccH"/>
                         <constraint firstItem="iAE-h7-Bwq" firstAttribute="top" secondItem="Tbt-SS-XK2" secondAttribute="top" id="lOv-uJ-n54"/>
@@ -118,6 +130,7 @@
                         <constraint firstItem="Krj-OC-PCm" firstAttribute="bottom" secondItem="iAE-h7-Bwq" secondAttribute="bottom" constant="1" id="mEP-6L-sis"/>
                         <constraint firstAttribute="bottom" secondItem="EHU-2J-gVC" secondAttribute="bottom" constant="43" id="pCC-r1-6qG"/>
                         <constraint firstItem="iAE-h7-Bwq" firstAttribute="top" secondItem="n6j-Gu-XlM" secondAttribute="top" constant="10" id="qVr-Uq-CHU"/>
+                        <constraint firstItem="QWr-2y-G3z" firstAttribute="trailing" secondItem="kjw-yW-FxJ" secondAttribute="trailing" constant="-6" id="y69-g7-7i8"/>
                         <constraint firstItem="9eH-zW-tFy" firstAttribute="top" secondItem="EHU-2J-gVC" secondAttribute="bottom" id="yeP-xM-EN1"/>
                     </constraints>
                 </view>
@@ -136,6 +149,7 @@
                 <outlet property="deadline" destination="Vst-T1-9EP" id="O41-Vr-hEY"/>
                 <outlet property="hostName" destination="wqe-bB-03w" id="Etb-lW-84j"/>
                 <outlet property="peopleCommited" destination="QWr-2y-G3z" id="w01-hx-xwR"/>
+                <outlet property="peopleCommittedButton" destination="kjw-yW-FxJ" id="uYe-aQ-axP"/>
                 <outlet property="peopleNeeded" destination="8eG-kI-nbQ" id="2Eu-6i-onh"/>
                 <outlet property="profilePicture" destination="iAE-h7-Bwq" id="pSQ-98-ndX"/>
             </connections>

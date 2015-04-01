@@ -15,7 +15,11 @@
 @property (nonatomic, strong) NSString *fullName;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *profilePicture;
+@property (strong, nonatomic) NSString *facebookID;
+
 @property (strong, nonatomic) PFUser *currentUser;;
+
+@property (strong, nonatomic) PFRelation *friends;
 
 -(void) setDVYUSerToCurrentUser;
 
