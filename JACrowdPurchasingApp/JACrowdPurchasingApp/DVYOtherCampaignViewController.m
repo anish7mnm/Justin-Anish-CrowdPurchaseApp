@@ -62,6 +62,22 @@
 
 - (IBAction)switchSwitched:(id)sender {
     
+    PFQuery *commitedQuery = [self.campaign.committed query];
+    [commitedQuery whereKey:@"committed" equalTo:[PFUser currentUser]];
+    
+    [commitedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects[0]) {
+            [self.campaign.committed addObject:[PFUser currentUser]];
+            [self.campaign saveInBackground];
+        }
+        else{
+            [self.campaign.committed removeObject:[PFUser currentUser]];
+            [self.campaign saveInBackground];
+        }
+        
+    }];
+    
 }
 
 - (IBAction)exitTapped:(id)sender {
