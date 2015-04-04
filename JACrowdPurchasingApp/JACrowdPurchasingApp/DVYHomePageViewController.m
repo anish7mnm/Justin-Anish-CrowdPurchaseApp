@@ -17,6 +17,8 @@
 #import "DVYSelfCampaignViewController.h"
 #import "DVYCreateCampaignViewController.h"
 
+#import "UIColor+dvvyColors.h"
+
 @interface DVYHomePageViewController ()
 @property (strong, nonatomic) DVYDataStore *localDataStore;
 @property (strong, nonatomic) PFUser *currentUser;
@@ -48,8 +50,28 @@
     
     [self removeAllConstraints];
     [self settingConstraints];
-    [self makingNavBarSexy];
+//    [self makingNavBarSexy];
     
+    
+    // add icons to buttons
+    UIImageView *selfIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user168"]];
+    selfIconView.frame = CGRectMake(28, 9, 12, 12);
+    selfIconView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.selfButton addSubview:selfIconView];
+    
+    UIImageView *otherIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"multiple25"]];
+    otherIconView.frame = CGRectMake(26, 9, 14, 14);
+    otherIconView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.othersButton addSubview:otherIconView];
+
+    UIImageView *invitesIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mail59"]];
+    invitesIconView.frame = CGRectMake(24, 9, 14, 14);
+    invitesIconView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.invitesButton addSubview:invitesIconView];
+    
+    // edit tableviewBG
+    
+    self.selfTableView.backgroundColor = [UIColor dvvyBlueAlternative];
 }
 
 
@@ -93,34 +115,27 @@
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"])
     {
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selfCampaignCell" forIndexPath:indexPath];
-        
         DVYCampaign *selfCampaign = self.localDataStore.selfCampaigns[indexPath.row];
+        cell.cellCampaign = selfCampaign;
         
-        cell.campaignTitle.text = selfCampaign.title;
+        cell.campaignTitle.text = [selfCampaign.title uppercaseString];
         
-        DVYUser *myself = [PFUser currentUser];
+        DVYUser *myself = (DVYUser *)[PFUser currentUser];
         
-        cell.hostName.text = [myself objectForKey:@"fullName"];
-        cell.hostName.textColor = [UIColor purpleColor];
+        cell.hostName.text = [NSString stringWithFormat:@"Made by: %@", [myself objectForKey:@"fullName"]];
         
-        if (selfCampaign.item) {
-            Item *campaignItem = selfCampaign.item;
-            //            [campaignItem fetchIfNeeded];
-            
-            PFFile *fileImage = campaignItem[@"itemImage"];
-            
-            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                UIImage *image = [[UIImage alloc] initWithData:data];
-                cell.campaignImagePicture.image = image;
-                [self.selfTableView reloadData];
-            }];
-        }
+        
         
         return cell;
         
@@ -209,8 +224,16 @@
 
 - (void) settingConstraints
 {
+    NSLayoutConstraint *scrollViewTopToButtonViewBottom =
+    [NSLayoutConstraint constraintWithItem:self.scrollView
+                                 attribute:NSLayoutAttributeTop
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.buttonView
+                                 attribute:NSLayoutAttributeBottom
+                                multiplier:1.0
+                                  constant:0.0];
     
-    
+    [self.view addConstraint:scrollViewTopToButtonViewBottom];
     
     NSLayoutConstraint *scrollViewLeftMArgin =
     [NSLayoutConstraint constraintWithItem:self.scrollView
@@ -262,7 +285,7 @@
                                  relatedBy:NSLayoutRelationEqual
                                     toItem:self.view
                                  attribute:NSLayoutAttributeHeight
-                                multiplier:0.10
+                                multiplier:0.05
                                   constant:0.0];
     
     [self.view addConstraint:buttonViewHeight];

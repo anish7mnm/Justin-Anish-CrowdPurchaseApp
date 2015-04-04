@@ -41,15 +41,14 @@
     NSMutableArray *arrayForGood = [[NSMutableArray alloc] init];
     [DVYParseAPIClient getSelfCampaignsWithCompletionBlock:^(NSArray *selfCampaigns) {
         for (DVYCampaign *selfCampaign in selfCampaigns) {
+            
             [arrayForGood addObject:selfCampaign];
         }
         self.selfCampaigns = arrayForGood;
         completionBlock();
     }];
-
-
-    
 }
+
 
 -(void) getOtherCampaignsWithCompletionBlock: (void (^)(void))completionBlock
 {

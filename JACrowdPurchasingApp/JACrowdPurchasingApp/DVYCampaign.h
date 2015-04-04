@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSDate *deadline;
 @property (nonatomic, strong) DVYUser *host;
 @property (nonatomic, strong) NSNumber *minimumNeededCommits;
+@property (nonatomic, strong) NSNumber *committedCount;
 
 
 @property (nonatomic, strong) PFRelation *invitees;
