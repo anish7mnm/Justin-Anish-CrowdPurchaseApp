@@ -55,23 +55,24 @@
     
     // add icons to buttons
     UIImageView *selfIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user168"]];
-    selfIconView.frame = CGRectMake(28, 9, 12, 12);
+    selfIconView.frame = CGRectMake(20, 7, 12, 12);
     selfIconView.contentMode = UIViewContentModeScaleAspectFill;
     [self.selfButton addSubview:selfIconView];
     
     UIImageView *otherIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"multiple25"]];
-    otherIconView.frame = CGRectMake(26, 9, 14, 14);
+    otherIconView.frame = CGRectMake(17, 6, 14, 14);
     otherIconView.contentMode = UIViewContentModeScaleAspectFill;
     [self.othersButton addSubview:otherIconView];
 
     UIImageView *invitesIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mail59"]];
-    invitesIconView.frame = CGRectMake(24, 9, 14, 14);
+    invitesIconView.frame = CGRectMake(14, 6, 14, 14);
     invitesIconView.contentMode = UIViewContentModeScaleAspectFill;
     [self.invitesButton addSubview:invitesIconView];
     
     // edit tableviewBG
     
-    self.selfTableView.backgroundColor = [UIColor dvvyBlueAlternative];
+//    self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    self.selfTableView.backgroundColor = [UIColor dvvyLightGrey];
 }
 
 
@@ -388,7 +389,7 @@
         DVYCampaign *campaignToPass = self.localDataStore.selfCampaigns[indexPath.row];
         selfCampaign.campaign = campaignToPass;
         
-        selfCampaign.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        selfCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:selfCampaign animated:YES completion:nil];
     }
     

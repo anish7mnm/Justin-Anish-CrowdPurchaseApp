@@ -17,11 +17,14 @@
     // Initialization code
     
     [self.campaignImagePicture.layer setMasksToBounds:YES];
-    [self.campaignImagePicture.layer setCornerRadius:6.0];
+    [self.campaignImagePicture.layer setCornerRadius:14.0];
     
     [self.innerCell.layer setMasksToBounds:YES];
-    [self.innerCell.layer setCornerRadius:9.0];
+//    [self.innerCell.layer setCornerRadius:9.0];
     self.innerCell.backgroundColor = [UIColor whiteColor];
+    self.innerCell.layer.shadowOffset = CGSizeMake(-10, 20);
+    self.innerCell.layer.shadowOpacity = 0.5;
+    self.innerCell.layer.shadowRadius = 12;
     
     CGFloat cornerRadiusOfProgressShell = self.campaignImagePicture.frame.size.height*0.15/2;
     [self.progressShell.layer setMasksToBounds:YES];
@@ -87,7 +90,7 @@
         
         self.numberLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.committedNumberForCell), @(self.neededNumberForCell)];
         
-        CGFloat maxFillWidth = (CGFloat)self.progressShell.bounds.size.width;
+        CGFloat maxFillWidth = (CGFloat)self.progressShell.bounds.size.width-2;
         
         NSInteger numberOfNeeded = self.neededNumberForCell;
         

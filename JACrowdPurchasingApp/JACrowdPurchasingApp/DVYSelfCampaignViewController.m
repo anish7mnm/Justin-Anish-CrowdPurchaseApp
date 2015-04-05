@@ -61,7 +61,13 @@
     //detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%@", self.campaign.committed ]
     detailCampaignViewSelf.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
     
+    self.view.backgroundColor = [UIColor clearColor];
+    self.view.opaque = NO;
+    
     [self.view addSubview:detailCampaignViewSelf];
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -118,6 +124,23 @@
     
     [self.campaign deleteInBackground];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)removeConstraints
+{
+    [self.view removeConstraints:self.view.constraints];
+    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+}
+
+- (void)setConstraints
+{
+    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.presentingViewController attribute:NSLayoutAttributeWidth multiplier:1.0 constant:-16];
+    NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.presentingViewController attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+    NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.presentingViewController attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.presentingViewController attribute:NSLayoutAttributeTop multiplier:0 constant:100];
+    
+    [self.view addConstraints:@[width, centerX, centerY, height]];
+    
 }
 
 @end

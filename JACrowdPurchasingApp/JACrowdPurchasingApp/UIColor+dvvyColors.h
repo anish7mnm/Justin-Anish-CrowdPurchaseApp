@@ -13,5 +13,7 @@
 + (UIColor *)dvvyMainAccent;
 + (UIColor *)dvvyDarkGrey;
 + (UIColor *)dvvyBlueAlternative;
++ (UIColor *)dvvyLightGrey;
+
 
 @end

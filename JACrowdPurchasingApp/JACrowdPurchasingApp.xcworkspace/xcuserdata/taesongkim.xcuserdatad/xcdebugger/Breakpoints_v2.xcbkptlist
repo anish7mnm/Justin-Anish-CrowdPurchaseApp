@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "449772878.76897"
+            timestampString = "449942865.26992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-setCellCampaign:"
             landmarkType = "5">
          </BreakpointContent>
