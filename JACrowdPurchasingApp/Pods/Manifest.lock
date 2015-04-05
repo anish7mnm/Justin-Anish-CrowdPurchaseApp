@@ -1,18 +1,29 @@
 PODS:
   - Bolts (1.1.4)
   - CMDQueryStringSerialization (0.2.0)
-  - Facebook-iOS-SDK (3.23.2):
+  - Facebook-iOS-SDK (4.0.1):
     - Bolts (~> 1.0)
-  - Parse (1.7.0):
+    - Facebook-iOS-SDK/CoreKit (= 4.0.1)
+    - Facebook-iOS-SDK/LoginKit (= 4.0.1)
+    - Facebook-iOS-SDK/ShareKit (= 4.0.1)
+  - Facebook-iOS-SDK/CoreKit (4.0.1):
+    - Bolts (~> 1.0)
+    - Facebook-iOS-SDK/CoreKit/no-arc (= 4.0.1)
+  - Facebook-iOS-SDK/CoreKit/no-arc (4.0.1):
+    - Bolts (~> 1.0)
+  - Facebook-iOS-SDK/LoginKit (4.0.1):
+    - Bolts (~> 1.0)
+    - Facebook-iOS-SDK/CoreKit
+  - Facebook-iOS-SDK/ShareKit (4.0.1):
+    - Bolts (~> 1.0)
+    - Facebook-iOS-SDK/CoreKit
+  - JNWSpringAnimation (0.5)
+  - Parse (1.7.1):
     - Bolts (~> 1.1)
-  - ParseFacebookUtils (1.7.0):
-    - Facebook-iOS-SDK (~> 3.23)
-    - Parse (~> 1.7.0)
-  - ParseUI (1.1.1):
-    - Parse (~> 1.6)
-    - ParseFacebookUtils (~> 1.6)
+  - ParseUI (1.1.3):
+    - Parse (~> 1.7)
   - Shimmer (1.0.2)
-  - SSKeychain (1.2.2)
+  - SSKeychain (1.2.3)
   - VENCore (3.0.1):
     - CMDQueryStringSerialization (~> 0.2.0)
   - Venmo-iOS-SDK (1.3.0):
@@ -22,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - Facebook-iOS-SDK
+  - JNWSpringAnimation (~> 0.5)
   - ParseUI
   - Shimmer
   - SSKeychain
@@ -30,13 +42,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
   CMDQueryStringSerialization: 15f9004212bbc72533bb533f63df79d90a00a7d8
-  Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
-  Parse: 3c2d4e6ade7b59d31c0bc8106340c6b81b31bc0f
-  ParseFacebookUtils: f0c954253a65e945d7cb73400c33bc661f516b85
-  ParseUI: e38bbbc3784006ab4ffaa6ef292e23c5fa9119dc
+  Facebook-iOS-SDK: 6d05532c97e9c542f8d87f94b7f6ee217493d00b
+  JNWSpringAnimation: 1ad895dfddf372e9b1318ff4d11493b157fa1f86
+  Parse: fa8ec29de6d82035635986c11946299fb1b38316
+  ParseUI: 1a68e9cebc3bd458eed9605ce7b33d7cc082f473
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
-  SSKeychain: 88767e903ee8d274ed380e364d96b7a101235286
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   VENCore: 7adedc7c0e65e3ba922cc21c35f3d0e133d43df7
   Venmo-iOS-SDK: 456097c6df57544362719ea8db01541953aec44d
 
-COCOAPODS: 0.36.0.beta.2
+COCOAPODS: 0.35.0

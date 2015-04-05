@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "DVYCampaign.h"
 #import <Parse/PFRelation.h>
+#import "UIColor+dvvyColors.h"
 
 @implementation DVYTableViewCell
 
@@ -22,16 +23,16 @@
     [self.innerCell.layer setMasksToBounds:YES];
 //    [self.innerCell.layer setCornerRadius:9.0];
     self.innerCell.backgroundColor = [UIColor whiteColor];
-    self.innerCell.layer.shadowOffset = CGSizeMake(-10, 20);
-    self.innerCell.layer.shadowOpacity = 0.5;
-    self.innerCell.layer.shadowRadius = 12;
+//    self.innerCell.layer.shadowOffset = CGSizeMake(-10, 20);
+//    self.innerCell.layer.shadowOpacity = 0.5;
+//    self.innerCell.layer.shadowRadius = 12;
     
     CGFloat cornerRadiusOfProgressShell = self.campaignImagePicture.frame.size.height*0.15/2;
     [self.progressShell.layer setMasksToBounds:YES];
     [self.progressShell.layer setCornerRadius:cornerRadiusOfProgressShell];
     
     [self.progressFill.layer setMasksToBounds:YES];
-    [self.progressFill.layer setCornerRadius:(cornerRadiusOfProgressShell-1)];
+    [self.progressFill.layer setCornerRadius:(cornerRadiusOfProgressShell)];
     
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
@@ -39,31 +40,12 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+    ;
+    
+}
 
-    // Configure the view for the selected state
-    
-    
-    
-//    self.numberLabel.text = [NSString stringWithFormat:@"%@/%@", self.cellCampaign.committedCount, self.cellCampaign.minimumNeededCommits];
-//    
-//    CGFloat maxFillWidth = self.progressShell.bounds.size.width;
-//    
-//    NSInteger numberOfNeeded = [self.cellCampaign.minimumNeededCommits integerValue];
-//    
-//    CGFloat fractionCompleted = [self.cellCampaign.committedCount integerValue]/numberOfNeeded;
-//    NSLog(@"%f", fractionCompleted);
-//    
-//    CGFloat progressFillToAddToLeft = maxFillWidth*fractionCompleted;
-//    
-//    NSLog(@"%f", progressFillToAddToLeft);
-//    
-//    NSLayoutConstraint *progressFillExtend = [NSLayoutConstraint constraintWithItem:self.progressFill attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.progressFill attribute:NSLayoutAttributeLeft multiplier:1.0 constant:progressFillToAddToLeft];
-//    
-//    [self.progressShell addConstraint:progressFillExtend];
-
-    
-    
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    ;
 }
 
 - (void)setCellCampaign:(DVYCampaign *)cellCampaign{
@@ -90,12 +72,23 @@
         
         self.numberLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.committedNumberForCell), @(self.neededNumberForCell)];
         
-        CGFloat maxFillWidth = (CGFloat)self.progressShell.bounds.size.width-2;
+        CGFloat maxFillWidth = (CGFloat)self.progressShell.bounds.size.width;
         
         NSInteger numberOfNeeded = self.neededNumberForCell;
         
         CGFloat fractionCompleted = (CGFloat)self.committedNumberForCell/(CGFloat)self.neededNumberForCell;
         NSLog(@"%f",fractionCompleted);
+        
+        UIColor *progressFillColor = [UIColor dvvyProgressGreen];
+        if (fractionCompleted < 0.33) {
+            progressFillColor = [UIColor dvvyProgressOrange];
+        } else if (fractionCompleted < 0.66) {
+            progressFillColor = [UIColor dvvyProgressYellow];
+        } else if (self.committedNumberForCell > self.neededNumberForCell) {
+            progressFillColor = [UIColor dvvyProgressBlue];
+            fractionCompleted = 1.0;
+        }
+        self.progressFill.backgroundColor = progressFillColor;
         
         CGFloat progressFillToAddToLeft = maxFillWidth*fractionCompleted;
         NSInteger integerToAdd = ceil(progressFillToAddToLeft);

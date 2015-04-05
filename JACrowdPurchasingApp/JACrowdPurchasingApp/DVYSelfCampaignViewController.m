@@ -12,9 +12,20 @@
 #import "DVYCreateCampaignViewController.h"
 #import "DVYInviteFriendsTableViewController.h"
 
+#import <JNWSpringAnimation/JNWSpringAnimation.h>
+#import <NSValue+JNWAdditions.h>
 #import <Parse/Parse.h>
 
 @interface DVYSelfCampaignViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+
+@property (weak, nonatomic) IBOutlet UIView *buttonView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIView *backgroundBlurView;
 
 - (IBAction)editButtinTapped:(id)sender;
 @property (nonatomic) DVYCampaignDetailView *detailCampaignViewSelf;
@@ -47,9 +58,42 @@
         }];
     }
 
-    [self.view addSubview:self.detailCampaignViewSelf];
+    self.detailCampaignViewSelf.backgroundColor = [UIColor yellowColor];
     
     self.view.backgroundColor = [UIColor clearColor];
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurredEffectView.frame = self.view.frame;
+    [self.backgroundBlurView addSubview:blurredEffectView];
+    
+    
+    [self.contentView addSubview:self.detailCampaignViewSelf];
+    self.detailCampaignViewSelf.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    
+    self.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
+    self.view.alpha = 0.0f;
+    
+    [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.view.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        NULL;
+    }];
+    
+    JNWSpringAnimation *scale = [JNWSpringAnimation animationWithKeyPath:@"transform.scale"];
+    scale.damping = 14;
+    scale.stiffness = 14;
+    scale.mass = 1;
+    scale.fromValue = @(1.2);
+    scale.toValue = @(1.0);
+    
+    [self.view.layer addAnimation:scale forKey:scale.keyPath];
+    self.view.alpha = 1.0f;
+    self.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    
+    
+    
+    
     self.view.opaque = NO;
     
 }
@@ -130,7 +174,11 @@
 - (void)removeConstraints
 {
     [self.view removeConstraints:self.view.constraints];
-    self.view.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.detailCampaignViewSelf.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self.buttonView removeConstraints:self.buttonView.constraints];
+    self.buttonView.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)setConstraints

@@ -7,6 +7,7 @@ target 'JACrowdPurchasingApp' do
 	pod 'Shimmer'
 	pod 'Venmo-iOS-SDK', '~>1.3'
 	pod 'SSKeychain'
+	pod 'JNWSpringAnimation', '~> 0.5’
 end
 
 target 'JACrowdPurchasingAppTests' do

@@ -24,7 +24,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvB-Nv-ZB6">
                                         <rect key="frame" x="42" y="2" width="54" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <state key="normal" title="Yours">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +35,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHL-pF-YBw">
                                         <rect key="frame" x="270" y="2" width="44" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <state key="normal" title="Theirs">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,7 +46,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNk-B9-QY8">
                                         <rect key="frame" x="514" y="2" width="45" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <state key="normal" title="Invites">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -262,7 +262,7 @@
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="23" id="LtM-AK-7CH"/>
                                                                                     </constraints>
-                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                                                     <color key="textColor" red="0.1671346098" green="0.16658953030000001" blue="0.17040583519999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -283,11 +283,11 @@
                                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         </view>
                                                                                     </subviews>
-                                                                                    <color key="backgroundColor" red="0.64370209316037741" green="0.64240447481897944" blue="0.62260299404207531" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                    <color key="backgroundColor" red="0.1671346098" green="0.16658953030000001" blue="0.17040583519999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                     <constraints>
-                                                                                        <constraint firstItem="Waz-w1-xT6" firstAttribute="leading" secondItem="oJL-nD-MnF" secondAttribute="leading" constant="1" id="ZNV-Ei-NsP"/>
-                                                                                        <constraint firstItem="Waz-w1-xT6" firstAttribute="top" secondItem="oJL-nD-MnF" secondAttribute="top" constant="1" id="a28-cx-Orb"/>
-                                                                                        <constraint firstItem="Waz-w1-xT6" firstAttribute="bottom" secondItem="oJL-nD-MnF" secondAttribute="bottom" constant="-1" id="yuL-gm-CZF"/>
+                                                                                        <constraint firstItem="Waz-w1-xT6" firstAttribute="leading" secondItem="oJL-nD-MnF" secondAttribute="leading" id="ZNV-Ei-NsP"/>
+                                                                                        <constraint firstItem="Waz-w1-xT6" firstAttribute="top" secondItem="oJL-nD-MnF" secondAttribute="top" id="a28-cx-Orb"/>
+                                                                                        <constraint firstItem="Waz-w1-xT6" firstAttribute="bottom" secondItem="oJL-nD-MnF" secondAttribute="bottom" id="yuL-gm-CZF"/>
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19z-6p-ita">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0620"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9912F5AD0778B75398795637"
+               BlueprintIdentifier = "62A8243BC0D7C962C1DB288D"
                BuildableName = "libPods-JACrowdPurchasingApp-CMDQueryStringSerialization.a"
                BlueprintName = "Pods-JACrowdPurchasingApp-CMDQueryStringSerialization"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -39,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9912F5AD0778B75398795637"
-            BuildableName = "libPods-JACrowdPurchasingApp-CMDQueryStringSerialization.a"
-            BlueprintName = "Pods-JACrowdPurchasingApp-CMDQueryStringSerialization"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -57,15 +48,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9912F5AD0778B75398795637"
-            BuildableName = "libPods-JACrowdPurchasingApp-CMDQueryStringSerialization.a"
-            BlueprintName = "Pods-JACrowdPurchasingApp-CMDQueryStringSerialization"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -30,6 +30,25 @@
     return [UIColor colorWithRed:0.942 green:0.940 blue:0.940 alpha:1.000];
 }
 
++ (UIColor *)dvvyProgressOrange
+{
+    return [UIColor colorWithRed:1.000 green:0.642 blue:0.183 alpha:1.000];
+}
+
++ (UIColor *)dvvyProgressYellow
+{
+    return [UIColor colorWithRed:0.992 green:1.000 blue:0.231 alpha:1.000];
+}
+
++ (UIColor *)dvvyProgressGreen
+{
+    return [UIColor colorWithRed:0.439 green:1.000 blue:0.609 alpha:1.000];
+}
+
++ (UIColor *)dvvyProgressBlue
+{
+    return [UIColor dvvyBlueAlternative];
+}
 
 
 @end

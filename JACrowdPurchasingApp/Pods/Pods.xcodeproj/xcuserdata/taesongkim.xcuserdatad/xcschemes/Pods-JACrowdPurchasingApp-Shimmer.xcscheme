@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0620"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39625BA7D92A3836B1E8D8FD"
+               BlueprintIdentifier = "AD790092C35AA4AEC0337A95"
                BuildableName = "libPods-JACrowdPurchasingApp-Shimmer.a"
                BlueprintName = "Pods-JACrowdPurchasingApp-Shimmer"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -39,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39625BA7D92A3836B1E8D8FD"
-            BuildableName = "libPods-JACrowdPurchasingApp-Shimmer.a"
-            BlueprintName = "Pods-JACrowdPurchasingApp-Shimmer"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -57,15 +48,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39625BA7D92A3836B1E8D8FD"
-            BuildableName = "libPods-JACrowdPurchasingApp-Shimmer.a"
-            BlueprintName = "Pods-JACrowdPurchasingApp-Shimmer"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

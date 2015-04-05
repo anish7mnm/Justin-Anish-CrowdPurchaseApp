@@ -15,5 +15,12 @@
 + (UIColor *)dvvyBlueAlternative;
 + (UIColor *)dvvyLightGrey;
 
++ (UIColor *)dvvyProgressOrange;
++ (UIColor *)dvvyProgressYellow;
++ (UIColor *)dvvyProgressGreen;
++ (UIColor *)dvvyProgressBlue;
+
+
+
 
 @end

@@ -55,7 +55,7 @@
     
     // add icons to buttons
     UIImageView *selfIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user168"]];
-    selfIconView.frame = CGRectMake(20, 7, 12, 12);
+    selfIconView.frame = CGRectMake(20, 6, 12, 12);
     selfIconView.contentMode = UIViewContentModeScaleAspectFill;
     [self.selfButton addSubview:selfIconView];
     
@@ -65,7 +65,7 @@
     [self.othersButton addSubview:otherIconView];
 
     UIImageView *invitesIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mail59"]];
-    invitesIconView.frame = CGRectMake(14, 6, 14, 14);
+    invitesIconView.frame = CGRectMake(14, 5, 14, 14);
     invitesIconView.contentMode = UIViewContentModeScaleAspectFill;
     [self.invitesButton addSubview:invitesIconView];
     
@@ -302,7 +302,7 @@
                             @"othersButton":self.othersButton,
                             @"inviteButton":self.invitesButton};
     
-    NSArray *topBottomView = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[buttonView]-[scrollView]|" options:0 metrics:nil views:views];
+    NSArray *topBottomView = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[buttonView][scrollView]|" options:0 metrics:nil views:views];
     [self.view addConstraints:topBottomView];
     
     NSArray *buttonsLeftToRight = [NSLayoutConstraint constraintsWithVisualFormat:@"|[selfButton][othersButton(==selfButton)][inviteButton(==selfButton)]|" options:0 metrics:nil views:views];
@@ -389,7 +389,13 @@
         DVYCampaign *campaignToPass = self.localDataStore.selfCampaigns[indexPath.row];
         selfCampaign.campaign = campaignToPass;
         
+        
         selfCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        selfCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
+        
+        
         [self presentViewController:selfCampaign animated:YES completion:nil];
     }
     
@@ -417,7 +423,6 @@
     }
     
 }
-
 
 - (IBAction)createACampaign:(id)sender {
     
@@ -489,5 +494,7 @@
         
     }
 }
+
+
 
 @end
