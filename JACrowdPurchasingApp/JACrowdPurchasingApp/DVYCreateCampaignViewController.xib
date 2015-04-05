@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DVYCreateCampaignViewController">
             <connections>
                 <outlet property="createButtonLabelProp" destination="z6K-CU-ifU" id="Xb8-6C-W7y"/>
+                <outlet property="deadlinePicker" destination="Tt0-Ml-mTA" id="hlv-Ha-BJr"/>
                 <outlet property="descriptionTextField" destination="rqy-Sm-moS" id="0Xg-KD-iYR"/>
                 <outlet property="peopleNeededTextField" destination="Px7-uL-jYy" id="23o-Pb-i0R"/>
                 <outlet property="titleTextField" destination="dVH-Ag-rUN" id="8fp-2n-Wzs"/>
