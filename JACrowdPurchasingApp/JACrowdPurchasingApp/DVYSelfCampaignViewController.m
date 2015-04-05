@@ -17,6 +17,7 @@
 @interface DVYSelfCampaignViewController ()
 
 - (IBAction)editButtinTapped:(id)sender;
+@property (nonatomic) DVYCampaignDetailView *detailCampaignViewSelf;
 
 @end
 
@@ -25,44 +26,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //self.view.accessibilityIdentifier= @"myCampaignVC";
+    
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"DVYCampaignDetailView" owner:self options:nil];
     
-    DVYCampaignDetailView *detailCampaignViewSelf = [nibViews firstObject];
-    
-    detailCampaignViewSelf.campaignTitle.text = self.campaign.title;
-    detailCampaignViewSelf.campaignDetails.text = self.campaign.detail;
-    detailCampaignViewSelf.peopleNeeded.text = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
-
-    PFQuery *query = [self.campaign.committed query];
-    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
-        NSInteger count = (NSInteger) number;
-        detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
-    }];
+    self.detailCampaignViewSelf = [nibViews firstObject];
     
     DVYUser *host = self.campaign.host;
-    detailCampaignViewSelf.hostName.text = host[@"fullName"];
+    self.detailCampaignViewSelf.hostName.text = host[@"fullName"];
     
     Item *campaignItem = self.campaign.item;
     PFFile *image = [campaignItem objectForKey:@"itemImage"];
     
-        if (image) {
-            [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                if (!error) {
-                    detailCampaignViewSelf.profilePicture.image = [UIImage imageWithData:data];
-                    // Add a nice corner radius to the image
-                    detailCampaignViewSelf.profilePicture.layer.cornerRadius = 8.0f;
-                    detailCampaignViewSelf.profilePicture.layer.masksToBounds = YES;                }
-            }];
-        }
-    
+    if (image) {
+        [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                self.detailCampaignViewSelf.profilePicture.image = [UIImage imageWithData:data];
+                // Add a nice corner radius to the image
+                self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 8.0f;
+                self.detailCampaignViewSelf.profilePicture.layer.masksToBounds = YES;                }
+        }];
+    }
 
+    [self.view addSubview:self.detailCampaignViewSelf];
     
-    //detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%@", self.campaign.committed ]
-    detailCampaignViewSelf.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
     
-    [self.view addSubview:detailCampaignViewSelf];
-    // Do any additional setup after loading the view.
+    self.detailCampaignViewSelf.campaignTitle.text = self.campaign.title;
+    self.detailCampaignViewSelf.campaignDetails.text = self.campaign.detail;
+    self.detailCampaignViewSelf.peopleNeeded.text = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
+    self.detailCampaignViewSelf.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
+
+    PFQuery *query = [self.campaign.committed query];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        NSInteger count = (NSInteger) number;
+        self.detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
+    }];
 }
 
 

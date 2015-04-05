@@ -69,7 +69,7 @@
         }
         if (textField == self.peopleNeededTextField) {
             self.detailedView.peopleNeeded.text =  textField.text;
-            self.detailedView.peopleCommited.text = @"1";
+            //self.detailedView.peopleCommited.text = @"1";
         }
         
     }
@@ -89,7 +89,7 @@
         }
         if (textField == self.peopleNeededTextField) {
             self.detailedView.peopleNeeded.text =  textField.text;
-            self.detailedView.peopleCommited.text = @"1";
+            //self.detailedView.peopleCommited.text = @"1";
         }
 
 
@@ -109,9 +109,9 @@
 - (void) settingPlaceholdersToTextFields
 {
     if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Update"]) {
-        self.titleTextField.placeholder = self.titlePlaceholder;
-        self.descriptionTextField.placeholder = self.descriptionPlaceholder;
-        self.peopleNeededTextField.placeholder = self.numberOfPeoplePlaceHolder;
+        self.titleTextField.text = self.titlePlaceholder;
+        self.descriptionTextField.text = self.descriptionPlaceholder;
+        self.peopleNeededTextField.text = self.numberOfPeoplePlaceHolder;
         
     }
     else{
@@ -206,9 +206,9 @@
 {
     DVYCampaign *campaign = [[DVYCampaign alloc]init];
     
-    campaign.title = self.detailedView.campaignTitle.text;
-    campaign.detail = self.detailedView.campaignDetails.text;
-    campaign.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);
+    campaign.title = self.titleTextField.text;
+    campaign.detail = self.descriptionTextField.text;
+    campaign.minimumNeededCommits = @([self.peopleNeededTextField.text integerValue]);
     
     campaign.deadline = self.deadlinePicker.date;
     
@@ -236,6 +236,11 @@
 
 - (void) updateCampaign
 {
+    
+    
+    self.campaignToUpdate.title = self.titleTextField.text;
+    self.campaignToUpdate.detail = self.descriptionTextField.text;
+    self.campaignToUpdate.minimumNeededCommits = @([self.peopleNeededTextField.text integerValue]);
     
     if (self.detailedView.profilePicture.image) {
         
