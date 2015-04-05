@@ -73,6 +73,8 @@
     
 //    self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
     self.selfTableView.backgroundColor = [UIColor dvvyLightGrey];
+    
+    [self removeShadowUnderNavBar];
 }
 
 
@@ -493,6 +495,17 @@
                                }];
         
     }
+}
+
+- (void)removeShadowUnderNavBar
+{
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"bgShadow"]
+                       forBarPosition:UIBarPositionAny
+                           barMetrics:UIBarMetricsDefault];
+    
+    [navigationBar setShadowImage:[UIImage new]];
 }
 
 

@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-JACrowdPurchasingApp-ParseFacebookUtils.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JACrowdPurchasingApp-ParseUI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,57 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2010886E40E4690E5DF1ECE7</key>
+		<key>08C910C640AD2EDB7E018B8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31E945AFDB42921F328EAC09</key>
+		<key>2B318B65B10917FFA1C109AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>36185F469FA72B95E94EEF98</key>
+		<key>3472C7E6DE7F7CC7E0EE3817</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5105C24002B26184937EE4BC</key>
+		<key>434F128F911044608FE1ECA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>55175A58DA0220FA07526188</key>
+		<key>46C7C8FC6A60B49663301489</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62A8243BC0D7C962C1DB288D</key>
+		<key>6C05CFB6C957A2D09BF1CB19</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A95394E5C55C314880714B82</key>
+		<key>8D6D43BA3D16106D2D844778</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD790092C35AA4AEC0337A95</key>
+		<key>98CA6F2489A5C93B6844E55C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D0C9037EA54A276581146129</key>
+		<key>AC586470A9AB99776C0A22EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE180810F9806EE1E5E4C3B0</key>
+		<key>BBE4C079955F834F4B545381</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9D62B4E60D03E772BFFCC2D</key>
+		<key>CF4E6559DA7AD24807003F60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6690E38E7F4D50F976C5705</key>
 		<dict>
 			<key>primary</key>
 			<true/>

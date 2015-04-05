@@ -389,10 +389,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="57S-qr-WVU" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0It-4J-sgt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" shadowImage="amus" id="0It-4J-sgt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.35570584420848361" green="0.72857980799203581" blue="0.92807316780000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.2294184118" green="0.676312625" blue="0.74972361440000002" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -404,4 +404,7 @@
             <point key="canvasLocation" x="1649" y="-426"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="amus" width="560" height="400"/>
+    </resources>
 </document>

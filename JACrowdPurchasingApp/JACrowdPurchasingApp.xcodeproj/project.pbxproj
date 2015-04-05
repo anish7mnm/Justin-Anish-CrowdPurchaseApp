@@ -46,6 +46,7 @@
 		88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */; };
 		88F3672B1AC9DB39009358FA /* DVYCreateCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */; };
 		A2E458A7B6546632644441BF /* libPods-JACrowdPurchasingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA848941C109929DE44BCAB5 /* libPods-JACrowdPurchasingApp.a */; };
+		A87C04A81AD1D78100C88847 /* bgShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A87C04A71AD1D78100C88847 /* bgShadow.png */; };
 		A8A43DA91ACEBABC00B60520 /* UIColor+dvvyColors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */; };
 		A8A43DAB1ACEBDC900B60520 /* user168.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A43DAA1ACEBDC900B60520 /* user168.png */; };
 		A8A43DAE1ACEC0B700B60520 /* mail59.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A43DAC1ACEC0B600B60520 /* mail59.png */; };
@@ -124,6 +125,7 @@
 		88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYHomePageViewController.m; sourceTree = "<group>"; };
 		88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYSelfCampaignViewController.xib; sourceTree = "<group>"; };
 		88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYCreateCampaignViewController.xib; sourceTree = "<group>"; };
+		A87C04A71AD1D78100C88847 /* bgShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgShadow.png; sourceTree = "<group>"; };
 		A8A43DA71ACEBABC00B60520 /* UIColor+dvvyColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+dvvyColors.h"; sourceTree = "<group>"; };
 		A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+dvvyColors.m"; sourceTree = "<group>"; };
 		A8A43DAA1ACEBDC900B60520 /* user168.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user168.png; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */,
 				A8A43DAC1ACEC0B600B60520 /* mail59.png */,
 				A8A43DAD1ACEC0B700B60520 /* multiple25.png */,
+				A87C04A71AD1D78100C88847 /* bgShadow.png */,
 				A8A43DAA1ACEBDC900B60520 /* user168.png */,
 			);
 			name = HomePage;
@@ -435,6 +438,7 @@
 				88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */,
 				88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */,
 				A8A43DAB1ACEBDC900B60520 /* user168.png in Resources */,
+				A87C04A81AD1D78100C88847 /* bgShadow.png in Resources */,
 				A8A43DAE1ACEC0B700B60520 /* mail59.png in Resources */,
 				88B560161AC999BC002A83AE /* DVYOtherCampaignViewController.xib in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,

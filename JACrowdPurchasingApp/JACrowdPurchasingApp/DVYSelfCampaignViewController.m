@@ -70,26 +70,7 @@
     
     [self.contentView addSubview:self.detailCampaignViewSelf];
     self.detailCampaignViewSelf.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
-    
-    self.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
-    self.view.alpha = 0.0f;
-    
-    [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.view.alpha = 1.0f;
-    } completion:^(BOOL finished) {
-        NULL;
-    }];
-    
-    JNWSpringAnimation *scale = [JNWSpringAnimation animationWithKeyPath:@"transform.scale"];
-    scale.damping = 14;
-    scale.stiffness = 14;
-    scale.mass = 1;
-    scale.fromValue = @(1.2);
-    scale.toValue = @(1.0);
-    
-    [self.view.layer addAnimation:scale forKey:scale.keyPath];
-    self.view.alpha = 1.0f;
-    self.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
+
     
     
     

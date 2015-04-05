@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </view>
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1B-Y1-dfJ" userLabel="buttonView">
-                    <rect key="frame" x="8" y="308" width="584" height="25"/>
+                    <rect key="frame" x="8" y="361" width="584" height="25"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdl-Qg-KCh">
                             <rect key="frame" x="529" y="0.0" width="55" height="25"/>
@@ -105,16 +105,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuU-g1-1Wx" userLabel="contentView">
-                    <rect key="frame" x="8" y="169" width="584" height="131"/>
+                    <rect key="frame" x="8" y="213" width="584" height="140"/>
                     <color key="backgroundColor" red="0.2294184118" green="0.676312625" blue="0.74972361440000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="131" id="ecg-ZY-Qsb"/>
+                        <constraint firstAttribute="height" constant="140" id="ecg-ZY-Qsb"/>
                     </constraints>
                 </view>
             </subviews>
             <constraints>
                 <constraint firstItem="kuU-g1-1Wx" firstAttribute="width" secondItem="z1B-Y1-dfJ" secondAttribute="width" id="0Aa-u9-N3q"/>
-                <constraint firstItem="kuU-g1-1Wx" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1sI-dn-BPA"/>
+                <constraint firstItem="kuU-g1-1Wx" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="53" id="1sI-dn-BPA"/>
                 <constraint firstItem="6iu-Mf-JPH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2WG-j9-NKM"/>
                 <constraint firstItem="kuU-g1-1Wx" firstAttribute="centerX" secondItem="z1B-Y1-dfJ" secondAttribute="centerX" id="7U8-Il-JnD"/>
                 <constraint firstItem="kuU-g1-1Wx" firstAttribute="bottom" secondItem="z1B-Y1-dfJ" secondAttribute="top" constant="-8" id="80P-px-C1U"/>

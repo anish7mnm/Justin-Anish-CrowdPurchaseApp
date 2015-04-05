@@ -1,25 +1,14 @@
 PODS:
   - Bolts (1.1.4)
   - CMDQueryStringSerialization (0.2.0)
-  - Facebook-iOS-SDK (4.0.1):
+  - Facebook-iOS-SDK (3.23.2):
     - Bolts (~> 1.0)
-    - Facebook-iOS-SDK/CoreKit (= 4.0.1)
-    - Facebook-iOS-SDK/LoginKit (= 4.0.1)
-    - Facebook-iOS-SDK/ShareKit (= 4.0.1)
-  - Facebook-iOS-SDK/CoreKit (4.0.1):
-    - Bolts (~> 1.0)
-    - Facebook-iOS-SDK/CoreKit/no-arc (= 4.0.1)
-  - Facebook-iOS-SDK/CoreKit/no-arc (4.0.1):
-    - Bolts (~> 1.0)
-  - Facebook-iOS-SDK/LoginKit (4.0.1):
-    - Bolts (~> 1.0)
-    - Facebook-iOS-SDK/CoreKit
-  - Facebook-iOS-SDK/ShareKit (4.0.1):
-    - Bolts (~> 1.0)
-    - Facebook-iOS-SDK/CoreKit
   - JNWSpringAnimation (0.5)
   - Parse (1.7.1):
     - Bolts (~> 1.1)
+  - ParseFacebookUtils (1.7.1):
+    - Facebook-iOS-SDK (~> 3.23)
+    - Parse (~> 1.7.1)
   - ParseUI (1.1.3):
     - Parse (~> 1.7)
   - Shimmer (1.0.2)
@@ -33,7 +22,8 @@ PODS:
 
 DEPENDENCIES:
   - Facebook-iOS-SDK
-  - JNWSpringAnimation (~> 0.5)
+  - JNWSpringAnimation
+  - ParseFacebookUtils
   - ParseUI
   - Shimmer
   - SSKeychain
@@ -42,9 +32,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
   CMDQueryStringSerialization: 15f9004212bbc72533bb533f63df79d90a00a7d8
-  Facebook-iOS-SDK: 6d05532c97e9c542f8d87f94b7f6ee217493d00b
+  Facebook-iOS-SDK: cd87f0b2f0c1d9574b44e8fa2baacc275524bac3
   JNWSpringAnimation: 1ad895dfddf372e9b1318ff4d11493b157fa1f86
   Parse: fa8ec29de6d82035635986c11946299fb1b38316
+  ParseFacebookUtils: fa09adf78372b589163b5a71a34d6ebc7eb83395
   ParseUI: 1a68e9cebc3bd458eed9605ce7b33d7cc082f473
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "62A8243BC0D7C962C1DB288D"
+               BlueprintIdentifier = "AC586470A9AB99776C0A22EF"
                BuildableName = "libPods-JACrowdPurchasingApp-CMDQueryStringSerialization.a"
                BlueprintName = "Pods-JACrowdPurchasingApp-CMDQueryStringSerialization"
                ReferencedContainer = "container:Pods.xcodeproj">
