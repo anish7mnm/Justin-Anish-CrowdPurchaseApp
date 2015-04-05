@@ -394,7 +394,7 @@
     
     else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
         DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
-        
+
         DVYCampaign *campaignToPass = self.localDataStore.othersCampaign[indexPath.row];
         othersCampaign.campaign = campaignToPass;
         
@@ -406,7 +406,7 @@
     else if ([tableView.accessibilityIdentifier isEqualToString:@"invitations"]) {
         
         DVYOtherCampaignViewController *othersCampaignInvite = [[DVYOtherCampaignViewController alloc] init];
-        
+
         DVYCampaign *campaignToPass = self.localDataStore.alertCampaign[indexPath.row];
         othersCampaignInvite.campaign = campaignToPass;
         

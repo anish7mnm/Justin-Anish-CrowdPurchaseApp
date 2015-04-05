@@ -16,6 +16,7 @@
 @interface DVYOtherCampaignViewController ()
 
 @property (weak, nonatomic) IBOutlet UISwitch *decisionSwitch;
+@property (nonatomic) BOOL joined;
 
 @end
 
@@ -44,6 +45,23 @@
     detailView.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
 
     
+    PFQuery *commitedQuery = [self.campaign.committed query];
+    [commitedQuery whereKey:@"committed" equalTo:[PFUser currentUser]];
+    
+    [commitedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (![objects isEqualToArray:@[]]) {
+            self.decisionSwitch.on = YES;
+            self.joined = YES;
+        }
+        else{
+            self.decisionSwitch.on = NO;
+            self.joined = NO;
+        }
+        
+    }];
+    
+    
     DVYUser *host = self.campaign.host;
     detailView.hostName.text = host[@"fullName"];
     
@@ -62,21 +80,15 @@
 
 - (IBAction)switchSwitched:(id)sender {
     
-    PFQuery *commitedQuery = [self.campaign.committed query];
-    [commitedQuery whereKey:@"committed" equalTo:[PFUser currentUser]];
-    
-    [commitedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (objects[0]) {
-            [self.campaign.committed addObject:[PFUser currentUser]];
-            [self.campaign saveInBackground];
-        }
-        else{
-            [self.campaign.committed removeObject:[PFUser currentUser]];
-            [self.campaign saveInBackground];
-        }
-        
-    }];
+    if (self.joined == NO) {
+        [self.campaign.committed addObject:[PFUser currentUser]];
+        [self.campaign.invitees removeObject:[PFUser currentUser]];
+        [self.campaign saveInBackground];
+    }
+    else{
+        [self.campaign.committed removeObject:[PFUser currentUser]];
+        [self.campaign saveInBackground];
+    }
     
 }
 

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *peopleNeededTextField;
+@property (weak, nonatomic) IBOutlet UIDatePicker *deadlinePicker;
 
 @property (strong, nonatomic) DVYCampaignDetailView *detailedView;
 
@@ -209,6 +210,7 @@
     campaign.detail = self.detailedView.campaignDetails.text;
     campaign.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);
     
+    campaign.deadline = self.deadlinePicker.date;
     
     if (self.detailedView.profilePicture.image) {
         Item *campaignItem = [[Item alloc] init];
@@ -259,5 +261,6 @@
     }];
 
 }
+
 
 @end
