@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
+
+#import "DVYHomePageViewController.h"
 #import "DVYCreateCampaignViewController.h"
 #import "DVYSelfCampaignViewController.h"
 #import "DVYCampaignDetailView.h"
@@ -244,6 +246,8 @@
     [relation addObject:host];
     
     [campaign saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
+        [homeVC refresh];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }

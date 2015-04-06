@@ -9,15 +9,17 @@
 #import "DVYOtherCampaignViewController.h"
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
-#import <PFUser.h>
 #import "DVYUser.h"
 #import "DVYCampaignDetailView.h"
+#import "DVYHomePageViewController.h"
 
 @interface DVYOtherCampaignViewController ()
 
 @property (weak, nonatomic) IBOutlet UISwitch *decisionSwitch;
 @property (nonatomic) BOOL joined;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+
+@property (strong, nonatomic, readwrite) DVYUser *userToBeRemovedOrAdded;
 
 @end
 
@@ -47,11 +49,12 @@
 
     
     PFQuery *commitedQuery = [self.campaign.committed query];
-    [commitedQuery whereKey:@"committed" equalTo:[PFUser currentUser]];
+    [commitedQuery whereKey:@"username" equalTo:[PFUser currentUser].username];
     
     [commitedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (![objects isEqualToArray:@[]]) {
+            self.userToBeRemovedOrAdded = objects[0];
             self.decisionSwitch.on = YES;
             self.joined = YES;
         }
@@ -95,6 +98,9 @@
 }
 
 - (IBAction)exitTapped:(id)sender {
+    DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
+    [homeVC refresh];
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

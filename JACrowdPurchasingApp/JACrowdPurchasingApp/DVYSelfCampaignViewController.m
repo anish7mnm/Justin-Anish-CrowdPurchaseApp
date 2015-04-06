@@ -12,7 +12,7 @@
 #import "DVYCreateCampaignViewController.h"
 #import "DVYInviteFriendsTableViewController.h"
 #import "UIImage+animatedGIF.h"
-
+#import "DVYHomePageViewController.h"
 #import <JNWSpringAnimation/JNWSpringAnimation.h>
 #import <NSValue+JNWAdditions.h>
 #import <Parse/Parse.h>
@@ -160,6 +160,8 @@
 - (IBAction)deleteButtonTapped:(id)sender {
     
     [self.campaign deleteInBackground];
+    DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
+    [homeVC refresh];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

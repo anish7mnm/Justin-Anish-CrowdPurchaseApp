@@ -19,5 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
 
+- (void)refresh;
 
 @end
