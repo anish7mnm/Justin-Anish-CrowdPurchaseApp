@@ -16,6 +16,7 @@
 @interface DVYInviteFriendsTableViewController ()
 
 @property(nonatomic) DVYDataStore *localDataStore;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
@@ -25,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.localDataStore = [DVYDataStore sharedLocationsDataStore];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
     self.friendsSelected = [[NSMutableArray alloc] init];
 }
 
@@ -130,10 +133,10 @@
 }
 
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 70;
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
+}
 
 - (IBAction)doneButtonTapped:(id)sender {
     
@@ -153,5 +156,10 @@
     
     
 }
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

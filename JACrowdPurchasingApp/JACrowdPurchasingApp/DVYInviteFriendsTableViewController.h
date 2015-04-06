@@ -11,8 +11,9 @@
 
 
 @class DVYCampaign;
-@interface DVYInviteFriendsTableViewController : UITableViewController
+@interface DVYInviteFriendsTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSMutableArray *friendsSelected;
 @property (nonatomic) DVYCampaign *campaign;
+
 @end

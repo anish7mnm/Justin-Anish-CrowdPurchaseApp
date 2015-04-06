@@ -75,11 +75,6 @@
     self.detailCampaignViewSelf.neededCountView.layer.cornerRadius = 8.0f;
     self.detailCampaignViewSelf.commitCountView.layer.cornerRadius = 8.0f;
     
-
-    
-    
-    
-    
     self.view.opaque = NO;
     
 }
@@ -150,14 +145,10 @@
     
     UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
     
-    UINavigationController *navC = [myStoryboard instantiateInitialViewController];
-    DVYInviteFriendsTableViewController *friendsToBeAdded = [myStoryboard instantiateViewControllerWithIdentifier:@"friendsTVC"];
-    [navC addChildViewController: friendsToBeAdded];
-    
-
-     //* friendsToBeAdded =
+    DVYInviteFriendsTableViewController *friendsToBeAdded = [myStoryboard instantiateInitialViewController];
     friendsToBeAdded.campaign = self.campaign;
-    [self presentViewController:navC animated:YES completion:nil];
+    
+    [self presentViewController:friendsToBeAdded animated:YES completion:nil];
     
 }
 

@@ -27,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *othersButton;
 @property (weak, nonatomic) IBOutlet UIButton *invitesButton;
 @property (strong, nonatomic) DVYFacebookLoginViewController *facebookLogin;
+@property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) UIRefreshControl *othersRefreshControl;
+@property (nonatomic) UIRefreshControl *invitationRefreshControl;
 
 @end
 
@@ -51,7 +54,24 @@
     
     [self removeAllConstraints];
     [self settingConstraints];
-//    [self makingNavBarSexy];
+    
+    //Pull to refresh for tableviews
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.selfTableView addSubview:self.refreshControl];
+    
+    self.othersRefreshControl = [[UIRefreshControl alloc] init];
+    [self.othersRefreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.selfTableView addSubview:self.othersRefreshControl];
+    
+    self.invitationRefreshControl = [[UIRefreshControl alloc] init];
+    [self.invitationRefreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.selfTableView addSubview:self.invitationRefreshControl];
+    
+    [self.othersTableView addSubview:self.othersRefreshControl];
+    [self.invitationTableView addSubview:self.invitationRefreshControl];
+    
+    
     
     
     // add icons to buttons
@@ -83,18 +103,34 @@
 }
 
 
+- (void)refresh
+{
+    // do your refresh here and reload the tablview
+    [self viewWillAppear:YES];
+}
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
     [self.localDataStore getselfCampaignsWithCompletionBlock:^{
         NSLog(@"Got the campaigns hosted by me");
+        if (self.refreshControl) {
+            [self.refreshControl endRefreshing];
+        }
         [self.selfTableView reloadData];
     }];
     [self.localDataStore getOtherCampaignsWithCompletionBlock:^{
         NSLog(@"Got the campaigns hosted by others");
+        if (self.othersRefreshControl) {
+            [self.othersRefreshControl endRefreshing];
+        }
         [self.othersTableView reloadData];
     }];
     [self.localDataStore getInvitiationCampaignsWithCompletionBlock:^{
+        if (self.invitationRefreshControl) {
+            [self.invitationRefreshControl endRefreshing];
+        }
         [self.invitationTableView reloadData];
         NSLog(@"Invites Got!");
     }];
