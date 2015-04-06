@@ -27,11 +27,11 @@
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JhE-cu-MNQ">
                             <rect key="frame" x="290" y="190" width="20" height="20"/>
                         </activityIndicatorView>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqe-ns-7B3">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqe-ns-7B3">
                             <rect key="frame" x="183" y="282" width="234" height="53"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="70" id="Nz1-dI-IAA"/>
-                                <constraint firstAttribute="width" constant="70" id="c7n-mZ-zgE"/>
+                                <constraint firstAttribute="height" constant="53" id="Nz1-dI-IAA"/>
+                                <constraint firstAttribute="width" constant="234" id="c7n-mZ-zgE"/>
                             </constraints>
                             <state key="normal" image="fbicon"/>
                             <connections>
@@ -39,7 +39,7 @@
                             </connections>
                         </button>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MADE IN NEW YORK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8H-um-WmK">
-                            <rect key="frame" x="250" y="566" width="100.5" height="12"/>
+                            <rect key="frame" x="250.5" y="566" width="100.5" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -50,18 +50,26 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-J2-XeW">
-                            <rect key="frame" x="229" y="334" width="143" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="is in the works! Tap above to start now :)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-eo-7c2">
+                            <rect key="frame" x="167" y="349" width="266" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Eyyy, new user! Our independent sign-in " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-J2-XeW">
+                            <rect key="frame" x="158" y="332" width="284" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
                         <constraint firstItem="zKt-kb-jEe" firstAttribute="bottom" secondItem="Jfs-NG-GhO" secondAttribute="bottom" constant="-10" id="Cep-1B-lio"/>
-                        <constraint firstItem="Qew-J2-XeW" firstAttribute="top" secondItem="Rqe-ns-7B3" secondAttribute="bottom" constant="8" symbolic="YES" id="Ddw-Cq-Cq2"/>
+                        <constraint firstItem="Qew-J2-XeW" firstAttribute="top" secondItem="Rqe-ns-7B3" secondAttribute="bottom" constant="-1" id="Ddw-Cq-Cq2"/>
                         <constraint firstItem="Qew-J2-XeW" firstAttribute="centerX" secondItem="Jfs-NG-GhO" secondAttribute="centerX" id="F7B-O8-MjP"/>
-                        <constraint firstItem="Rqe-ns-7B3" firstAttribute="centerY" secondItem="Jfs-NG-GhO" secondAttribute="centerY" id="O8H-IM-1P4"/>
+                        <constraint firstAttribute="centerX" secondItem="OhG-eo-7c2" secondAttribute="centerX" constant="-0.5" id="FJ4-cm-tcL"/>
+                        <constraint firstItem="OhG-eo-7c2" firstAttribute="top" secondItem="Qew-J2-XeW" secondAttribute="bottom" id="ILT-e2-J0u"/>
+                        <constraint firstItem="Rqe-ns-7B3" firstAttribute="centerY" secondItem="Jfs-NG-GhO" secondAttribute="centerY" constant="8.5" id="O8H-IM-1P4"/>
                         <constraint firstItem="Y8H-um-WmK" firstAttribute="bottom" secondItem="zKt-kb-jEe" secondAttribute="top" id="OAn-oU-kwM"/>
                         <constraint firstItem="zKt-kb-jEe" firstAttribute="centerX" secondItem="Jfs-NG-GhO" secondAttribute="centerX" id="XK2-cz-0ad"/>
                         <constraint firstItem="Y8H-um-WmK" firstAttribute="centerX" secondItem="zKt-kb-jEe" secondAttribute="centerX" id="Ydl-GK-bhW"/>
