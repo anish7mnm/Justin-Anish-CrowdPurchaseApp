@@ -147,10 +147,9 @@
 //        NSLog(@"%f", progressFillToAddToLeft);
 //        self.progressFill.transform = CGAffineTransformScale(self.progressShell.transform, 0.001, 1);
         
-        
         NSLayoutConstraint *progressFillExtend = [NSLayoutConstraint constraintWithItem:self.progressFill attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.progressFill attribute:NSLayoutAttributeLeft multiplier:1.0 constant:integerToAdd];
         
-        [self layoutIfNeeded];
+//        [self layoutIfNeeded];
         [self.progressShell addConstraint:progressFillExtend];
         
         CGFloat randomDelay = arc4random_uniform(10)/100.00;
