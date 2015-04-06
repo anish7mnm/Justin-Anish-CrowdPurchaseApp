@@ -51,6 +51,9 @@
 		A8A43DAB1ACEBDC900B60520 /* user168.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A43DAA1ACEBDC900B60520 /* user168.png */; };
 		A8A43DAE1ACEC0B700B60520 /* mail59.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A43DAC1ACEC0B600B60520 /* mail59.png */; };
 		A8A43DAF1ACEC0B700B60520 /* multiple25.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A43DAD1ACEC0B700B60520 /* multiple25.png */; };
+		A8C717331AD29EAD0016054B /* Mexican_Pusheen.gif in Resources */ = {isa = PBXBuildFile; fileRef = A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */; };
+		A8C717361AD2B3E40016054B /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */; };
+		A8C717381AD2B4390016054B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C717371AD2B4390016054B /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +134,10 @@
 		A8A43DAA1ACEBDC900B60520 /* user168.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user168.png; sourceTree = "<group>"; };
 		A8A43DAC1ACEC0B600B60520 /* mail59.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail59.png; sourceTree = "<group>"; };
 		A8A43DAD1ACEC0B700B60520 /* multiple25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = multiple25.png; sourceTree = "<group>"; };
+		A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Mexican_Pusheen.gif; sourceTree = "<group>"; };
+		A8C717341AD2B3E40016054B /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		A8C717371AD2B4390016054B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		CA848941C109929DE44BCAB5 /* libPods-JACrowdPurchasingApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JACrowdPurchasingApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8C717381AD2B4390016054B /* ImageIO.framework in Frameworks */,
 				88D4A6051AB36ADC00AAB9A0 /* StoreKit.framework in Frameworks */,
 				88D4A6061AB36AE300AAB9A0 /* Security.framework in Frameworks */,
 				88D4A6071AB36AE300AAB9A0 /* QuartzCore.framework in Frameworks */,
@@ -221,6 +229,7 @@
 				88B55FD41AC5B0EA002A83AE /* DVYCampaignDetailView.xib */,
 				88D446381AC3708F00F1A530 /* DVYCampaignDetailView.h */,
 				88D446391AC3708F00F1A530 /* DVYCampaignDetailView.m */,
+				A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */,
 				889CE9951AC0D9DC00F04C0B /* DVYTableViewCell.h */,
 				889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */,
 				88333A4C1ACB5617000A9E5A /* InviteFriendsTableViewCell.h */,
@@ -232,6 +241,7 @@
 		88D4A5E61AB228F300AAB9A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8C717371AD2B4390016054B /* ImageIO.framework */,
 				88EF0BF21ABCCF9300897A21 /* libPods-JACrowdPurchasingApp-Bolts.a */,
 				88D4A5E01AB228D700AAB9A0 /* StoreKit.framework */,
 				88D4A5DE1AB228D100AAB9A0 /* Security.framework */,
@@ -337,6 +347,8 @@
 				88B560141AC999BC002A83AE /* DVYOtherCampaignViewController.xib */,
 				88D4463E1AC371B400F1A530 /* DVYInviteFriendsTableViewController.h */,
 				88D4463F1AC371B400F1A530 /* DVYInviteFriendsTableViewController.m */,
+				A8C717341AD2B3E40016054B /* UIImage+animatedGIF.h */,
+				A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */,
 			);
 			name = Campaigns;
 			sourceTree = "<group>";
@@ -441,6 +453,7 @@
 				A87C04A81AD1D78100C88847 /* bgShadow.png in Resources */,
 				A8A43DAE1ACEC0B700B60520 /* mail59.png in Resources */,
 				88B560161AC999BC002A83AE /* DVYOtherCampaignViewController.xib in Resources */,
+				A8C717331AD29EAD0016054B /* Mexican_Pusheen.gif in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
 				889CE9931AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib in Resources */,
 				88D446341AC36F9F00F1A530 /* CreateFlow.storyboard in Resources */,
@@ -510,6 +523,7 @@
 				A8A43DA91ACEBABC00B60520 /* UIColor+dvvyColors.m in Sources */,
 				88B55FD81AC5F0DD002A83AE /* Item.m in Sources */,
 				88E94ED71AA7A4C90052FA35 /* main.m in Sources */,
+				A8C717361AD2B3E40016054B /* UIImage+animatedGIF.m in Sources */,
 				88B560151AC999BC002A83AE /* DVYOtherCampaignViewController.m in Sources */,
 				88EF0BF91ABCD57900897A21 /* DVYHomePageViewController.m in Sources */,
 				889CE9971AC0D9DC00F04C0B /* DVYTableViewCell.m in Sources */,

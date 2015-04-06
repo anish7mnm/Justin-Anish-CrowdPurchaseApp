@@ -27,8 +27,9 @@
     self.campaignTitle.text = [self.campaign.title uppercaseString];
     self.campaignDetails.text = self.campaign.detail;
     self.deadline.text = [self settingDate];
-    
 }
+
+
 
 -(NSString *) settingDate
 {

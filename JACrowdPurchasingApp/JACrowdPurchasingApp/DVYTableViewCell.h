@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *hostName;
 
 @property (weak, nonatomic) IBOutlet UIView *innerCell;
+@property (weak, nonatomic) IBOutlet UIView *textView;
 
 @property (weak, nonatomic) IBOutlet UIView *progressShell;
 @property (weak, nonatomic) IBOutlet UIView *progressFill;

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *peopleNeededTextField;
 @property (weak, nonatomic) IBOutlet UIDatePicker *deadlinePicker;
+@property (weak, nonatomic) IBOutlet UIView *bgWindow;
 
 @property (strong, nonatomic) DVYCampaignDetailView *detailedView;
 
@@ -33,6 +34,7 @@
     self.descriptionTextField.delegate = self;
     self.peopleNeededTextField.delegate = self;
     
+//    self.bgWindow.layer.cornerRadius = 10.0;
     
     self.createButtonLabelProp.enabled = NO;
     
@@ -116,19 +118,19 @@
     }
     else{
         if ([self.titleTextField.text isEqualToString:@""]) {
-            self.titleTextField.placeholder = @"Enter the title of your Campaign";
+            self.titleTextField.placeholder = @"Campaign Title";
         } else {
             self.titleTextField.placeholder = self.detailedView.campaignTitle.text;
         }
         
         if ([self.descriptionTextField.text isEqualToString:@""]) {
-            self.descriptionTextField.placeholder = @"Enter all the relevent details (Link, Price etc.)";
+            self.descriptionTextField.placeholder = @"Campaign Details";
         } else {
             self.descriptionTextField.placeholder = self.detailedView.campaignDetails.text;
         }
         
         if ([self.peopleNeededTextField.text isEqualToString:@""]) {
-            self.peopleNeededTextField.placeholder = @"Min. #";
+            self.peopleNeededTextField.placeholder = @"0";
         } else {
             self.peopleNeededTextField.placeholder = self.detailedView.peopleNeeded.text;
             self.campaignToUpdate.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);

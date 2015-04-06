@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface InviteFriendsTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 @property (weak, nonatomic) IBOutlet UILabel *friendName;
 

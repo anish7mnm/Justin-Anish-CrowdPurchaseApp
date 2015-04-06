@@ -18,6 +18,7 @@
 #import "DVYCreateCampaignViewController.h"
 
 #import "UIColor+dvvyColors.h"
+#import "UIImage+animatedGIF.h"
 
 @interface DVYHomePageViewController ()
 @property (strong, nonatomic) DVYDataStore *localDataStore;
@@ -138,34 +139,16 @@
         
         cell.hostName.text = [NSString stringWithFormat:@"Made by: %@", [myself objectForKey:@"fullName"]];
         
-        
-        
         return cell;
-        
     }
     
     else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"])
     {
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"othersCampaignCell" forIndexPath:indexPath];
         DVYCampaign *othersCampaign = self.localDataStore.othersCampaign[indexPath.row];
+        cell.cellCampaign = othersCampaign;
         
-        cell.campaignTitle.text = othersCampaign.title;
-        DVYUser *host = othersCampaign.host;
-        cell.hostName.text = host[@"fullName"];
-        
-        cell.hostName.textColor = [UIColor grayColor];
-        
-        if (othersCampaign.item) {
-            Item *campaignItem = othersCampaign.item;
-            PFFile *fileImage = campaignItem[@"itemImage"];
-            
-            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                UIImage *image = [[UIImage alloc] initWithData:data];
-                cell.campaignImagePicture.image = image;
-                [self.othersTableView reloadData];
-            }];
-        }
-        return cell;
+                return cell;
         
     }
     
@@ -174,27 +157,9 @@
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"invitationCell" forIndexPath:indexPath];
         
         DVYCampaign *othersCampaign = self.localDataStore.alertCampaign[indexPath.row];
+        cell.cellCampaign = othersCampaign;
         
-        cell.campaignTitle.text = othersCampaign.title;
-        DVYUser *host = othersCampaign.host;
-        
-        cell.hostName.text = host[@"fullName"];
-        
-        cell.hostName.textColor = [UIColor grayColor];
-        
-        if (othersCampaign.item) {
-            Item *campaignItem = othersCampaign.item;
-            //[campaignItem fetchIfNeeded];
-            
-            PFFile *fileImage = campaignItem[@"itemImage"];
-            
-            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                UIImage *image = [[UIImage alloc] initWithData:data];
-                cell.campaignImagePicture.image = image;
-                [self.invitationTableView reloadData];
-            }];
-        }
-        return cell;
+            return cell;
         
     }
     
@@ -391,12 +356,8 @@
         DVYCampaign *campaignToPass = self.localDataStore.selfCampaigns[indexPath.row];
         selfCampaign.campaign = campaignToPass;
         
-        
         selfCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        
         selfCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        
-        
         
         [self presentViewController:selfCampaign animated:YES completion:nil];
     }
@@ -430,7 +391,8 @@
     
     DVYCreateCampaignViewController *createCampaign = [[DVYCreateCampaignViewController alloc] init];
     
-    createCampaign.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    createCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    createCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:createCampaign animated:YES completion:nil];
 }
 
