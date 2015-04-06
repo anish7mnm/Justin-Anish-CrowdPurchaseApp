@@ -24,11 +24,24 @@
 
 -(void)updateView
 {
-    self.campaignTitle.text = self.campaign.title;
+    self.campaignTitle.text = [self.campaign.title uppercaseString];
     self.campaignDetails.text = self.campaign.detail;
-    
+    self.deadline.text = [self settingDate];
 }
 
+
+
+-(NSString *) settingDate
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
+    NSLog(@"%@", stringDate);
+    return stringDate;
+}
+
+
+//For the future
 
 - (IBAction)seePeopleCommitted:(id)sender {
     

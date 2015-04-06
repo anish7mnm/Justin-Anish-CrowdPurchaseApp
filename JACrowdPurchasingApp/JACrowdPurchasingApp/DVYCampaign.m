@@ -22,12 +22,19 @@
 @dynamic hasEnded;
 @dynamic hasMetNeeds;
 @dynamic item;
-
+@dynamic committedCount;
 
 +(NSString *)parseClassName
 {
     return @"Campaign";
 }
+
+//-(void)setCommittedCount:(NSNumber *)committedCount{
+//    PFQuery *query = [self.committed query];
+//    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+//        NSInteger committedNumber = (NSInteger)number;
+//        _committedCount = @(committedNumber);
+//    }];}
 
 //- (instancetype)initWithTitle:(NSString *)title detail:(NSString *)detail deadline:(NSDate *)deadline host:(DVYUser *)host minimumNeededCommits:(NSNumber *)minimumNeededCommits
 //{

@@ -20,11 +20,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "450018952.658653"
+            timestampString = "450030675.076646"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137">
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-setCellCampaign:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -60,11 +62,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYHomePageViewController.m"
-            timestampString = "450018454.784492"
+            timestampString = "450029378.375071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -76,11 +78,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "450018952.658653"
+            timestampString = "450025935.392397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117">
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-setCellCampaign:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,11 +94,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "450018952.658653"
+            timestampString = "450030675.076646"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134">
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "-setCellCampaign:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -104,11 +110,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYHomePageViewController.m"
-            timestampString = "450018549.644213"
+            timestampString = "450029378.375071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,11 +126,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "450018588.397328"
+            timestampString = "450025935.392397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82">
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "-setCellCampaign:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -134,11 +142,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "450018604.980799"
+            timestampString = "450025935.392397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102">
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-setCellCampaign:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -148,11 +158,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "450018952.658653"
+            timestampString = "450025935.392397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111">
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-setCellCampaign:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

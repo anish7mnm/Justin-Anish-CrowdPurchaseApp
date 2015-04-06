@@ -17,6 +17,9 @@
 #import "DVYSelfCampaignViewController.h"
 #import "DVYCreateCampaignViewController.h"
 
+#import "UIColor+dvvyColors.h"
+#import "UIImage+animatedGIF.h"
+
 @interface DVYHomePageViewController ()
 @property (strong, nonatomic) DVYDataStore *localDataStore;
 @property (strong, nonatomic) PFUser *currentUser;
@@ -48,8 +51,35 @@
     
     [self removeAllConstraints];
     [self settingConstraints];
-    [self makingNavBarSexy];
+//    [self makingNavBarSexy];
     
+    
+    // add icons to buttons
+    UIImageView *selfIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user168"]];
+    selfIconView.frame = CGRectMake(20, 6, 12, 12);
+    selfIconView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.selfButton addSubview:selfIconView];
+    
+    UIImageView *otherIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"multiple25"]];
+    otherIconView.frame = CGRectMake(17, 6, 14, 14);
+    otherIconView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.othersButton addSubview:otherIconView];
+
+    UIImageView *invitesIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mail59"]];
+    invitesIconView.frame = CGRectMake(14, 5, 14, 14);
+    invitesIconView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.invitesButton addSubview:invitesIconView];
+    
+    // edit tableviewBG
+    
+//    self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    self.selfTableView.backgroundColor = [UIColor dvvyLightGrey];
+    self.othersTableView.backgroundColor = [UIColor dvvyLightGrey];
+    self.invitationTableView.backgroundColor = [UIColor dvvyLightGrey];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"background.jpg"] forBarMetrics:UIBarMetricsDefault];
+    
+    [self removeShadowUnderNavBar];
 }
 
 
@@ -93,61 +123,36 @@
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"])
     {
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selfCampaignCell" forIndexPath:indexPath];
-        
         DVYCampaign *selfCampaign = self.localDataStore.selfCampaigns[indexPath.row];
+        cell.cellCampaign = selfCampaign;
         
-        cell.campaignTitle.text = selfCampaign.title;
+        cell.campaignTitle.text = [selfCampaign.title uppercaseString];
         
-        DVYUser *myself = [PFUser currentUser];
+        DVYUser *myself = (DVYUser *)[PFUser currentUser];
         
-        cell.hostName.text = [myself objectForKey:@"fullName"];
-        cell.hostName.textColor = [UIColor purpleColor];
-        
-        if (selfCampaign.item) {
-            Item *campaignItem = selfCampaign.item;
-            //            [campaignItem fetchIfNeeded];
-            
-            PFFile *fileImage = campaignItem[@"itemImage"];
-            
-            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                UIImage *image = [[UIImage alloc] initWithData:data];
-                cell.campaignImagePicture.image = image;
-                [self.selfTableView reloadData];
-            }];
-        }
+        cell.hostName.text = [NSString stringWithFormat:@"Made by: %@", [myself objectForKey:@"fullName"]];
         
         return cell;
-        
     }
     
     else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"])
     {
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"othersCampaignCell" forIndexPath:indexPath];
         DVYCampaign *othersCampaign = self.localDataStore.othersCampaign[indexPath.row];
+        cell.cellCampaign = othersCampaign;
         
-        cell.campaignTitle.text = othersCampaign.title;
-        DVYUser *host = othersCampaign.host;
-        cell.hostName.text = host[@"fullName"];
-        
-        cell.hostName.textColor = [UIColor grayColor];
-        
-        if (othersCampaign.item) {
-            Item *campaignItem = othersCampaign.item;
-            PFFile *fileImage = campaignItem[@"itemImage"];
-            
-            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                UIImage *image = [[UIImage alloc] initWithData:data];
-                cell.campaignImagePicture.image = image;
-                [self.othersTableView reloadData];
-            }];
-        }
-        return cell;
+                return cell;
         
     }
     
@@ -156,27 +161,9 @@
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"invitationCell" forIndexPath:indexPath];
         
         DVYCampaign *othersCampaign = self.localDataStore.alertCampaign[indexPath.row];
+        cell.cellCampaign = othersCampaign;
         
-        cell.campaignTitle.text = othersCampaign.title;
-        DVYUser *host = othersCampaign.host;
-        
-        cell.hostName.text = host[@"fullName"];
-        
-        cell.hostName.textColor = [UIColor grayColor];
-        
-        if (othersCampaign.item) {
-            Item *campaignItem = othersCampaign.item;
-            //[campaignItem fetchIfNeeded];
-            
-            PFFile *fileImage = campaignItem[@"itemImage"];
-            
-            [fileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                UIImage *image = [[UIImage alloc] initWithData:data];
-                cell.campaignImagePicture.image = image;
-                [self.invitationTableView reloadData];
-            }];
-        }
-        return cell;
+            return cell;
         
     }
     
@@ -209,8 +196,16 @@
 
 - (void) settingConstraints
 {
+    NSLayoutConstraint *scrollViewTopToButtonViewBottom =
+    [NSLayoutConstraint constraintWithItem:self.scrollView
+                                 attribute:NSLayoutAttributeTop
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.buttonView
+                                 attribute:NSLayoutAttributeBottom
+                                multiplier:1.0
+                                  constant:0.0];
     
-    
+    [self.view addConstraint:scrollViewTopToButtonViewBottom];
     
     NSLayoutConstraint *scrollViewLeftMArgin =
     [NSLayoutConstraint constraintWithItem:self.scrollView
@@ -262,7 +257,7 @@
                                  relatedBy:NSLayoutRelationEqual
                                     toItem:self.view
                                  attribute:NSLayoutAttributeHeight
-                                multiplier:0.10
+                                multiplier:0.05
                                   constant:0.0];
     
     [self.view addConstraint:buttonViewHeight];
@@ -278,7 +273,7 @@
                             @"othersButton":self.othersButton,
                             @"inviteButton":self.invitesButton};
     
-    NSArray *topBottomView = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[buttonView]-[scrollView]|" options:0 metrics:nil views:views];
+    NSArray *topBottomView = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[buttonView][scrollView]|" options:0 metrics:nil views:views];
     [self.view addConstraints:topBottomView];
     
     NSArray *buttonsLeftToRight = [NSLayoutConstraint constraintsWithVisualFormat:@"|[selfButton][othersButton(==selfButton)][inviteButton(==selfButton)]|" options:0 metrics:nil views:views];
@@ -365,17 +360,21 @@
         DVYCampaign *campaignToPass = self.localDataStore.selfCampaigns[indexPath.row];
         selfCampaign.campaign = campaignToPass;
         
-        selfCampaign.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        selfCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        selfCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
         [self presentViewController:selfCampaign animated:YES completion:nil];
     }
     
     else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
         DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
-        
+
         DVYCampaign *campaignToPass = self.localDataStore.othersCampaign[indexPath.row];
         othersCampaign.campaign = campaignToPass;
         
-        othersCampaign.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        othersCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        othersCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
         [self presentViewController:othersCampaign animated:YES completion:nil];
         
     }
@@ -383,23 +382,24 @@
     else if ([tableView.accessibilityIdentifier isEqualToString:@"invitations"]) {
         
         DVYOtherCampaignViewController *othersCampaignInvite = [[DVYOtherCampaignViewController alloc] init];
-        
+
         DVYCampaign *campaignToPass = self.localDataStore.alertCampaign[indexPath.row];
         othersCampaignInvite.campaign = campaignToPass;
         
-        othersCampaignInvite.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        othersCampaignInvite.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        othersCampaignInvite.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         
         [self presentViewController:othersCampaignInvite animated:YES completion:nil];
     }
     
 }
 
-
 - (IBAction)createACampaign:(id)sender {
     
     DVYCreateCampaignViewController *createCampaign = [[DVYCreateCampaignViewController alloc] init];
     
-    createCampaign.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    createCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    createCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     [self presentViewController:createCampaign animated:YES completion:nil];
 }
 
@@ -465,5 +465,18 @@
         
     }
 }
+
+- (void)removeShadowUnderNavBar
+{
+    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"bgShadow"]
+                       forBarPosition:UIBarPositionAny
+                           barMetrics:UIBarMetricsDefault];
+    
+    [navigationBar setShadowImage:[UIImage new]];
+}
+
+
 
 @end

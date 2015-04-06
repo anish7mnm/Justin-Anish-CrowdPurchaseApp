@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *peopleNeededTextField;
+@property (weak, nonatomic) IBOutlet UIDatePicker *deadlinePicker;
+@property (weak, nonatomic) IBOutlet UIView *bgWindow;
 
 @property (strong, nonatomic) DVYCampaignDetailView *detailedView;
 
@@ -32,6 +34,7 @@
     self.descriptionTextField.delegate = self;
     self.peopleNeededTextField.delegate = self;
     
+//    self.bgWindow.layer.cornerRadius = 10.0;
     
     self.createButtonLabelProp.enabled = NO;
     
@@ -68,7 +71,7 @@
         }
         if (textField == self.peopleNeededTextField) {
             self.detailedView.peopleNeeded.text =  textField.text;
-            self.detailedView.peopleCommited.text = @"1";
+            //self.detailedView.peopleCommited.text = @"1";
         }
         
     }
@@ -88,7 +91,7 @@
         }
         if (textField == self.peopleNeededTextField) {
             self.detailedView.peopleNeeded.text =  textField.text;
-            self.detailedView.peopleCommited.text = @"1";
+            //self.detailedView.peopleCommited.text = @"1";
         }
 
 
@@ -108,26 +111,26 @@
 - (void) settingPlaceholdersToTextFields
 {
     if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Update"]) {
-        self.titleTextField.placeholder = self.titlePlaceholder;
-        self.descriptionTextField.placeholder = self.descriptionPlaceholder;
-        self.peopleNeededTextField.placeholder = self.numberOfPeoplePlaceHolder;
+        self.titleTextField.text = self.titlePlaceholder;
+        self.descriptionTextField.text = self.descriptionPlaceholder;
+        self.peopleNeededTextField.text = self.numberOfPeoplePlaceHolder;
         
     }
     else{
         if ([self.titleTextField.text isEqualToString:@""]) {
-            self.titleTextField.placeholder = @"Enter the title of your Campaign";
+            self.titleTextField.placeholder = @"Campaign Title";
         } else {
             self.titleTextField.placeholder = self.detailedView.campaignTitle.text;
         }
         
         if ([self.descriptionTextField.text isEqualToString:@""]) {
-            self.descriptionTextField.placeholder = @"Enter all the relevent details (Link, Price etc.)";
+            self.descriptionTextField.placeholder = @"Campaign Details";
         } else {
             self.descriptionTextField.placeholder = self.detailedView.campaignDetails.text;
         }
         
         if ([self.peopleNeededTextField.text isEqualToString:@""]) {
-            self.peopleNeededTextField.placeholder = @"Min. #";
+            self.peopleNeededTextField.placeholder = @"0";
         } else {
             self.peopleNeededTextField.placeholder = self.detailedView.peopleNeeded.text;
             self.campaignToUpdate.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);
@@ -205,10 +208,11 @@
 {
     DVYCampaign *campaign = [[DVYCampaign alloc]init];
     
-    campaign.title = self.detailedView.campaignTitle.text;
-    campaign.detail = self.detailedView.campaignDetails.text;
-    campaign.minimumNeededCommits = @([self.detailedView.peopleNeeded.text integerValue]);
+    campaign.title = self.titleTextField.text;
+    campaign.detail = self.descriptionTextField.text;
+    campaign.minimumNeededCommits = @([self.peopleNeededTextField.text integerValue]);
     
+    campaign.deadline = self.deadlinePicker.date;
     
     if (self.detailedView.profilePicture.image) {
         Item *campaignItem = [[Item alloc] init];
@@ -235,6 +239,11 @@
 - (void) updateCampaign
 {
     
+    
+    self.campaignToUpdate.title = self.titleTextField.text;
+    self.campaignToUpdate.detail = self.descriptionTextField.text;
+    self.campaignToUpdate.minimumNeededCommits = @([self.peopleNeededTextField.text integerValue]);
+    
     if (self.detailedView.profilePicture.image) {
         
         [self.campaignToUpdate removeObjectForKey:@"item"];
@@ -259,5 +268,6 @@
     }];
 
 }
+
 
 @end

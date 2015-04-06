@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *deadline;
 @property (weak, nonatomic) IBOutlet UIButton *peopleCommittedButton;
 
+@property (weak, nonatomic) IBOutlet UIView *commitCountView;
+@property (weak, nonatomic) IBOutlet UIView *neededCountView;
+
 @property (strong, nonatomic) DVYCampaign *campaign;
 
 - (void) updateView;

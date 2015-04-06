@@ -16,6 +16,8 @@
 @interface DVYOtherCampaignViewController ()
 
 @property (weak, nonatomic) IBOutlet UISwitch *decisionSwitch;
+@property (nonatomic) BOOL joined;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -44,12 +46,30 @@
     detailView.deadline.text = [NSString stringWithFormat:@"%@", self.campaign.deadline];
 
     
+    PFQuery *commitedQuery = [self.campaign.committed query];
+    [commitedQuery whereKey:@"committed" equalTo:[PFUser currentUser]];
+    
+    [commitedQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (![objects isEqualToArray:@[]]) {
+            self.decisionSwitch.on = YES;
+            self.joined = YES;
+        }
+        else{
+            self.decisionSwitch.on = NO;
+            self.joined = NO;
+        }
+        
+    }];
+    
+    
     DVYUser *host = self.campaign.host;
     detailView.hostName.text = host[@"fullName"];
     
     //self.decisionSwitch = [[UISwitch alloc] init];
     
-    [self.view addSubview:detailView];
+    detailView.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    [self.contentView addSubview:detailView];
     
     
     // Do any additional setup after loading the view from its nib.
@@ -61,6 +81,16 @@
 }
 
 - (IBAction)switchSwitched:(id)sender {
+    
+    if (self.joined == NO) {
+        [self.campaign.committed addObject:[PFUser currentUser]];
+        [self.campaign.invitees removeObject:[PFUser currentUser]];
+        [self.campaign saveInBackground];
+    }
+    else{
+        [self.campaign.committed removeObject:[PFUser currentUser]];
+        [self.campaign saveInBackground];
+    }
     
 }
 

@@ -14,7 +14,10 @@
 #import "DVYCampaign.h"
 
 @interface DVYInviteFriendsTableViewController ()
+
 @property(nonatomic) DVYDataStore *localDataStore;
+
+
 @end
 
 @implementation DVYInviteFriendsTableViewController
