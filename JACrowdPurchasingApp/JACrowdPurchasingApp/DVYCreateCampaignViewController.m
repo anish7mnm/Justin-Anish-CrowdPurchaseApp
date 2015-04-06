@@ -45,9 +45,6 @@
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"DVYCampaignDetailView" owner:self options:nil];
     self.detailedView = [nibViews firstObject];
     
-    
-    
-    
     // Do any additional setup after loading the view.
 }
 

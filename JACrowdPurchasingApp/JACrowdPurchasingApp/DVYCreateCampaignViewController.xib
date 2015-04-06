@@ -20,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.64999999999999969" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAR-60-rA8">
-                    <rect key="frame" x="-140" y="-16" width="600" height="600"/>
+                <view alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAR-60-rA8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-CU-ifU">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-CU-ifU">
                     <rect key="frame" x="249" y="463" width="63" height="30"/>
                     <color key="backgroundColor" red="0.2294184118" green="0.676312625" blue="0.74972361440000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
@@ -35,7 +35,7 @@
                         <action selector="createThePageButtonTapped:" destination="-1" eventType="touchUpInside" id="Rse-nV-O0q"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-SM-7c6">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-SM-7c6">
                     <rect key="frame" x="8" y="463" width="63" height="30"/>
                     <color key="backgroundColor" red="0.94179318990000005" green="0.27336123979999999" blue="0.2667501625" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
@@ -47,7 +47,7 @@
                         <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="bqY-0L-jTe"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1D-i1-hXy">
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1D-i1-hXy">
                     <rect key="frame" x="8" y="75" width="304" height="380"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XY1-M3-58A">
@@ -116,6 +116,18 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
+            <constraints>
+                <constraint firstItem="z6K-CU-ifU" firstAttribute="top" secondItem="l1D-i1-hXy" secondAttribute="bottom" constant="8" id="40M-QO-qXW"/>
+                <constraint firstItem="l1D-i1-hXy" firstAttribute="leading" secondItem="pYe-SM-7c6" secondAttribute="leading" id="7Ul-7l-InC"/>
+                <constraint firstItem="VAR-60-rA8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FaW-fH-cJx"/>
+                <constraint firstItem="VAR-60-rA8" firstAttribute="centerX" secondItem="l1D-i1-hXy" secondAttribute="centerX" id="R0Y-hg-7RD"/>
+                <constraint firstItem="VAR-60-rA8" firstAttribute="centerY" secondItem="l1D-i1-hXy" secondAttribute="centerY" constant="19" id="SOZ-Vm-Uhq"/>
+                <constraint firstAttribute="trailing" secondItem="VAR-60-rA8" secondAttribute="trailing" id="VG4-YQ-Ln1"/>
+                <constraint firstItem="l1D-i1-hXy" firstAttribute="trailing" secondItem="z6K-CU-ifU" secondAttribute="trailing" id="cwY-Xa-0mo"/>
+                <constraint firstAttribute="bottom" secondItem="VAR-60-rA8" secondAttribute="bottom" id="iqm-Lo-QPM"/>
+                <constraint firstItem="VAR-60-rA8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sSe-83-GbY"/>
+                <constraint firstItem="pYe-SM-7c6" firstAttribute="top" secondItem="l1D-i1-hXy" secondAttribute="bottom" constant="8" id="tZq-CU-ijM"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="390" y="361"/>
         </view>

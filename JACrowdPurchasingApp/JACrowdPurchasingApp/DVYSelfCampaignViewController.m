@@ -39,7 +39,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"DVYCampaignDetailView" owner:self options:nil];
     
     self.detailCampaignViewSelf = [nibViews firstObject];
@@ -78,6 +77,11 @@
     self.view.opaque = NO;
     
 }
+
+//- (void)setCampaign:(DVYCampaign *)campaign
+//{
+//    
+//}
 
 - (void)blurTheView {
     self.view.backgroundColor = [UIColor clearColor];

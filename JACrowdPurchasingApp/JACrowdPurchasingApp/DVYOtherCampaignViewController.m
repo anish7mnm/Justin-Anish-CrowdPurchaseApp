@@ -12,6 +12,7 @@
 #import "DVYUser.h"
 #import "DVYCampaignDetailView.h"
 #import "DVYHomePageViewController.h"
+#import "UIImage+animatedGIF.h"
 
 @interface DVYOtherCampaignViewController ()
 
@@ -69,10 +70,47 @@
     DVYUser *host = self.campaign.host;
     detailView.hostName.text = host[@"fullName"];
     
+    detailView.peopleNeeded.text = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/dd/yy"];
+    NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
+    
+    detailView.deadline.text = stringDate;
+    
+    PFQuery *query = [self.campaign.committed query];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        NSInteger count = (NSInteger)number;
+        detailView.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
+    }];
+    
+    Item *campaignItem = self.campaign.item;
+    PFFile *image = [campaignItem objectForKey:@"itemImage"];
+    
+    if (image) {
+        [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (!error) {
+                detailView.profilePicture.image = [UIImage imageWithData:data];
+                // Add a nice corner radius to the image
+                //                self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 8.0f;
+                detailView.profilePicture.layer.masksToBounds = YES;                }
+        }];
+    } else {
+        NSURL *pusheenDance = [NSURL URLWithString:@"http://33.media.tumblr.com/tumblr_m9hbpdSJIX1qhy6c9o1_400.gif"];
+        detailView.profilePicture.image = [UIImage animatedImageWithAnimatedGIFURL:pusheenDance];
+        detailView.profilePicture.contentMode = UIViewContentModeScaleAspectFill;
+        
+    }
+
+    
+    
     //self.decisionSwitch = [[UISwitch alloc] init];
     
     detailView.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     [self.contentView addSubview:detailView];
+    
+    
     
     
     // Do any additional setup after loading the view from its nib.
