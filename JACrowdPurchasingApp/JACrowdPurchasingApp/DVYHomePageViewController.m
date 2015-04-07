@@ -154,7 +154,6 @@
     else
     {
         DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"invitationCell" forIndexPath:indexPath];
-        
         DVYCampaign *othersCampaign = self.localDataStore.alertCampaign[indexPath.row];
         cell.cellCampaign = othersCampaign;
         

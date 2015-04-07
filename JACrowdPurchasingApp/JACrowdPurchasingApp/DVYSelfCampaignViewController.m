@@ -158,6 +158,8 @@
 
 - (IBAction)doneButtonTapped:(id)sender {
     
+    DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
+    [homeVC refresh];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

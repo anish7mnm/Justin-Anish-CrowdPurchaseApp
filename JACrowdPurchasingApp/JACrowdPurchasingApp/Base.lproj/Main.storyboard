@@ -135,7 +135,7 @@
                                                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rzd-k3-CgB" userLabel="ProgressShell">
                                                                                     <rect key="frame" x="-36" y="44" width="264" height="30"/>
                                                                                     <subviews>
-                                                                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMH-kn-geT" userLabel="ProgressFill">
+                                                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMH-kn-geT" userLabel="ProgressFill">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="22"/>
                                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         </view>
@@ -149,6 +149,7 @@
                                                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <constraints>
                                                                                         <constraint firstItem="lMH-kn-geT" firstAttribute="bottom" secondItem="Rzd-k3-CgB" secondAttribute="bottom" id="0xA-J0-nzD"/>
+                                                                                        <constraint firstItem="lMH-kn-geT" firstAttribute="trailing" secondItem="Rzd-k3-CgB" secondAttribute="leading" id="3ww-Sh-xEt"/>
                                                                                         <constraint firstItem="lMH-kn-geT" firstAttribute="top" secondItem="Rzd-k3-CgB" secondAttribute="top" id="BWR-2f-0fB"/>
                                                                                         <constraint firstAttribute="centerX" secondItem="Yc0-ZS-YlA" secondAttribute="centerX" id="KPL-TZ-wHY"/>
                                                                                         <constraint firstItem="lMH-kn-geT" firstAttribute="leading" secondItem="Rzd-k3-CgB" secondAttribute="leading" id="XAz-b5-BL0"/>
@@ -207,6 +208,7 @@
                                                             <outlet property="hostName" destination="1XV-X0-b3u" id="by7-DC-JSJ"/>
                                                             <outlet property="innerCell" destination="azu-R2-byV" id="hrc-ud-TWY"/>
                                                             <outlet property="numberLabel" destination="Yc0-ZS-YlA" id="gda-B5-hUo"/>
+                                                            <outlet property="progressBarRightConstraint" destination="3ww-Sh-xEt" id="8hz-sx-A5P"/>
                                                             <outlet property="progressFill" destination="lMH-kn-geT" id="HTn-dT-UiI"/>
                                                             <outlet property="progressShell" destination="Rzd-k3-CgB" id="U71-nC-2XU"/>
                                                             <outlet property="textView" destination="7o8-7Y-HMU" id="A15-cU-eLy"/>
@@ -251,7 +253,7 @@
                                                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Yh-98-wDB" userLabel="ProgressShell">
                                                                                     <rect key="frame" x="-36" y="45" width="264" height="30"/>
                                                                                     <subviews>
-                                                                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2n-hp-RHe" userLabel="ProgressFill">
+                                                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2n-hp-RHe" userLabel="ProgressFill">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="22"/>
                                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         </view>
@@ -267,6 +269,7 @@
                                                                                         <constraint firstItem="B2n-hp-RHe" firstAttribute="leading" secondItem="9Yh-98-wDB" secondAttribute="leading" id="7m4-Ap-n7A"/>
                                                                                         <constraint firstItem="PFj-fR-8NR" firstAttribute="centerY" secondItem="9Yh-98-wDB" secondAttribute="centerY" id="B2E-hY-9Fg"/>
                                                                                         <constraint firstItem="B2n-hp-RHe" firstAttribute="top" secondItem="9Yh-98-wDB" secondAttribute="top" id="EtT-ms-vmq"/>
+                                                                                        <constraint firstItem="B2n-hp-RHe" firstAttribute="trailing" secondItem="9Yh-98-wDB" secondAttribute="leading" id="dMP-I3-wmi"/>
                                                                                         <constraint firstItem="B2n-hp-RHe" firstAttribute="bottom" secondItem="9Yh-98-wDB" secondAttribute="bottom" id="h2X-1c-gqX"/>
                                                                                         <constraint firstAttribute="centerX" secondItem="PFj-fR-8NR" secondAttribute="centerX" id="kMB-O4-eOy"/>
                                                                                     </constraints>
@@ -357,6 +360,7 @@
                                                             <outlet property="hostName" destination="XzN-j6-bpV" id="gEe-Fh-K98"/>
                                                             <outlet property="innerCell" destination="y9g-o3-0N0" id="9BT-43-VJM"/>
                                                             <outlet property="numberLabel" destination="PFj-fR-8NR" id="f3U-Kx-yjn"/>
+                                                            <outlet property="progressBarRightConstraint" destination="dMP-I3-wmi" id="hYh-IJ-PUb"/>
                                                             <outlet property="progressFill" destination="B2n-hp-RHe" id="rnQ-Y7-Ok8"/>
                                                             <outlet property="progressShell" destination="9Yh-98-wDB" id="g2O-Ez-fOw"/>
                                                             <outlet property="textView" destination="VFo-Ry-vkx" id="nPA-Jq-K8Y"/>

@@ -60,7 +60,7 @@
 + (void) getSelfCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
 {
     //NSMutableArray *selfCampaignlist = [[NSMutableArray alloc] init];
-    DVYUser *currentUser = [PFUser currentUser];
+    DVYUser *currentUser = (DVYUser *)[PFUser currentUser];
     PFQuery *selfCampaignQuery = [DVYCampaign query];
     [selfCampaignQuery whereKey:@"host" equalTo:currentUser];
     [selfCampaignQuery includeKey:@"item"];
@@ -75,7 +75,7 @@
 + (void) getOthersCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
 {
     //NSMutableArray *selfCampaignlist = [[NSMutableArray alloc] init];
-    DVYUser *currentUser = [PFUser currentUser];
+    DVYUser *currentUser = (DVYUser *)[PFUser currentUser];
     
     PFQuery *othersCampaignQuery = [DVYCampaign query];
     
@@ -91,7 +91,7 @@
 + (void) getInvitationCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
 {
     //NSMutableArray *selfCampaignlist = [[NSMutableArray alloc] init];
-    DVYUser *currentUser = [PFUser currentUser];
+    DVYUser *currentUser = (DVYUser *)[PFUser currentUser];
     
     PFQuery *othersCampaignQuery = [DVYCampaign query];
     
@@ -107,20 +107,20 @@
 
 + (void) getFacebookFriendsWithCompletionBlock: (void (^)(NSArray *)) completionBlock
 {
-    FBRequest *requestTwo = [FBRequest requestForMyFriends];
-    [requestTwo startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+    FBRequest *requestForFriendsList = [FBRequest requestForMyFriends];
+    [requestForFriendsList startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         
         NSDictionary *userData = (NSDictionary *)result;
-        NSArray *dataArray = userData[@"data"];
+        NSArray *friendsArrayFromFacebook = userData[@"data"];
         
         NSMutableArray *arrayOfFriends = [[NSMutableArray alloc] init];
 
-        for (NSDictionary *dataDic in dataArray) {
+        for (NSDictionary *friendData in friendsArrayFromFacebook) {
             
-            NSString *name = dataDic[@"id"];
+            NSString *friendFacebookID = friendData[@"id"];
             
             PFQuery *friendsQuery = [PFUser query];
-            [friendsQuery whereKey:@"facebookID" equalTo:name];
+            [friendsQuery whereKey:@"facebookID" equalTo:friendFacebookID];
             [friendsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 [arrayOfFriends addObject:objects[0]];
                 completionBlock(arrayOfFriends);

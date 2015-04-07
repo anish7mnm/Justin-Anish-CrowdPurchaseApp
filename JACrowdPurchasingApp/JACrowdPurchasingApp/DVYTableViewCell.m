@@ -29,6 +29,8 @@
 //    self.innerCell.layer.shadowRadius = 12;
     
     CGFloat cornerRadiusOfProgressShell = self.textView.frame.size.height*0.25/2;
+    self.progressBarRightConstraint.constant = 0;
+    
     [self.progressShell.layer setMasksToBounds:YES];
     [self.progressShell.layer setCornerRadius:cornerRadiusOfProgressShell];
     self.progressShell.backgroundColor = [UIColor dvvyLightGrey];
@@ -144,7 +146,7 @@
 //        NSLayoutConstraint *progressFillExtend = [NSLayoutConstraint constraintWithItem:self.progressFill attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.progressFill attribute:NSLayoutAttributeLeft multiplier:1.0 constant:integerToAdd];
 //        
 //        [self.progressShell addConstraint:progressFillExtend];
-        self.progressBarRightConstraint.constant += integerToAdd;
+        self.progressBarRightConstraint.constant = integerToAdd;
         
         CGFloat randomDelay = arc4random_uniform(10)/100.00;
         
