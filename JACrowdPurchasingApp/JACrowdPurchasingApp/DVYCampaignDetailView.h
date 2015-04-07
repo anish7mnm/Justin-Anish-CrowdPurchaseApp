@@ -10,6 +10,7 @@
 
 @class DVYUser;
 @class DVYCampaign;
+
 @interface DVYCampaignDetailView : UIView
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;

@@ -202,14 +202,11 @@
 		88B55FD21AC5AB43002A83AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				88F3672D1ACAD866009358FA /* Campaigns */,
+				88E825741AD431C200BDAFC4 /* Facebook Login */,
 				88F3672C1ACAD859009358FA /* HomePage */,
-				889CE98F1AC0AF8E00F04C0B /* DVYFacebookLoginViewController.h */,
-				889CE9901AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m */,
-				889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */,
-				88D446351AC3701900F1A530 /* DVYCreateCampaignViewController.h */,
-				88D446361AC3701900F1A530 /* DVYCreateCampaignViewController.m */,
-				88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */,
+				88F3672D1ACAD866009358FA /* Campaigns */,
+				88E825751AD431D800BDAFC4 /* Create Campaign */,
+				88E825791AD432EF00BDAFC4 /* Adding Friends */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -218,14 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */,
-				88B55FD41AC5B0EA002A83AE /* DVYCampaignDetailView.xib */,
-				88D446381AC3708F00F1A530 /* DVYCampaignDetailView.h */,
-				88D446391AC3708F00F1A530 /* DVYCampaignDetailView.m */,
-				A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */,
-				889CE9951AC0D9DC00F04C0B /* DVYTableViewCell.h */,
-				889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */,
-				88333A4C1ACB5617000A9E5A /* InviteFriendsTableViewCell.h */,
-				88333A4D1ACB5617000A9E5A /* InviteFriendsTableViewCell.m */,
+				88E825781AD4328600BDAFC4 /* Campaign Detail View */,
+				88E825771AD4326000BDAFC4 /* TableViewCells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -249,6 +240,65 @@
 				CA848941C109929DE44BCAB5 /* libPods-JACrowdPurchasingApp.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88E825741AD431C200BDAFC4 /* Facebook Login */ = {
+			isa = PBXGroup;
+			children = (
+				889CE98F1AC0AF8E00F04C0B /* DVYFacebookLoginViewController.h */,
+				889CE9901AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m */,
+				889CE9911AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib */,
+			);
+			name = "Facebook Login";
+			sourceTree = "<group>";
+		};
+		88E825751AD431D800BDAFC4 /* Create Campaign */ = {
+			isa = PBXGroup;
+			children = (
+				88D446351AC3701900F1A530 /* DVYCreateCampaignViewController.h */,
+				88D446361AC3701900F1A530 /* DVYCreateCampaignViewController.m */,
+				88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */,
+			);
+			name = "Create Campaign";
+			sourceTree = "<group>";
+		};
+		88E825761AD4323800BDAFC4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				88E94EDE1AA7A4C90052FA35 /* Main.storyboard */,
+				88D446331AC36F9F00F1A530 /* CreateFlow.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		88E825771AD4326000BDAFC4 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				889CE9951AC0D9DC00F04C0B /* DVYTableViewCell.h */,
+				889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */,
+				88333A4C1ACB5617000A9E5A /* InviteFriendsTableViewCell.h */,
+				88333A4D1ACB5617000A9E5A /* InviteFriendsTableViewCell.m */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		88E825781AD4328600BDAFC4 /* Campaign Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				88B55FD41AC5B0EA002A83AE /* DVYCampaignDetailView.xib */,
+				88D446381AC3708F00F1A530 /* DVYCampaignDetailView.h */,
+				88D446391AC3708F00F1A530 /* DVYCampaignDetailView.m */,
+			);
+			name = "Campaign Detail View";
+			sourceTree = "<group>";
+		};
+		88E825791AD432EF00BDAFC4 /* Adding Friends */ = {
+			isa = PBXGroup;
+			children = (
+				88D4463E1AC371B400F1A530 /* DVYInviteFriendsTableViewController.h */,
+				88D4463F1AC371B400F1A530 /* DVYInviteFriendsTableViewController.m */,
+			);
+			name = "Adding Friends";
 			sourceTree = "<group>";
 		};
 		88E94EC81AA7A4C80052FA35 = {
@@ -276,15 +326,11 @@
 			children = (
 				88E94ED81AA7A4C90052FA35 /* AppDelegate.h */,
 				88E94ED91AA7A4C90052FA35 /* AppDelegate.m */,
-				88D446331AC36F9F00F1A530 /* CreateFlow.storyboard */,
-				88E94EDE1AA7A4C90052FA35 /* Main.storyboard */,
+				88E825761AD4323800BDAFC4 /* Storyboards */,
 				88B55FD31AC5AB4D002A83AE /* Views */,
 				88B55FD21AC5AB43002A83AE /* Controllers */,
 				883C66081AC1F11400258869 /* Models */,
-				88E94EE11AA7A4C90052FA35 /* Images.xcassets */,
 				88E94ED41AA7A4C90052FA35 /* Supporting Files */,
-				A8A43DA71ACEBABC00B60520 /* UIColor+dvvyColors.h */,
-				A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */,
 			);
 			path = JACrowdPurchasingApp;
 			sourceTree = "<group>";
@@ -292,8 +338,14 @@
 		88E94ED41AA7A4C90052FA35 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				88E94ED51AA7A4C90052FA35 /* Info.plist */,
 				88E94ED61AA7A4C90052FA35 /* main.m */,
+				A8A43DA71ACEBABC00B60520 /* UIColor+dvvyColors.h */,
+				A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */,
+				A8C717341AD2B3E40016054B /* UIImage+animatedGIF.h */,
+				A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */,
+				88E94EE11AA7A4C90052FA35 /* Images.xcassets */,
+				A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */,
+				88E94ED51AA7A4C90052FA35 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -333,10 +385,6 @@
 				88B560121AC999BC002A83AE /* DVYOtherCampaignViewController.h */,
 				88B560131AC999BC002A83AE /* DVYOtherCampaignViewController.m */,
 				88B560141AC999BC002A83AE /* DVYOtherCampaignViewController.xib */,
-				88D4463E1AC371B400F1A530 /* DVYInviteFriendsTableViewController.h */,
-				88D4463F1AC371B400F1A530 /* DVYInviteFriendsTableViewController.m */,
-				A8C717341AD2B3E40016054B /* UIImage+animatedGIF.h */,
-				A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */,
 			);
 			name = Campaigns;
 			sourceTree = "<group>";
