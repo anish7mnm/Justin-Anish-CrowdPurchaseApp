@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "450030675.076646"
+            timestampString = "450103221.919999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "-setCellCampaign:"
             landmarkType = "5">
          </BreakpointContent>
@@ -94,11 +94,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JACrowdPurchasingApp/DVYTableViewCell.m"
-            timestampString = "450030675.076646"
+            timestampString = "450103221.919999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "-setCellCampaign:"
             landmarkType = "5">
          </BreakpointContent>

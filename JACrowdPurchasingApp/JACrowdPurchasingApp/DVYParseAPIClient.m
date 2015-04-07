@@ -109,32 +109,24 @@
 {
     FBRequest *requestTwo = [FBRequest requestForMyFriends];
     [requestTwo startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        NSMutableArray *arrayOfFriends = [[NSMutableArray alloc] init];
-
+        
         NSDictionary *userData = (NSDictionary *)result;
         NSArray *dataArray = userData[@"data"];
-        NSLog(@"datakskjsn%@", userData);
         
+        NSMutableArray *arrayOfFriends = [[NSMutableArray alloc] init];
 
-        
         for (NSDictionary *dataDic in dataArray) {
             
             NSString *name = dataDic[@"id"];
-            NSLog(@"DATA:%@", name);
             
             PFQuery *friendsQuery = [PFUser query];
             [friendsQuery whereKey:@"facebookID" equalTo:name];
             [friendsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 [arrayOfFriends addObject:objects[0]];
-                
-                        completionBlock(arrayOfFriends);
+                completionBlock(arrayOfFriends);
             }];
         }
-        
-
-
     }];
-    
 }
 
 

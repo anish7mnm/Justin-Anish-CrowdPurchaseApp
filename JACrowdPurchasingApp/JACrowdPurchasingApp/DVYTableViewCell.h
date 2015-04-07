@@ -29,4 +29,7 @@
 @property (nonatomic) NSInteger committedNumberForCell;
 @property (nonatomic) NSInteger neededNumberForCell;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *progressBarRightConstraint;
+
+
 @end
