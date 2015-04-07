@@ -21,6 +21,8 @@
 #import "UIImage+animatedGIF.h"
 
 @interface DVYHomePageViewController ()
+
+
 @property (strong, nonatomic) DVYDataStore *localDataStore;
 @property (strong, nonatomic) PFUser *currentUser;
 @property (weak, nonatomic) IBOutlet UIButton *selfButton;
@@ -30,6 +32,10 @@
 @property (nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) UIRefreshControl *othersRefreshControl;
 @property (nonatomic) UIRefreshControl *invitationRefreshControl;
+@property (nonatomic) UIImageView *icon1;
+@property (nonatomic) UIImageView *icon2;
+@property (nonatomic) UIImageView *icon3;
+
 
 @end
 
@@ -72,27 +78,30 @@
     [self.invitationTableView addSubview:self.invitationRefreshControl];
     
     
-    
+    self.scrollView.delegate = self;
     
     // add icons to buttons
     UIImageView *selfIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user168"]];
     selfIconView.frame = CGRectMake(20, 6, 12, 12);
     selfIconView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.selfButton addSubview:selfIconView];
+    self.icon1 = selfIconView;
+    [self.selfButton addSubview:self.icon1];
     
     UIImageView *otherIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"multiple25"]];
     otherIconView.frame = CGRectMake(17, 6, 14, 14);
     otherIconView.contentMode = UIViewContentModeScaleAspectFill;
     [self.othersButton addSubview:otherIconView];
-
+    self.icon2 = otherIconView;
+    
     UIImageView *invitesIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mail59"]];
     invitesIconView.frame = CGRectMake(14, 5, 14, 14);
     invitesIconView.contentMode = UIViewContentModeScaleAspectFill;
     [self.invitesButton addSubview:invitesIconView];
+    self.icon3 = invitesIconView;
     
     // edit tableviewBG
     
-//    self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    // self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
     self.selfTableView.backgroundColor = [UIColor dvvyLightGrey];
     self.othersTableView.backgroundColor = [UIColor dvvyLightGrey];
     self.invitationTableView.backgroundColor = [UIColor dvvyLightGrey];
@@ -112,6 +121,30 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    
+    
+    CGFloat offset = self.scrollView.contentOffset.x;
+    if (offset == 0.0) {
+        self.selfButton.highlighted = YES;
+        self.invitesButton.highlighted=NO;
+        self.othersButton.highlighted=NO;
+        
+    }
+    else if (offset == self.scrollView.frame.size.width)
+    {
+        self.othersButton.highlighted=YES;
+        self.selfButton.highlighted = NO;
+        self.invitesButton.highlighted=NO;
+        
+    }
+    else if (offset == (2*self.scrollView.frame.size.width))
+    {
+        self.invitesButton.highlighted=YES;
+        self.selfButton.highlighted = NO;
+        self.othersButton.highlighted=NO;
+        
+    }
+
     
     [self.localDataStore getselfCampaignsWithCompletionBlock:^{
         NSLog(@"Got the campaigns hosted by me");
@@ -442,18 +475,28 @@
 
 - (IBAction)seeSelfCampaignTableButton:(id)sender {
     CGPoint newOffset =CGPointMake(0, self.scrollView.contentOffset.y);
-    [self.scrollView setContentOffset:newOffset animated:NO];}
+    [self.scrollView setContentOffset:newOffset animated:NO];
+    self.selfButton.highlighted = YES;
+    self.invitesButton.highlighted=NO;
+    self.othersButton.highlighted=NO;
+}
 
 - (IBAction)seeOthersCampaignTableButton:(id)sender {
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth, self.scrollView.contentOffset.y);
     [self.scrollView setContentOffset:newOffset animated:NO];
+    self.othersButton.highlighted=YES;
+    self.selfButton.highlighted = NO;
+    self.invitesButton.highlighted=NO;
 }
 
 - (IBAction)seeInvitesTableButton:(id)sender {
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth*2, self.scrollView.contentOffset.y);
     [self.scrollView setContentOffset:newOffset animated:NO];
+    self.invitesButton.highlighted=YES;
+    self.selfButton.highlighted = NO;
+    self.othersButton.highlighted=NO;
 }
 
 
@@ -515,5 +558,32 @@
 }
 
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView==self.scrollView) {
+    CGFloat offset = scrollView.contentOffset.x;
+    NSLog(@"scrollviewOffset %f", offset);
+        if (offset == 0.0) {
+            self.selfButton.highlighted = YES;
+            self.invitesButton.highlighted=NO;
+            self.othersButton.highlighted=NO;
+            self.icon1.highlighted = YES;
+        }
+        else if (offset == self.scrollView.frame.size.width)
+        {
+            self.othersButton.highlighted=YES;
+            self.selfButton.highlighted = NO;
+            self.invitesButton.highlighted=NO;
+
+        }
+        else if (offset == (2*self.scrollView.frame.size.width))
+        {
+            self.invitesButton.highlighted=YES;
+            self.selfButton.highlighted = NO;
+            self.othersButton.highlighted=NO;
+
+        }
+    }
+}
 
 @end
