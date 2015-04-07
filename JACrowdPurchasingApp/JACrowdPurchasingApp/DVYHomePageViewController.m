@@ -79,11 +79,14 @@
     [self removeShadowUnderNavBar];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self initialButtonHighlight];
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
-    [self initialButtonHighlight];
+    
     
     [self fillingTheTableViewsWithData];
 }
@@ -584,23 +587,23 @@
 
 - (void)highlightingSelfButton
 {
-    self.selfButton.highlighted = YES;
-    self.invitesButton.highlighted=NO;
-    self.othersButton.highlighted=NO;
+    self.selfButton.titleLabel.textColor = [UIColor dvvyBlueAlternative];
+    self.invitesButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
+    self.othersButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
 }
 
 - (void)highlightingOthersButton
 {
-    self.othersButton.highlighted=YES;
-    self.selfButton.highlighted = NO;
-    self.invitesButton.highlighted=NO;
+    self.othersButton.titleLabel.textColor = [UIColor dvvyBlueAlternative];
+    self.selfButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
+    self.invitesButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
 }
 
 - (void)highlightingInviteButton
 {
-    self.invitesButton.highlighted=YES;
-    self.selfButton.highlighted = NO;
-    self.othersButton.highlighted=NO;
+    self.invitesButton.titleLabel.textColor = [UIColor dvvyBlueAlternative];
+    self.selfButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
+    self.othersButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
 }
 
 - (void)initialButtonHighlight
