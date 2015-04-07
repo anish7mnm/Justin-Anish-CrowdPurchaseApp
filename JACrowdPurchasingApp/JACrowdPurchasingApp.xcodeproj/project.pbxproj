@@ -46,11 +46,7 @@
 		88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */; };
 		88F3672B1AC9DB39009358FA /* DVYCreateCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */; };
 		A2E458A7B6546632644441BF /* libPods-JACrowdPurchasingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA848941C109929DE44BCAB5 /* libPods-JACrowdPurchasingApp.a */; };
-		A87C04A81AD1D78100C88847 /* bgShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A87C04A71AD1D78100C88847 /* bgShadow.png */; };
 		A8A43DA91ACEBABC00B60520 /* UIColor+dvvyColors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */; };
-		A8A43DAB1ACEBDC900B60520 /* user168.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A43DAA1ACEBDC900B60520 /* user168.png */; };
-		A8A43DAE1ACEC0B700B60520 /* mail59.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A43DAC1ACEC0B600B60520 /* mail59.png */; };
-		A8A43DAF1ACEC0B700B60520 /* multiple25.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A43DAD1ACEC0B700B60520 /* multiple25.png */; };
 		A8C717331AD29EAD0016054B /* Mexican_Pusheen.gif in Resources */ = {isa = PBXBuildFile; fileRef = A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */; };
 		A8C717361AD2B3E40016054B /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */; };
 		A8C717381AD2B4390016054B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C717371AD2B4390016054B /* ImageIO.framework */; };
@@ -128,12 +124,8 @@
 		88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYHomePageViewController.m; sourceTree = "<group>"; };
 		88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYSelfCampaignViewController.xib; sourceTree = "<group>"; };
 		88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYCreateCampaignViewController.xib; sourceTree = "<group>"; };
-		A87C04A71AD1D78100C88847 /* bgShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgShadow.png; sourceTree = "<group>"; };
 		A8A43DA71ACEBABC00B60520 /* UIColor+dvvyColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+dvvyColors.h"; sourceTree = "<group>"; };
 		A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+dvvyColors.m"; sourceTree = "<group>"; };
-		A8A43DAA1ACEBDC900B60520 /* user168.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user168.png; sourceTree = "<group>"; };
-		A8A43DAC1ACEC0B600B60520 /* mail59.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail59.png; sourceTree = "<group>"; };
-		A8A43DAD1ACEC0B700B60520 /* multiple25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = multiple25.png; sourceTree = "<group>"; };
 		A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Mexican_Pusheen.gif; sourceTree = "<group>"; };
 		A8C717341AD2B3E40016054B /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
@@ -282,13 +274,13 @@
 		88E94ED31AA7A4C90052FA35 /* JACrowdPurchasingApp */ = {
 			isa = PBXGroup;
 			children = (
-				88B55FD31AC5AB4D002A83AE /* Views */,
-				88B55FD21AC5AB43002A83AE /* Controllers */,
-				883C66081AC1F11400258869 /* Models */,
 				88E94ED81AA7A4C90052FA35 /* AppDelegate.h */,
 				88E94ED91AA7A4C90052FA35 /* AppDelegate.m */,
 				88D446331AC36F9F00F1A530 /* CreateFlow.storyboard */,
 				88E94EDE1AA7A4C90052FA35 /* Main.storyboard */,
+				88B55FD31AC5AB4D002A83AE /* Views */,
+				88B55FD21AC5AB43002A83AE /* Controllers */,
+				883C66081AC1F11400258869 /* Models */,
 				88E94EE11AA7A4C90052FA35 /* Images.xcassets */,
 				88E94ED41AA7A4C90052FA35 /* Supporting Files */,
 				A8A43DA71ACEBABC00B60520 /* UIColor+dvvyColors.h */,
@@ -328,10 +320,6 @@
 			children = (
 				88EF0BF61ABCD57900897A21 /* DVYHomePageViewController.h */,
 				88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */,
-				A8A43DAC1ACEC0B600B60520 /* mail59.png */,
-				A8A43DAD1ACEC0B700B60520 /* multiple25.png */,
-				A87C04A71AD1D78100C88847 /* bgShadow.png */,
-				A8A43DAA1ACEBDC900B60520 /* user168.png */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -444,14 +432,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8A43DAF1ACEC0B700B60520 /* multiple25.png in Resources */,
 				88F3672B1AC9DB39009358FA /* DVYCreateCampaignViewController.xib in Resources */,
 				88E94EE01AA7A4C90052FA35 /* Main.storyboard in Resources */,
 				88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */,
 				88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */,
-				A8A43DAB1ACEBDC900B60520 /* user168.png in Resources */,
-				A87C04A81AD1D78100C88847 /* bgShadow.png in Resources */,
-				A8A43DAE1ACEC0B700B60520 /* mail59.png in Resources */,
 				88B560161AC999BC002A83AE /* DVYOtherCampaignViewController.xib in Resources */,
 				A8C717331AD29EAD0016054B /* Mexican_Pusheen.gif in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
