@@ -587,6 +587,9 @@
 
 - (void)highlightingSelfButton
 {
+    self.icon1.image = [self changeColorForImage:self.icon1.image toColor:[UIColor dvvyBlueAlternative]];
+    self.icon2.image = [self changeColorForImage:self.icon2.image toColor:[UIColor dvvyDarkGrey]];
+    self.icon3.image = [self changeColorForImage:self.icon3.image toColor:[UIColor dvvyDarkGrey]];
     self.selfButton.titleLabel.textColor = [UIColor dvvyBlueAlternative];
     self.invitesButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
     self.othersButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
@@ -594,6 +597,9 @@
 
 - (void)highlightingOthersButton
 {
+    self.icon2.image = [self changeColorForImage:self.icon2.image toColor:[UIColor dvvyBlueAlternative]];
+    self.icon1.image = [self changeColorForImage:self.icon1.image toColor:[UIColor dvvyDarkGrey]];
+    self.icon3.image = [self changeColorForImage:self.icon3.image toColor:[UIColor dvvyDarkGrey]];
     self.othersButton.titleLabel.textColor = [UIColor dvvyBlueAlternative];
     self.selfButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
     self.invitesButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
@@ -601,6 +607,9 @@
 
 - (void)highlightingInviteButton
 {
+    self.icon3.image = [self changeColorForImage:self.icon3.image toColor:[UIColor dvvyBlueAlternative]];
+    self.icon2.image = [self changeColorForImage:self.icon2.image toColor:[UIColor dvvyDarkGrey]];
+    self.icon1.image = [self changeColorForImage:self.icon1.image toColor:[UIColor dvvyDarkGrey]];
     self.invitesButton.titleLabel.textColor = [UIColor dvvyBlueAlternative];
     self.selfButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
     self.othersButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
@@ -644,6 +653,45 @@
     invitesIconView.contentMode = UIViewContentModeScaleAspectFill;
     [self.invitesButton addSubview:invitesIconView];
     self.icon3 = invitesIconView;
+}
+
+#pragma mark - Methods to refactor
+
+- (UIImage *) changeColorForImage:(UIImage *)image toColor:(UIColor*)color {
+    UIGraphicsBeginImageContext(image.size);
+    
+    CGRect contextRect;
+    contextRect.origin.x = 0.0f;
+    contextRect.origin.y = 0.0f;
+    contextRect.size = [image size];
+    // Retrieve source image and begin image context
+    CGSize itemImageSize = [image size];
+    CGPoint itemImagePosition;
+    itemImagePosition.x = ceilf((contextRect.size.width - itemImageSize.width) / 2);
+    itemImagePosition.y = ceilf((contextRect.size.height - itemImageSize.height) );
+    
+    UIGraphicsBeginImageContext(contextRect.size);
+    
+    CGContextRef c = UIGraphicsGetCurrentContext();
+    // Setup shadow
+    // Setup transparency layer and clip to mask
+    CGContextBeginTransparencyLayer(c, NULL);
+    CGContextScaleCTM(c, 1.0, -1.0);
+    CGContextClipToMask(c, CGRectMake(itemImagePosition.x, -itemImagePosition.y, itemImageSize.width, -itemImageSize.height), [image CGImage]);
+    // Fill and end the transparency layer
+    
+    
+    const CGFloat* colors = CGColorGetComponents( color.CGColor );
+    CGContextSetRGBFillColor(c, colors[0], colors[1], colors[2], 1.0);
+    
+    contextRect.size.height = -contextRect.size.height;
+    contextRect.size.height -= 15;
+    CGContextFillRect(c, contextRect);
+    CGContextEndTransparencyLayer(c);
+    
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
 }
 
 @end
