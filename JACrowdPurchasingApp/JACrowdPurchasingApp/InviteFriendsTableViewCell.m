@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.contentView.layer.cornerRadius = 6.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
