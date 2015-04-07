@@ -41,6 +41,8 @@
 
 @implementation DVYHomePageViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -54,6 +56,7 @@
     self.invitationTableView.dataSource=self;
     
     self.localDataStore = [DVYDataStore sharedLocationsDataStore];
+    
     [self.selfTableView setAccessibilityIdentifier:@"forSelfCampaign"];
     [self.othersTableView setAccessibilityIdentifier:@"forOthersCampaign"];
     [self.invitationTableView setAccessibilityIdentifier:@"invitations"];
@@ -61,50 +64,15 @@
     [self removeAllConstraints];
     [self settingConstraints];
     
-    //Pull to refresh for tableviews
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [self.selfTableView addSubview:self.refreshControl];
-    
-    self.othersRefreshControl = [[UIRefreshControl alloc] init];
-    [self.othersRefreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [self.selfTableView addSubview:self.othersRefreshControl];
-    
-    self.invitationRefreshControl = [[UIRefreshControl alloc] init];
-    [self.invitationRefreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [self.selfTableView addSubview:self.invitationRefreshControl];
-    
-    [self.othersTableView addSubview:self.othersRefreshControl];
-    [self.invitationTableView addSubview:self.invitationRefreshControl];
+    [self addingPullToRefreshFeatureToTheTableViews];
     
     
     self.scrollView.delegate = self;
     
-    // add icons to buttons
-    UIImageView *selfIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user168"]];
-    selfIconView.frame = CGRectMake(20, 6, 12, 12);
-    selfIconView.contentMode = UIViewContentModeScaleAspectFill;
-    self.icon1 = selfIconView;
-    [self.selfButton addSubview:self.icon1];
+    [self addingSideIconsToTheButtons];
     
-    UIImageView *otherIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"multiple25"]];
-    otherIconView.frame = CGRectMake(17, 6, 14, 14);
-    otherIconView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.othersButton addSubview:otherIconView];
-    self.icon2 = otherIconView;
     
-    UIImageView *invitesIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mail59"]];
-    invitesIconView.frame = CGRectMake(14, 5, 14, 14);
-    invitesIconView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.invitesButton addSubview:invitesIconView];
-    self.icon3 = invitesIconView;
-    
-    // edit tableviewBG
-    
-    // self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
-    self.selfTableView.backgroundColor = [UIColor dvvyLightGrey];
-    self.othersTableView.backgroundColor = [UIColor dvvyLightGrey];
-    self.invitationTableView.backgroundColor = [UIColor dvvyLightGrey];
+    [self settingTableViewBackgroundColor];
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"background.jpg"] forBarMetrics:UIBarMetricsDefault];
     
@@ -112,61 +80,12 @@
 }
 
 
-- (void)refresh
-{
-    // do your refresh here and reload the tablview
-    [self viewWillAppear:YES];
-}
-
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
+    [self initialButtonHighlight];
     
-    CGFloat offset = self.scrollView.contentOffset.x;
-    if (offset == 0.0) {
-        self.selfButton.highlighted = YES;
-        self.invitesButton.highlighted=NO;
-        self.othersButton.highlighted=NO;
-        
-    }
-    else if (offset == self.scrollView.frame.size.width)
-    {
-        self.othersButton.highlighted=YES;
-        self.selfButton.highlighted = NO;
-        self.invitesButton.highlighted=NO;
-        
-    }
-    else if (offset == (2*self.scrollView.frame.size.width))
-    {
-        self.invitesButton.highlighted=YES;
-        self.selfButton.highlighted = NO;
-        self.othersButton.highlighted=NO;
-        
-    }
-
-    
-    [self.localDataStore getselfCampaignsWithCompletionBlock:^{
-        NSLog(@"Got the campaigns hosted by me");
-        if (self.refreshControl) {
-            [self.refreshControl endRefreshing];
-        }
-        [self.selfTableView reloadData];
-    }];
-    [self.localDataStore getOtherCampaignsWithCompletionBlock:^{
-        NSLog(@"Got the campaigns hosted by others");
-        if (self.othersRefreshControl) {
-            [self.othersRefreshControl endRefreshing];
-        }
-        [self.othersTableView reloadData];
-    }];
-    [self.localDataStore getInvitiationCampaignsWithCompletionBlock:^{
-        if (self.invitationRefreshControl) {
-            [self.invitationRefreshControl endRefreshing];
-        }
-        [self.invitationTableView reloadData];
-        NSLog(@"Invites Got!");
-    }];
+    [self fillingTheTableViewsWithData];
 }
 
 
@@ -175,10 +94,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - UITableView Setup
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -193,10 +116,12 @@
     }
 }
 
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80;
 }
+
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -239,6 +164,119 @@
     
 }
 
+
+#pragma mark - UITableView Delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"]) {
+        
+        DVYSelfCampaignViewController *selfCampaign = [[DVYSelfCampaignViewController alloc] initWithNibName:@"DVYSelfCampaignViewController" bundle:nil];
+        
+        DVYCampaign *campaignToPass = self.localDataStore.selfCampaigns[indexPath.row];
+        selfCampaign.campaign = campaignToPass;
+        
+        selfCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        selfCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
+        [self presentViewController:selfCampaign animated:YES completion:nil];
+    }
+    
+    else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
+        DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
+        
+        DVYCampaign *campaignToPass = self.localDataStore.othersCampaign[indexPath.row];
+        othersCampaign.campaign = campaignToPass;
+        
+        othersCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        othersCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
+        [self presentViewController:othersCampaign animated:YES completion:nil];
+        
+    }
+    
+    else if ([tableView.accessibilityIdentifier isEqualToString:@"invitations"]) {
+        
+        DVYOtherCampaignViewController *othersCampaignInvite = [[DVYOtherCampaignViewController alloc] init];
+        
+        DVYCampaign *campaignToPass = self.localDataStore.alertCampaign[indexPath.row];
+        othersCampaignInvite.campaign = campaignToPass;
+        
+        othersCampaignInvite.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        othersCampaignInvite.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
+        [self presentViewController:othersCampaignInvite animated:YES completion:nil];
+    }
+    
+}
+
+
+#pragma mark - UITableView Helper Methods
+
+- (void)fillingTheTableViewsWithData {
+    [self.localDataStore getselfCampaignsWithCompletionBlock:^{
+        NSLog(@"Got the campaigns hosted by me");
+        if (self.refreshControl) {
+            [self.refreshControl endRefreshing];
+        }
+        [self.selfTableView reloadData];
+    }];
+    [self.localDataStore getOtherCampaignsWithCompletionBlock:^{
+        NSLog(@"Got the campaigns hosted by others");
+        if (self.othersRefreshControl) {
+            [self.othersRefreshControl endRefreshing];
+        }
+        [self.othersTableView reloadData];
+    }];
+    [self.localDataStore getInvitiationCampaignsWithCompletionBlock:^{
+        if (self.invitationRefreshControl) {
+            [self.invitationRefreshControl endRefreshing];
+        }
+        [self.invitationTableView reloadData];
+        NSLog(@"Got the campaigns invites");
+    }];
+}
+
+
+- (void)addingPullToRefreshFeatureToTheTableViews {
+    //Pull to refresh for tableviews
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.selfTableView addSubview:self.refreshControl];
+    
+    self.othersRefreshControl = [[UIRefreshControl alloc] init];
+    [self.othersRefreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.selfTableView addSubview:self.othersRefreshControl];
+    
+    self.invitationRefreshControl = [[UIRefreshControl alloc] init];
+    [self.invitationRefreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.selfTableView addSubview:self.invitationRefreshControl];
+    
+    [self.othersTableView addSubview:self.othersRefreshControl];
+    [self.invitationTableView addSubview:self.invitationRefreshControl];
+}
+
+
+- (void)refresh
+{
+    // do your refresh here and reload the tablview
+    [self viewWillAppear:YES];
+}
+
+
+- (void)settingTableViewBackgroundColor {
+    // self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    
+    self.selfTableView.backgroundColor = [UIColor dvvyLightGrey];
+    self.othersTableView.backgroundColor = [UIColor dvvyLightGrey];
+    self.invitationTableView.backgroundColor = [UIColor dvvyLightGrey];
+}
+
+
+
+#pragma mark - Constraints
+
 - (void) removeAllConstraints
 {
     [self.view removeConstraints:self.view.constraints];
@@ -263,6 +301,7 @@
     self.invitesButton.translatesAutoresizingMaskIntoConstraints = NO;
     
 }
+
 
 - (void) settingConstraints
 {
@@ -420,49 +459,8 @@
     
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"]) {
-        
-        DVYSelfCampaignViewController *selfCampaign = [[DVYSelfCampaignViewController alloc] initWithNibName:@"DVYSelfCampaignViewController" bundle:nil];
-        
-        DVYCampaign *campaignToPass = self.localDataStore.selfCampaigns[indexPath.row];
-        selfCampaign.campaign = campaignToPass;
-        
-        selfCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        selfCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        
-        [self presentViewController:selfCampaign animated:YES completion:nil];
-    }
-    
-    else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
-        DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
 
-        DVYCampaign *campaignToPass = self.localDataStore.othersCampaign[indexPath.row];
-        othersCampaign.campaign = campaignToPass;
-        
-        othersCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        othersCampaign.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        
-        [self presentViewController:othersCampaign animated:YES completion:nil];
-        
-    }
-    
-    else if ([tableView.accessibilityIdentifier isEqualToString:@"invitations"]) {
-        
-        DVYOtherCampaignViewController *othersCampaignInvite = [[DVYOtherCampaignViewController alloc] init];
-
-        DVYCampaign *campaignToPass = self.localDataStore.alertCampaign[indexPath.row];
-        othersCampaignInvite.campaign = campaignToPass;
-        
-        othersCampaignInvite.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        othersCampaignInvite.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        
-        [self presentViewController:othersCampaignInvite animated:YES completion:nil];
-    }
-    
-}
+#pragma mark - UIButton Actions
 
 - (IBAction)createACampaign:(id)sender {
     
@@ -509,6 +507,8 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+#pragma mark - UINavigationBar modification
 
 - (void) makingNavBarSexy
 {
@@ -558,32 +558,92 @@
 }
 
 
+#pragma mark - ScrollView Delegate
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView==self.scrollView) {
     CGFloat offset = scrollView.contentOffset.x;
     NSLog(@"scrollviewOffset %f", offset);
         if (offset == 0.0) {
-            self.selfButton.highlighted = YES;
-            self.invitesButton.highlighted=NO;
-            self.othersButton.highlighted=NO;
+            [self highlightingSelfButton];
             
         }
         else if (offset == self.scrollView.frame.size.width)
         {
-            self.othersButton.highlighted=YES;
-            self.selfButton.highlighted = NO;
-            self.invitesButton.highlighted=NO;
+            [self highlightingOthersButton];
 
         }
         else if (offset == (2*self.scrollView.frame.size.width))
         {
-            self.invitesButton.highlighted=YES;
-            self.selfButton.highlighted = NO;
-            self.othersButton.highlighted=NO;
+            [self highlightingInviteButton];
 
         }
     }
+}
+
+
+#pragma mark - UIButton Helper Methods
+
+- (void)highlightingSelfButton
+{
+    self.selfButton.highlighted = YES;
+    self.invitesButton.highlighted=NO;
+    self.othersButton.highlighted=NO;
+}
+
+- (void)highlightingOthersButton
+{
+    self.othersButton.highlighted=YES;
+    self.selfButton.highlighted = NO;
+    self.invitesButton.highlighted=NO;
+}
+
+- (void)highlightingInviteButton
+{
+    self.invitesButton.highlighted=YES;
+    self.selfButton.highlighted = NO;
+    self.othersButton.highlighted=NO;
+}
+
+- (void)initialButtonHighlight
+{
+    CGFloat offset = self.scrollView.contentOffset.x;
+    if (offset == 0.0) {
+        [self highlightingSelfButton];
+        
+    }
+    else if (offset == self.scrollView.frame.size.width)
+    {
+        [self highlightingOthersButton];
+        
+    }
+    else if (offset == (2*self.scrollView.frame.size.width))
+    {
+        [self highlightingInviteButton];
+        
+    }
+}
+
+- (void)addingSideIconsToTheButtons {
+    // add icons to buttons
+    UIImageView *selfIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user168"]];
+    selfIconView.frame = CGRectMake(20, 6, 12, 12);
+    selfIconView.contentMode = UIViewContentModeScaleAspectFill;
+    self.icon1 = selfIconView;
+    [self.selfButton addSubview:self.icon1];
+    
+    UIImageView *otherIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"multiple25"]];
+    otherIconView.frame = CGRectMake(17, 6, 14, 14);
+    otherIconView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.othersButton addSubview:otherIconView];
+    self.icon2 = otherIconView;
+    
+    UIImageView *invitesIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mail59"]];
+    invitesIconView.frame = CGRectMake(14, 5, 14, 14);
+    invitesIconView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.invitesButton addSubview:invitesIconView];
+    self.icon3 = invitesIconView;
 }
 
 @end
