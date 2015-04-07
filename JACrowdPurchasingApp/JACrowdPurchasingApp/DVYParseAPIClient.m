@@ -113,7 +113,7 @@
 
         NSDictionary *userData = (NSDictionary *)result;
         NSArray *dataArray = userData[@"data"];
-        NSLog(@"datakskjsn%@", userData);
+        NSLog(@"User Data%@", userData);
         
 
         
