@@ -36,8 +36,12 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
     NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
-    NSLog(@"%@", stringDate);
-    return stringDate;
+    
+    NSTimeInterval secondsBetween = [self.campaign.deadline timeIntervalSinceDate:[NSDate date]];
+    
+    NSInteger numberOfDays = secondsBetween / 86400;
+    
+    return [NSString stringWithFormat:@"%ld", (long)numberOfDays];
 }
 
 

@@ -132,7 +132,7 @@
         DVYCampaign *selfCampaign = self.localDataStore.selfCampaigns[indexPath.row];
         cell.cellCampaign = selfCampaign;
         
-        cell.campaignTitle.text = [selfCampaign.title uppercaseString];
+//        cell.campaignTitle.text = [selfCampaign.title uppercaseString];
         
         DVYUser *myself = (DVYUser *)[PFUser currentUser];
         
@@ -476,6 +476,7 @@
     self.selfButton.highlighted = YES;
     self.invitesButton.highlighted=NO;
     self.othersButton.highlighted=NO;
+    [self highlightingInviteButton];
 }
 
 - (IBAction)seeOthersCampaignTableButton:(id)sender {
@@ -485,6 +486,7 @@
     self.othersButton.highlighted=YES;
     self.selfButton.highlighted = NO;
     self.invitesButton.highlighted=NO;
+    [self highlightingOthersButton];
 }
 
 - (IBAction)seeInvitesTableButton:(id)sender {
@@ -494,6 +496,7 @@
     self.invitesButton.highlighted=YES;
     self.selfButton.highlighted = NO;
     self.othersButton.highlighted=NO;
+    [self highlightingInviteButton];
 }
 
 
