@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sxP-3V-tce">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sxP-3V-tce">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -65,7 +65,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Qtr-1t-8Bg" firstAttribute="centerY" secondItem="U9D-vt-xsd" secondAttribute="centerY" id="0vH-Xa-C0C"/>
                                     <constraint firstItem="Qtr-1t-8Bg" firstAttribute="leading" secondItem="McB-PT-rAP" secondAttribute="leading" constant="8" id="CMG-GQ-rvr"/>
@@ -77,7 +77,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="W6o-D9-UhP">
                                 <rect key="frame" x="5" y="113" width="310" height="447"/>
-                                <color key="backgroundColor" red="0.91378611440000002" green="0.91378611440000002" blue="0.91378611440000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inviteFriendCell" rowHeight="50" id="YSi-YO-Wzx" customClass="InviteFriendsTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -97,7 +97,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.97879201059999998" green="0.97879201059999998" blue="0.97879201059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="g2c-F5-yhN" secondAttribute="trailing" id="0mk-an-lql"/>
                                                 <constraint firstItem="g2c-F5-yhN" firstAttribute="leading" secondItem="vqc-Dn-EfO" secondAttribute="trailing" constant="20" id="746-aR-xdf"/>
@@ -107,7 +107,7 @@
                                                 <constraint firstItem="vqc-Dn-EfO" firstAttribute="top" secondItem="TEO-Za-Cir" secondAttribute="topMargin" id="a5p-0m-VOD"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.91378611440000002" green="0.91378611440000002" blue="0.91378611440000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="friendName" destination="g2c-F5-yhN" id="ANG-lu-abP"/>
                                             <outlet property="profilePic" destination="vqc-Dn-EfO" id="ra2-vW-kuz"/>

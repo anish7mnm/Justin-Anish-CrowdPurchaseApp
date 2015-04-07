@@ -19,8 +19,9 @@
 @interface DVYInviteFriendsTableViewController ()
 
 @property(nonatomic) DVYDataStore *localDataStore;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) UIColor *backColor;
 
 @end
 
@@ -69,15 +70,19 @@
                                        cell.profilePic.image = [UIImage imageWithData:data];
                                        
                                        // Add a nice corner radius to the image
-                                       cell.profilePic.layer.cornerRadius = 8.0f;
+                                       cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2;
                                        cell.profilePic.layer.masksToBounds = YES;
+                                       
                                    } else {
                                        NSLog(@"Failed to load profile photo.");
                                    }
                                }];
     }
-
+    cell.accessoryType = UITableViewCellAccessoryNone;
     
+    self.backColor = cell.backgroundColor;
+    cell.highlighted = NO;
+
     
     return cell;
 }
@@ -130,8 +135,26 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell* cell = [tableView
+                                    cellForRowAtIndexPath:indexPath];
+    //UIImageView *checkmark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
+
+
     DVYUser *friend = self.localDataStore.friends[indexPath.row];
-    [self.friendsSelected addObject:friend];
+
+    if(cell.accessoryType == UITableViewCellAccessoryCheckmark)
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [self.friendsSelected removeObject:friend];
+    }
+    
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.backgroundColor = [UIColor clearColor];
+        [self.friendsSelected addObject:friend];
+
+    }
     
 }
 
@@ -141,14 +164,16 @@
     return 70;
 }
 
+
 - (IBAction)doneButtonTapped:(id)sender {
     
     PFRelation *relation = [self.campaign relationForKey:@"invitees"];
     for (DVYUser *userFriend in self.friendsSelected) {
         [relation addObject:userFriend];
     }
-    [self.campaign saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.campaign saveInBackground];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done"
                                                         message:@"Invite sent!"
                                                        delegate:self
@@ -157,8 +182,8 @@
         [alert show];
     }];
     
-    
 }
+
 
 - (IBAction)cancelButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -13,12 +13,15 @@
 #import "DVYInviteFriendsTableViewController.h"
 #import "UIImage+animatedGIF.h"
 #import "DVYHomePageViewController.h"
+
 #import <JNWSpringAnimation/JNWSpringAnimation.h>
 #import <NSValue+JNWAdditions.h>
 #import <Parse/Parse.h>
 
 
 @interface DVYSelfCampaignViewController ()
+
+@property (nonatomic) DVYCampaignDetailView *detailCampaignViewSelf;
 
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
@@ -30,11 +33,12 @@
 @property (weak, nonatomic) IBOutlet UIView *backgroundBlurView;
 
 - (IBAction)editButtinTapped:(id)sender;
-@property (nonatomic) DVYCampaignDetailView *detailCampaignViewSelf;
 
 @end
 
+
 @implementation DVYSelfCampaignViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,19 +82,6 @@
     
 }
 
-//- (void)setCampaign:(DVYCampaign *)campaign
-//{
-//    
-//}
-
-- (void)blurTheView {
-    self.view.backgroundColor = [UIColor clearColor];
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *blurredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    blurredEffectView.frame = self.view.frame;
-    [self.backgroundBlurView addSubview:blurredEffectView];
-}
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -132,6 +123,20 @@
 }
 */
 
+
+#pragma mark - View Helper Methods
+
+- (void)blurTheView {
+    self.view.backgroundColor = [UIColor clearColor];
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurredEffectView.frame = self.view.frame;
+    [self.backgroundBlurView addSubview:blurredEffectView];
+}
+
+
+#pragma mark - UIButton Actions
+
 - (IBAction)editButtinTapped:(id)sender {
     
     DVYCreateCampaignViewController *edit = [[DVYCreateCampaignViewController alloc] init];
@@ -145,6 +150,7 @@
     
 }
 
+
 - (IBAction)addFriendsButtinTapped:(id)sender {
     
     UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
@@ -156,12 +162,14 @@
     
 }
 
+
 - (IBAction)doneButtonTapped:(id)sender {
     
     DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
     [homeVC refresh];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (IBAction)deleteButtonTapped:(id)sender {
     
@@ -170,6 +178,9 @@
     [homeVC refresh];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+#pragma mark - Constriants
 
 - (void)removeConstraints
 {

@@ -45,20 +45,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    if([PFUser currentUser])
-    {
-        UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        UIViewController *homePage = [myStoryboard instantiateInitialViewController];
-        self.window.rootViewController = homePage;
-    }
-    else
-    {
-        // create an instance of the view controller you want to be displayed first
-        DVYFacebookLoginViewController *introPage = [[DVYFacebookLoginViewController alloc] init];
-        introPage.view.frame = self.window.frame;
-        self.window.rootViewController = introPage;
-    }
+    [self checkUserAndDisplayLoginPageOrHopePage];
     
     [self.window makeKeyAndVisible];
     
@@ -93,6 +80,24 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     [[PFFacebookUtils session] close];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+- (void)checkUserAndDisplayLoginPageOrHopePage {
+    if([PFUser currentUser])
+    {
+        UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        UIViewController *homePage = [myStoryboard instantiateInitialViewController];
+        self.window.rootViewController = homePage;
+    }
+    else
+    {
+        // create an instance of the view controller you want to be displayed first
+        DVYFacebookLoginViewController *introPage = [[DVYFacebookLoginViewController alloc] init];
+        introPage.view.frame = self.window.frame;
+        self.window.rootViewController = introPage;
+    }
 }
 
 

@@ -470,33 +470,28 @@
     [self presentViewController:createCampaign animated:YES completion:nil];
 }
 
+
 - (IBAction)seeSelfCampaignTableButton:(id)sender {
+    [self highlightingSelfButton];
+
     CGPoint newOffset =CGPointMake(0, self.scrollView.contentOffset.y);
     [self.scrollView setContentOffset:newOffset animated:NO];
-    self.selfButton.highlighted = YES;
-    self.invitesButton.highlighted=NO;
-    self.othersButton.highlighted=NO;
-    [self highlightingInviteButton];
 }
 
 - (IBAction)seeOthersCampaignTableButton:(id)sender {
+    [self highlightingOthersButton];
+    
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth, self.scrollView.contentOffset.y);
     [self.scrollView setContentOffset:newOffset animated:NO];
-    self.othersButton.highlighted=YES;
-    self.selfButton.highlighted = NO;
-    self.invitesButton.highlighted=NO;
-    [self highlightingOthersButton];
 }
 
 - (IBAction)seeInvitesTableButton:(id)sender {
+    [self highlightingInviteButton];
+
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth*2, self.scrollView.contentOffset.y);
     [self.scrollView setContentOffset:newOffset animated:NO];
-    self.invitesButton.highlighted=YES;
-    self.selfButton.highlighted = NO;
-    self.othersButton.highlighted=NO;
-    [self highlightingInviteButton];
 }
 
 
