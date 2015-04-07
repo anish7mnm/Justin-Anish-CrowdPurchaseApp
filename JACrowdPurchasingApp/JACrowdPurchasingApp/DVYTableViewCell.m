@@ -120,16 +120,13 @@
         }
         
         CGFloat maxFillWidth = (CGFloat)self.progressShell.bounds.size.width;
-                
         CGFloat fractionCompleted = (CGFloat)self.committedNumberForCell/(CGFloat)self.neededNumberForCell;
         NSLog(@"%f",fractionCompleted);
         
         UIColor *progressFillColor = [UIColor dvvyProgressBlue];
-        if (fractionCompleted < 0.67) {
+        if (fractionCompleted < 0.99) {
             progressFillColor = [UIColor colorWithRed:1.000 green:0.800 blue:0.102 alpha:1.000];
             
-        } else if (fractionCompleted < 0.99) {
-            progressFillColor = [UIColor colorWithRed:1.000 green:0.800 blue:0.102 alpha:1.000];
         } else if (self.committedNumberForCell > self.neededNumberForCell) {
             progressFillColor = [UIColor dvvyProgressBlue];
             fractionCompleted = 1.0;
@@ -144,13 +141,10 @@
         CGFloat progressFillToAddToLeft = maxFillWidth*fractionCompleted;
         NSInteger integerToAdd = ceil(progressFillToAddToLeft);
         
-//        NSLog(@"%f", progressFillToAddToLeft);
-//        self.progressFill.transform = CGAffineTransformScale(self.progressShell.transform, 0.001, 1);
-        
-        NSLayoutConstraint *progressFillExtend = [NSLayoutConstraint constraintWithItem:self.progressFill attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.progressFill attribute:NSLayoutAttributeLeft multiplier:1.0 constant:integerToAdd];
-        
-//        [self layoutIfNeeded];
-        [self.progressShell addConstraint:progressFillExtend];
+//        NSLayoutConstraint *progressFillExtend = [NSLayoutConstraint constraintWithItem:self.progressFill attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.progressFill attribute:NSLayoutAttributeLeft multiplier:1.0 constant:integerToAdd];
+//        
+//        [self.progressShell addConstraint:progressFillExtend];
+        self.progressBarRightConstraint.constant += integerToAdd;
         
         CGFloat randomDelay = arc4random_uniform(10)/100.00;
         
@@ -161,9 +155,9 @@
                             options:0
                          animations:^{
                              [self layoutIfNeeded];
-//                             self.progressFill.transform = CGAffineTransformScale(self.progressShell.transform, fractionCompleted, 1);
+                             
                          } completion:^(BOOL finished) {
-//                             [self.progressShell addConstraint:progressFillExtend];
+                             
                          }];
         
     }];
