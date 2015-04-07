@@ -567,7 +567,7 @@
             self.selfButton.highlighted = YES;
             self.invitesButton.highlighted=NO;
             self.othersButton.highlighted=NO;
-            self.icon1.highlighted = YES;
+            
         }
         else if (offset == self.scrollView.frame.size.width)
         {
