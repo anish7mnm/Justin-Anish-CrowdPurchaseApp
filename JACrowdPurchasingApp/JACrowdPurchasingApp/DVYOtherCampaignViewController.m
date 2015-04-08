@@ -26,6 +26,9 @@
 
 @implementation DVYOtherCampaignViewController
 
+
+#pragma mark - Initializer
+
 -(instancetype)init
 {
     self = [super init];
@@ -34,6 +37,10 @@
     }
     return self;
 }
+
+
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -103,23 +110,16 @@
         
     }
 
-    
-    
     //self.decisionSwitch = [[UISwitch alloc] init];
     
     detailView.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     [self.contentView addSubview:detailView];
     
-    
-    
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+
+#pragma mark - UIButton Actions
 
 - (IBAction)switchSwitched:(id)sender {
     
@@ -135,6 +135,7 @@
     
 }
 
+
 - (IBAction)exitTapped:(id)sender {
     DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
     [homeVC refresh];
@@ -142,14 +143,5 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

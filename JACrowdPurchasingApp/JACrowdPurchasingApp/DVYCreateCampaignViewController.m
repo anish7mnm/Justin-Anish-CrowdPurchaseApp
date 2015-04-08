@@ -13,6 +13,8 @@
 #import "DVYCampaignDetailView.h"
 #import "DVYCampaign.h"
 
+
+
 @interface DVYCreateCampaignViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -25,7 +27,13 @@
 
 @end
 
+
+
+
 @implementation DVYCreateCampaignViewController
+
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,22 +56,9 @@
     // Do any additional setup after loading the view.
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    return YES;
-}
 
-// It is important for you to hide the keyboard
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - UITextField Delegate Methods
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -105,17 +100,83 @@
             //self.detailedView.peopleCommited.text = @"1";
         }
 
-
     }
     
-    
 }
+
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Update"]) {
         self.createButtonLabelProp.enabled = YES;
     }
+}
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+
+// It is important for you to hide the keyboard
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+
+
+#pragma mark - UIButton Actions
+
+
+- (IBAction)uploadImageButtonTapped:(id)sender {
+    
+    self.createButtonLabelProp.enabled = YES;
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+}
+
+
+- (IBAction)createThePageButtonTapped:(id)sender {
+    
+    if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Create"]) {
+        NSLog(@"Created");
+        [self createCampaign];
+        }
+    
+    else{
+        NSLog(@"Updated");
+        [self updateCampaign];
+    }
+    
+}
+
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+#pragma mark - UITextViewDelegate Helper Methods
+
+- (BOOL) checkingIfTheFieldsAreEmptyOrNot
+{
+    
+    if (self.titleTextField && self.descriptionTextField && self.peopleNeededTextField) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 
@@ -151,27 +212,9 @@
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
-- (IBAction)uploadImageButtonTapped:(id)sender {
-    
-    self.createButtonLabelProp.enabled = YES;
-    
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:NULL];
-    
-}
+
+#pragma mark - UIPickerView Delegate Methods
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
@@ -184,36 +227,8 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (IBAction)createThePageButtonTapped:(id)sender {
-    
-    if ([self.createButtonLabelProp.titleLabel.text isEqualToString:@"Create"]) {
-        NSLog(@"Created");
-        [self createCampaign];
-        }
-    
-    else{
-        NSLog(@"Updated");
-        [self updateCampaign];
-    }
-    
-}
 
-
-- (IBAction)cancelButtonTapped:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (BOOL) checkingIfTheFieldsAreEmptyOrNot
-{
-    
-    if (self.titleTextField && self.descriptionTextField && self.peopleNeededTextField) {
-        return NO;
-    }
-    
-    return YES;
-}
-
+#pragma mark - UIButton Helper Methods
 
 - (void) createCampaign
 {
@@ -236,7 +251,7 @@
         
     }
     
-    DVYUser *host = [PFUser currentUser];
+    DVYUser *host = (DVYUser *)[PFUser currentUser];
     campaign.host = host;
     
     PFRelation *relation = [campaign relationForKey:@"committed"];
@@ -249,10 +264,9 @@
     }];
 }
 
+
 - (void) updateCampaign
 {
-    
-    
     self.campaignToUpdate.title = self.titleTextField.text;
     self.campaignToUpdate.detail = self.descriptionTextField.text;
     self.campaignToUpdate.minimumNeededCommits = @([self.peopleNeededTextField.text integerValue]);
