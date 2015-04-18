@@ -10,7 +10,9 @@
 #import "DVYUser.h"
 #import "DVYRelationshipToken.h"
 
+
 @implementation DVYCampaign
+
 
 @dynamic title;
 @dynamic detail;
@@ -23,6 +25,8 @@
 @dynamic hasMetNeeds;
 @dynamic item;
 @dynamic committedCount;
+
+
 
 +(NSString *)parseClassName
 {
@@ -77,6 +81,7 @@
         [self.invitees addObject:invitee];
     }
 }
+
 
 //Adding one user
 - (void)addInvitee:(DVYUser *)inviteeToAdd
@@ -153,6 +158,8 @@
     }];
     
 }
+
+
 
 -(void) requestCommitWithCompletionBlock: (void (^)(NSArray *campaignObjects)) completionBlock
 {

@@ -11,15 +11,25 @@
 
 @interface DVYUser : PFObject<PFSubclassing>
 
+
 @property (nonatomic, strong) NSString *username;
+
 @property (nonatomic, strong) NSString *fullName;
+
 @property (strong, nonatomic) NSString *email;
+
 @property (strong, nonatomic) NSString *profilePicture;
+
 @property (strong, nonatomic) NSString *facebookID;
 
 @property (strong, nonatomic) PFUser *currentUser;;
 
 @property (strong, nonatomic) PFRelation *friends;
+
+
+/**
+ *  Sets the DVYUser to current user using [PFUser currentUser]
+ */
 
 -(void) setDVYUSerToCurrentUser;
 

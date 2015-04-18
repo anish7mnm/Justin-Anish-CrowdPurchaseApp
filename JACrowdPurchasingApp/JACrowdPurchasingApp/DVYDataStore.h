@@ -8,27 +8,41 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface DVYDataStore : NSObject
 
+
 @property (strong, nonatomic) NSArray *selfCampaigns;
+
 @property (strong, nonatomic) NSArray *selfCampaignsCount;
 
 
 @property (strong, nonatomic) NSMutableArray *othersCampaign;
+
 @property (strong, nonatomic) NSMutableArray *alertCampaign;
+
 @property (strong, nonatomic) NSArray *friends;
+
 @property (strong, nonatomic) NSMutableArray *users;
+
+
 
 + (instancetype)sharedLocationsDataStore;
 
+
 -(void) getselfCampaignsWithCompletionBlock: (void (^)(void))completionBlock;
+
 
 -(void) getselfCampaignsCountWithCompletionBlock: (void (^)(void))completionBlock;
 
+
 -(void) getOtherCampaignsWithCompletionBlock: (void (^)(void))completionBlock;
+
+
 -(void) getInvitiationCampaignsWithCompletionBlock: (void (^)(void))completionBlock;
 
 
 - (void) getFacebookFriendsWithCompletionBlock: (void (^)(void)) completionBlock;
+
 
 @end

@@ -10,7 +10,9 @@
 #import "DVYParseAPIClient.h"
 #import "DVYCampaign.h"
 
+
 @implementation DVYDataStore
+
 
 + (instancetype)sharedLocationsDataStore {
     static DVYDataStore *_sharedCampaignsDataStore = nil;
@@ -21,6 +23,7 @@
     
     return _sharedCampaignsDataStore;
 }
+
 
 - (instancetype)init
 {
@@ -36,6 +39,7 @@
 }
 
 
+
 -(void) getselfCampaignsWithCompletionBlock: (void (^)(void))completionBlock
 {
     NSMutableArray *arrayForGood = [[NSMutableArray alloc] init];
@@ -48,6 +52,7 @@
         completionBlock();
     }];
 }
+
 
 
 -(void) getOtherCampaignsWithCompletionBlock: (void (^)(void))completionBlock
@@ -67,9 +72,9 @@
         completionBlock();
     }];
     
-
-    
 }
+
+
 
 -(void) getInvitiationCampaignsWithCompletionBlock: (void (^)(void))completionBlock
 {
@@ -82,9 +87,9 @@
         completionBlock();
     }];
     
-
-    
 }
+
+
 
 - (void) getFacebookFriendsWithCompletionBlock: (void (^)(void)) completionBlock
 {

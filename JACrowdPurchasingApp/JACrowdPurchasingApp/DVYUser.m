@@ -10,6 +10,7 @@
 
 @implementation DVYUser
 
+
 @dynamic username;
 @dynamic fullName;
 @dynamic email;
@@ -18,10 +19,14 @@
 @dynamic currentUser;
 @dynamic friends;
 
+
+
 +(NSString *)parseClassName
 {
     return @"User";
 }
+
+
 
 -(void) setDVYUSerToCurrentUser
 {
@@ -31,5 +36,6 @@
     self.email = self.currentUser[@"email"];
     self.profilePicture = self.currentUser[@"profilePicture"];
 }
+
 
 @end
