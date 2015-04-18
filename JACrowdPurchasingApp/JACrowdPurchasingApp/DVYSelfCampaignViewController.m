@@ -108,21 +108,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 #pragma mark - View Helper Methods
 
@@ -133,6 +118,7 @@
     blurredEffectView.frame = self.view.frame;
     [self.backgroundBlurView addSubview:blurredEffectView];
 }
+
 
 
 #pragma mark - UIButton Actions
@@ -173,11 +159,41 @@
 
 - (IBAction)deleteButtonTapped:(id)sender {
     
-    [self.campaign deleteInBackground];
-    DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
-    [homeVC refresh];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Hey DVVY user"
+                                          message:@"Are You sure you want to delete this Campaign?"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                       
+                                   }];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   NSLog(@"OK action");
+                                   [self.campaign deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                       DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
+                                       [homeVC refresh];
+                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                   }];
+
+                               }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    }
+
 
 
 #pragma mark - Constriants
@@ -192,8 +208,10 @@
     self.buttonView.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
+
 - (void)setConstraints
 {
+   
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.presentingViewController attribute:NSLayoutAttributeWidth multiplier:1.0 constant:-16];
     NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.presentingViewController attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
     NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.presentingViewController attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];

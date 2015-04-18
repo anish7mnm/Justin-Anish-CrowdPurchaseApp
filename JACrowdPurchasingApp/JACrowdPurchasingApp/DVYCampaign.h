@@ -4,30 +4,42 @@
 //
 //  Created by Justin on 3/22/15.
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+
+//Importing other models
 #import "DVYUser.h"
 #import "Item.h"
 
+
 @interface DVYCampaign : PFObject <PFSubclassing>
 
+
 @property (nonatomic, strong) NSString *title;
+
 @property (nonatomic, strong) NSString *detail;
+
 @property (nonatomic, strong) NSDate *deadline;
+
 @property (nonatomic, strong) DVYUser *host;
+
 @property (nonatomic, strong) NSNumber *minimumNeededCommits;
+
 @property (nonatomic, strong) NSNumber *committedCount;
 
-
 @property (nonatomic, strong) PFRelation *invitees;
+
 @property (nonatomic, strong) PFRelation *committed;
 
 @property (nonatomic) BOOL hasMetNeeds;
+
 @property (nonatomic) BOOL hasEnded;
 
 @property (nonatomic, strong) Item *item;
+
+
 //@property (nonatomic, strong) UIImage *itemImage;
 
 /*

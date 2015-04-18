@@ -15,6 +15,9 @@
 
 @implementation DVYParseAPIClient
 
+
+#pragma mark - Login/Signup Request
+
 +(void)logInWithFacebookWithCompletionBlock:(void (^)(void))completionBlock AndSignUpComletionBlock:(void (^)(void))signUpCompletionBlock
 {
 
@@ -57,9 +60,12 @@
 }
 
 
+
+#pragma mark - Campaigns Fetcher
+
 + (void) getSelfCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
 {
-    //NSMutableArray *selfCampaignlist = [[NSMutableArray alloc] init];
+
     DVYUser *currentUser = (DVYUser *)[PFUser currentUser];
     PFQuery *selfCampaignQuery = [DVYCampaign query];
     [selfCampaignQuery whereKey:@"host" equalTo:currentUser];
@@ -70,7 +76,10 @@
         completionBlock(objects);
 
     }];
+    
 }
+
+
 
 + (void) getOthersCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
 {
@@ -88,6 +97,8 @@
     }];
 }
 
+
+
 + (void) getInvitationCampaignsWithCompletionBlock:(void (^)(NSArray *))completionBlock
 {
     //NSMutableArray *selfCampaignlist = [[NSMutableArray alloc] init];
@@ -104,6 +115,9 @@
     }];
 }
 
+
+
+#pragma mark - Facebook Friends Fetcher
 
 + (void) getFacebookFriendsWithCompletionBlock: (void (^)(NSArray *)) completionBlock
 {

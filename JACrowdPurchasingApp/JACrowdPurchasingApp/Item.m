@@ -10,9 +10,12 @@
 
 @implementation Item
 
+
 @dynamic itemImage;
 @dynamic name;
 @dynamic description;
+
+
 
 +(NSString *)parseClassName
 {

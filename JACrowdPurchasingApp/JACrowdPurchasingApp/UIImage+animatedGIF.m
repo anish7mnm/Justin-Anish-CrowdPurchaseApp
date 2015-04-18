@@ -9,7 +9,9 @@
 #define fromCF (id)
 #endif
 
+
 @implementation UIImage (animatedGIF)
+
 
 static int delayCentisecondsForImageAtIndex(CGImageSourceRef const source, size_t const i) {
     int delayCentiseconds = 1;
@@ -31,12 +33,14 @@ static int delayCentisecondsForImageAtIndex(CGImageSourceRef const source, size_
     return delayCentiseconds;
 }
 
+
 static void createImagesAndDelays(CGImageSourceRef source, size_t count, CGImageRef imagesOut[count], int delayCentisecondsOut[count]) {
     for (size_t i = 0; i < count; ++i) {
         imagesOut[i] = CGImageSourceCreateImageAtIndex(source, i, NULL);
         delayCentisecondsOut[i] = delayCentisecondsForImageAtIndex(source, i);
     }
 }
+
 
 static int sum(size_t const count, int const *const values) {
     int theSum = 0;
@@ -45,6 +49,7 @@ static int sum(size_t const count, int const *const values) {
     }
     return theSum;
 }
+
 
 static int pairGCD(int a, int b) {
     if (a < b)
@@ -57,6 +62,7 @@ static int pairGCD(int a, int b) {
         b = r;
     }
 }
+
 
 static int vectorGCD(size_t const count, int const *const values) {
     int gcd = values[0];
@@ -80,11 +86,13 @@ static NSArray *frameArray(size_t const count, CGImageRef const images[count], i
     return [NSArray arrayWithObjects:frames count:frameCount];
 }
 
+
 static void releaseImages(size_t const count, CGImageRef const images[count]) {
     for (size_t i = 0; i < count; ++i) {
         CGImageRelease(images[i]);
     }
 }
+
 
 static UIImage *animatedImageWithAnimatedGIFImageSource(CGImageSourceRef const source) {
     size_t const count = CGImageSourceGetCount(source);
@@ -98,6 +106,7 @@ static UIImage *animatedImageWithAnimatedGIFImageSource(CGImageSourceRef const s
     return animation;
 }
 
+
 static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRef CF_RELEASES_ARGUMENT source) {
     if (source) {
         UIImage *const image = animatedImageWithAnimatedGIFImageSource(source);
@@ -108,12 +117,17 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     }
 }
 
+
+
 + (UIImage *)animatedImageWithAnimatedGIFData:(NSData *)data {
     return animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceCreateWithData(toCF data, NULL));
 }
 
+
+
 + (UIImage *)animatedImageWithAnimatedGIFURL:(NSURL *)url {
     return animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceCreateWithURL(toCF url, NULL));
 }
+
 
 @end

@@ -43,6 +43,13 @@
 		88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */; };
 		88E94EF11AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E94EF01AA7A4C90052FA35 /* JACrowdPurchasingAppTests.m */; };
 		88EF0BF91ABCD57900897A21 /* DVYHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */; };
+		88F19C1A1AE2BBFF00914E31 /* DVYTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F19C181AE2BBFF00914E31 /* DVYTableViewCell.xib */; };
+		88F19C1D1AE2D3F200914E31 /* DVYBasicAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F19C1C1AE2D3F200914E31 /* DVYBasicAPIClient.m */; };
+		88F19C201AE3068800914E31 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F19C1F1AE3068800914E31 /* SWRevealViewController.m */; };
+		88F19C261AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F19C241AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.m */; };
+		88F19C271AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F19C251AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.xib */; };
+		88F19C2B1AE3113C00914E31 /* FriendCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F19C291AE3113C00914E31 /* FriendCollectionViewCell.m */; };
+		88F19C2C1AE3113C00914E31 /* FriendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F19C2A1AE3113C00914E31 /* FriendCollectionViewCell.xib */; };
 		88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */; };
 		88F3672B1AC9DB39009358FA /* DVYCreateCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */; };
 		A2E458A7B6546632644441BF /* libPods-JACrowdPurchasingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA848941C109929DE44BCAB5 /* libPods-JACrowdPurchasingApp.a */; };
@@ -122,6 +129,17 @@
 		88EF0BF21ABCCF9300897A21 /* libPods-JACrowdPurchasingApp-Bolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-JACrowdPurchasingApp-Bolts.a"; path = "Pods/build/Debug-iphoneos/libPods-JACrowdPurchasingApp-Bolts.a"; sourceTree = "<group>"; };
 		88EF0BF61ABCD57900897A21 /* DVYHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYHomePageViewController.h; sourceTree = "<group>"; };
 		88EF0BF71ABCD57900897A21 /* DVYHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYHomePageViewController.m; sourceTree = "<group>"; };
+		88F19C181AE2BBFF00914E31 /* DVYTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYTableViewCell.xib; sourceTree = "<group>"; };
+		88F19C1B1AE2D3F200914E31 /* DVYBasicAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYBasicAPIClient.h; sourceTree = "<group>"; };
+		88F19C1C1AE2D3F200914E31 /* DVYBasicAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYBasicAPIClient.m; sourceTree = "<group>"; };
+		88F19C1E1AE3068800914E31 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		88F19C1F1AE3068800914E31 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		88F19C231AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVYCommittedFriendsCollectionViewController.h; sourceTree = "<group>"; };
+		88F19C241AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYCommittedFriendsCollectionViewController.m; sourceTree = "<group>"; };
+		88F19C251AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYCommittedFriendsCollectionViewController.xib; sourceTree = "<group>"; };
+		88F19C281AE3113C00914E31 /* FriendCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCollectionViewCell.h; sourceTree = "<group>"; };
+		88F19C291AE3113C00914E31 /* FriendCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCollectionViewCell.m; sourceTree = "<group>"; };
+		88F19C2A1AE3113C00914E31 /* FriendCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCollectionViewCell.xib; sourceTree = "<group>"; };
 		88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYSelfCampaignViewController.xib; sourceTree = "<group>"; };
 		88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYCreateCampaignViewController.xib; sourceTree = "<group>"; };
 		A8A43DA71ACEBABC00B60520 /* UIColor+dvvyColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+dvvyColors.h"; sourceTree = "<group>"; };
@@ -195,6 +213,8 @@
 			children = (
 				889CE9861AC08CF400F04C0B /* DVYParseAPIClient.h */,
 				889CE9871AC08CF400F04C0B /* DVYParseAPIClient.m */,
+				88F19C1B1AE2D3F200914E31 /* DVYBasicAPIClient.h */,
+				88F19C1C1AE2D3F200914E31 /* DVYBasicAPIClient.m */,
 			);
 			name = "API Client";
 			sourceTree = "<group>";
@@ -204,9 +224,11 @@
 			children = (
 				88E825741AD431C200BDAFC4 /* Facebook Login */,
 				88F3672C1ACAD859009358FA /* HomePage */,
+				88F19C211AE306E400914E31 /* Hamburger Menu */,
 				88F3672D1ACAD866009358FA /* Campaigns */,
+				88F19C221AE30B8A00914E31 /* Committed Friends */,
 				88E825751AD431D800BDAFC4 /* Create Campaign */,
-				88E825791AD432EF00BDAFC4 /* Adding Friends */,
+				88E825791AD432EF00BDAFC4 /* Friends List */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +239,7 @@
 				88E94EE31AA7A4C90052FA35 /* LaunchScreen.xib */,
 				88E825781AD4328600BDAFC4 /* Campaign Detail View */,
 				88E825771AD4326000BDAFC4 /* TableViewCells */,
+				88F19C2D1AE3116600914E31 /* CollectionViewCells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -274,6 +297,7 @@
 		88E825771AD4326000BDAFC4 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				88F19C181AE2BBFF00914E31 /* DVYTableViewCell.xib */,
 				889CE9951AC0D9DC00F04C0B /* DVYTableViewCell.h */,
 				889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */,
 				88333A4C1ACB5617000A9E5A /* InviteFriendsTableViewCell.h */,
@@ -292,13 +316,13 @@
 			name = "Campaign Detail View";
 			sourceTree = "<group>";
 		};
-		88E825791AD432EF00BDAFC4 /* Adding Friends */ = {
+		88E825791AD432EF00BDAFC4 /* Friends List */ = {
 			isa = PBXGroup;
 			children = (
 				88D4463E1AC371B400F1A530 /* DVYInviteFriendsTableViewController.h */,
 				88D4463F1AC371B400F1A530 /* DVYInviteFriendsTableViewController.m */,
 			);
-			name = "Adding Friends";
+			name = "Friends List";
 			sourceTree = "<group>";
 		};
 		88E94EC81AA7A4C80052FA35 = {
@@ -365,6 +389,35 @@
 				88E94EEF1AA7A4C90052FA35 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88F19C211AE306E400914E31 /* Hamburger Menu */ = {
+			isa = PBXGroup;
+			children = (
+				88F19C1E1AE3068800914E31 /* SWRevealViewController.h */,
+				88F19C1F1AE3068800914E31 /* SWRevealViewController.m */,
+			);
+			name = "Hamburger Menu";
+			sourceTree = "<group>";
+		};
+		88F19C221AE30B8A00914E31 /* Committed Friends */ = {
+			isa = PBXGroup;
+			children = (
+				88F19C231AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.h */,
+				88F19C241AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.m */,
+				88F19C251AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.xib */,
+			);
+			name = "Committed Friends";
+			sourceTree = "<group>";
+		};
+		88F19C2D1AE3116600914E31 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				88F19C281AE3113C00914E31 /* FriendCollectionViewCell.h */,
+				88F19C291AE3113C00914E31 /* FriendCollectionViewCell.m */,
+				88F19C2A1AE3113C00914E31 /* FriendCollectionViewCell.xib */,
+			);
+			name = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		88F3672C1ACAD859009358FA /* HomePage */ = {
@@ -486,10 +539,13 @@
 				88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */,
 				88B560161AC999BC002A83AE /* DVYOtherCampaignViewController.xib in Resources */,
 				A8C717331AD29EAD0016054B /* Mexican_Pusheen.gif in Resources */,
+				88F19C2C1AE3113C00914E31 /* FriendCollectionViewCell.xib in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
 				889CE9931AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib in Resources */,
 				88D446341AC36F9F00F1A530 /* CreateFlow.storyboard in Resources */,
 				88B55FD51AC5B0EB002A83AE /* DVYCampaignDetailView.xib in Resources */,
+				88F19C1A1AE2BBFF00914E31 /* DVYTableViewCell.xib in Resources */,
+				88F19C271AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,16 +599,20 @@
 				88E94EDA1AA7A4C90052FA35 /* AppDelegate.m in Sources */,
 				889CE9921AC0AF8E00F04C0B /* DVYFacebookLoginViewController.m in Sources */,
 				883C66031AC1DDE500258869 /* DVYCampaign.m in Sources */,
+				88F19C261AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.m in Sources */,
 				88D4463A1AC3708F00F1A530 /* DVYCampaignDetailView.m in Sources */,
+				88F19C1D1AE2D3F200914E31 /* DVYBasicAPIClient.m in Sources */,
 				889CE9881AC08CF400F04C0B /* DVYParseAPIClient.m in Sources */,
 				88D4463D1AC370D600F1A530 /* DVYSelfCampaignViewController.m in Sources */,
 				883C66071AC1F03D00258869 /* DVYRelationshipToken.m in Sources */,
 				88333A4E1ACB5617000A9E5A /* InviteFriendsTableViewCell.m in Sources */,
+				88F19C2B1AE3113C00914E31 /* FriendCollectionViewCell.m in Sources */,
 				88D446371AC3701900F1A530 /* DVYCreateCampaignViewController.m in Sources */,
 				889CE9841AC08C0100F04C0B /* DVYDataStore.m in Sources */,
 				883C66041AC1DDE500258869 /* DVYUser.m in Sources */,
 				88D446401AC371B400F1A530 /* DVYInviteFriendsTableViewController.m in Sources */,
 				A8A43DA91ACEBABC00B60520 /* UIColor+dvvyColors.m in Sources */,
+				88F19C201AE3068800914E31 /* SWRevealViewController.m in Sources */,
 				88B55FD81AC5F0DD002A83AE /* Item.m in Sources */,
 				88E94ED71AA7A4C90052FA35 /* main.m in Sources */,
 				A8C717361AD2B3E40016054B /* UIImage+animatedGIF.m in Sources */,

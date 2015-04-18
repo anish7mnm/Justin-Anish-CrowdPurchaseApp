@@ -36,41 +36,30 @@
 @property (nonatomic) UIImageView *icon2;
 @property (nonatomic) UIImageView *icon3;
 
-
 @end
 
 @implementation DVYHomePageViewController
 
 
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.currentUser = [PFUser currentUser];
     
-    self.selfTableView.delegate=self;
-    self.selfTableView.dataSource = self;
-    self.othersTableView.delegate=self;
-    self.othersTableView.dataSource=self;
-    self.invitationTableView.delegate=self;
-    self.invitationTableView.dataSource=self;
-    
     self.localDataStore = [DVYDataStore sharedLocationsDataStore];
     
-    [self.selfTableView setAccessibilityIdentifier:@"forSelfCampaign"];
-    [self.othersTableView setAccessibilityIdentifier:@"forOthersCampaign"];
-    [self.invitationTableView setAccessibilityIdentifier:@"invitations"];
+    self.scrollView.delegate = self;
+    
+    [self settingUpTheThreeTableViews];
     
     [self removeAllConstraints];
     [self settingConstraints];
     
     [self addingPullToRefreshFeatureToTheTableViews];
     
-    
-    self.scrollView.delegate = self;
-    
     [self addingSideIconsToTheButtons];
-    
     
     [self settingTableViewBackgroundColor];
     
@@ -92,13 +81,34 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - UITableView Setup
+
+- (void)settingUpTheThreeTableViews {
+    
+    self.selfTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
+    self.othersTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
+    self.invitationTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
+    
+    [self.selfTableView registerNib:[UINib nibWithNibName:@"DVYTableViewCell" bundle:nil] forCellReuseIdentifier:@"selfCampaignCell"];
+    [self.othersTableView registerNib:[UINib nibWithNibName:@"DVYTableViewCell" bundle:nil] forCellReuseIdentifier:@"othersCampaignCell"];
+    [self.invitationTableView registerNib:[UINib nibWithNibName:@"DVYTableViewCell" bundle:nil] forCellReuseIdentifier:@"invitationCampaignCell"];
+    
+    [self.containerView addSubview:self.selfTableView];
+    [self.containerView addSubview:self.othersTableView];
+    [self.containerView addSubview:self.invitationTableView];
+    
+    self.selfTableView.delegate=self;
+    self.selfTableView.dataSource = self;
+    self.othersTableView.delegate=self;
+    self.othersTableView.dataSource=self;
+    self.invitationTableView.delegate=self;
+    self.invitationTableView.dataSource=self;
+    
+    self.selfTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.othersTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.invitationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -108,10 +118,10 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"]) {
+    if (tableView == self.selfTableView) {
         return [self.localDataStore.selfCampaigns count];
     }
-    else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
+    else if (tableView == self.othersTableView) {
         return [self.localDataStore.othersCampaign count];
     }
     else {
@@ -129,9 +139,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"])
+    if (tableView == self.selfTableView)
     {
-        DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"selfCampaignCell" forIndexPath:indexPath];
+        DVYTableViewCell *cell = [self.selfTableView dequeueReusableCellWithIdentifier:@"selfCampaignCell" forIndexPath:indexPath];
+        
         DVYCampaign *selfCampaign = self.localDataStore.selfCampaigns[indexPath.row];
         cell.cellCampaign = selfCampaign;
         
@@ -144,9 +155,10 @@
         return cell;
     }
     
-    else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"])
+    else if (tableView == self.othersTableView)
     {
-        DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"othersCampaignCell" forIndexPath:indexPath];
+        DVYTableViewCell *cell = [self.othersTableView dequeueReusableCellWithIdentifier:@"othersCampaignCell" forIndexPath:indexPath];
+        
         DVYCampaign *othersCampaign = self.localDataStore.othersCampaign[indexPath.row];
         cell.cellCampaign = othersCampaign;
         
@@ -156,7 +168,8 @@
     
     else
     {
-        DVYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"invitationCell" forIndexPath:indexPath];
+        DVYTableViewCell *cell = [self.invitationTableView dequeueReusableCellWithIdentifier:@"invitationCampaignCell" forIndexPath:indexPath];
+        
         DVYCampaign *othersCampaign = self.localDataStore.alertCampaign[indexPath.row];
         cell.cellCampaign = othersCampaign;
         
@@ -167,12 +180,13 @@
 }
 
 
+
 #pragma mark - UITableView Delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if ([tableView.accessibilityIdentifier isEqualToString:@"forSelfCampaign"]) {
+    if (tableView == self.selfTableView) {
         
         DVYSelfCampaignViewController *selfCampaign = [[DVYSelfCampaignViewController alloc] initWithNibName:@"DVYSelfCampaignViewController" bundle:nil];
         
@@ -185,7 +199,7 @@
         [self presentViewController:selfCampaign animated:YES completion:nil];
     }
     
-    else if ([tableView.accessibilityIdentifier isEqualToString:@"forOthersCampaign"]) {
+    else if (tableView == self.othersTableView) {
         DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
         
         DVYCampaign *campaignToPass = self.localDataStore.othersCampaign[indexPath.row];
@@ -198,7 +212,7 @@
         
     }
     
-    else if ([tableView.accessibilityIdentifier isEqualToString:@"invitations"]) {
+    else if (tableView == self.invitationTableView) {
         
         DVYOtherCampaignViewController *othersCampaignInvite = [[DVYOtherCampaignViewController alloc] init];
         
@@ -212,6 +226,7 @@
     }
     
 }
+
 
 
 #pragma mark - UITableView Helper Methods
@@ -462,6 +477,7 @@
 }
 
 
+
 #pragma mark - UIButton Actions
 
 - (IBAction)createACampaign:(id)sender {
@@ -498,15 +514,6 @@
 }
 
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 #pragma mark - UINavigationBar modification
 

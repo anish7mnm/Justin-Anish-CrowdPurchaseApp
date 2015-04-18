@@ -13,9 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
-@property (weak, nonatomic) IBOutlet UITableView *selfTableView;
-@property (weak, nonatomic) IBOutlet UITableView *othersTableView;
-@property (weak, nonatomic) IBOutlet UITableView *invitationTableView;
+@property (nonatomic)  UITableView *selfTableView;
+@property (nonatomic)  UITableView *othersTableView;
+@property (nonatomic)  UITableView *invitationTableView;
 
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
 
