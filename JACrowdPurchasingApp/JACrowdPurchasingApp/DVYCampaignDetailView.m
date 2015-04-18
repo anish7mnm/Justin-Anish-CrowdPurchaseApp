@@ -16,7 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *committedFriendsListButton;
 
-
 @end
 
 
@@ -61,11 +60,8 @@
 //For the future
 
 - (IBAction)seePeopleCommitted:(id)sender {
-    
-    DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
-    
-    [self.inputViewController presentViewController:friendsCollectionView animated:YES completion:nil];
-    
+    NSLog(@"campaigndetailviewtapped");
+    [self.delegate presentCollectionView];
     
 //    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
 //    

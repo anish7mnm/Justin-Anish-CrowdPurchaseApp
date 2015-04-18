@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DVYCampaignDetailView.h"
 
 @interface DVYHomePageViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 

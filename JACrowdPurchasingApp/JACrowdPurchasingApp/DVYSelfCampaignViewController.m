@@ -13,6 +13,7 @@
 #import "DVYInviteFriendsTableViewController.h"
 #import "UIImage+animatedGIF.h"
 #import "DVYHomePageViewController.h"
+#import "DVYCommittedFriendsCollectionViewController.h"
 
 #import <JNWSpringAnimation/JNWSpringAnimation.h>
 #import <NSValue+JNWAdditions.h>
@@ -192,9 +193,15 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
     
-    }
+}
 
-
+- (void)presentCollectionView
+{
+    NSLog(@"pressed");
+    DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
+    
+    [self presentViewController:friendsCollectionView animated:YES completion:nil];
+}
 
 #pragma mark - Constriants
 

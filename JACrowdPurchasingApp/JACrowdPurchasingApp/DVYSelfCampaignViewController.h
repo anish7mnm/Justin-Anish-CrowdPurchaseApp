@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DVYCampaignDetailView.h"
 
 @class DVYCampaign;
-@interface DVYSelfCampaignViewController : UIViewController
+
+@interface DVYSelfCampaignViewController : UIViewController <DVYCampaignDetailViewDelegate>
 
 @property (weak, nonatomic) DVYCampaign *campaign;
 

@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DVYHomePageViewController.h"
+
+@protocol DVYCampaignDetailViewDelegate <NSObject>
+
+- (void)presentCollectionView;
+
+@end
 
 @class DVYUser;
 @class DVYCampaign;
+@class DVYSelfCampaignViewController;
 
 @interface DVYCampaignDetailView : UIView
 
@@ -29,6 +37,6 @@
 
 - (void) updateView;
 
-
+@property (strong, nonatomic) id<DVYCampaignDetailViewDelegate> delegate;
 
 @end

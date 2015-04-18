@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -22,22 +22,13 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjw-yW-FxJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
-                                    <state key="normal" title="ssss">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="seePeopleCommitted:" destination="iN0-l3-epB" eventType="touchUpInside" id="tcX-EY-qbO"/>
-                                    </connections>
-                                </button>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="People Watching" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eH-zW-tFy">
                                     <rect key="frame" x="198" y="34" width="80" height="12"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQC-HX-MFo">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQC-HX-MFo" userLabel="commitsSquare">
                                     <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWr-2y-G3z">
@@ -60,7 +51,17 @@
                                         <constraint firstAttribute="centerX" secondItem="QWr-2y-G3z" secondAttribute="centerX" id="onN-zJ-IPd"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZq-cm-gd7">
+                                <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjw-yW-FxJ" userLabel="commitsButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
+                                    <color key="backgroundColor" red="0.94179318990000005" green="0.27336123979999999" blue="0.2667501625" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="seePeopleCommitted:" destination="iN0-l3-epB" eventType="touchUpInside" id="tcX-EY-qbO"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZq-cm-gd7" userLabel="neededSquare">
                                     <rect key="frame" x="54" y="0.0" width="49" height="46"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Needed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9X-tB-SIz">
@@ -83,7 +84,7 @@
                                         <constraint firstItem="8eG-kI-nbQ" firstAttribute="centerY" secondItem="oZq-cm-gd7" secondAttribute="centerY" constant="-7" id="x1c-L5-tCg"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oEQ-hB-55H">
+                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oEQ-hB-55H" userLabel="otherSquare">
                                     <rect key="frame" x="111" y="0.0" width="193" height="46"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DAYS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vst-T1-9EP">
@@ -189,7 +190,6 @@
                 <outlet property="hostName" destination="wqe-bB-03w" id="Etb-lW-84j"/>
                 <outlet property="neededCountView" destination="oZq-cm-gd7" id="FaO-UZ-YhW"/>
                 <outlet property="peopleCommited" destination="QWr-2y-G3z" id="w01-hx-xwR"/>
-                <outlet property="peopleCommittedButton" destination="kjw-yW-FxJ" id="uYe-aQ-axP"/>
                 <outlet property="peopleNeeded" destination="8eG-kI-nbQ" id="2Eu-6i-onh"/>
                 <outlet property="profilePicture" destination="iAE-h7-Bwq" id="pSQ-98-ndX"/>
             </connections>
