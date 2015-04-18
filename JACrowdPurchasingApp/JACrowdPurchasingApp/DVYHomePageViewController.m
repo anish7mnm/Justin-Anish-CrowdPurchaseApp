@@ -102,6 +102,9 @@
     self.invitationTableView.delegate=self;
     self.invitationTableView.dataSource=self;
     
+    self.selfTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.othersTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.invitationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

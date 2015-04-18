@@ -151,6 +151,7 @@
                 <outlet property="hostName" destination="iF3-Kk-C50" id="uAR-1r-Rfs"/>
                 <outlet property="innerCell" destination="eD9-A7-VxM" id="BEn-7h-jSB"/>
                 <outlet property="numberLabel" destination="hO2-Po-FMN" id="XlT-Kd-Mxk"/>
+                <outlet property="progressBarRightConstraint" destination="R0X-3H-Jwy" id="xs9-FZ-gnt"/>
                 <outlet property="progressFill" destination="jAx-zM-aSr" id="aI1-5l-Kib"/>
                 <outlet property="progressShell" destination="WtE-Xi-uJ9" id="Sf5-RY-cRe"/>
                 <outlet property="textView" destination="hgz-Jw-lTd" id="weQ-Bg-Hgw"/>

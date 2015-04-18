@@ -9,6 +9,15 @@
 #import "DVYCampaignDetailView.h"
 #import "DVYCampaign.h"
 #import "DVYInviteFriendsTableViewController.h"
+#import "DVYCommittedFriendsCollectionViewController.h"
+
+
+@interface DVYCampaignDetailView ()
+
+@property (weak, nonatomic) IBOutlet UIButton *committedFriendsListButton;
+
+
+@end
 
 
 @implementation DVYCampaignDetailView
@@ -27,6 +36,8 @@
     self.campaignTitle.text = [self.campaign.title uppercaseString];
     self.campaignDetails.text = self.campaign.detail;
     self.deadline.text = [self settingDate];
+    [self bringSubviewToFront:self.committedFriendsListButton];
+
 }
 
 
@@ -50,6 +61,11 @@
 //For the future
 
 - (IBAction)seePeopleCommitted:(id)sender {
+    
+    DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
+    
+    [self.inputViewController presentViewController:friendsCollectionView animated:YES completion:nil];
+    
     
 //    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
 //    
