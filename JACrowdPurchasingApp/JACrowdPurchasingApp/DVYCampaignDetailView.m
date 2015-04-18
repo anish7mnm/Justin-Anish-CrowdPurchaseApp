@@ -34,7 +34,9 @@
 -(NSString *) settingDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
     [dateFormatter setDateFormat:@"MM-dd-yyyy"];
+    
     NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
     
     NSTimeInterval secondsBetween = [self.campaign.deadline timeIntervalSinceDate:[NSDate date]];

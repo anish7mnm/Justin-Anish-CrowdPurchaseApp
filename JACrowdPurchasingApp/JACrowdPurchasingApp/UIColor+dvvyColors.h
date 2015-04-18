@@ -8,19 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface UIColor (dvvyColors)
 
+
 + (UIColor *)dvvyMainAccent;
+
 + (UIColor *)dvvyDarkGrey;
+
 + (UIColor *)dvvyBlueAlternative;
+
 + (UIColor *)dvvyLightGrey;
 
 + (UIColor *)dvvyProgressOrange;
+
 + (UIColor *)dvvyProgressYellow;
+
 + (UIColor *)dvvyProgressGreen;
+
 + (UIColor *)dvvyProgressBlue;
-
-
 
 
 @end

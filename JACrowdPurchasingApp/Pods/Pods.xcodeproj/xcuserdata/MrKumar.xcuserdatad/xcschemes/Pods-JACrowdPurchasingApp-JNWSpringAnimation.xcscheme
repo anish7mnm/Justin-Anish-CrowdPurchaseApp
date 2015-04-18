@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0620"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CF4E6559DA7AD24807003F60"
+               BlueprintIdentifier = "AE5D6563FB5A76AF3846A849"
                BuildableName = "libPods-JACrowdPurchasingApp-JNWSpringAnimation.a"
                BlueprintName = "Pods-JACrowdPurchasingApp-JNWSpringAnimation"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -39,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CF4E6559DA7AD24807003F60"
-            BuildableName = "libPods-JACrowdPurchasingApp-JNWSpringAnimation.a"
-            BlueprintName = "Pods-JACrowdPurchasingApp-JNWSpringAnimation"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -57,15 +48,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CF4E6559DA7AD24807003F60"
-            BuildableName = "libPods-JACrowdPurchasingApp-JNWSpringAnimation.a"
-            BlueprintName = "Pods-JACrowdPurchasingApp-JNWSpringAnimation"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

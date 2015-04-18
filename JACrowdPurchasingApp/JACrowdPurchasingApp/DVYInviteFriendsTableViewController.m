@@ -6,85 +6,116 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
-#import "DVYInviteFriendsTableViewController.h"
-#import "DVYParseAPIClient.h"
-#import "InviteFriendsTableViewCell.h"
+#import "DVYBasicAPIClient.h"
 #import "DVYDataStore.h"
+#import "DVYInviteFriendsTableViewController.h"
+#import "InviteFriendsTableViewCell.h"
 #import "DVYUser.h"
 #import "DVYCampaign.h"
 
+//Importing AddressBook for sending text invitation to Phonebook friends
 #import <AddressBookUI/AddressBookUI.h>
 #import <AddressBook/AddressBook.h>
 
-@interface DVYInviteFriendsTableViewController ()
+
+
+@interface DVYInviteFriendsTableViewController () <UITableViewDataSource, UITableViewDelegate>
+
 
 @property(nonatomic) DVYDataStore *localDataStore;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (nonatomic) UIColor *backColor;
+
 
 @end
 
+
+
 @implementation DVYInviteFriendsTableViewController
 
-- (void)viewDidLoad {
+
+#pragma mark - View Lifecycle
+
+- (void)viewDidLoad
+{
+    
     [super viewDidLoad];
+    
     self.localDataStore = [DVYDataStore sharedLocationsDataStore];
+    
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
+    
     self.friendsSelected = [[NSMutableArray alloc] init];
+
 }
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
+
     [self.localDataStore getFacebookFriendsWithCompletionBlock:^{
         [self.tableView reloadData];
     }];
+
 }
 
-#pragma mark - Table view data source
+
+#pragma mark - UITableViewDataSource Methods
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [self.localDataStore.friends count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     InviteFriendsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"inviteFriendCell" forIndexPath:indexPath];
     
     DVYUser *friend = self.localDataStore.friends[indexPath.row];
     
     cell.friendName.text = friend[@"fullName"];
     
+    cell.profilePic.image = [UIImage imageNamed:@"default"];
+
+    // Add a nice corner radius to the image
+    cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2;
+    cell.profilePic.layer.masksToBounds = YES;
+
     NSString *userProfilePhotoURLString = friend[@"profilePicture"];
     
-    if (userProfilePhotoURLString) {
-        NSURL *pictureURL = [NSURL URLWithString:userProfilePhotoURLString];
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+    if (userProfilePhotoURLString)
+    {
+       
+        [DVYBasicAPIClient fetchingImageFromUserProfilePictureLinkString:userProfilePhotoURLString withSuccessBlock:^(NSData *imageData) {
+            
+            cell.profilePic.image = [UIImage imageWithData:imageData];
+
+        } failureBlock:^{
+            
+            cell.profilePic.image = [UIImage imageNamed:@"default"];
         
-        [NSURLConnection sendAsynchronousRequest:urlRequest
-                                           queue:[NSOperationQueue mainQueue]
-                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                                   if (connectionError == nil && data != nil) {
-                                       cell.profilePic.image = [UIImage imageWithData:data];
-                                       
-                                       // Add a nice corner radius to the image
-                                       cell.profilePic.layer.cornerRadius = cell.profilePic.frame.size.width/2;
-                                       cell.profilePic.layer.masksToBounds = YES;
-                                       
-                                   } else {
-                                       NSLog(@"Failed to load profile photo.");
-                                   }
-                               }];
+        }];
+        
     }
+    else
+    {
+        cell.profilePic.image = [UIImage imageNamed:@"default"];
+    }
+    
     cell.accessoryType = UITableViewCellAccessoryNone;
     
     self.backColor = cell.backgroundColor;
+    
     cell.highlighted = NO;
 
     
     return cell;
+
 }
 
 
@@ -133,10 +164,12 @@
 */
 
 
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell* cell = [tableView
                                     cellForRowAtIndexPath:indexPath];
+
     //UIImageView *checkmark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
 
 
@@ -165,31 +198,42 @@
 }
 
 
-- (IBAction)doneButtonTapped:(id)sender {
+- (IBAction)doneButtonTapped:(id)sender
+{
     
     PFRelation *relation = [self.campaign relationForKey:@"invitees"];
-    for (DVYUser *userFriend in self.friendsSelected) {
+    
+    for (DVYUser *userFriend in self.friendsSelected)
+    {
         [relation addObject:userFriend];
     }
     
     [self dismissViewControllerAnimated:YES completion:^{
+        
         [self.campaign saveInBackground];
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done"
                                                         message:@"Invite sent!"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        
     }];
     
 }
 
 
-- (IBAction)cancelButtonTapped:(id)sender {
+- (IBAction)cancelButtonTapped:(id)sender
+{
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
-- (IBAction)addFromContacts:(id)sender {
+
+- (IBAction)addFromContacts:(id)sender
+{
     
     
     
