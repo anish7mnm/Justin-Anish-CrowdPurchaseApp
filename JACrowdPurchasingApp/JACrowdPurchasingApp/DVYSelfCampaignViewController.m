@@ -6,18 +6,27 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
-#import "DVYSelfCampaignViewController.h"
-#import "DVYCampaignDetailView.h"
-#import "DVYCampaign.h"
-#import "DVYCreateCampaignViewController.h"
-#import "DVYInviteFriendsTableViewController.h"
-#import "UIImage+animatedGIF.h"
-#import "DVYHomePageViewController.h"
-#import "DVYCommittedFriendsCollectionViewController.h"
 
+//Importing Frameworks
 #import <JNWSpringAnimation/JNWSpringAnimation.h>
 #import <NSValue+JNWAdditions.h>
 #import <Parse/Parse.h>
+
+//Importing Support Classes
+#import "DVYCampaignDetailView.h"
+#import "UIImage+animatedGIF.h"
+
+//Importing Models
+#import "DVYCampaign.h"
+#import "Item.h"
+
+//Importing View Controllers
+#import "DVYCreateCampaignViewController.h"
+#import "DVYInviteFriendsTableViewController.h"
+#import "DVYSelfCampaignViewController.h"
+#import "DVYHomePageViewController.h"
+#import "DVYCommittedFriendsCollectionViewController.h"
+
 
 
 @interface DVYSelfCampaignViewController ()
@@ -25,12 +34,17 @@
 @property (nonatomic) DVYCampaignDetailView *detailCampaignViewSelf;
 
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
+
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+
 @property (weak, nonatomic) IBOutlet UIView *backgroundBlurView;
 
 - (IBAction)editButtinTapped:(id)sender;
@@ -38,7 +52,9 @@
 @end
 
 
+
 @implementation DVYSelfCampaignViewController
+
 
 
 - (void)viewDidLoad {
@@ -48,32 +64,37 @@
     
     self.detailCampaignViewSelf = [nibViews firstObject];
     
-    DVYUser *host = self.campaign.host;
-    self.detailCampaignViewSelf.hostName.text = [NSString stringWithFormat:@"Made by: %@", host[@"fullName"]];
-    
     Item *campaignItem = self.campaign.item;
     PFFile *image = [campaignItem objectForKey:@"itemImage"];
     
-    if (image) {
+    if (image)
+    {
         [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             if (!error) {
+                
                 self.detailCampaignViewSelf.profilePicture.image = [UIImage imageWithData:data];
+                
                 // Add a nice corner radius to the image
-//                self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 8.0f;
+                //self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 8.0f;
+                
                 self.detailCampaignViewSelf.profilePicture.layer.masksToBounds = YES;                }
         }];
-    } else {
-        NSURL *pusheenDance = [NSURL URLWithString:@"http://33.media.tumblr.com/tumblr_m9hbpdSJIX1qhy6c9o1_400.gif"];
-        self.detailCampaignViewSelf.profilePicture.image = [UIImage animatedImageWithAnimatedGIFURL:pusheenDance];
-        self.detailCampaignViewSelf.profilePicture.contentMode = UIViewContentModeScaleAspectFill;
         
+    } else
+    {
+        NSURL *pusheenDance = [NSURL URLWithString:@"http://33.media.tumblr.com/tumblr_m9hbpdSJIX1qhy6c9o1_400.gif"];
+        
+        self.detailCampaignViewSelf.profilePicture.image = [UIImage animatedImageWithAnimatedGIFURL:pusheenDance];
+        
+        self.detailCampaignViewSelf.profilePicture.contentMode = UIViewContentModeScaleAspectFill;
     }
 
     self.detailCampaignViewSelf.backgroundColor = [UIColor whiteColor];
     
-//    [self blurTheView];
+    //[self blurTheView];
     
     [self.contentView addSubview:self.detailCampaignViewSelf];
+    
     self.detailCampaignViewSelf.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     
     self.detailCampaignViewSelf.neededCountView.layer.cornerRadius = 8.0f;
@@ -88,36 +109,55 @@
 {
     [super viewWillAppear:YES];
     
-    // Do any additional setup after loading the view.
     self.detailCampaignViewSelf.campaignTitle.text = [self.campaign.title capitalizedString];
     self.detailCampaignViewSelf.campaignDetails.text = self.campaign.detail;
     self.detailCampaignViewSelf.peopleNeeded.text = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
     
+    [self displayingHostName];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM/dd/yy"];
-    NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
+    [self displayingDeadline];
     
-    self.detailCampaignViewSelf.deadline.text = stringDate;
-    
-
-    PFQuery *query = [self.campaign.committed query];
-    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
-        NSInteger count = (NSInteger) number;
-        self.detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
-    }];
+    [self displayingPeopleCommittedCount];
 }
 
 
 
 #pragma mark - View Helper Methods
 
-- (void)blurTheView {
+- (void)blurTheView
+{
     self.view.backgroundColor = [UIColor clearColor];
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *blurredEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     blurredEffectView.frame = self.view.frame;
     [self.backgroundBlurView addSubview:blurredEffectView];
+}
+
+
+- (void)displayingHostName
+{
+    DVYUser *host = self.campaign.host;
+    self.detailCampaignViewSelf.hostName.text = [NSString stringWithFormat:@"Made by: %@", host[@"fullName"]];
+}
+
+
+- (void)displayingDeadline
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM/dd/yy"];
+    NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
+    
+    self.detailCampaignViewSelf.deadline.text = stringDate;
+}
+
+
+- (void)displayingPeopleCommittedCount
+{
+    PFQuery *query = [self.campaign.committed query];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        NSInteger count = (NSInteger) number;
+        self.detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
+    }];
 }
 
 
@@ -153,8 +193,11 @@
 - (IBAction)doneButtonTapped:(id)sender {
     
     DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
+    
     [homeVC refresh];
+
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 
@@ -180,9 +223,17 @@
                                handler:^(UIAlertAction *action)
                                {
                                    NSLog(@"OK action");
+                                   
+                                   Item *campaignItem = self.campaign.item;
+                                   
+                                   [campaignItem deleteInBackground];
+                                   
                                    [self.campaign deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                       
                                        DVYHomePageViewController *homeVC = (DVYHomePageViewController *)self.presentingViewController.childViewControllers[0];
+                                       
                                        [homeVC refresh];
+                                       
                                        [self dismissViewControllerAnimated:YES completion:nil];
                                    }];
 
@@ -195,6 +246,7 @@
     
 }
 
+
 - (void)presentCollectionView
 {
     NSLog(@"pressed");
@@ -202,6 +254,7 @@
     
     [self presentViewController:friendsCollectionView animated:YES completion:nil];
 }
+
 
 #pragma mark - Constriants
 
@@ -227,5 +280,6 @@
     [self.view addConstraints:@[width, centerX, centerY, height]];
     
 }
+
 
 @end

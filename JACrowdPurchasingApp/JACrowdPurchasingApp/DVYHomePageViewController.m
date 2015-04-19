@@ -11,39 +11,53 @@
 #import "DVYDataStore.h"
 
 #import "DVYTableViewCell.h"
-#import "DVYFacebookLoginViewController.h"
 
 #import "DVYOtherCampaignViewController.h"
 #import "DVYSelfCampaignViewController.h"
 #import "DVYCreateCampaignViewController.h"
 #import "DVYCommittedFriendsCollectionViewController.h"
+#import "SWRevealViewController.h"
 
 #import "UIColor+dvvyColors.h"
 #import "UIImage+animatedGIF.h"
 
-@interface DVYHomePageViewController ()
 
+@interface DVYHomePageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) DVYDataStore *localDataStore;
+
 @property (strong, nonatomic) PFUser *currentUser;
+
 @property (weak, nonatomic) IBOutlet UIButton *selfButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *othersButton;
+
 @property (weak, nonatomic) IBOutlet UIButton *invitesButton;
-@property (strong, nonatomic) DVYFacebookLoginViewController *facebookLogin;
+
 @property (nonatomic) UIRefreshControl *refreshControl;
+
 @property (nonatomic) UIRefreshControl *othersRefreshControl;
+
 @property (nonatomic) UIRefreshControl *invitationRefreshControl;
+
 @property (nonatomic) UIImageView *icon1;
+
 @property (nonatomic) UIImageView *icon2;
+
 @property (nonatomic) UIImageView *icon3;
 
+@property (nonatomic) SWRevealViewController *hamburgerMenu;
+
 @end
+
+
 
 @implementation DVYHomePageViewController
 
 
 #pragma mark - View Lifecycle
 
+//CONFUSED
 - (void)presentCollectionView
 {
     NSLog(@"pressed");
@@ -51,6 +65,7 @@
     
     [self presentViewController:friendsCollectionView animated:YES completion:nil];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -72,19 +87,23 @@
     
     [self settingTableViewBackgroundColor];
     
+    [self settingUpTheHamburgerMenu];
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"background.jpg"] forBarMetrics:UIBarMetricsDefault];
     
     [self removeShadowUnderNavBar];
 }
 
--(void)viewDidAppear:(BOOL)animated{
+
+-(void)viewDidAppear:(BOOL)animated
+{
     [self initialButtonHighlight];
 }
 
--(void)viewWillAppear:(BOOL)animated{
+
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:YES];
-    
-    
     
     [self fillingTheTableViewsWithData];
 }
@@ -93,7 +112,8 @@
 
 #pragma mark - UITableView Setup
 
-- (void)settingUpTheThreeTableViews {
+- (void)settingUpTheThreeTableViews
+{
     
     self.selfTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
     self.othersTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
@@ -117,7 +137,9 @@
     self.selfTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.othersTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.invitationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 }
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -266,6 +288,7 @@
 
 
 - (void)addingPullToRefreshFeatureToTheTableViews {
+    
     //Pull to refresh for tableviews
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
@@ -309,20 +332,28 @@
     
     [self.scrollView removeConstraints:self.scrollView.constraints];
     self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.containerView removeConstraints:self.containerView.constraints];
     self.containerView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.selfTableView removeConstraints:self.selfTableView.constraints];
     self.selfTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.othersTableView removeConstraints:self.othersTableView.constraints];
     self.othersTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.invitationTableView removeConstraints:self.invitationTableView.constraints];
     self.invitationTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.buttonView removeConstraints:self.buttonView.constraints];
     self.buttonView.translatesAutoresizingMaskIntoConstraints=NO;
+    
     [self.selfButton removeConstraints:self.selfButton.constraints];
     self.selfButton.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.othersButton removeConstraints:self.othersButton.constraints];
     self.othersButton.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.invitesButton removeConstraints:self.invitesButton.constraints];
     self.invitesButton.translatesAutoresizingMaskIntoConstraints = NO;
     
@@ -489,7 +520,8 @@
 
 #pragma mark - UIButton Actions
 
-- (IBAction)createACampaign:(id)sender {
+- (IBAction)createACampaign:(id)sender
+{
     
     DVYCreateCampaignViewController *createCampaign = [[DVYCreateCampaignViewController alloc] init];
     
@@ -499,14 +531,17 @@
 }
 
 
-- (IBAction)seeSelfCampaignTableButton:(id)sender {
+- (IBAction)seeSelfCampaignTableButton:(id)sender
+{
     [self highlightingSelfButton];
 
     CGPoint newOffset =CGPointMake(0, self.scrollView.contentOffset.y);
     [self.scrollView setContentOffset:newOffset animated:NO];
 }
 
-- (IBAction)seeOthersCampaignTableButton:(id)sender {
+
+- (IBAction)seeOthersCampaignTableButton:(id)sender
+{
     [self highlightingOthersButton];
     
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
@@ -514,7 +549,9 @@
     [self.scrollView setContentOffset:newOffset animated:NO];
 }
 
-- (IBAction)seeInvitesTableButton:(id)sender {
+
+- (IBAction)seeInvitesTableButton:(id)sender
+{
     [self highlightingInviteButton];
 
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
@@ -562,6 +599,7 @@
     }
 }
 
+
 - (void)removeShadowUnderNavBar
 {
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
@@ -574,26 +612,43 @@
 }
 
 
+-(void)settingUpTheHamburgerMenu
+{
+    
+    self.hamburgerMenu = [self revealViewController];
+    
+    [self.hamburgerMenu tapGestureRecognizer];
+    
+    UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
+                                                                         style:UIBarButtonItemStylePlain target:self.hamburgerMenu action:@selector(revealToggle:)];
+    
+    revealButtonItem.tintColor = [UIColor whiteColor];
+    
+    self.navigationItem.leftBarButtonItem = revealButtonItem;
+    
+    
+}
+
+
 #pragma mark - ScrollView Delegate
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView==self.scrollView) {
+    if (scrollView==self.scrollView)
+    {
     CGFloat offset = scrollView.contentOffset.x;
     NSLog(@"scrollviewOffset %f", offset);
-        if (offset == 0.0) {
+        if (offset == 0.0)
+        {
             [self highlightingSelfButton];
-            
         }
         else if (offset == self.scrollView.frame.size.width)
         {
             [self highlightingOthersButton];
-
         }
         else if (offset == (2*self.scrollView.frame.size.width))
         {
             [self highlightingInviteButton];
-
         }
     }
 }
@@ -611,6 +666,7 @@
     self.othersButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
 }
 
+
 - (void)highlightingOthersButton
 {
     self.icon2.image = [self changeColorForImage:self.icon2.image toColor:[UIColor dvvyBlueAlternative]];
@@ -621,6 +677,7 @@
     self.invitesButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
 }
 
+
 - (void)highlightingInviteButton
 {
     self.icon3.image = [self changeColorForImage:self.icon3.image toColor:[UIColor dvvyBlueAlternative]];
@@ -630,6 +687,7 @@
     self.selfButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
     self.othersButton.titleLabel.textColor = [UIColor dvvyDarkGrey];
 }
+
 
 - (void)initialButtonHighlight
 {
@@ -650,7 +708,9 @@
     }
 }
 
-- (void)addingSideIconsToTheButtons {
+
+- (void)addingSideIconsToTheButtons
+{
     // add icons to buttons
     UIImageView *selfIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user168"]];
     selfIconView.frame = CGRectMake(20, 6, 12, 12);
@@ -671,9 +731,12 @@
     self.icon3 = invitesIconView;
 }
 
+
+
 #pragma mark - Methods to refactor
 
-- (UIImage *) changeColorForImage:(UIImage *)image toColor:(UIColor*)color {
+- (UIImage *) changeColorForImage:(UIImage *)image toColor:(UIColor*)color
+{
     UIGraphicsBeginImageContext(image.size);
     
     CGRect contextRect;
@@ -709,5 +772,6 @@
     UIGraphicsEndImageContext();
     return img;
 }
+
 
 @end
