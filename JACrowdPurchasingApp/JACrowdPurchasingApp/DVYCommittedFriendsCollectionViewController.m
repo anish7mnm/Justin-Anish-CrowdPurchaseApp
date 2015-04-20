@@ -35,6 +35,8 @@
     
     [self settingUpCollectionViewCell];
     
+    self.view.backgroundColor = [UIColor clearColor];
+    self.view.opaque = NO;
 }
 
 

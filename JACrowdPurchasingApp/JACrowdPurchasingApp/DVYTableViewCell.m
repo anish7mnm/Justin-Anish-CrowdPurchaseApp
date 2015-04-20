@@ -46,8 +46,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
-    
-    
     if (selected) {
         [UIView animateWithDuration:0.4
                               delay:0
