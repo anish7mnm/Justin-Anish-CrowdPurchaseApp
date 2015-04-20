@@ -630,7 +630,7 @@
     
     self.hamburgerMenu = [self revealViewController];
     
-    [self.hamburgerMenu tapGestureRecognizer];
+    [self.hamburgerMenu panGestureRecognizer];
     
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
                                                                          style:UIBarButtonItemStylePlain target:self.hamburgerMenu action:@selector(revealToggle:)];
@@ -638,7 +638,6 @@
     revealButtonItem.tintColor = [UIColor whiteColor];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
-    
     
 }
 
