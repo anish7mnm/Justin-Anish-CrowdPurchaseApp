@@ -546,30 +546,27 @@
 
 - (IBAction)seeSelfCampaignTableButton:(id)sender
 {
-    [self highlightingSelfButton];
-    
     CGPoint newOffset =CGPointMake(0, self.scrollView.contentOffset.y);
-    [self.scrollView setContentOffset:newOffset animated:NO];
+    [self.scrollView setContentOffset:newOffset animated:YES];
+    [self highlightingSelfButton];
 }
 
 
 - (IBAction)seeOthersCampaignTableButton:(id)sender
 {
-    [self highlightingOthersButton];
-    
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth, self.scrollView.contentOffset.y);
-    [self.scrollView setContentOffset:newOffset animated:NO];
+    [self.scrollView setContentOffset:newOffset animated:YES];
+    [self highlightingOthersButton];
 }
 
 
 - (IBAction)seeInvitesTableButton:(id)sender
 {
-    [self highlightingInviteButton];
-    
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth*2, self.scrollView.contentOffset.y);
-    [self.scrollView setContentOffset:newOffset animated:NO];
+    [self.scrollView setContentOffset:newOffset animated:YES];
+    [self highlightingInviteButton];
 }
 
 
