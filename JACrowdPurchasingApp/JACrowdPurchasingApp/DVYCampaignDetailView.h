@@ -39,7 +39,7 @@
 
 @property (strong, nonatomic) DVYCampaign *campaign;
 
-@property (strong, nonatomic) DVYSelfCampaignViewController *selfCampaignVC;
+@property (strong, nonatomic) UIViewController *selfCampaignVC;
 
 -(void)buttonAction;
 
