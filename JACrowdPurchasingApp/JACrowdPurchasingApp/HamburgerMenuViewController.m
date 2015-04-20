@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "HamburgerMenuViewController.h"
 #import "SWRevealViewController.h"
+#import "DVYFacebookLoginViewController.h"
 
 @interface HamburgerMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -46,18 +49,19 @@ NSArray *menuItems;
 }
 */
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return menuItems.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [menuItems count];
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     NSString *CellIdentifier = [menuItems objectAtIndex:indexPath.row];
     
@@ -65,5 +69,49 @@ NSArray *menuItems;
     
     return cell;
 }
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[menuItems objectAtIndex:indexPath.row] isEqualToString: @"logout"])
+    {
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:@"Hey DVVY user"
+                                              message:@"Are you sure you want to Log out?"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *noAction = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"NO", @"NO action")
+                                       style:UIAlertActionStyleCancel
+                                       handler:^(UIAlertAction *action)
+                                       {
+                                           NSLog(@"NO action");
+                                           
+                                       }];
+        
+        UIAlertAction *yesAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"YES", @"YES action")
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"YES action");
+                                       
+                                       [PFUser logOut];
+                                       PFUser *currentUser = [PFUser currentUser];
+                                       
+                                       DVYFacebookLoginViewController *introPage = [[DVYFacebookLoginViewController alloc] init];
+                                       
+                                       [self presentViewController:introPage animated:YES completion:nil];
+                                       
+                                   }];
+        
+        [alertController addAction:noAction];
+        [alertController addAction:yesAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+
+    }
+}
+
 
 @end
