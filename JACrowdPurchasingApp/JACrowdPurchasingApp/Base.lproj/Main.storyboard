@@ -203,22 +203,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="kcK-sL-0gm">
-                                <rect key="frame" x="16" y="483" width="100" height="97"/>
+                                <rect key="frame" x="16" y="520" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="0b0-Yx-LiU"/>
-                                    <constraint firstAttribute="height" constant="97" id="0cF-90-CwR"/>
+                                    <constraint firstAttribute="width" constant="60" id="0b0-Yx-LiU"/>
+                                    <constraint firstAttribute="height" constant="60" id="0cF-90-CwR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlO-42-6wb">
-                                <rect key="frame" x="131" y="521" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlO-42-6wb">
+                                <rect key="frame" x="91" y="541" width="38" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Fm-75-jQC">
-                                <rect key="frame" x="16" y="28" width="568" height="273"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Fm-75-jQC">
+                                <rect key="frame" x="16" y="28" width="568" height="255"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="251" id="VEv-Ny-PR3"/>
+                                    <constraint firstAttribute="height" constant="255" id="VEv-Ny-PR3"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="home" id="Pxm-14-5X0">
@@ -458,7 +458,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="amus" width="560" height="400"/>
+        <image name="amus" width="128" height="128"/>
         <image name="default" width="250" height="280"/>
         <image name="mail59" width="64" height="64"/>
         <image name="multiple25" width="64" height="64"/>
