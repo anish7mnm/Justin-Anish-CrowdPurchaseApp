@@ -79,12 +79,17 @@
 -(void) getInvitiationCampaignsWithCompletionBlock: (void (^)(void))completionBlock
 {
     NSMutableArray *arrayForGood = [[NSMutableArray alloc] init];
+    
     [DVYParseAPIClient getInvitationCampaignsWithCompletionBlock:^(NSArray *invitationCampaign) {
-        for (DVYCampaign *selfCampaign in invitationCampaign) {
+        
+        for (DVYCampaign *selfCampaign in invitationCampaign)
+        {
             [arrayForGood addObject:selfCampaign];
         }
+        
         self.alertCampaign = arrayForGood;
         completionBlock();
+    
     }];
     
 }
@@ -94,7 +99,11 @@
 - (void) getFacebookFriendsWithCompletionBlock: (void (^)(void)) completionBlock
 {
     [DVYParseAPIClient getFacebookFriendsWithCompletionBlock:^(NSArray *arrayFriends) {
-        self.friends = arrayFriends;
+        
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"fullName" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+
+        self.friends = [arrayFriends sortedArrayUsingDescriptors:[NSArray arrayWithObject: descriptor]];
+        
         completionBlock();
     }];
 }

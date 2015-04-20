@@ -115,7 +115,9 @@
     {
         [self.committed addObject:committer];
     }
+    
     [self saveInBackground];
+    
     [self checkIfCampiagnHasMetNeeds];
 
 }

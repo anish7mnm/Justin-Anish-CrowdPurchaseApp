@@ -128,7 +128,7 @@
     [self.containerView addSubview:self.invitationTableView];
     
     self.selfTableView.delegate=self;
-    self.selfTableView.dataSource = self;
+    self.selfTableView.dataSource=self;
     self.othersTableView.delegate=self;
     self.othersTableView.dataSource=self;
     self.invitationTableView.delegate=self;
@@ -137,7 +137,7 @@
     self.selfTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.othersTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.invitationTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    
 }
 
 
@@ -177,13 +177,14 @@
         DVYCampaign *selfCampaign = self.localDataStore.selfCampaigns[indexPath.row];
         cell.cellCampaign = selfCampaign;
         
-//        cell.campaignTitle.text = [selfCampaign.title uppercaseString];
+        //cell.campaignTitle.text = [selfCampaign.title uppercaseString];
         
         DVYUser *myself = (DVYUser *)[PFUser currentUser];
         
         cell.hostName.text = [NSString stringWithFormat:@"Made by: %@", [myself objectForKey:@"fullName"]];
         
         return cell;
+    
     }
     
     else if (tableView == self.othersTableView)
@@ -193,7 +194,7 @@
         DVYCampaign *othersCampaign = self.localDataStore.othersCampaign[indexPath.row];
         cell.cellCampaign = othersCampaign;
         
-                return cell;
+        return cell;
         
     }
     
@@ -204,7 +205,7 @@
         DVYCampaign *othersCampaign = self.localDataStore.alertCampaign[indexPath.row];
         cell.cellCampaign = othersCampaign;
         
-            return cell;
+        return cell;
         
     }
     
@@ -231,6 +232,7 @@
     }
     
     else if (tableView == self.othersTableView) {
+        
         DVYOtherCampaignViewController *othersCampaign = [[DVYOtherCampaignViewController alloc] init];
         
         DVYCampaign *campaignToPass = self.localDataStore.othersCampaign[indexPath.row];
@@ -262,26 +264,38 @@
 
 #pragma mark - UITableView Helper Methods
 
-- (void)fillingTheTableViewsWithData {
+- (void)fillingTheTableViewsWithData
+{
     [self.localDataStore getselfCampaignsWithCompletionBlock:^{
+        
         NSLog(@"Got the campaigns hosted by me");
+        
         if (self.refreshControl) {
             [self.refreshControl endRefreshing];
         }
+        
         [self.selfTableView reloadData];
     }];
+    
     [self.localDataStore getOtherCampaignsWithCompletionBlock:^{
+        
         NSLog(@"Got the campaigns hosted by others");
+        
         if (self.othersRefreshControl) {
             [self.othersRefreshControl endRefreshing];
         }
+        
         [self.othersTableView reloadData];
     }];
+    
     [self.localDataStore getInvitiationCampaignsWithCompletionBlock:^{
+        
         if (self.invitationRefreshControl) {
             [self.invitationRefreshControl endRefreshing];
         }
+        
         [self.invitationTableView reloadData];
+        
         NSLog(@"Got the campaigns invites");
     }];
 }
@@ -522,7 +536,6 @@
 
 - (IBAction)createACampaign:(id)sender
 {
-    
     DVYCreateCampaignViewController *createCampaign = [[DVYCreateCampaignViewController alloc] init];
     
     createCampaign.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -534,7 +547,7 @@
 - (IBAction)seeSelfCampaignTableButton:(id)sender
 {
     [self highlightingSelfButton];
-
+    
     CGPoint newOffset =CGPointMake(0, self.scrollView.contentOffset.y);
     [self.scrollView setContentOffset:newOffset animated:NO];
 }
@@ -553,7 +566,7 @@
 - (IBAction)seeInvitesTableButton:(id)sender
 {
     [self highlightingInviteButton];
-
+    
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth*2, self.scrollView.contentOffset.y);
     [self.scrollView setContentOffset:newOffset animated:NO];
@@ -636,8 +649,8 @@
 {
     if (scrollView==self.scrollView)
     {
-    CGFloat offset = scrollView.contentOffset.x;
-    NSLog(@"scrollviewOffset %f", offset);
+        CGFloat offset = scrollView.contentOffset.x;
+        NSLog(@"scrollviewOffset %f", offset);
         if (offset == 0.0)
         {
             [self highlightingSelfButton];
