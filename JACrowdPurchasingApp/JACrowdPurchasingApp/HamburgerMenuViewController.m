@@ -54,6 +54,8 @@ NSArray *menuItems;
     
     self.userProfilePicture.layer.masksToBounds = YES;
     
+    self.userProfilePicture.contentMode = UIViewContentModeScaleAspectFill;
+    
     NSString *userProfilePhotoURLString = [PFUser currentUser][@"profilePicture"];
     
     [DVYBasicAPIClient fetchingImageFromUserProfilePictureLinkString:userProfilePhotoURLString withSuccessBlock:^(NSData *imageData) {
