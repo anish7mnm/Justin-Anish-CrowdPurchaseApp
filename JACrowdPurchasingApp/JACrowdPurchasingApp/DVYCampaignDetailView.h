@@ -32,6 +32,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *commitCountView;
 @property (weak, nonatomic) IBOutlet UIView *neededCountView;
+@property (weak, nonatomic) IBOutlet UIView *otherContentView;
 
 @property (strong, nonatomic) DVYCampaign *campaign;
 

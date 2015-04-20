@@ -39,8 +39,6 @@
 
 }
 
-
-
 -(NSString *) settingDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

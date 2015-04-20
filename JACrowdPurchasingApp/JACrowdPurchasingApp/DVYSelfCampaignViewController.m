@@ -95,10 +95,7 @@
     
     [self.contentView addSubview:self.detailCampaignViewSelf];
     
-    self.detailCampaignViewSelf.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
-    
-    self.detailCampaignViewSelf.neededCountView.layer.cornerRadius = 8.0f;
-    self.detailCampaignViewSelf.commitCountView.layer.cornerRadius = 8.0f;
+    [self setupDetailView];
     
     self.view.opaque = NO;
     
@@ -120,7 +117,22 @@
     [self displayingPeopleCommittedCount];
 }
 
-
+- (void)setupDetailView
+{
+    self.detailCampaignViewSelf.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    
+    self.detailCampaignViewSelf.neededCountView.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.commitCountView.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.otherContentView.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 35.0f;
+    self.detailCampaignViewSelf.profilePicture.clipsToBounds = YES;
+    
+    self.addButton.layer.cornerRadius = 4.0f;
+    self.editButton.layer.cornerRadius = 4.0f;
+    self.doneButton.layer.cornerRadius = 4.0f;
+    self.deleteButton.layer.cornerRadius = 4.0f;
+}
 
 #pragma mark - View Helper Methods
 
