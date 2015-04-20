@@ -10,19 +10,24 @@
 
 @interface HamburgerMenuViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *userProfilePicture;
+
+@property (weak, nonatomic) IBOutlet UILabel *userFullName;
+
+@property (weak, nonatomic) IBOutlet UITableView *menuListTableView;
+
 @end
+
 
 @implementation HamburgerMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 /*
 #pragma mark - Navigation

@@ -233,6 +233,11 @@
                             <constraint firstItem="kcK-sL-0gm" firstAttribute="centerY" secondItem="hlO-42-6wb" secondAttribute="centerY" id="eNp-xx-p0p"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="menuListTableView" destination="6Fm-75-jQC" id="Cyk-hi-XVY"/>
+                        <outlet property="userFullName" destination="hlO-42-6wb" id="87s-Rn-dOe"/>
+                        <outlet property="userProfilePicture" destination="kcK-sL-0gm" id="M5l-xe-c7c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqa-da-bpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

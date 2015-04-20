@@ -13,39 +13,38 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
+
 @interface DVYFacebookLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+
 @property (weak, nonatomic) IBOutlet UIView *elementViews;
 
 - (IBAction)facebookTapped:(id)sender;
 
 @end
 
+
 @implementation DVYFacebookLoginViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
     self.activityIndicator.hidden = YES;
+    
 //    UIVisualEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
 //    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
 //    visualEffectView.frame = self.backgroundImage.frame;
 //    [self.backgroundImage addSubview:visualEffectView];
-    // Do any additional setup after loading the view from its nib.
+
 }
 
--(void)viewWillAppear:(BOOL)animated
+
+- (IBAction)facebookTapped:(id)sender
 {
-    [super viewWillAppear:animated];
-    PFUser *currentUser = [PFUser currentUser];
-    // Check if user is cached and linked to Facebook, if so, bypass login
-    if (currentUser) {
-        [self presentHomePageViewController];
-    }
-}
-
-- (IBAction)facebookTapped:(id)sender {
     
     [DVYParseAPIClient logInWithFacebookWithCompletionBlock:^{
         
@@ -65,15 +64,19 @@
     [_activityIndicator startAnimating]; // Show loading indicator until login is finished
 }
 
+
 -(void) facebookdetails
 {
     FBRequest *request = [FBRequest requestForMe];
     [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         // handle response
-        if (!error) {
+        if (!error)
+        {
+            
             // Parse the data received
             NSDictionary *userData = (NSDictionary *)result;
             NSLog(@"SSE: %@", userData);
+            
             [[PFUser currentUser] setObject:userData[@"name"] forKey:@"fullName"];
             [[PFUser currentUser] setObject:userData[@"email"] forKey:@"email"];
             
@@ -86,9 +89,13 @@
             
             
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
-                    isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
+                    isEqualToString: @"OAuthException"])
+        {
+            // Since the request failed, we can check if it was due to an invalid session
             NSLog(@"The facebook session was invalidated");
-        } else {
+            
+        } else
+        {
             NSLog(@"Some other error: %@", error);
         }
     }];
@@ -101,8 +108,11 @@
     UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     UIViewController *homePage = [myStoryboard instantiateInitialViewController];
+    
     [self presentViewController:homePage animated:YES completion:nil];
-    //    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+
 @end
