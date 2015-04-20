@@ -8,6 +8,8 @@
 
 #import <Parse/Parse.h>
 
+#import "DVYBasicAPIClient.h"
+
 #import "HamburgerMenuViewController.h"
 #import "SWRevealViewController.h"
 #import "DVYFacebookLoginViewController.h"
@@ -28,31 +30,52 @@
 NSArray *menuItems;
 
 
+#pragma mark - View Lifecycle
+
 - (void)viewDidLoad {
    
     [super viewDidLoad];
+    
+    [self settingUserProfilePictureAndName];
     
     self.menuListTableView.delegate = self;
     self.menuListTableView.dataSource = self;
     
     menuItems = @[@"home", @"search", @"friends", @"settings", @"logout"];
+
 }
 
 
-/*
-#pragma mark - Navigation
+#pragma mark - View Helper Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)settingUserProfilePictureAndName
+{
+    self.userProfilePicture.layer.cornerRadius = self.userProfilePicture.frame.size.width / 2;
+    
+    self.userProfilePicture.layer.masksToBounds = YES;
+    
+    NSString *userProfilePhotoURLString = [PFUser currentUser][@"profilePicture"];
+    
+    [DVYBasicAPIClient fetchingImageFromUserProfilePictureLinkString:userProfilePhotoURLString withSuccessBlock:^(NSData *imageData) {
+        
+        self.userProfilePicture.image = [UIImage imageWithData:imageData];
+        
+    } failureBlock:^{
+        
+        self.userProfilePicture.image = [UIImage imageNamed:@"default"];
+    }];
+    
+    self.userFullName.text = [PFUser currentUser][@"fullName"];
 }
-*/
+
+
+#pragma mark - UITableViewDelegate Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -70,6 +93,8 @@ NSArray *menuItems;
     return cell;
 }
 
+
+#pragma mark - UITableViewDataSource Methods
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
