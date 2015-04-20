@@ -233,7 +233,7 @@
 				88F3672C1ACAD859009358FA /* HomePage */,
 				88F19C211AE306E400914E31 /* Hamburger Table Menu */,
 				88F3672D1ACAD866009358FA /* Campaigns */,
-				88F19C221AE30B8A00914E31 /* Committed Friends */,
+				88F19C221AE30B8A00914E31 /* Committed Friends Collection */,
 				88E825751AD431D800BDAFC4 /* Create Campaign */,
 				88E825791AD432EF00BDAFC4 /* Friends List */,
 			);
@@ -408,14 +408,14 @@
 			name = "Hamburger Table Menu";
 			sourceTree = "<group>";
 		};
-		88F19C221AE30B8A00914E31 /* Committed Friends */ = {
+		88F19C221AE30B8A00914E31 /* Committed Friends Collection */ = {
 			isa = PBXGroup;
 			children = (
 				88F19C231AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.h */,
 				88F19C241AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.m */,
 				88F19C251AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.xib */,
 			);
-			name = "Committed Friends";
+			name = "Committed Friends Collection";
 			sourceTree = "<group>";
 		};
 		88F19C2D1AE3116600914E31 /* CollectionViewCells */ = {
