@@ -62,14 +62,14 @@
     
     self.view.opaque = NO;
     
-    [self settingDetailCampaignViewInSelfCampaignViewController];
-    
 }
 
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
+    [self settingDetailCampaignViewInSelfCampaignViewController];
     
     self.detailCampaignViewSelf.campaignTitle.text = [self.campaign.title capitalizedString];
     
@@ -272,11 +272,11 @@
 {
     NSLog(@"pressed");
     
-    DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
-    
     PFQuery *query = [self.campaign.committed query];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
         
         friendsCollectionView.committedUsers = objects;
         

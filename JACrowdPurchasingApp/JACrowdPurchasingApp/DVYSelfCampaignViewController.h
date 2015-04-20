@@ -13,7 +13,7 @@
 
 @interface DVYSelfCampaignViewController : UIViewController
 
-@property (weak, nonatomic) DVYCampaign *campaign;
+@property (strong, nonatomic) DVYCampaign *campaign;
 
 - (void)seePeopleCommittedTapped;
 
