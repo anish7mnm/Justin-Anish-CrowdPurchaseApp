@@ -57,16 +57,6 @@
 
 #pragma mark - View Lifecycle
 
-//CONFUSED
-- (void)presentCollectionView
-{
-    NSLog(@"pressed");
-    DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
-    
-    [self presentViewController:friendsCollectionView animated:YES completion:nil];
-}
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     

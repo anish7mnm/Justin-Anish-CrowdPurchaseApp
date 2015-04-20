@@ -11,8 +11,10 @@
 
 @class DVYCampaign;
 
-@interface DVYSelfCampaignViewController : UIViewController <DVYCampaignDetailViewDelegate>
+@interface DVYSelfCampaignViewController : UIViewController
 
 @property (weak, nonatomic) DVYCampaign *campaign;
+
+- (void)seePeopleCommittedTapped;
 
 @end
