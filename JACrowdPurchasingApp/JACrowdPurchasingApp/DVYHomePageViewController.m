@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import "DVYHomePageViewController.h"
+#import "HamburgerMenuViewController.h"
 #import "DVYDataStore.h"
 
 #import "DVYTableViewCell.h"
@@ -57,7 +58,8 @@
 
 #pragma mark - View Lifecycle
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.currentUser = [PFUser currentUser];
@@ -88,16 +90,10 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self initialButtonHighlight];
-}
-
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
     
     [self fillingTheTableViewsWithData];
-}
 
+}
 
 
 #pragma mark - UITableView Setup
@@ -314,7 +310,7 @@
 - (void)refresh
 {
     // do your refresh here and reload the tablview
-    [self viewWillAppear:YES];
+    [self viewDidAppear:YES];
 }
 
 

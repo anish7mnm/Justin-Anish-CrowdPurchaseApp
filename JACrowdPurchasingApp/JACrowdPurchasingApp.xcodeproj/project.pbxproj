@@ -36,6 +36,9 @@
 		88D4A60D1AB36AE300AAB9A0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5D01AB2286B00AAB9A0 /* AudioToolbox.framework */; };
 		88D4A60E1AB36AE300AAB9A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5E21AB228E000AAB9A0 /* SystemConfiguration.framework */; };
 		88D4A60F1AB36AE300AAB9A0 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5E41AB228E800AAB9A0 /* libz.dylib */; };
+		88DCC7161AE5CB500078B8C7 /* FriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC7151AE5CB500078B8C7 /* FriendsTableViewCell.m */; };
+		88DCC7181AE5DC3D0078B8C7 /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DCC7171AE5DC3D0078B8C7 /* FriendsTableViewCell.xib */; };
+		88DCC71B1AE5DF550078B8C7 /* AllFriendsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DCC71A1AE5DF550078B8C7 /* AllFriendsListTableViewController.m */; };
 		88E94ED71AA7A4C90052FA35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E94ED61AA7A4C90052FA35 /* main.m */; };
 		88E94EDA1AA7A4C90052FA35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E94ED91AA7A4C90052FA35 /* AppDelegate.m */; };
 		88E94EE01AA7A4C90052FA35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E94EDE1AA7A4C90052FA35 /* Main.storyboard */; };
@@ -122,6 +125,11 @@
 		88D4A5E01AB228D700AAB9A0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		88D4A5E21AB228E000AAB9A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88D4A5E41AB228E800AAB9A0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		88DCC7141AE5CB500078B8C7 /* FriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewCell.h; sourceTree = "<group>"; };
+		88DCC7151AE5CB500078B8C7 /* FriendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewCell.m; sourceTree = "<group>"; };
+		88DCC7171AE5DC3D0078B8C7 /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
+		88DCC7191AE5DF550078B8C7 /* AllFriendsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllFriendsListTableViewController.h; sourceTree = "<group>"; };
+		88DCC71A1AE5DF550078B8C7 /* AllFriendsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllFriendsListTableViewController.m; sourceTree = "<group>"; };
 		88E94ED11AA7A4C90052FA35 /* JACrowdPurchasingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JACrowdPurchasingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E94ED51AA7A4C90052FA35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E94ED61AA7A4C90052FA35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -238,11 +246,12 @@
 		88B55FD21AC5AB43002A83AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				88F19C351AE49DDF00914E31 /* Search Dvvy Users */,
 				88E825741AD431C200BDAFC4 /* Facebook Login */,
 				88F3672C1ACAD859009358FA /* HomePage */,
 				88F19C211AE306E400914E31 /* Hamburger Table Menu */,
 				88F3672D1ACAD866009358FA /* Campaigns */,
+				88F19C351AE49DDF00914E31 /* Search Dvvy Users */,
+				88DCC71C1AE5DF600078B8C7 /* All Friends List */,
 				88F19C221AE30B8A00914E31 /* Committed Friends Collection */,
 				88E825751AD431D800BDAFC4 /* Create Campaign */,
 				88E825791AD432EF00BDAFC4 /* Friends List */,
@@ -282,6 +291,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		88DCC71C1AE5DF600078B8C7 /* All Friends List */ = {
+			isa = PBXGroup;
+			children = (
+				88DCC7191AE5DF550078B8C7 /* AllFriendsListTableViewController.h */,
+				88DCC71A1AE5DF550078B8C7 /* AllFriendsListTableViewController.m */,
+			);
+			name = "All Friends List";
+			sourceTree = "<group>";
+		};
 		88E825741AD431C200BDAFC4 /* Facebook Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +337,9 @@
 				889CE9961AC0D9DC00F04C0B /* DVYTableViewCell.m */,
 				88333A4C1ACB5617000A9E5A /* InviteFriendsTableViewCell.h */,
 				88333A4D1ACB5617000A9E5A /* InviteFriendsTableViewCell.m */,
+				88DCC7141AE5CB500078B8C7 /* FriendsTableViewCell.h */,
+				88DCC7151AE5CB500078B8C7 /* FriendsTableViewCell.m */,
+				88DCC7171AE5DC3D0078B8C7 /* FriendsTableViewCell.xib */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -582,6 +603,7 @@
 				88B560161AC999BC002A83AE /* DVYOtherCampaignViewController.xib in Resources */,
 				A8C717331AD29EAD0016054B /* Mexican_Pusheen.gif in Resources */,
 				A85D88531AE5AE7800251AEF /* homeIcon.png in Resources */,
+				88DCC7181AE5DC3D0078B8C7 /* FriendsTableViewCell.xib in Resources */,
 				A85D88511AE5AE7800251AEF /* settingIcon.png in Resources */,
 				88F19C2C1AE3113C00914E31 /* FriendCollectionViewCell.xib in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
@@ -650,6 +672,7 @@
 				88F19C1D1AE2D3F200914E31 /* DVYBasicAPIClient.m in Sources */,
 				889CE9881AC08CF400F04C0B /* DVYParseAPIClient.m in Sources */,
 				88D4463D1AC370D600F1A530 /* DVYSelfCampaignViewController.m in Sources */,
+				88DCC71B1AE5DF550078B8C7 /* AllFriendsListTableViewController.m in Sources */,
 				883C66071AC1F03D00258869 /* DVYRelationshipToken.m in Sources */,
 				88333A4E1ACB5617000A9E5A /* InviteFriendsTableViewCell.m in Sources */,
 				88F19C2B1AE3113C00914E31 /* FriendCollectionViewCell.m in Sources */,
@@ -661,6 +684,7 @@
 				88F19C201AE3068800914E31 /* SWRevealViewController.m in Sources */,
 				88F19C301AE4976600914E31 /* HamburgerMenuViewController.m in Sources */,
 				88B55FD81AC5F0DD002A83AE /* Item.m in Sources */,
+				88DCC7161AE5CB500078B8C7 /* FriendsTableViewCell.m in Sources */,
 				88E94ED71AA7A4C90052FA35 /* main.m in Sources */,
 				A8C717361AD2B3E40016054B /* UIImage+animatedGIF.m in Sources */,
 				88B560151AC999BC002A83AE /* DVYOtherCampaignViewController.m in Sources */,

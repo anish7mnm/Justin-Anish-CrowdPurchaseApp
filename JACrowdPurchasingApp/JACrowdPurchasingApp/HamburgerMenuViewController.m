@@ -13,6 +13,7 @@
 #import "HamburgerMenuViewController.h"
 #import "SWRevealViewController.h"
 #import "DVYFacebookLoginViewController.h"
+#import "DVYInviteFriendsTableViewController.h"
 
 @interface HamburgerMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -100,6 +101,7 @@ NSArray *menuItems;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if ([[menuItems objectAtIndex:indexPath.row] isEqualToString: @"logout"])
     {
         UIAlertController *alertController = [UIAlertController
