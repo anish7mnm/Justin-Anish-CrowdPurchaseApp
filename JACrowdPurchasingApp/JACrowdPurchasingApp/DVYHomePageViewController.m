@@ -84,6 +84,11 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"background.jpg"] forBarMetrics:UIBarMetricsDefault];
     
     [self removeShadowUnderNavBar];
+    
+    UIImage *topImage = [UIImage imageNamed:@"topLogo"];
+    UIImageView *topImageView = [[UIImageView alloc] initWithImage:topImage];
+    self.navigationItem.titleView = topImageView;
+
 }
 
 
