@@ -25,7 +25,6 @@
 		88D4463A1AC3708F00F1A530 /* DVYCampaignDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D446391AC3708F00F1A530 /* DVYCampaignDetailView.m */; };
 		88D4463D1AC370D600F1A530 /* DVYSelfCampaignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D4463C1AC370D600F1A530 /* DVYSelfCampaignViewController.m */; };
 		88D446401AC371B400F1A530 /* DVYInviteFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D4463F1AC371B400F1A530 /* DVYInviteFriendsTableViewController.m */; };
-		88D4A6051AB36ADC00AAB9A0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5E01AB228D700AAB9A0 /* StoreKit.framework */; };
 		88D4A6061AB36AE300AAB9A0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5DE1AB228D100AAB9A0 /* Security.framework */; };
 		88D4A6071AB36AE300AAB9A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5DC1AB228C900AAB9A0 /* QuartzCore.framework */; };
 		88D4A6081AB36AE300AAB9A0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4A5DA1AB228C500AAB9A0 /* MobileCoreServices.framework */; };
@@ -124,7 +123,6 @@
 		88D4A5DA1AB228C500AAB9A0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		88D4A5DC1AB228C900AAB9A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		88D4A5DE1AB228D100AAB9A0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		88D4A5E01AB228D700AAB9A0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		88D4A5E21AB228E000AAB9A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88D4A5E41AB228E800AAB9A0 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		88DCC7141AE5CB500078B8C7 /* FriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewCell.h; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8C717381AD2B4390016054B /* ImageIO.framework in Frameworks */,
-				88D4A6051AB36ADC00AAB9A0 /* StoreKit.framework in Frameworks */,
 				88D4A6061AB36AE300AAB9A0 /* Security.framework in Frameworks */,
 				88D4A6071AB36AE300AAB9A0 /* QuartzCore.framework in Frameworks */,
 				88D4A6081AB36AE300AAB9A0 /* MobileCoreServices.framework in Frameworks */,
@@ -279,7 +276,6 @@
 			children = (
 				A8C717371AD2B4390016054B /* ImageIO.framework */,
 				88EF0BF21ABCCF9300897A21 /* libPods-JACrowdPurchasingApp-Bolts.a */,
-				88D4A5E01AB228D700AAB9A0 /* StoreKit.framework */,
 				88D4A5DE1AB228D100AAB9A0 /* Security.framework */,
 				88D4A5DC1AB228C900AAB9A0 /* QuartzCore.framework */,
 				88D4A5DA1AB228C500AAB9A0 /* MobileCoreServices.framework */,
@@ -570,6 +566,12 @@
 				TargetAttributes = {
 					88E94ED01AA7A4C90052FA35 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 9RXLE5FXUN;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					88E94EE91AA7A4C90052FA35 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -829,6 +831,7 @@
 					"$(PROJECT_DIR)/parse-library-1.6.4",
 				);
 				INFOPLIST_FILE = JACrowdPurchasingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -849,6 +852,7 @@
 					"$(PROJECT_DIR)/parse-library-1.6.4",
 				);
 				INFOPLIST_FILE = JACrowdPurchasingApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
