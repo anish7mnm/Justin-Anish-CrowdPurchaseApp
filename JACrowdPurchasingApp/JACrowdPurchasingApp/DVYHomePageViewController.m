@@ -6,21 +6,27 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
+
+//Importing Frameworks
 #import <Parse/Parse.h>
-#import "DVYHomePageViewController.h"
-#import "HamburgerMenuViewController.h"
+
+//Importing DataStore
 #import "DVYDataStore.h"
 
+//Importing Views
 #import "DVYTableViewCell.h"
 
+//Importing Controllers
 #import "DVYOtherCampaignViewController.h"
 #import "DVYSelfCampaignViewController.h"
 #import "DVYCreateCampaignViewController.h"
 #import "DVYCommittedFriendsCollectionViewController.h"
 #import "SWRevealViewController.h"
+#import "DVYHomePageViewController.h"
+#import "HamburgerMenuViewController.h"
 
+//Importing Supporting Files
 #import "UIColor+dvvyColors.h"
-#import "UIImage+animatedGIF.h"
 
 
 @interface DVYHomePageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
@@ -86,9 +92,7 @@
     
     [self removeShadowUnderNavBar];
     
-    UIImage *topImage = [UIImage imageNamed:@"topLogo"];
-    UIImageView *topImageView = [[UIImageView alloc] initWithImage:topImage];
-    self.navigationItem.titleView = topImageView;
+    [self insertingLogoInTheNavBar];
     
 }
 
@@ -616,6 +620,14 @@
                            barMetrics:UIBarMetricsDefault];
     
     [navigationBar setShadowImage:[UIImage new]];
+}
+
+
+- (void)insertingLogoInTheNavBar
+{
+    UIImage *topImage = [UIImage imageNamed:@"topLogo"];
+    UIImageView *topImageView = [[UIImageView alloc] initWithImage:topImage];
+    self.navigationItem.titleView = topImageView;
 }
 
 
