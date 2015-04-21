@@ -53,8 +53,9 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:YES];
 
     [self.localDataStore getFacebookFriendsWithCompletionBlock:^{
         [self.tableView reloadData];

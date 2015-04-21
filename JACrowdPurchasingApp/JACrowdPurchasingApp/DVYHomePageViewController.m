@@ -63,7 +63,7 @@
     [super viewDidLoad];
     
     self.currentUser = [PFUser currentUser];
-    
+        
     self.localDataStore = [DVYDataStore sharedLocationsDataStore];
     
     self.scrollView.delegate = self;
@@ -71,6 +71,7 @@
     [self settingUpTheThreeTableViews];
     
     [self removeAllConstraints];
+    
     [self settingConstraints];
     
     [self addingPullToRefreshFeatureToTheTableViews];
@@ -88,16 +89,17 @@
     UIImage *topImage = [UIImage imageNamed:@"topLogo"];
     UIImageView *topImageView = [[UIImageView alloc] initWithImage:topImage];
     self.navigationItem.titleView = topImageView;
-
+    
 }
 
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:YES];
+    
     [self initialButtonHighlight];
     
     [self fillingTheTableViewsWithData];
-
 }
 
 
@@ -175,7 +177,7 @@
         cell.hostName.text = [NSString stringWithFormat:@"Made by: %@", [myself objectForKey:@"fullName"]];
         
         return cell;
-    
+        
     }
     
     else if (tableView == self.othersTableView)
