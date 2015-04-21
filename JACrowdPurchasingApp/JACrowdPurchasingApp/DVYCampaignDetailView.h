@@ -35,6 +35,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *neededCountView;
 
+@property (weak, nonatomic) IBOutlet UIView *otherCountView;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *committedFriendsListButton;
 
 @property (strong, nonatomic) DVYCampaign *campaign;

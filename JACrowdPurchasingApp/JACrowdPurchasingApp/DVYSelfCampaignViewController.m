@@ -117,9 +117,8 @@
         
     } else
     {
-        NSURL *pusheenDance = [NSURL URLWithString:@"http://33.media.tumblr.com/tumblr_m9hbpdSJIX1qhy6c9o1_400.gif"];
-        
-        self.detailCampaignViewSelf.profilePicture.image = [UIImage animatedImageWithAnimatedGIFURL:pusheenDance];
+
+        self.detailCampaignViewSelf.profilePicture.image = [UIImage imageNamed:@"flaticon"];
         
         self.detailCampaignViewSelf.profilePicture.contentMode = UIViewContentModeScaleAspectFill;
     }
@@ -130,8 +129,20 @@
     
     self.detailCampaignViewSelf.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     
-    self.detailCampaignViewSelf.neededCountView.layer.cornerRadius = 8.0f;
-    self.detailCampaignViewSelf.commitCountView.layer.cornerRadius = 8.0f;
+    self.detailCampaignViewSelf.neededCountView.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.commitCountView.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.otherCountView.layer.cornerRadius = 4.0f;
+    
+    self.detailCampaignViewSelf.layer.cornerRadius = 4.0f;
+    self.contentView.layer.cornerRadius = 4.0f;
+    
+    self.addButton.layer.cornerRadius = 4.0f;
+    self.doneButton.layer.cornerRadius = 4.0f;
+    self.editButton.layer.cornerRadius = 4.0f;
+    self.deleteButton.layer.cornerRadius = 4.0f;
+    
+    self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.profilePicture.clipsToBounds = YES;
 }
 
 
@@ -193,6 +204,7 @@
     edit.campaignToUpdate = self.campaign;
     
     edit.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    edit.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
     [self presentViewController:edit animated:YES completion:nil];
     
@@ -281,6 +293,7 @@
         friendsCollectionView.committedUsers = objects;
         friendsCollectionView.view.backgroundColor = [UIColor clearColor];
         friendsCollectionView.view.opaque = NO;
+        friendsCollectionView.view.layer.cornerRadius = 4.0f;
         
         friendsCollectionView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         friendsCollectionView.modalPresentationStyle = UIModalPresentationOverCurrentContext;

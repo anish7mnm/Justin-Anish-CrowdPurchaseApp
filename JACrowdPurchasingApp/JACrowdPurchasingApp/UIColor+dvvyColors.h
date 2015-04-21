@@ -20,6 +20,8 @@
 
 + (UIColor *)dvvyLightGrey;
 
++ (UIColor *)dvvyTableViewBackGroundGrey;
+
 + (UIColor *)dvvyProgressOrange;
 
 + (UIColor *)dvvyProgressYellow;

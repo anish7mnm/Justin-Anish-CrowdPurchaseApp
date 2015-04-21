@@ -89,6 +89,12 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" red="0.1671346098" green="0.16658953030000001" blue="0.17040583519999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deadline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdL-ID-YSC">
+                                            <rect key="frame" x="71" y="28" width="50" height="11"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" red="0.1671346098" green="0.16658953030000001" blue="0.17040583519999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -185,6 +191,7 @@
                 <outlet property="deadline" destination="Vst-T1-9EP" id="O41-Vr-hEY"/>
                 <outlet property="hostName" destination="wqe-bB-03w" id="Etb-lW-84j"/>
                 <outlet property="neededCountView" destination="oZq-cm-gd7" id="FaO-UZ-YhW"/>
+                <outlet property="otherCountView" destination="oEQ-hB-55H" id="p9X-WE-Kbr"/>
                 <outlet property="peopleCommited" destination="QWr-2y-G3z" id="w01-hx-xwR"/>
                 <outlet property="peopleNeeded" destination="8eG-kI-nbQ" id="2Eu-6i-onh"/>
                 <outlet property="profilePicture" destination="iAE-h7-Bwq" id="pSQ-98-ndX"/>

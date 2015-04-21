@@ -110,6 +110,10 @@
     self.othersTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
     self.invitationTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
     
+    [self.selfTableView setContentInset:UIEdgeInsetsMake(4, 0, 0, 0)];
+    [self.othersTableView setContentInset:UIEdgeInsetsMake(4, 0, 0, 0)];
+    [self.invitationTableView setContentInset:UIEdgeInsetsMake(4, 0, 0, 0)];
+    
     [self.selfTableView registerNib:[UINib nibWithNibName:@"DVYTableViewCell" bundle:nil] forCellReuseIdentifier:@"selfCampaignCell"];
     [self.othersTableView registerNib:[UINib nibWithNibName:@"DVYTableViewCell" bundle:nil] forCellReuseIdentifier:@"othersCampaignCell"];
     [self.invitationTableView registerNib:[UINib nibWithNibName:@"DVYTableViewCell" bundle:nil] forCellReuseIdentifier:@"invitationCampaignCell"];
@@ -322,9 +326,9 @@
 - (void)settingTableViewBackgroundColor {
     // self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
     
-    self.selfTableView.backgroundColor = [UIColor dvvyLightGrey];
-    self.othersTableView.backgroundColor = [UIColor dvvyLightGrey];
-    self.invitationTableView.backgroundColor = [UIColor dvvyLightGrey];
+    self.selfTableView.backgroundColor = [UIColor dvvyTableViewBackGroundGrey];
+    self.othersTableView.backgroundColor = [UIColor dvvyTableViewBackGroundGrey];
+    self.invitationTableView.backgroundColor = [UIColor dvvyTableViewBackGroundGrey];
 }
 
 

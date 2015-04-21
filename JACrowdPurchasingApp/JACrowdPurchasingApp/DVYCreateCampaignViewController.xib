@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DVYCreateCampaignViewController">
             <connections>
                 <outlet property="bgWindow" destination="l1D-i1-hXy" id="Zvh-hU-Ue7"/>
+                <outlet property="cancelButton" destination="pYe-SM-7c6" id="8kh-Ud-sLs"/>
+                <outlet property="contentView" destination="l1D-i1-hXy" id="UMq-pD-7Pd"/>
+                <outlet property="createButton" destination="z6K-CU-ifU" id="Kdg-dl-II5"/>
                 <outlet property="createButtonLabelProp" destination="z6K-CU-ifU" id="Xb8-6C-W7y"/>
                 <outlet property="deadlinePicker" destination="Tt0-Ml-mTA" id="hlv-Ha-BJr"/>
                 <outlet property="descriptionTextField" destination="rqy-Sm-moS" id="0Xg-KD-iYR"/>
                 <outlet property="peopleNeededTextField" destination="Px7-uL-jYy" id="23o-Pb-i0R"/>
                 <outlet property="titleTextField" destination="dVH-Ag-rUN" id="8fp-2n-Wzs"/>
+                <outlet property="uploadImageButton" destination="8cw-VE-NdL" id="ghe-n2-Llm"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Tm8-LB-1fU"/>
             </connections>
         </placeholder>
@@ -24,9 +28,12 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-CU-ifU">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-CU-ifU">
                     <rect key="frame" x="249" y="463" width="63" height="30"/>
                     <color key="backgroundColor" red="0.2294184118" green="0.676312625" blue="0.74972361440000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="63" id="yHx-bb-IYk"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                     <state key="normal" title="Create">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,9 +42,12 @@
                         <action selector="createThePageButtonTapped:" destination="-1" eventType="touchUpInside" id="Rse-nV-O0q"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-SM-7c6">
-                    <rect key="frame" x="8" y="463" width="63" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-SM-7c6">
+                    <rect key="frame" x="128" y="269" width="63" height="30"/>
                     <color key="backgroundColor" red="0.94179318990000005" green="0.27336123979999999" blue="0.2667501625" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="63" id="KRp-ov-Rju"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                     <state key="normal" title="Cancel">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +57,7 @@
                         <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="bqY-0L-jTe"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1D-i1-hXy">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1D-i1-hXy" userLabel="contentView">
                     <rect key="frame" x="8" y="75" width="304" height="380"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XY1-M3-58A">
@@ -114,19 +124,23 @@
                         </datePicker>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="304" id="Jgj-ew-HUq"/>
+                        <constraint firstAttribute="height" constant="380" id="pNu-cK-vea"/>
+                    </constraints>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="z6K-CU-ifU" firstAttribute="top" secondItem="l1D-i1-hXy" secondAttribute="bottom" constant="8" id="40M-QO-qXW"/>
-                <constraint firstItem="l1D-i1-hXy" firstAttribute="leading" secondItem="pYe-SM-7c6" secondAttribute="leading" id="7Ul-7l-InC"/>
-                <constraint firstItem="VAR-60-rA8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FaW-fH-cJx"/>
-                <constraint firstItem="VAR-60-rA8" firstAttribute="centerX" secondItem="l1D-i1-hXy" secondAttribute="centerX" id="R0Y-hg-7RD"/>
-                <constraint firstItem="VAR-60-rA8" firstAttribute="centerY" secondItem="l1D-i1-hXy" secondAttribute="centerY" constant="19" id="SOZ-Vm-Uhq"/>
-                <constraint firstAttribute="trailing" secondItem="VAR-60-rA8" secondAttribute="trailing" id="VG4-YQ-Ln1"/>
-                <constraint firstItem="l1D-i1-hXy" firstAttribute="trailing" secondItem="z6K-CU-ifU" secondAttribute="trailing" id="cwY-Xa-0mo"/>
-                <constraint firstAttribute="bottom" secondItem="VAR-60-rA8" secondAttribute="bottom" id="iqm-Lo-QPM"/>
-                <constraint firstItem="VAR-60-rA8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sSe-83-GbY"/>
-                <constraint firstItem="pYe-SM-7c6" firstAttribute="top" secondItem="l1D-i1-hXy" secondAttribute="bottom" constant="8" id="tZq-CU-ijM"/>
+                <constraint firstItem="VAR-60-rA8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="5M8-Fy-jOV"/>
+                <constraint firstAttribute="centerY" secondItem="l1D-i1-hXy" secondAttribute="centerY" constant="19" id="8sI-Kg-ejk"/>
+                <constraint firstItem="z6K-CU-ifU" firstAttribute="top" secondItem="l1D-i1-hXy" secondAttribute="bottom" constant="8" id="93y-f9-Ed6"/>
+                <constraint firstItem="VAR-60-rA8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9HS-Rz-H2U"/>
+                <constraint firstAttribute="centerX" secondItem="l1D-i1-hXy" secondAttribute="centerX" id="AcH-xf-veD"/>
+                <constraint firstItem="pYe-SM-7c6" firstAttribute="leading" secondItem="l1D-i1-hXy" secondAttribute="leading" id="JnF-rN-mGi"/>
+                <constraint firstAttribute="bottom" secondItem="VAR-60-rA8" secondAttribute="bottom" id="Pfk-BD-HWf"/>
+                <constraint firstItem="z6K-CU-ifU" firstAttribute="trailing" secondItem="l1D-i1-hXy" secondAttribute="trailing" id="VGI-rK-WUF"/>
+                <constraint firstAttribute="trailing" secondItem="VAR-60-rA8" secondAttribute="trailing" id="iKx-ka-WbW"/>
+                <constraint firstItem="pYe-SM-7c6" firstAttribute="top" secondItem="l1D-i1-hXy" secondAttribute="bottom" constant="8" id="ozg-9o-L8g"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="390" y="361"/>

@@ -35,6 +35,7 @@
     self.deadline.text = [self settingDate];
     [self bringSubviewToFront:self.committedFriendsListButton];
 
+
 }
 
 

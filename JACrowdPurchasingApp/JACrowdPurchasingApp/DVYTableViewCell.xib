@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD9-A7-VxM" userLabel="Inner Cell">
-                        <rect key="frame" x="0.0" y="8" width="354" height="90"/>
+                        <rect key="frame" x="0.0" y="4" width="354" height="98"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgz-Jw-lTd" userLabel="Text View">
-                                <rect key="frame" x="44" y="8" width="302" height="74"/>
+                                <rect key="frame" x="44" y="8" width="302" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0T-qi-Ffo">
                                         <rect key="frame" x="0.0" y="-5" width="241" height="23"/>
@@ -141,8 +141,8 @@
                 <constraints>
                     <constraint firstItem="eD9-A7-VxM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="5AO-o8-lso"/>
                     <constraint firstItem="eD9-A7-VxM" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="Kd0-tl-MOA"/>
-                    <constraint firstItem="eD9-A7-VxM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="vm9-Lg-Q1T"/>
-                    <constraint firstItem="eD9-A7-VxM" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="wJS-Sq-urm"/>
+                    <constraint firstItem="eD9-A7-VxM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="vm9-Lg-Q1T"/>
+                    <constraint firstItem="eD9-A7-VxM" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="4" id="wJS-Sq-urm"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

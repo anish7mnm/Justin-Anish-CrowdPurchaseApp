@@ -28,6 +28,9 @@
 
 @property (nonatomic) UIColor *backColor;
 
+@property (weak, nonatomic) IBOutlet UIButton *inviteButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 
 @end
 
@@ -49,6 +52,9 @@
     self.tableView.dataSource=self;
     
     self.friendsSelected = [[NSMutableArray alloc] init];
+    
+    self.inviteButton.layer.cornerRadius = 4.0f;
+    self.cancelButton.layer.cornerRadius = 4.0f;
 
 }
 
