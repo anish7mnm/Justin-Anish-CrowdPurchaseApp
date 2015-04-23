@@ -11,6 +11,7 @@
 #import <JNWSpringAnimation/JNWSpringAnimation.h>
 #import <NSValue+JNWAdditions.h>
 #import <Parse/Parse.h>
+#import <Venmo-iOS-SDK/Venmo.h>
 
 //Importing Support Classes
 #import "DVYCampaignDetailView.h"
@@ -26,12 +27,15 @@
 #import "DVYSelfCampaignViewController.h"
 #import "DVYHomePageViewController.h"
 #import "DVYCommittedFriendsCollectionViewController.h"
+#import "VenmoPaymentViewController.h"
 
 
 
 @interface DVYSelfCampaignViewController ()
 
 @property (nonatomic) DVYCampaignDetailView *detailCampaignViewSelf;
+
+@property (nonatomic) NSInteger numberOfCommittedUsers;
 
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
@@ -82,6 +86,7 @@
     [self displayingDeadline];
     
     [self displayingPeopleCommittedCount];
+    
 }
 
 
@@ -174,6 +179,9 @@
     [query countObjectsInBackgroundWithBlock:^(int number, NSError *error)
     {
         NSInteger count = (NSInteger) number;
+        
+        self.numberOfCommittedUsers = count;
+        
         self.detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
     }];
 
@@ -231,6 +239,46 @@
 
     [self dismissViewControllerAnimated:YES completion:nil];
 
+}
+
+
+- (IBAction)collectPaymentTapped:(id)sender {
+    
+    VenmoPaymentViewController *venmo = [[VenmoPaymentViewController alloc] init];
+    
+    venmo.numberOfPeople = self.numberOfCommittedUsers;
+    venmo.price = self.campaign.description;
+    venmo.campaignTitle = self.campaign.title;
+    
+    PFQuery *query = [self.campaign.committed query];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        venmo.listOfFriends = objects;
+        
+        [[Venmo sharedInstance] requestPermissions:@[VENPermissionMakePayments,
+                                                     VENPermissionAccessProfile,
+                                                     VENPermissionAccessFriends]
+                             withCompletionHandler:^(BOOL success, NSError *error) {
+                                 if (success)
+                                 {
+                                     [self presentViewController:venmo animated:YES completion:nil];
+                                 }
+                                 else
+                                 {
+                                     
+                                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Authorization failed"
+                                                                                         message:error.localizedDescription
+                                                                                        delegate:self
+                                                                               cancelButtonTitle:nil
+                                                                               otherButtonTitles:@"OK", nil];
+                                     [alertView show];
+                                     
+                                 }
+                             }];
+        
+    }];
+    
 }
 
 

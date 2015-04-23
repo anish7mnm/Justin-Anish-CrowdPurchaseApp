@@ -10,6 +10,7 @@
 #import "DVYFacebookLoginViewController.h"
 #import "DVYHomePageViewController.h"
 #import <Parse/Parse.h>
+#import <Venmo-iOS-SDK/Venmo.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
 #import "DVYUser.h"
@@ -25,6 +26,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [Venmo startWithAppId:@"2523" secret:@"2PtbNVunPPsu52TfWsZL5Dz4XgWdksuj" name:@"Dvvy"];
+    
     [Parse setApplicationId:@"SSNDa4H9uDAGFxVAMGtKN41TilT6lsB7sD3c3p0I"
                   clientKey:@"FGG2a29BzXoPZlK8cJ4SPIXDSpt0l6Z09MilbwFM"];
     [PFFacebookUtils initializeFacebook];
@@ -35,13 +38,6 @@
     [DVYCampaign registerSubclass];
     [Item registerSubclass];
     
-    //    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-    //                                                    UIUserNotificationTypeBadge |
-    //                                                    UIUserNotificationTypeSound);
-    //    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-    //                                                                             categories:nil];
-    //    [application registerUserNotificationSettings:settings];
-    //    [application registerForRemoteNotifications];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -52,7 +48,13 @@
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[Venmo sharedInstance] handleOpenURL:url])
+    {
+        return YES;
+    }
+    
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:[PFFacebookUtils session]];

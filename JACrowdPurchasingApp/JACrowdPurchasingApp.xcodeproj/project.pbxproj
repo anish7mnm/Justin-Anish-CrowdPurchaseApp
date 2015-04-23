@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		882EA9141AE9422D00F38114 /* VenmoPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 882EA9121AE9422D00F38114 /* VenmoPaymentViewController.m */; };
+		882EA9151AE9422D00F38114 /* VenmoPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882EA9131AE9422D00F38114 /* VenmoPaymentViewController.xib */; };
 		88333A4E1ACB5617000A9E5A /* InviteFriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88333A4D1ACB5617000A9E5A /* InviteFriendsTableViewCell.m */; };
 		883C66031AC1DDE500258869 /* DVYCampaign.m in Sources */ = {isa = PBXBuildFile; fileRef = 883C65FF1AC1DDE500258869 /* DVYCampaign.m */; };
 		883C66041AC1DDE500258869 /* DVYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 883C66011AC1DDE500258869 /* DVYUser.m */; };
@@ -83,6 +85,9 @@
 /* Begin PBXFileReference section */
 		347DA0D6EB713E0622E32F32 /* Pods-JACrowdPurchasingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JACrowdPurchasingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JACrowdPurchasingApp/Pods-JACrowdPurchasingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4BC1FCC98B618CDBA8E44809 /* Pods-JACrowdPurchasingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JACrowdPurchasingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-JACrowdPurchasingApp/Pods-JACrowdPurchasingApp.release.xcconfig"; sourceTree = "<group>"; };
+		882EA9111AE9422D00F38114 /* VenmoPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenmoPaymentViewController.h; sourceTree = "<group>"; };
+		882EA9121AE9422D00F38114 /* VenmoPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenmoPaymentViewController.m; sourceTree = "<group>"; };
+		882EA9131AE9422D00F38114 /* VenmoPaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenmoPaymentViewController.xib; sourceTree = "<group>"; };
 		88333A4C1ACB5617000A9E5A /* InviteFriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteFriendsTableViewCell.h; sourceTree = "<group>"; };
 		88333A4D1ACB5617000A9E5A /* InviteFriendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteFriendsTableViewCell.m; sourceTree = "<group>"; };
 		883C65FF1AC1DDE500258869 /* DVYCampaign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVYCampaign.m; sourceTree = "<group>"; };
@@ -207,6 +212,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		882EA9101AE941E700F38114 /* Venmo Integration */ = {
+			isa = PBXGroup;
+			children = (
+				882EA9111AE9422D00F38114 /* VenmoPaymentViewController.h */,
+				882EA9121AE9422D00F38114 /* VenmoPaymentViewController.m */,
+				882EA9131AE9422D00F38114 /* VenmoPaymentViewController.xib */,
+			);
+			name = "Venmo Integration";
+			sourceTree = "<group>";
+		};
 		883C66081AC1F11400258869 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +262,7 @@
 		88B55FD21AC5AB43002A83AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				882EA9101AE941E700F38114 /* Venmo Integration */,
 				88E825741AD431C200BDAFC4 /* Facebook Login */,
 				88F3672C1ACAD859009358FA /* HomePage */,
 				88F19C211AE306E400914E31 /* Hamburger Table Menu */,
@@ -618,6 +634,7 @@
 				A85D88501AE5AE7800251AEF /* friendsIcon.png in Resources */,
 				889CE9931AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib in Resources */,
 				A85D88751AE67B3400251AEF /* topLogo.png in Resources */,
+				882EA9151AE9422D00F38114 /* VenmoPaymentViewController.xib in Resources */,
 				A85D88521AE5AE7800251AEF /* magGlassIcon.png in Resources */,
 				88D446341AC36F9F00F1A530 /* CreateFlow.storyboard in Resources */,
 				88B55FD51AC5B0EB002A83AE /* DVYCampaignDetailView.xib in Resources */,
@@ -695,6 +712,7 @@
 				88F19C301AE4976600914E31 /* HamburgerMenuViewController.m in Sources */,
 				88B55FD81AC5F0DD002A83AE /* Item.m in Sources */,
 				88DCC7161AE5CB500078B8C7 /* FriendsTableViewCell.m in Sources */,
+				882EA9141AE9422D00F38114 /* VenmoPaymentViewController.m in Sources */,
 				88E94ED71AA7A4C90052FA35 /* main.m in Sources */,
 				A8C717361AD2B3E40016054B /* UIImage+animatedGIF.m in Sources */,
 				88B560151AC999BC002A83AE /* DVYOtherCampaignViewController.m in Sources */,

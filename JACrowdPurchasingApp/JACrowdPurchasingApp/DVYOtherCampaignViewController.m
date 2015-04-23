@@ -208,6 +208,12 @@
         DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
         
         friendsCollectionView.committedUsers = objects;
+        friendsCollectionView.view.backgroundColor = [UIColor clearColor];
+        friendsCollectionView.view.opaque = NO;
+        friendsCollectionView.view.layer.cornerRadius = 4.0f;
+        
+        friendsCollectionView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        friendsCollectionView.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         
         [self presentViewController:friendsCollectionView animated:YES completion:nil];
         
