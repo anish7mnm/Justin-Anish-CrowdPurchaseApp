@@ -13,6 +13,6 @@
 @interface DVYOtherCampaignViewController : UIViewController
 
 @property (strong, nonatomic) DVYCampaign *campaign;
-@property (weak, nonatomic) DVYUser *currentUser;
+@property (strong, nonatomic) DVYUser *currentUser;
 
 @end

@@ -14,8 +14,6 @@
 
 @interface DVYCampaignDetailView ()
 
-@property (weak, nonatomic) IBOutlet UIButton *committedFriendsListButton;
-
 @end
 
 
@@ -37,8 +35,14 @@
     self.deadline.text = [self settingDate];
     [self bringSubviewToFront:self.committedFriendsListButton];
 
+
 }
 
+
+-(void)buttonAction
+{
+    [self.committedFriendsListButton addTarget:self.selfCampaignVC action:@selector(seePeopleCommittedTapped) forControlEvents:UIControlEventTouchUpInside];
+}
 
 
 -(NSString *) settingDate
@@ -54,20 +58,6 @@
     NSInteger numberOfDays = secondsBetween / 86400;
     
     return [NSString stringWithFormat:@"%ld", (long)numberOfDays];
-}
-
-
-//For the future
-
-- (IBAction)seePeopleCommitted:(id)sender {
-    NSLog(@"campaigndetailviewtapped");
-    [self.delegate presentCollectionView];
-    
-//    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"CreateFlow" bundle:nil];
-//    
-//    UIViewController *friendsCommitted = [myStoryboard instantiateInitialViewController];
-//    [self.inputViewController presentViewController:friendsCommitted animated:YES completion:nil];
-    
 }
 
 

@@ -32,6 +32,11 @@
     return [UIColor colorWithRed:0.942 green:0.940 blue:0.940 alpha:1.000];
 }
 
++ (UIColor *)dvvyTableViewBackGroundGrey
+{
+    return [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.000];
+}
+
 + (UIColor *)dvvyProgressOrange
 {
     return [UIColor colorWithRed:1.000 green:0.642 blue:0.183 alpha:1.000];

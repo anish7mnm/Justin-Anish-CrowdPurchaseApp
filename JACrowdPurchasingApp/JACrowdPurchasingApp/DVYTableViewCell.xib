@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD9-A7-VxM" userLabel="Inner Cell">
-                        <rect key="frame" x="8" y="8" width="338" height="90"/>
+                        <rect key="frame" x="0.0" y="4" width="354" height="98"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgz-Jw-lTd" userLabel="Text View">
-                                <rect key="frame" x="44" y="8" width="286" height="74"/>
+                                <rect key="frame" x="44" y="8" width="302" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0T-qi-Ffo">
-                                        <rect key="frame" x="0.0" y="-5" width="228" height="23"/>
+                                        <rect key="frame" x="0.0" y="-5" width="241" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="Cu8-SD-LPI"/>
                                         </constraints>
@@ -32,7 +32,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iF3-Kk-C50">
-                                        <rect key="frame" x="0.0" y="10" width="228" height="23"/>
+                                        <rect key="frame" x="0.0" y="10" width="241" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="5Kn-pa-A72"/>
                                         </constraints>
@@ -139,10 +139,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="eD9-A7-VxM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="5AO-o8-lso"/>
-                    <constraint firstItem="eD9-A7-VxM" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Kd0-tl-MOA"/>
-                    <constraint firstItem="eD9-A7-VxM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="vm9-Lg-Q1T"/>
-                    <constraint firstItem="eD9-A7-VxM" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="wJS-Sq-urm"/>
+                    <constraint firstItem="eD9-A7-VxM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="5AO-o8-lso"/>
+                    <constraint firstItem="eD9-A7-VxM" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="Kd0-tl-MOA"/>
+                    <constraint firstItem="eD9-A7-VxM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="vm9-Lg-Q1T"/>
+                    <constraint firstItem="eD9-A7-VxM" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="4" id="wJS-Sq-urm"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

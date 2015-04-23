@@ -6,20 +6,27 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
+
+//Importing Frameworks
 #import <Parse/Parse.h>
-#import "DVYHomePageViewController.h"
+
+//Importing DataStore
 #import "DVYDataStore.h"
 
+//Importing Views
 #import "DVYTableViewCell.h"
 
+//Importing Controllers
 #import "DVYOtherCampaignViewController.h"
 #import "DVYSelfCampaignViewController.h"
 #import "DVYCreateCampaignViewController.h"
 #import "DVYCommittedFriendsCollectionViewController.h"
 #import "SWRevealViewController.h"
+#import "DVYHomePageViewController.h"
+#import "HamburgerMenuViewController.h"
 
+//Importing Supporting Files
 #import "UIColor+dvvyColors.h"
-#import "UIImage+animatedGIF.h"
 
 
 @interface DVYHomePageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
@@ -57,21 +64,12 @@
 
 #pragma mark - View Lifecycle
 
-//CONFUSED
-- (void)presentCollectionView
+- (void)viewDidLoad
 {
-    NSLog(@"pressed");
-    DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
-    
-    [self presentViewController:friendsCollectionView animated:YES completion:nil];
-}
-
-
-- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.currentUser = [PFUser currentUser];
-    
+        
     self.localDataStore = [DVYDataStore sharedLocationsDataStore];
     
     self.scrollView.delegate = self;
@@ -79,6 +77,7 @@
     [self settingUpTheThreeTableViews];
     
     [self removeAllConstraints];
+    
     [self settingConstraints];
     
     [self addingPullToRefreshFeatureToTheTableViews];
@@ -92,22 +91,20 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"background.jpg"] forBarMetrics:UIBarMetricsDefault];
     
     [self removeShadowUnderNavBar];
+    
+    [self insertingLogoInTheNavBar];
+    
 }
 
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:YES];
+    
     [self initialButtonHighlight];
-}
-
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
     
     [self fillingTheTableViewsWithData];
 }
-
 
 
 #pragma mark - UITableView Setup
@@ -118,6 +115,10 @@
     self.selfTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
     self.othersTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
     self.invitationTableView = [[UITableView alloc] initWithFrame:self.scrollView.frame];
+    
+    [self.selfTableView setContentInset:UIEdgeInsetsMake(4, 0, 0, 0)];
+    [self.othersTableView setContentInset:UIEdgeInsetsMake(4, 0, 0, 0)];
+    [self.invitationTableView setContentInset:UIEdgeInsetsMake(4, 0, 0, 0)];
     
     [self.selfTableView registerNib:[UINib nibWithNibName:@"DVYTableViewCell" bundle:nil] forCellReuseIdentifier:@"selfCampaignCell"];
     [self.othersTableView registerNib:[UINib nibWithNibName:@"DVYTableViewCell" bundle:nil] forCellReuseIdentifier:@"othersCampaignCell"];
@@ -184,7 +185,7 @@
         cell.hostName.text = [NSString stringWithFormat:@"Made by: %@", [myself objectForKey:@"fullName"]];
         
         return cell;
-    
+        
     }
     
     else if (tableView == self.othersTableView)
@@ -324,16 +325,16 @@
 - (void)refresh
 {
     // do your refresh here and reload the tablview
-    [self viewWillAppear:YES];
+    [self viewDidAppear:YES];
 }
 
 
 - (void)settingTableViewBackgroundColor {
     // self.selfTableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
     
-    self.selfTableView.backgroundColor = [UIColor dvvyLightGrey];
-    self.othersTableView.backgroundColor = [UIColor dvvyLightGrey];
-    self.invitationTableView.backgroundColor = [UIColor dvvyLightGrey];
+    self.selfTableView.backgroundColor = [UIColor dvvyTableViewBackGroundGrey];
+    self.othersTableView.backgroundColor = [UIColor dvvyTableViewBackGroundGrey];
+    self.invitationTableView.backgroundColor = [UIColor dvvyTableViewBackGroundGrey];
 }
 
 
@@ -546,30 +547,27 @@
 
 - (IBAction)seeSelfCampaignTableButton:(id)sender
 {
-    [self highlightingSelfButton];
-    
     CGPoint newOffset =CGPointMake(0, self.scrollView.contentOffset.y);
-    [self.scrollView setContentOffset:newOffset animated:NO];
+    [self.scrollView setContentOffset:newOffset animated:YES];
+    [self highlightingSelfButton];
 }
 
 
 - (IBAction)seeOthersCampaignTableButton:(id)sender
 {
-    [self highlightingOthersButton];
-    
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth, self.scrollView.contentOffset.y);
-    [self.scrollView setContentOffset:newOffset animated:NO];
+    [self.scrollView setContentOffset:newOffset animated:YES];
+    [self highlightingOthersButton];
 }
 
 
 - (IBAction)seeInvitesTableButton:(id)sender
 {
-    [self highlightingInviteButton];
-    
     CGFloat scrollViewWidth = self.scrollView.frame.size.width;
     CGPoint newOffset =CGPointMake(scrollViewWidth*2, self.scrollView.contentOffset.y);
-    [self.scrollView setContentOffset:newOffset animated:NO];
+    [self.scrollView setContentOffset:newOffset animated:YES];
+    [self highlightingInviteButton];
 }
 
 
@@ -625,12 +623,20 @@
 }
 
 
+- (void)insertingLogoInTheNavBar
+{
+    UIImage *topImage = [UIImage imageNamed:@"topLogo"];
+    UIImageView *topImageView = [[UIImageView alloc] initWithImage:topImage];
+    self.navigationItem.titleView = topImageView;
+}
+
+
 -(void)settingUpTheHamburgerMenu
 {
     
     self.hamburgerMenu = [self revealViewController];
     
-    [self.hamburgerMenu tapGestureRecognizer];
+    [self.hamburgerMenu panGestureRecognizer];
     
     UIBarButtonItem *revealButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"reveal-icon.png"]
                                                                          style:UIBarButtonItemStylePlain target:self.hamburgerMenu action:@selector(revealToggle:)];
@@ -638,7 +644,6 @@
     revealButtonItem.tintColor = [UIColor whiteColor];
     
     self.navigationItem.leftBarButtonItem = revealButtonItem;
-    
     
 }
 

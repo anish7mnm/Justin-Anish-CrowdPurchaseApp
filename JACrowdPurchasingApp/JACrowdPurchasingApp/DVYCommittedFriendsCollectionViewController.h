@@ -10,4 +10,6 @@
 
 @interface DVYCommittedFriendsCollectionViewController : UIViewController
 
+@property (nonatomic) NSArray *committedUsers;
+
 @end

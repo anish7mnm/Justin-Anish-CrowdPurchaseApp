@@ -11,11 +11,9 @@
 @implementation FriendCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    
     self.friendProfilePicture.layer.cornerRadius = self.friendProfilePicture.frame.size.width/2;
     self.friendProfilePicture.layer.masksToBounds = YES;
-    
+    self.friendProfilePicture.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 @end

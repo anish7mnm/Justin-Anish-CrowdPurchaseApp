@@ -23,7 +23,7 @@
     [self.campaignImagePicture.layer setCornerRadius:14.0];
     
     [self.innerCell.layer setMasksToBounds:YES];
-//    [self.innerCell.layer setCornerRadius:18.0];
+    [self.innerCell.layer setCornerRadius:4.0];
     self.innerCell.backgroundColor = [UIColor whiteColor];
 //    self.innerCell.layer.shadowOffset = CGSizeMake(-10, 20);
 //    self.innerCell.layer.shadowOpacity = 0.5;
@@ -42,11 +42,10 @@
     self.contentView.backgroundColor = [UIColor clearColor];
     self.backgroundColor = [UIColor clearColor];
     
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    
-    
     
     if (selected) {
         [UIView animateWithDuration:0.4
@@ -96,8 +95,7 @@
             self.campaignImagePicture.image = image;
         }];
     } else {
-        NSURL *pusheenDance = [NSURL URLWithString:@"http://33.media.tumblr.com/tumblr_m9hbpdSJIX1qhy6c9o1_400.gif"];
-        self.campaignImagePicture.image = [UIImage animatedImageWithAnimatedGIFURL:pusheenDance];
+        self.campaignImagePicture.image = [UIImage imageNamed:@"flaticon"];
         self.campaignImagePicture.contentMode = UIViewContentModeScaleAspectFill;
         
     }

@@ -52,53 +52,13 @@
 @end
 
 
-
 @implementation DVYSelfCampaignViewController
 
-
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    
-    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"DVYCampaignDetailView" owner:self options:nil];
-    
-    self.detailCampaignViewSelf = [nibViews firstObject];
-    
-    Item *campaignItem = self.campaign.item;
-    PFFile *image = [campaignItem objectForKey:@"itemImage"];
-    
-    if (image)
-    {
-        [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-            if (!error) {
-                
-                self.detailCampaignViewSelf.profilePicture.image = [UIImage imageWithData:data];
-                
-                // Add a nice corner radius to the image
-                //self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 8.0f;
-                
-                self.detailCampaignViewSelf.profilePicture.layer.masksToBounds = YES;                }
-        }];
-        
-    } else
-    {
-        NSURL *pusheenDance = [NSURL URLWithString:@"http://33.media.tumblr.com/tumblr_m9hbpdSJIX1qhy6c9o1_400.gif"];
-        
-        self.detailCampaignViewSelf.profilePicture.image = [UIImage animatedImageWithAnimatedGIFURL:pusheenDance];
-        
-        self.detailCampaignViewSelf.profilePicture.contentMode = UIViewContentModeScaleAspectFill;
-    }
-
-    self.detailCampaignViewSelf.backgroundColor = [UIColor whiteColor];
-    
-    //[self blurTheView];
-    
-    [self.contentView addSubview:self.detailCampaignViewSelf];
-    
-    self.detailCampaignViewSelf.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
-    
-    self.detailCampaignViewSelf.neededCountView.layer.cornerRadius = 8.0f;
-    self.detailCampaignViewSelf.commitCountView.layer.cornerRadius = 8.0f;
     
     self.view.opaque = NO;
     
@@ -109,8 +69,12 @@
 {
     [super viewWillAppear:YES];
     
+    [self settingDetailCampaignViewInSelfCampaignViewController];
+    
     self.detailCampaignViewSelf.campaignTitle.text = [self.campaign.title capitalizedString];
+    
     self.detailCampaignViewSelf.campaignDetails.text = self.campaign.detail;
+    
     self.detailCampaignViewSelf.peopleNeeded.text = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
     
     [self displayingHostName];
@@ -124,6 +88,98 @@
 
 #pragma mark - View Helper Methods
 
+- (void)settingDetailCampaignViewInSelfCampaignViewController
+{
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"DVYCampaignDetailView" owner:self options:nil];
+    
+    self.detailCampaignViewSelf = [nibViews firstObject];
+    
+    self.detailCampaignViewSelf.selfCampaignVC = self;
+    
+    [self.detailCampaignViewSelf buttonAction];
+    
+    Item *campaignItem = self.campaign.item;
+    PFFile *image = [campaignItem objectForKey:@"itemImage"];
+    
+    if (image)
+    {
+        [image getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+        {
+            if (!error)
+            {
+                
+                self.detailCampaignViewSelf.profilePicture.image = [UIImage imageWithData:data];
+                
+                self.detailCampaignViewSelf.profilePicture.layer.masksToBounds = YES;
+            }
+            
+        }];
+        
+    } else
+    {
+
+        self.detailCampaignViewSelf.profilePicture.image = [UIImage imageNamed:@"flaticon"];
+        
+        self.detailCampaignViewSelf.profilePicture.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    
+    self.detailCampaignViewSelf.backgroundColor = [UIColor whiteColor];
+    
+    [self.contentView addSubview:self.detailCampaignViewSelf];
+    
+    self.detailCampaignViewSelf.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    
+    self.detailCampaignViewSelf.neededCountView.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.commitCountView.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.otherCountView.layer.cornerRadius = 4.0f;
+    
+    self.detailCampaignViewSelf.layer.cornerRadius = 4.0f;
+    self.contentView.layer.cornerRadius = 4.0f;
+    
+    self.addButton.layer.cornerRadius = 4.0f;
+    self.doneButton.layer.cornerRadius = 4.0f;
+    self.editButton.layer.cornerRadius = 4.0f;
+    self.deleteButton.layer.cornerRadius = 4.0f;
+    
+    self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 4.0f;
+    self.detailCampaignViewSelf.profilePicture.clipsToBounds = YES;
+}
+
+
+- (void)displayingHostName
+{
+    DVYUser *host = self.campaign.host;
+    
+    self.detailCampaignViewSelf.hostName.text = [NSString stringWithFormat:@"Made by: %@", host[@"fullName"]];
+
+}
+
+
+- (void)displayingDeadline
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:@"MM/dd/yy"];
+    
+    NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
+    
+    self.detailCampaignViewSelf.deadline.text = stringDate;
+}
+
+
+- (void)displayingPeopleCommittedCount
+{
+    PFQuery *query = [self.campaign.committed query];
+    
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error)
+    {
+        NSInteger count = (NSInteger) number;
+        self.detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
+    }];
+
+}
+
+
 - (void)blurTheView
 {
     self.view.backgroundColor = [UIColor clearColor];
@@ -134,45 +190,22 @@
 }
 
 
-- (void)displayingHostName
-{
-    DVYUser *host = self.campaign.host;
-    self.detailCampaignViewSelf.hostName.text = [NSString stringWithFormat:@"Made by: %@", host[@"fullName"]];
-}
-
-
-- (void)displayingDeadline
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM/dd/yy"];
-    NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
-    
-    self.detailCampaignViewSelf.deadline.text = stringDate;
-}
-
-
-- (void)displayingPeopleCommittedCount
-{
-    PFQuery *query = [self.campaign.committed query];
-    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
-        NSInteger count = (NSInteger) number;
-        self.detailCampaignViewSelf.peopleCommited.text = [NSString stringWithFormat:@"%ld", count];
-    }];
-}
-
-
 
 #pragma mark - UIButton Actions
 
 - (IBAction)editButtinTapped:(id)sender {
     
     DVYCreateCampaignViewController *edit = [[DVYCreateCampaignViewController alloc] init];
+    
     edit.buttonName = @"Update";
     edit.titlePlaceholder = self.campaign.title;
     edit.descriptionPlaceholder = self.campaign.detail;
     edit.numberOfPeoplePlaceHolder = [NSString stringWithFormat:@"%@", self.campaign.minimumNeededCommits];
     edit.campaignToUpdate = self.campaign;
+    
     edit.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    edit.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
     [self presentViewController:edit animated:YES completion:nil];
     
 }
@@ -247,13 +280,30 @@
 }
 
 
-- (void)presentCollectionView
+- (void)seePeopleCommittedTapped
 {
     NSLog(@"pressed");
-    DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
     
-    [self presentViewController:friendsCollectionView animated:YES completion:nil];
+    PFQuery *query = [self.campaign.committed query];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        DVYCommittedFriendsCollectionViewController *friendsCollectionView = [[DVYCommittedFriendsCollectionViewController alloc] initWithNibName:@"DVYCommittedFriendsCollectionViewController" bundle:nil];
+        
+        friendsCollectionView.committedUsers = objects;
+        friendsCollectionView.view.backgroundColor = [UIColor clearColor];
+        friendsCollectionView.view.opaque = NO;
+        friendsCollectionView.view.layer.cornerRadius = 4.0f;
+        
+        friendsCollectionView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        friendsCollectionView.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        
+        [self presentViewController:friendsCollectionView animated:YES completion:nil];
+        
+    }];
+    
 }
+
 
 
 #pragma mark - Constriants

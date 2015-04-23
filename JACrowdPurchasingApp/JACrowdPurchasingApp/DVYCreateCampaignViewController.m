@@ -25,6 +25,12 @@
 
 @property (strong, nonatomic) DVYCampaignDetailView *detailedView;
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
+@property (weak, nonatomic) IBOutlet UIButton *uploadImageButton;
+@property (weak, nonatomic) IBOutlet UIButton *createButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 @end
 
 
@@ -54,6 +60,14 @@
     self.detailedView = [nibViews firstObject];
     
     // Do any additional setup after loading the view.
+    self.contentView.layer.cornerRadius = 4.0f;
+    self.uploadImageButton.layer.cornerRadius = 4.0f;
+    self.createButton.layer.cornerRadius = 4.0f;
+    self.cancelButton.layer.cornerRadius = 4.0f;
+    
+//    self.view.backgroundColor = [UIColor clearColor];
+//    self.view.opaque = NO;
+    
 }
 
 
