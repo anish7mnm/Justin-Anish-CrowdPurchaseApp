@@ -262,11 +262,11 @@
 		88B55FD21AC5AB43002A83AE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				882EA9101AE941E700F38114 /* Venmo Integration */,
 				88E825741AD431C200BDAFC4 /* Facebook Login */,
 				88F3672C1ACAD859009358FA /* HomePage */,
 				88F19C211AE306E400914E31 /* Hamburger Table Menu */,
 				88F3672D1ACAD866009358FA /* Campaigns */,
+				882EA9101AE941E700F38114 /* Venmo Integration */,
 				88F19C351AE49DDF00914E31 /* Search Dvvy Users */,
 				88DCC71C1AE5DF600078B8C7 /* All Friends List */,
 				88F19C221AE30B8A00914E31 /* Committed Friends Collection */,

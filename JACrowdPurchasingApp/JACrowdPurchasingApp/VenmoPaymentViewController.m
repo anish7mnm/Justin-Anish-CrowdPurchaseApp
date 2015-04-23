@@ -32,8 +32,6 @@
     
     self.enterAmount.delegate = self;
     
-    NSInteger totalCost = [self.price integerValue];
-    
     if (![Venmo isVenmoAppInstalled])
     {
         [[Venmo sharedInstance] setDefaultTransactionMethod:VENTransactionMethodAPI];
@@ -42,23 +40,14 @@
     {
         [[Venmo sharedInstance] setDefaultTransactionMethod:VENTransactionMethodAppSwitch];
     }
-
+    
     self.venmoUser = [[Venmo sharedInstance] session].user;
     
     self.sendRequest.enabled = NO;
     
-    self.collectLabel.text = [NSString stringWithFormat:@"Collect from all the committed users a sum of $%ld from %ld committers", totalCost, self.numberOfPeople];
-
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    self.collectLabel.text = [NSString stringWithFormat:@"Your Campaign cost will be divided eqully by %ld", self.numberOfPeople];
     
-    if ([[Venmo sharedInstance] isSessionValid]) {
-        
-        self.sendRequest.titleLabel.textColor = [UIColor blackColor];
-        
-    }
+    
 }
 
 
@@ -71,39 +60,45 @@
     //[NSString stringWithFormat:@"%@ %@", self.venmoUser.firstName, self.venmoUser.lastName];
     
     NSString *email = self.venmoUser.primaryEmail;
-
     
-    for (DVYUser *user in self.listOfFriends) {
+    for (DVYUser *user in self.listOfFriends)
+    {
         
-        NSString *name = user.email;
-    
-    [[Venmo sharedInstance] sendRequestTo:name amount:cost note:dvvyNote completionHandler:^(VENTransaction *transaction, BOOL success, NSError *error) {
-        if (success) {
-
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Done!"
-                                                                message:[NSString stringWithFormat:@"Request sent successfully to %@", name]
-                                                               delegate:self
-                                                      cancelButtonTitle:nil
-                                                      otherButtonTitles:@"COOL", nil];
-            [alertView show];
-
+        NSString *emailAddress = user.email;
+        
+        if (![emailAddress isEqualToString:email])
+        {
             
-        }else
+            [[Venmo sharedInstance] sendRequestTo:emailAddress amount:cost note:dvvyNote completionHandler:^(VENTransaction *transaction, BOOL success, NSError *error)
             {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR!"
-                                                                    message:[NSString stringWithFormat:@"Request not sent to %@", name]
-                                                                   delegate:self
-                                                          cancelButtonTitle:nil
-                                                          otherButtonTitles:@"OK", nil];
-                [alertView show];            }
-    }];
-
+                if (success)
+                {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Done!"
+                                                                        message:[NSString stringWithFormat:@"Request sent successfully to %@", emailAddress]
+                                                                       delegate:self
+                                                              cancelButtonTitle:nil
+                                                              otherButtonTitles:@"COOL", nil];
+                    [alertView show];
+                    
+                }else
+                {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ERROR!"
+                                                                        message:[NSString stringWithFormat:@"Request not sent to %@", emailAddress]
+                                                                       delegate:self
+                                                              cancelButtonTitle:nil
+                                                              otherButtonTitles:@"OK", nil];
+                    [alertView show];
+                    
+                }
+            }];
+        }
+        
     }
 }
 
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     
     if ([textField.text floatValue] > 0) {
@@ -126,9 +121,7 @@
 
 - (IBAction)doneButtonTapped:(id)sender
 {
-
     [self dismissViewControllerAnimated:YES completion:nil];
-
 }
 
 

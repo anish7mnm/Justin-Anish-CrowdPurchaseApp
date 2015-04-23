@@ -45,6 +45,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *paymentButton;
+
 @property (weak, nonatomic) IBOutlet UIView *buttonView;
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -145,6 +147,7 @@
     self.doneButton.layer.cornerRadius = 4.0f;
     self.editButton.layer.cornerRadius = 4.0f;
     self.deleteButton.layer.cornerRadius = 4.0f;
+    self.paymentButton.layer.cornerRadius = 4.0f;
     
     self.detailCampaignViewSelf.profilePicture.layer.cornerRadius = 4.0f;
     self.detailCampaignViewSelf.profilePicture.clipsToBounds = YES;
