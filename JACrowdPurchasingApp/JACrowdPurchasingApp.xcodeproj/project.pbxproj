@@ -59,13 +59,6 @@
 		88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */; };
 		88F3672B1AC9DB39009358FA /* DVYCreateCampaignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */; };
 		A2E458A7B6546632644441BF /* libPods-JACrowdPurchasingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA848941C109929DE44BCAB5 /* libPods-JACrowdPurchasingApp.a */; };
-		A85D88501AE5AE7800251AEF /* friendsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A85D884B1AE5AE7800251AEF /* friendsIcon.png */; };
-		A85D88511AE5AE7800251AEF /* settingIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A85D884C1AE5AE7800251AEF /* settingIcon.png */; };
-		A85D88521AE5AE7800251AEF /* magGlassIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A85D884D1AE5AE7800251AEF /* magGlassIcon.png */; };
-		A85D88531AE5AE7800251AEF /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A85D884E1AE5AE7800251AEF /* homeIcon.png */; };
-		A85D88541AE5AE7800251AEF /* signOutIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A85D884F1AE5AE7800251AEF /* signOutIcon.png */; };
-		A85D88751AE67B3400251AEF /* topLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A85D88741AE67B3400251AEF /* topLogo.png */; };
-		A85D888F1AE6A62F00251AEF /* flaticon.png in Resources */ = {isa = PBXBuildFile; fileRef = A85D888E1AE6A62F00251AEF /* flaticon.png */; };
 		A8A43DA91ACEBABC00B60520 /* UIColor+dvvyColors.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */; };
 		A8C717331AD29EAD0016054B /* Mexican_Pusheen.gif in Resources */ = {isa = PBXBuildFile; fileRef = A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */; };
 		A8C717361AD2B3E40016054B /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */; };
@@ -166,13 +159,6 @@
 		88F19C331AE49DC400914E31 /* SearchDvvyUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDvvyUsersViewController.m; sourceTree = "<group>"; };
 		88F367281AC9C670009358FA /* DVYSelfCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYSelfCampaignViewController.xib; sourceTree = "<group>"; };
 		88F3672A1AC9DB39009358FA /* DVYCreateCampaignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DVYCreateCampaignViewController.xib; sourceTree = "<group>"; };
-		A85D884B1AE5AE7800251AEF /* friendsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friendsIcon.png; sourceTree = "<group>"; };
-		A85D884C1AE5AE7800251AEF /* settingIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingIcon.png; sourceTree = "<group>"; };
-		A85D884D1AE5AE7800251AEF /* magGlassIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magGlassIcon.png; sourceTree = "<group>"; };
-		A85D884E1AE5AE7800251AEF /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
-		A85D884F1AE5AE7800251AEF /* signOutIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signOutIcon.png; sourceTree = "<group>"; };
-		A85D88741AE67B3400251AEF /* topLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topLogo.png; sourceTree = "<group>"; };
-		A85D888E1AE6A62F00251AEF /* flaticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flaticon.png; sourceTree = "<group>"; };
 		A8A43DA71ACEBABC00B60520 /* UIColor+dvvyColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+dvvyColors.h"; sourceTree = "<group>"; };
 		A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+dvvyColors.m"; sourceTree = "<group>"; };
 		A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Mexican_Pusheen.gif; sourceTree = "<group>"; };
@@ -416,19 +402,12 @@
 		88E94ED41AA7A4C90052FA35 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A85D88741AE67B3400251AEF /* topLogo.png */,
 				88E94ED61AA7A4C90052FA35 /* main.m */,
 				A8A43DA71ACEBABC00B60520 /* UIColor+dvvyColors.h */,
 				A8A43DA81ACEBABC00B60520 /* UIColor+dvvyColors.m */,
 				A8C717341AD2B3E40016054B /* UIImage+animatedGIF.h */,
 				A8C717351AD2B3E40016054B /* UIImage+animatedGIF.m */,
 				88E94EE11AA7A4C90052FA35 /* Images.xcassets */,
-				A85D888E1AE6A62F00251AEF /* flaticon.png */,
-				A85D884B1AE5AE7800251AEF /* friendsIcon.png */,
-				A85D884C1AE5AE7800251AEF /* settingIcon.png */,
-				A85D884D1AE5AE7800251AEF /* magGlassIcon.png */,
-				A85D884E1AE5AE7800251AEF /* homeIcon.png */,
-				A85D884F1AE5AE7800251AEF /* signOutIcon.png */,
 				A8C717321AD29EAD0016054B /* Mexican_Pusheen.gif */,
 				88E94ED51AA7A4C90052FA35 /* Info.plist */,
 			);
@@ -619,28 +598,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85D88541AE5AE7800251AEF /* signOutIcon.png in Resources */,
 				88F3672B1AC9DB39009358FA /* DVYCreateCampaignViewController.xib in Resources */,
 				88E94EE01AA7A4C90052FA35 /* Main.storyboard in Resources */,
 				88E94EE51AA7A4C90052FA35 /* LaunchScreen.xib in Resources */,
 				88F367291AC9C670009358FA /* DVYSelfCampaignViewController.xib in Resources */,
 				88B560161AC999BC002A83AE /* DVYOtherCampaignViewController.xib in Resources */,
 				A8C717331AD29EAD0016054B /* Mexican_Pusheen.gif in Resources */,
-				A85D88531AE5AE7800251AEF /* homeIcon.png in Resources */,
 				88DCC7181AE5DC3D0078B8C7 /* FriendsTableViewCell.xib in Resources */,
-				A85D88511AE5AE7800251AEF /* settingIcon.png in Resources */,
 				88F19C2C1AE3113C00914E31 /* FriendCollectionViewCell.xib in Resources */,
 				88E94EE21AA7A4C90052FA35 /* Images.xcassets in Resources */,
-				A85D88501AE5AE7800251AEF /* friendsIcon.png in Resources */,
 				889CE9931AC0AF8E00F04C0B /* DVYFacebookLoginViewController.xib in Resources */,
-				A85D88751AE67B3400251AEF /* topLogo.png in Resources */,
 				882EA9151AE9422D00F38114 /* VenmoPaymentViewController.xib in Resources */,
-				A85D88521AE5AE7800251AEF /* magGlassIcon.png in Resources */,
 				88D446341AC36F9F00F1A530 /* CreateFlow.storyboard in Resources */,
 				88B55FD51AC5B0EB002A83AE /* DVYCampaignDetailView.xib in Resources */,
 				88F19C1A1AE2BBFF00914E31 /* DVYTableViewCell.xib in Resources */,
 				88F19C271AE30C1700914E31 /* DVYCommittedFriendsCollectionViewController.xib in Resources */,
-				A85D888F1AE6A62F00251AEF /* flaticon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

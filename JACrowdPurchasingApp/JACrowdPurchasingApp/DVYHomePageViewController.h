@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Anish Kumar. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "DVYCampaignDetailView.h"
 
 @interface DVYHomePageViewController : UIViewController

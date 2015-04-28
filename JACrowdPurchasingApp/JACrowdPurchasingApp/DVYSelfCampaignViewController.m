@@ -15,7 +15,7 @@
 
 //Importing Support Classes
 #import "DVYCampaignDetailView.h"
-#import "UIImage+animatedGIF.h"
+#import "UIColor+dvvyColors.h"
 
 //Importing Models
 #import "DVYCampaign.h"
@@ -172,6 +172,12 @@
     NSString *stringDate = [dateFormatter stringFromDate:self.campaign.deadline];
     
     self.detailCampaignViewSelf.deadline.text = stringDate;
+    
+    NSDate *todaysDate = [NSDate date];
+    
+    if ([self.campaign.deadline timeIntervalSince1970] < [todaysDate timeIntervalSince1970]) {
+        self.detailCampaignViewSelf.deadline.textColor = [UIColor redColor];
+    }
 }
 
 

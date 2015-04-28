@@ -106,7 +106,7 @@ NSArray *menuItems;
     {
         UIAlertController *alertController = [UIAlertController
                                               alertControllerWithTitle:@"Hey DVVY user"
-                                              message:@"Are you sure you want to Log out?"
+                                              message:@"Are you sure you want to SIGN OUT?"
                                               preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *noAction = [UIAlertAction

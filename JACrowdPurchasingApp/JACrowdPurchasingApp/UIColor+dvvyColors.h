@@ -30,5 +30,7 @@
 
 + (UIColor *)dvvyProgressBlue;
 
++ (UIColor *)dvvyDeleteRed;
+
 
 @end

@@ -52,6 +52,11 @@
     return [UIColor colorWithRed:0.353 green:0.757 blue:0.530 alpha:1.000];
 }
 
++ (UIColor *)dvvyDeleteRed
+{
+    return [UIColor colorWithRed:240 green:70 blue:68 alpha:1.000];
+}
+
 + (UIColor *)dvvyProgressBlue
 {
     return [UIColor dvvyBlueAlternative];
